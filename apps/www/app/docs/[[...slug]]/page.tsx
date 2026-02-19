@@ -4,7 +4,6 @@ import {
   DocsBody,
   DocsDescription,
   DocsTitle,
-  EditOnGitHub,
 } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
@@ -148,14 +147,10 @@ export default async function Page(props: {
       )}
 
       <div className="flex flex-row gap-2 items-center">
-        <EditOnGitHub
-          className="border-0 [&_svg]:text-fd-muted-foreground"
-          href={`https://github.com/imskyleen/animate-ui/blob/main/apps/www/content/docs/${params.slug ? `${params.slug.join('/')}.mdx` : 'index.mdx'}`}
-        />
         <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
         <ViewOptions
           markdownUrl={`${page.url}.mdx`}
-          githubUrl={`https://github.com/imskyleen/animate-ui/blob/main/apps/www/content/docs/${page.path}`}
+          githubUrl={`https://github.com/shr3kx/odysseyUI/blob/main/apps/www/content/docs/${page.path}`}
         />
       </div>
 

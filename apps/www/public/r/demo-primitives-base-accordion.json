@@ -1,10 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "demo-primitives-base-accordion",
-  "type": "registry:ui",
   "title": "Base Accordion Demo",
   "description": "Demo showing an animated base accordion.",
-  "registryDependencies": ["@animate-ui/primitives-base-accordion"],
+  "registryDependencies": [
+    "@animate-ui/primitives-base-accordion"
+  ],
   "files": [
     {
       "path": "registry/demo/primitives/base/accordion/index.tsx",
@@ -26,5 +27,6 @@
         }
       }
     }
-  }
+  },
+  "type": "registry:ui"
 }

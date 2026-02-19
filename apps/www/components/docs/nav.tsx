@@ -23,10 +23,6 @@ export const NAV_ITEMS = [
     title: 'Components',
     url: '/docs/components',
   },
-  {
-    title: 'Primitives',
-    url: '/docs/primitives',
-  },
 ];
 
 const NavItem = ({ title, url }: { title: string; url: string }) => {
@@ -112,7 +108,7 @@ export const Nav = () => {
 
             <div className="flex items-center gap-1 max-md:hidden">
               <a
-                href="https://github.com/imskyleen/animate-ui"
+                href="https://github.com/shr3kx/odysseyUI"
                 rel="noreferrer noopener"
                 target="_blank"
                 className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground size-8 [&_svg]:size-5 text-fd-muted-foreground"
@@ -122,7 +118,7 @@ export const Nav = () => {
               </a>
 
               <a
-                href="https://x.com/animate_ui"
+                href="https://x.com/iam-sahil"
                 rel="noreferrer noopener"
                 target="_blank"
                 className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground size-8 [&_svg]:size-5 text-fd-muted-foreground"

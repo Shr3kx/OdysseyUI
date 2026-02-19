@@ -1,10 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "demo-primitives-base-preview-card",
-  "type": "registry:ui",
   "title": "Base Preview Card Demo",
   "description": "Demo showing an animated base preview card.",
-  "registryDependencies": ["@animate-ui/primitives-base-preview-card"],
+  "registryDependencies": [
+    "@animate-ui/primitives-base-preview-card"
+  ],
   "files": [
     {
       "path": "registry/demo/primitives/base/preview-card/index.tsx",
@@ -43,5 +44,6 @@
         }
       }
     }
-  }
+  },
+  "type": "registry:ui"
 }

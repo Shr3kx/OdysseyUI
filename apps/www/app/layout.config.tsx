@@ -32,11 +32,6 @@ export const baseOptions: BaseLayoutProps = {
       secondary: false,
     },
     {
-      text: 'MCP',
-      url: '/docs/mcp',
-      secondary: false,
-    },
-    {
       text: 'Troubleshooting',
       url: '/docs/troubleshooting',
       secondary: false,
@@ -52,8 +47,8 @@ export const baseOptions: BaseLayoutProps = {
       secondary: false,
     },
     {
-      text: 'Other animated distributions',
-      url: '/docs/other-animated-distributions',
+      text: 'Components',
+      url: '/docs/components',
       secondary: false,
     },
   ],
