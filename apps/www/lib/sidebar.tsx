@@ -45,4 +45,23 @@ export const SIDEBAR_TABS = [
     ),
     url: '/docs/components',
   },
+  {
+    title: 'Templates',
+    description: (
+      <TabsDescription
+        title="Animated Templates"
+        count={
+          Object.values(index).filter((item) =>
+            item.name.startsWith('templates-'),
+          ).length
+        }
+      />
+    ),
+    icon: (
+      <div className="[&_svg]:size-full rounded-lg size-full text-muted-foreground max-md:bg-(--tab-color)/10 max-md:border max-md:p-1.5">
+        <Component />
+      </div>
+    ),
+    url: '/docs/templates',
+  },
 ];

@@ -7,6 +7,7 @@ import RadixIcon from '@workspace/ui/components/icons/radix-icon';
 import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
   Code,
+  Cuboid,
   RectangleHorizontalIcon,
   SparklesIcon,
   SquareMenu,
@@ -46,14 +47,22 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
     case 'Odyssey UI':
       node.name = (
         <Separator
-          icon={<AnimateUIIcon className="!size-3" />}
+          icon={<AnimateUIIcon className="size-3!" />}
           name="Odyssey UI"
+        />
+      );
+      break;
+    case 'Odyssey Templates':
+      node.name = (
+        <Separator
+          icon={<Cuboid strokeWidth={2.5} />}
+          name="Odyssey Templates"
         />
       );
       break;
     case 'Radix UI':
       node.name = (
-        <Separator icon={<RadixIcon className="!size-2.5" />} name="Radix UI" />
+        <Separator icon={<RadixIcon className="size-2.5!" />} name="Radix UI" />
       );
       break;
     case 'Base UI':

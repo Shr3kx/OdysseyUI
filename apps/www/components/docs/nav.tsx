@@ -29,6 +29,10 @@ export const NAV_ITEMS = [
     title: 'Components',
     url: '/docs/components',
   },
+  {
+    title: 'Templates',
+    url: '/docs/templates',
+  },
 ];
 
 const NavItem = ({ title, url }: { title: string; url: string }) => {
@@ -103,10 +107,10 @@ export const Nav = () => {
               <span className="font-normal">Search...</span>
 
               <div className="flex items-center gap-1">
-                <kbd className="size-5 leading-none flex items-center justify-center border rounded-[4px] bg-background">
+                <kbd className="size-5 leading-none flex items-center justify-center border rounded-lg bg-background">
                   <CommandIcon className="size-2.5" />
                 </kbd>
-                <kbd className="size-5 flex items-center justify-center border rounded-[4px] bg-background">
+                <kbd className="size-5 flex items-center justify-center border rounded-lg bg-background">
                   <span className="leading-none text-[0.625rem] pt-px">K</span>
                 </kbd>
               </div>

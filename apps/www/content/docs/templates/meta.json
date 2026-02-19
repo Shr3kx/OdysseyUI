@@ -1,0 +1,7 @@
+{
+  "title": "Templates",
+  "description": "Animated Components",
+  "icon": "Cuboid",
+  "root": true,
+  "pages": ["---Odyssey Templates---", "ai-agent"]
+}
