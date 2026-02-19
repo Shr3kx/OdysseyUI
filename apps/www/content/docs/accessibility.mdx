@@ -1,6 +1,6 @@
 ---
 title: Accessibility
-description: How is accessibility with Animate UI?
+description: How is accessibility with Odyssey UI?
 ---
 
 Animations can greatly enhance user experience, but they can also create accessibility issues if not handled with care. Some users are sensitive to motion and may experience discomfort, dizziness, or difficulty focusing when faced with strong visual effects.
@@ -20,10 +20,10 @@ As developers, it’s our responsibility to make sure our components adapt to th
 
 The goal isn't to remove animation entirely, but to make it comfortable and safe.
 
-## Animate UI & Motion
+## Odyssey UI & Motion
 
-Animate UI **is built on top of [Motion](https://motion.dev/)**.
-This means all Animate UI components can leverage Motion’s accessibility features.
+Odyssey UI **is built on top of [Motion](https://motion.dev/)**.
+This means all Odyssey UI components can leverage Motion’s accessibility features.
 
 The recommended way to support Reduced Motion is to wrap your app with `MotionConfig`:
 
@@ -40,12 +40,12 @@ With `reducedMotion="user"`, Motion will automatically:
 - Disable transform and layout animations if the user has Reduced Motion enabled.
 - Keep helpful transitions like opacity or background-color.
 
-As a result, Animate UI components will automatically respect user preferences without extra configuration.
+As a result, Odyssey UI components will automatically respect user preferences without extra configuration.
 
 ## Conclusion
 
 Accessible animations help ensure your UI is usable for everyone.
-By combining Animate UI with Motion’s `MotionConfig`, you can provide a smooth, animated experience while adapting gracefully to `prefers-reduced-motion`.
+By combining Odyssey UI with Motion’s `MotionConfig`, you can provide a smooth, animated experience while adapting gracefully to `prefers-reduced-motion`.
 
 **We recommend adding `MotionConfig reducedMotion="user"` at the root of your app.**
 

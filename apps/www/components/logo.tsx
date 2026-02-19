@@ -56,7 +56,7 @@ export const Logo = ({
         ></motion.path>
       </motion.svg>
 
-      <span className="sr-only">Animate UI</span>
+      <span className="sr-only">Odyssey UI</span>
     </div>
   );
 };

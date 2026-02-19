@@ -29,7 +29,7 @@ export const RadixHoverCardDemo = ({
         >
           <img
             src="https://pbs.twimg.com/profile_images/1950218390741618688/72447Y7e_400x400.jpg"
-            alt="Animate UI"
+            alt="Odyssey UI"
           />
         </a>
       </HoverCardTrigger>
@@ -45,11 +45,11 @@ export const RadixHoverCardDemo = ({
             <img
               className="size-16 rounded-full overflow-hidden border"
               src="https://pbs.twimg.com/profile_images/1950218390741618688/72447Y7e_400x400.jpg"
-              alt="Animate UI"
+              alt="Odyssey UI"
             />
             <div className="flex flex-col gap-4">
               <div>
-                <div className="font-bold">Animate UI</div>
+                <div className="font-bold">Odyssey UI</div>
                 <div className="text-sm text-muted-foreground">@animate_ui</div>
               </div>
               <div className="text-sm text-muted-foreground">

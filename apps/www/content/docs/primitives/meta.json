@@ -4,7 +4,7 @@
   "icon": "Cuboid",
   "root": true,
   "pages": [
-    "---Animate UI---",
+    "---Odyssey UI---",
     "animate/avatar-group",
     "animate/code-block",
     "animate/cursor",

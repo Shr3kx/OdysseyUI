@@ -201,7 +201,7 @@ export async function generateMetadata(props: {
       title: page.data.title,
       description: page.data.description,
       url: 'https://animate-ui.com',
-      siteName: 'Animate UI',
+      siteName: 'Odyssey UI',
       images: image,
       locale: 'en_US',
       type: 'website',

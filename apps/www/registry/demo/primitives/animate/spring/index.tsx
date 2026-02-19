@@ -11,7 +11,7 @@ export const SpringDemo = () => {
       <SpringElement className="z-50">
         <img
           src="https://pbs.twimg.com/profile_images/1950218390741618688/72447Y7e_400x400.jpg"
-          alt="Animate UI"
+          alt="Odyssey UI"
           draggable={false}
           className="size-12 border"
         />

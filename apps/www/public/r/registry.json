@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "Animate UI",
+  "name": "Odyssey UI",
   "homepage": "https://animate-ui.com",
   "items": [
     {
@@ -11,9 +11,7 @@
         "class-variance-authority",
         "lucide-react"
       ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "cssVars": {},
       "files": []
     },
@@ -22,12 +20,8 @@
       "type": "registry:ui",
       "title": "Avatar Group",
       "description": "An animated avatar group that displays overlapping user images and smoothly shifts each avatar forward on hover to highlight it.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-avatar-group"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-avatar-group"],
       "files": [
         {
           "path": "registry/components/animate/avatar-group/index.tsx",
@@ -41,9 +35,7 @@
       "type": "registry:ui",
       "title": "Code",
       "description": "A code component that animates the code as it is written.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-code-block",
         "@animate-ui/components-buttons-copy",
@@ -62,9 +54,7 @@
       "type": "registry:ui",
       "title": "Code Tabs",
       "description": "A tabs component that displays code for different languages.",
-      "dependencies": [
-        "shiki"
-      ],
+      "dependencies": ["shiki"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-tabs",
         "@animate-ui/components-buttons-copy"
@@ -82,9 +72,7 @@
       "type": "registry:ui",
       "title": "Cursor",
       "description": "An animated cursor component that allows you to customize both the cursor and cursor follow elements with smooth animations.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-cursor"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-cursor"],
       "files": [
         {
           "path": "registry/components/animate/cursor/index.tsx",
@@ -98,9 +86,7 @@
       "type": "registry:ui",
       "title": "GitHub Stars Wheel",
       "description": "A scrolling wheel that displays GitHub stars count.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-particles",
         "@animate-ui/primitives-texts-scrolling-number"
@@ -118,9 +104,7 @@
       "type": "registry:ui",
       "title": "Tabs",
       "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-tabs"],
       "files": [
         {
           "path": "registry/components/animate/tabs/index.tsx",
@@ -134,12 +118,8 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "A button component with a variety of styles and animations.",
-      "dependencies": [
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-buttons-button"
-      ],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["@animate-ui/primitives-buttons-button"],
       "files": [
         {
           "path": "registry/components/buttons/button/index.tsx",
@@ -153,11 +133,7 @@
       "type": "registry:ui",
       "title": "Copy Button",
       "description": "A copy button component with a variety of styles and animations.",
-      "dependencies": [
-        "motion",
-        "lucide-react",
-        "class-variance-authority"
-      ],
+      "dependencies": ["motion", "lucide-react", "class-variance-authority"],
       "registryDependencies": [
         "@animate-ui/primitives-buttons-button",
         "@animate-ui/hooks-use-controlled-state"
@@ -175,9 +151,7 @@
       "type": "registry:ui",
       "title": "GitHub Stars Button",
       "description": "A clickable button that links to a GitHub repository and displays the number of stars.",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [
         "@animate-ui/primitives-buttons-button",
         "@animate-ui/primitives-animate-github-stars"
@@ -195,9 +169,7 @@
       "type": "registry:ui",
       "title": "Icon Button",
       "description": "An icon button component with a variety of styles and animations.",
-      "dependencies": [
-        "class-variance-authority"
-      ],
+      "dependencies": ["class-variance-authority"],
       "registryDependencies": [
         "@animate-ui/primitives-buttons-button",
         "@animate-ui/primitives-effects-particles"
@@ -237,10 +209,7 @@
       "type": "registry:ui",
       "title": "Notification List",
       "description": "A fun notification list with animated stacking and cards that expand as you interact.",
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "files": [
         {
           "path": "registry/components/community/notification-list/index.tsx",
@@ -254,12 +223,8 @@
       "type": "registry:ui",
       "title": "Playful Todolist",
       "description": "A playful todolist component with animated wavy strikethroughs for each completed task.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-checkbox"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-radix-checkbox"],
       "files": [
         {
           "path": "registry/components/community/playful-todolist/index.tsx",
@@ -273,12 +238,8 @@
       "type": "registry:ui",
       "title": "Checkbox",
       "description": "A control that allows the user to toggle between checked and not checked.",
-      "dependencies": [
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-checkbox"
-      ],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["@animate-ui/primitives-radix-checkbox"],
       "files": [
         {
           "path": "registry/components/radix/checkbox/index.tsx",
@@ -292,12 +253,8 @@
       "type": "registry:ui",
       "title": "Dropdown Menu",
       "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-dropdown-menu"
-      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@animate-ui/primitives-radix-dropdown-menu"],
       "files": [
         {
           "path": "registry/components/radix/dropdown-menu/index.tsx",
@@ -311,9 +268,7 @@
       "type": "registry:ui",
       "title": "Hover Card",
       "description": "For sighted users to preview content available behind a link.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-hover-card"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-hover-card"],
       "files": [
         {
           "path": "registry/components/radix/hover-card/index.tsx",
@@ -327,9 +282,7 @@
       "type": "registry:ui",
       "title": "Avatar Group Demo",
       "description": "Demo showing a avatar group.",
-      "registryDependencies": [
-        "@animate-ui/components-animate-avatar-group"
-      ],
+      "registryDependencies": ["@animate-ui/components-animate-avatar-group"],
       "files": [
         {
           "path": "registry/demo/components/animate/avatar-group/index.tsx",
@@ -343,9 +296,7 @@
       "type": "registry:ui",
       "title": "Code Demo",
       "description": "Demo showing a code.",
-      "registryDependencies": [
-        "@animate-ui/components-animate-code"
-      ],
+      "registryDependencies": ["@animate-ui/components-animate-code"],
       "files": [
         {
           "path": "registry/demo/components/animate/code/index.tsx",
@@ -383,9 +334,7 @@
       "type": "registry:ui",
       "title": "Code Tabs Demo",
       "description": "Demo showing a code tabs.",
-      "registryDependencies": [
-        "@animate-ui/components-animate-code-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/components-animate-code-tabs"],
       "files": [
         {
           "path": "registry/demo/components/animate/code-tabs/index.tsx",
@@ -399,9 +348,7 @@
       "type": "registry:ui",
       "title": "Cursor Demo",
       "description": "Demo showing a cursor.",
-      "registryDependencies": [
-        "@animate-ui/components-animate-cursor"
-      ],
+      "registryDependencies": ["@animate-ui/components-animate-cursor"],
       "files": [
         {
           "path": "registry/demo/components/animate/cursor/index.tsx",
@@ -498,9 +445,7 @@
       "type": "registry:ui",
       "title": "Animate Tabs Demo",
       "description": "Demo showing an animated tabs.",
-      "registryDependencies": [
-        "@animate-ui/components-animate-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/components-animate-tabs"],
       "files": [
         {
           "path": "registry/demo/components/animate/tabs/index.tsx",
@@ -514,12 +459,8 @@
       "type": "registry:ui",
       "title": "Button Demo",
       "description": "Demo showing a button.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/components-buttons-button"
-      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@animate-ui/components-buttons-button"],
       "files": [
         {
           "path": "registry/demo/components/buttons/button/index.tsx",
@@ -562,9 +503,7 @@
       "type": "registry:ui",
       "title": "Copy Button Demo",
       "description": "Demo showing a copy button.",
-      "registryDependencies": [
-        "@animate-ui/components-buttons-copy"
-      ],
+      "registryDependencies": ["@animate-ui/components-buttons-copy"],
       "files": [
         {
           "path": "registry/demo/components/buttons/copy/index.tsx",
@@ -605,9 +544,7 @@
       "type": "registry:ui",
       "title": "GitHub Stars Button Demo",
       "description": "Demo showing a GitHub stars button.",
-      "registryDependencies": [
-        "@animate-ui/components-buttons-github-stars"
-      ],
+      "registryDependencies": ["@animate-ui/components-buttons-github-stars"],
       "files": [
         {
           "path": "registry/demo/components/buttons/github-stars/index.tsx",
@@ -644,12 +581,8 @@
       "type": "registry:ui",
       "title": "Theme Toggler Button Demo",
       "description": "Demo showing a theme toggler button.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/components-buttons-theme-toggler"
-      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@animate-ui/components-buttons-theme-toggler"],
       "files": [
         {
           "path": "registry/demo/components/buttons/theme-toggler/index.tsx",
@@ -730,9 +663,7 @@
       "type": "registry:ui",
       "title": "Checkbox Demo",
       "description": "Demo showing a checkbox.",
-      "registryDependencies": [
-        "@animate-ui/components-radix-checkbox"
-      ],
+      "registryDependencies": ["@animate-ui/components-radix-checkbox"],
       "files": [
         {
           "path": "registry/demo/components/radix/checkbox/index.tsx",
@@ -775,9 +706,7 @@
       "type": "registry:ui",
       "title": "Hover Card Demo",
       "description": "Demo showing a hover card.",
-      "registryDependencies": [
-        "@animate-ui/components-radix-hover-card"
-      ],
+      "registryDependencies": ["@animate-ui/components-radix-hover-card"],
       "files": [
         {
           "path": "registry/demo/components/radix/hover-card/index.tsx",
@@ -820,12 +749,8 @@
       "type": "registry:ui",
       "title": "Animate Avatar Group Demo",
       "description": "Demo showing an animated avatar group.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-avatar-group"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-avatar-group"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/avatar-group/index.tsx",
@@ -839,9 +764,7 @@
       "type": "registry:ui",
       "title": "Animate Code Block Demo",
       "description": "Demo showing an animated code block.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-code-block"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-code-block"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/code-block/index.tsx",
@@ -879,9 +802,7 @@
       "type": "registry:ui",
       "title": "Animate Cursor Demo",
       "description": "Demo showing an animated cursor.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-cursor"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-cursor"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/cursor/index.tsx",
@@ -935,9 +856,7 @@
       "type": "registry:ui",
       "title": "GitHub Stars Demo",
       "description": "Demo showing an animated github stars counter.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-github-stars"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-github-stars"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/github-stars/index.tsx",
@@ -951,9 +870,7 @@
       "type": "registry:ui",
       "title": "Animate Pinned List Demo",
       "description": "Demo showing an animated pinned list.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-pinned-list"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-pinned-list"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/pinned-list/index.tsx",
@@ -999,9 +916,7 @@
       "type": "registry:ui",
       "title": "Animate Spring Demo",
       "description": "Demo showing an animated spring.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-spring"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-spring"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/spring/index.tsx",
@@ -1015,9 +930,7 @@
       "type": "registry:ui",
       "title": "Animate Tabs Demo",
       "description": "Demo showing an animated tabs.",
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-animate-tabs"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/tabs/index.tsx",
@@ -1031,12 +944,8 @@
       "type": "registry:ui",
       "title": "Animate Tooltip Demo",
       "description": "Demo showing an animated tooltip.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-tooltip"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-tooltip"],
       "files": [
         {
           "path": "registry/demo/primitives/animate/tooltip/index.tsx",
@@ -1092,9 +1001,7 @@
       "type": "registry:ui",
       "title": "Base Accordion Demo",
       "description": "Demo showing an animated base accordion.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-accordion"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-accordion"],
       "files": [
         {
           "path": "registry/demo/primitives/base/accordion/index.tsx",
@@ -1122,9 +1029,7 @@
       "type": "registry:ui",
       "title": "Base Alert Dialog Demo",
       "description": "Demo showing an animated base alert dialog.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-alert-dialog"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-alert-dialog"],
       "files": [
         {
           "path": "registry/demo/primitives/base/alert-dialog/index.tsx",
@@ -1153,9 +1058,7 @@
       "type": "registry:ui",
       "title": "Base Checkbox Demo",
       "description": "Demo showing an animated base checkbox.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-checkbox"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-checkbox"],
       "files": [
         {
           "path": "registry/demo/primitives/base/checkbox/index.tsx",
@@ -1178,9 +1081,7 @@
       "type": "registry:ui",
       "title": "Base Collapsible Demo",
       "description": "Demo showing an animated base collapsible.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-collapsible"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-collapsible"],
       "files": [
         {
           "path": "registry/demo/primitives/base/collapsible/index.tsx",
@@ -1203,9 +1104,7 @@
       "type": "registry:ui",
       "title": "Base Dialog Demo",
       "description": "Demo showing an animated base dialog.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-dialog"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-dialog"],
       "files": [
         {
           "path": "registry/demo/primitives/base/dialog/index.tsx",
@@ -1234,12 +1133,8 @@
       "type": "registry:ui",
       "title": "Base Files Demo",
       "description": "Demo showing an animated base files.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-base-files"
-      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@animate-ui/primitives-base-files"],
       "files": [
         {
           "path": "registry/demo/primitives/base/files/index.tsx",
@@ -1253,9 +1148,7 @@
       "type": "registry:ui",
       "title": "Base Menu Demo",
       "description": "Demo showing an animated base menu.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-menu"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-menu"],
       "files": [
         {
           "path": "registry/demo/primitives/base/menu/index.tsx",
@@ -1300,9 +1193,7 @@
       "type": "registry:ui",
       "title": "Base Popover Demo",
       "description": "Demo showing an animated base popover.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-popover"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-popover"],
       "files": [
         {
           "path": "registry/demo/primitives/base/popover/index.tsx",
@@ -1347,9 +1238,7 @@
       "type": "registry:ui",
       "title": "Base Preview Card Demo",
       "description": "Demo showing an animated base preview card.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-preview-card"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-preview-card"],
       "files": [
         {
           "path": "registry/demo/primitives/base/preview-card/index.tsx",
@@ -1394,9 +1283,7 @@
       "type": "registry:ui",
       "title": "Base Progress Demo",
       "description": "Demo showing an animated base progress.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-progress"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-progress"],
       "files": [
         {
           "path": "registry/demo/primitives/base/progress/index.tsx",
@@ -1410,9 +1297,7 @@
       "type": "registry:ui",
       "title": "Base Radio Demo",
       "description": "Demo showing an animated base radio.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-radio"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-radio"],
       "files": [
         {
           "path": "registry/demo/primitives/base/radio/index.tsx",
@@ -1426,9 +1311,7 @@
       "type": "registry:ui",
       "title": "Base Switch Demo",
       "description": "Demo showing an animated base switch.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-switch"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-switch"],
       "files": [
         {
           "path": "registry/demo/primitives/base/switch/index.tsx",
@@ -1442,9 +1325,7 @@
       "type": "registry:ui",
       "title": "Base Tabs Demo",
       "description": "Demo showing an animated base tabs.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-tabs"],
       "files": [
         {
           "path": "registry/demo/primitives/base/tabs/index.tsx",
@@ -1471,9 +1352,7 @@
       "type": "registry:ui",
       "title": "Base Toggle Demo",
       "description": "Demo showing an animated base toggle.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-toggle"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-toggle"],
       "files": [
         {
           "path": "registry/demo/primitives/base/toggle/index.tsx",
@@ -1487,9 +1366,7 @@
       "type": "registry:ui",
       "title": "Base Toggle Group Demo",
       "description": "Demo showing an animated base toggle group.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-toggle-group"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-toggle-group"],
       "files": [
         {
           "path": "registry/demo/primitives/base/toggle-group/index.tsx",
@@ -1512,9 +1389,7 @@
       "type": "registry:ui",
       "title": "Base Tooltip Demo",
       "description": "Demo showing an animated base tooltip.",
-      "registryDependencies": [
-        "@animate-ui/primitives-base-tooltip"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-base-tooltip"],
       "files": [
         {
           "path": "registry/demo/primitives/base/tooltip/index.tsx",
@@ -1559,9 +1434,7 @@
       "type": "registry:ui",
       "title": "Button Demo",
       "description": "Demo showing a button.",
-      "registryDependencies": [
-        "@animate-ui/primitives-buttons-button"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-buttons-button"],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/button/index.tsx",
@@ -1593,9 +1466,7 @@
       "type": "registry:ui",
       "title": "Flip Button Demo",
       "description": "Demo showing an animated flip button.",
-      "registryDependencies": [
-        "@animate-ui/primitives-buttons-flip"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-buttons-flip"],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/flip/index.tsx",
@@ -1630,9 +1501,7 @@
       "type": "registry:ui",
       "title": "Liquid Button Demo",
       "description": "Demo showing an animated liquid button.",
-      "registryDependencies": [
-        "@animate-ui/primitives-buttons-liquid"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-buttons-liquid"],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/liquid/index.tsx",
@@ -1676,9 +1545,7 @@
       "type": "registry:ui",
       "title": "Ripple Button Demo",
       "description": "Demo showing a ripple button.",
-      "registryDependencies": [
-        "@animate-ui/primitives-buttons-ripple"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-buttons-ripple"],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/ripple/index.tsx",
@@ -1710,12 +1577,8 @@
       "type": "registry:ui",
       "title": "Auto Height Demo",
       "description": "Demo showing an animated auto height.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-auto-height"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-effects-auto-height"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/auto-height/index.tsx",
@@ -1729,9 +1592,7 @@
       "type": "registry:ui",
       "title": "Blur Demo",
       "description": "Demo showing an animated blur.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-blur"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-blur"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/blur/index.tsx",
@@ -1769,9 +1630,7 @@
       "type": "registry:ui",
       "title": "Click Demo",
       "description": "Demo showing an animated click.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-click"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-click"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/click/index.tsx",
@@ -1816,9 +1675,7 @@
       "type": "registry:ui",
       "title": "Effect Demo",
       "description": "Demo showing an animated effect.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-effect"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-effect"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/effect/index.tsx",
@@ -1856,9 +1713,7 @@
       "type": "registry:ui",
       "title": "Fade Demo",
       "description": "Demo showing an animated fade.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-fade"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-fade"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/fade/index.tsx",
@@ -1896,9 +1751,7 @@
       "type": "registry:ui",
       "title": "Highlight Demo",
       "description": "Demo showing an animated highlight.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-highlight"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/highlight/index.tsx",
@@ -1934,9 +1787,7 @@
       "type": "registry:ui",
       "title": "Image Zoom Demo",
       "description": "Demo showing a image zoom effect.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-image-zoom"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-image-zoom"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/image-zoom/index.tsx",
@@ -1950,9 +1801,7 @@
       "type": "registry:ui",
       "title": "Magnetic Demo",
       "description": "Demo showing a magnetic effect.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-magnetic"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-magnetic"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/magnetic/index.tsx",
@@ -1984,9 +1833,7 @@
       "type": "registry:ui",
       "title": "Particles Demo",
       "description": "Demo showing an animated particles.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-particles"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-particles"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/particles/index.tsx",
@@ -2071,9 +1918,7 @@
       "type": "registry:ui",
       "title": "Shine Demo",
       "description": "Demo showing an animated shine.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-shine"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-shine"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/shine/index.tsx",
@@ -2129,9 +1974,7 @@
       "type": "registry:ui",
       "title": "Slide Demo",
       "description": "Demo showing an animated slide.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-slide"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-slide"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/slide/index.tsx",
@@ -2172,9 +2015,7 @@
       "type": "registry:ui",
       "title": "Theme Toggler Demo",
       "description": "Demo showing a theme toggler.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-theme-toggler"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-theme-toggler"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/theme-toggler/index.tsx",
@@ -2203,9 +2044,7 @@
       "type": "registry:ui",
       "title": "Tilt Demo",
       "description": "Demo showing an animated tilt.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-tilt"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-tilt"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/tilt/index.tsx",
@@ -2237,9 +2076,7 @@
       "type": "registry:ui",
       "title": "Zoom Demo",
       "description": "Demo showing an animated zoom.",
-      "registryDependencies": [
-        "@animate-ui/primitives-effects-zoom"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-effects-zoom"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/zoom/index.tsx",
@@ -2277,9 +2114,7 @@
       "type": "registry:ui",
       "title": "Headless Checkbox Demo",
       "description": "Demo showing an animated headless checkbox.",
-      "registryDependencies": [
-        "@animate-ui/primitives-headless-checkbox"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-headless-checkbox"],
       "files": [
         {
           "path": "registry/demo/primitives/headless/checkbox/index.tsx",
@@ -2302,9 +2137,7 @@
       "type": "registry:ui",
       "title": "Headless Dialog Demo",
       "description": "Demo showing an animated headless dialog.",
-      "registryDependencies": [
-        "@animate-ui/primitives-headless-dialog"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-headless-dialog"],
       "files": [
         {
           "path": "registry/demo/primitives/headless/dialog/index.tsx",
@@ -2333,9 +2166,7 @@
       "type": "registry:ui",
       "title": "Headless Disclosure Demo",
       "description": "Demo showing an animated headless disclosure.",
-      "registryDependencies": [
-        "@animate-ui/primitives-headless-disclosure"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-headless-disclosure"],
       "files": [
         {
           "path": "registry/demo/primitives/headless/disclosure/index.tsx",
@@ -2358,9 +2189,7 @@
       "type": "registry:ui",
       "title": "Headless Popover Demo",
       "description": "Demo showing an animated headless popover.",
-      "registryDependencies": [
-        "@animate-ui/primitives-headless-popover"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-headless-popover"],
       "files": [
         {
           "path": "registry/demo/primitives/headless/popover/index.tsx",
@@ -2400,9 +2229,7 @@
       "type": "registry:ui",
       "title": "Headless Switch Demo",
       "description": "Demo showing an animated headless switch.",
-      "registryDependencies": [
-        "@animate-ui/primitives-headless-switch"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-headless-switch"],
       "files": [
         {
           "path": "registry/demo/primitives/headless/switch/index.tsx",
@@ -2416,9 +2243,7 @@
       "type": "registry:ui",
       "title": "Headless Tabs Demo",
       "description": "Demo showing an animated headless tabs.",
-      "registryDependencies": [
-        "@animate-ui/primitives-headless-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-headless-tabs"],
       "files": [
         {
           "path": "registry/demo/primitives/headless/tabs/index.tsx",
@@ -2445,9 +2270,7 @@
       "type": "registry:ui",
       "title": "Radix Accordion Demo",
       "description": "Demo showing an animated radix accordion.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-accordion"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-accordion"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/accordion/index.tsx",
@@ -2478,9 +2301,7 @@
       "type": "registry:ui",
       "title": "Radix Alert Dialog Demo",
       "description": "Demo showing an animated radix alert dialog.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-alert-dialog"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-alert-dialog"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/alert-dialog/index.tsx",
@@ -2509,9 +2330,7 @@
       "type": "registry:ui",
       "title": "Radix Checkbox Demo",
       "description": "Demo showing an animated radix checkbox.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-checkbox"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-checkbox"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/checkbox/index.tsx",
@@ -2539,9 +2358,7 @@
       "type": "registry:ui",
       "title": "Radix Collapsible Demo",
       "description": "Demo showing an animated radix collapsible.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-collapsible"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-collapsible"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/collapsible/index.tsx",
@@ -2564,9 +2381,7 @@
       "type": "registry:ui",
       "title": "Radix Dialog Demo",
       "description": "Demo showing an animated radix dialog.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-dialog"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-dialog"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/dialog/index.tsx",
@@ -2595,9 +2410,7 @@
       "type": "registry:ui",
       "title": "Radix Dropdown Menu Demo",
       "description": "Demo showing an animated radix dropdown menu.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-dropdown-menu"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-dropdown-menu"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/dropdown-menu/index.tsx",
@@ -2640,12 +2453,8 @@
       "type": "registry:ui",
       "title": "Radix Files Demo",
       "description": "Demo showing an animated radix files.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-files"
-      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@animate-ui/primitives-radix-files"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/files/index.tsx",
@@ -2659,9 +2468,7 @@
       "type": "registry:ui",
       "title": "Radix Hover Card Demo",
       "description": "Demo showing an animated radix hover card.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-hover-card"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-hover-card"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/hover-card/index.tsx",
@@ -2704,9 +2511,7 @@
       "type": "registry:ui",
       "title": "Radix Popover Demo",
       "description": "Demo showing an animated radix popover.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-popover"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-popover"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/popover/index.tsx",
@@ -2749,9 +2554,7 @@
       "type": "registry:ui",
       "title": "Radix Progress Demo",
       "description": "Demo showing an animated radix progress.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-progress"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-progress"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/progress/index.tsx",
@@ -2765,9 +2568,7 @@
       "type": "registry:ui",
       "title": "Radix Radio Group Demo",
       "description": "Demo showing an animated radix radio group.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-radio-group"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-radio-group"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/radio-group/index.tsx",
@@ -2781,9 +2582,7 @@
       "type": "registry:ui",
       "title": "Radix Sheet Demo",
       "description": "Demo showing an animated radix sheet.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-sheet"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-sheet"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/sheet/index.tsx",
@@ -2812,9 +2611,7 @@
       "type": "registry:ui",
       "title": "Radix Switch Demo",
       "description": "Demo showing an animated radix switch.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-switch"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-switch"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/switch/index.tsx",
@@ -2828,9 +2625,7 @@
       "type": "registry:ui",
       "title": "Radix Tabs Demo",
       "description": "Demo showing an animated radix tabs.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-tabs"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-tabs"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/tabs/index.tsx",
@@ -2857,9 +2652,7 @@
       "type": "registry:ui",
       "title": "Radix Toggle Demo",
       "description": "Demo showing an animated radix toggle.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-toggle"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-toggle"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/toggle/index.tsx",
@@ -2873,9 +2666,7 @@
       "type": "registry:ui",
       "title": "Radix Toggle Group Demo",
       "description": "Demo showing an animated radix toggle group.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-toggle-group"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-toggle-group"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/toggle-group/index.tsx",
@@ -2902,9 +2693,7 @@
       "type": "registry:ui",
       "title": "Radix Tooltip Demo",
       "description": "Demo showing an animated radix tooltip.",
-      "registryDependencies": [
-        "@animate-ui/primitives-radix-tooltip"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-radix-tooltip"],
       "files": [
         {
           "path": "registry/demo/primitives/radix/tooltip/index.tsx",
@@ -2947,9 +2736,7 @@
       "type": "registry:ui",
       "title": "Counting Number Demo",
       "description": "Demo showing an animated counting number.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-counting-number"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-counting-number"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/counting-number/index.tsx",
@@ -2990,9 +2777,7 @@
       "type": "registry:ui",
       "title": "Gradient Text Demo",
       "description": "Demo showing an animated gradient text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-gradient"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-gradient"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/gradient/index.tsx",
@@ -3015,9 +2800,7 @@
       "type": "registry:ui",
       "title": "Highlight Text Demo",
       "description": "Demo showing an animated highlight text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-highlight"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-highlight"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/highlight/index.tsx",
@@ -3043,9 +2826,7 @@
       "type": "registry:ui",
       "title": "Morphing Text Demo",
       "description": "Demo showing an animated morphing text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-morphing"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-morphing"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/morphing/index.tsx",
@@ -3074,9 +2855,7 @@
       "type": "registry:ui",
       "title": "Rolling Text Demo",
       "description": "Demo showing an animated rolling text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-rolling"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-rolling"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/rolling/index.tsx",
@@ -3102,9 +2881,7 @@
       "type": "registry:ui",
       "title": "Rotating Text Demo",
       "description": "Demo showing an animated rotating text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-rotating"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-rotating"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/rotating/index.tsx",
@@ -3142,9 +2919,7 @@
       "type": "registry:ui",
       "title": "Scrolling Number Demo",
       "description": "Demo showing an animated scrolling number.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-scrolling-number"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-scrolling-number"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/scrolling-number/index.tsx",
@@ -3181,9 +2956,7 @@
       "type": "registry:ui",
       "title": "Shimmering Text Demo",
       "description": "Demo showing an animated shimmering text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-shimmering"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-shimmering"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/shimmering/index.tsx",
@@ -3212,9 +2985,7 @@
       "type": "registry:ui",
       "title": "Sliding Number Demo",
       "description": "Demo showing an animated sliding number.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-sliding-number"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-sliding-number"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/sliding-number/index.tsx",
@@ -3258,9 +3029,7 @@
       "type": "registry:ui",
       "title": "Splitting Text Demo",
       "description": "Demo showing an animated splitting text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-splitting"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-splitting"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/splitting/index.tsx",
@@ -3302,9 +3071,7 @@
       "type": "registry:ui",
       "title": "Splitting Text Demo",
       "description": "Demo showing an animated splitting text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-splitting"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-splitting"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/splitting-example/index.tsx",
@@ -3318,9 +3085,7 @@
       "type": "registry:ui",
       "title": "Typing Text Demo",
       "description": "Demo showing an animated typing text.",
-      "registryDependencies": [
-        "@animate-ui/primitives-texts-typing"
-      ],
+      "registryDependencies": ["@animate-ui/primitives-texts-typing"],
       "files": [
         {
           "path": "registry/demo/primitives/texts/typing/index.tsx",
@@ -3397,9 +3162,7 @@
       "type": "registry:hook",
       "title": "useIsInView",
       "description": "A hook that allows you to check if an element is in view.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/hooks/use-is-in-view/index.tsx",
@@ -3426,12 +3189,8 @@
       "type": "registry:ui",
       "title": "Alarm Clock Icon",
       "description": "Alarm clock icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/alarm-clock/index.tsx",
@@ -3440,9 +3199,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "morning"
-        ]
+        "keywords": ["morning"]
       }
     },
     {
@@ -3450,12 +3207,8 @@
       "type": "registry:ui",
       "title": "Arrow Right Icon",
       "description": "Arrow right icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/arrow-right/index.tsx",
@@ -3480,12 +3233,8 @@
       "type": "registry:ui",
       "title": "Audio Lines Icon",
       "description": "Audio Lines icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/audio-lines/index.tsx",
@@ -3526,12 +3275,8 @@
       "type": "registry:ui",
       "title": "Battery Full Icon",
       "description": "Battery Full icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/battery-full/index.tsx",
@@ -3540,13 +3285,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "power",
-          "electricity",
-          "energy",
-          "accumulator",
-          "charge"
-        ]
+        "keywords": ["power", "electricity", "energy", "accumulator", "charge"]
       }
     },
     {
@@ -3554,12 +3293,8 @@
       "type": "registry:ui",
       "title": "Bell Ring Icon",
       "description": "Bell ring icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/bell-ring/index.tsx",
@@ -3568,12 +3303,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "alarm",
-          "notification",
-          "sound",
-          "reminder"
-        ]
+        "keywords": ["alarm", "notification", "sound", "reminder"]
       }
     },
     {
@@ -3581,12 +3311,8 @@
       "type": "registry:ui",
       "title": "Clock Icon",
       "description": "Clock icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/clock/index.tsx",
@@ -3595,13 +3321,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "clock",
-          "time",
-          "watch",
-          "alarm",
-          "timer"
-        ]
+        "keywords": ["clock", "time", "watch", "alarm", "timer"]
       }
     },
     {
@@ -3609,12 +3329,8 @@
       "type": "registry:ui",
       "title": "Disc 3 Icon",
       "description": "Disc 3 icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/disc-3/index.tsx",
@@ -3642,9 +3358,7 @@
       "type": "registry:ui",
       "title": "Icon",
       "description": "Base component to use animated icons.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/hooks-use-is-in-view",
         "@animate-ui/primitives-animate-slot"
@@ -3662,12 +3376,8 @@
       "type": "registry:ui",
       "title": "Loader Icon",
       "description": "Loader icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/loader/index.tsx",
@@ -3692,12 +3402,8 @@
       "type": "registry:ui",
       "title": "Menu Icon",
       "description": "Menu icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/menu/index.tsx",
@@ -3706,12 +3412,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "bars",
-          "navigation",
-          "hamburger",
-          "options"
-        ]
+        "keywords": ["bars", "navigation", "hamburger", "options"]
       }
     },
     {
@@ -3719,12 +3420,8 @@
       "type": "registry:ui",
       "title": "Party Popper Icon",
       "description": "Party popper icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/party-popper/index.tsx",
@@ -3753,12 +3450,8 @@
       "type": "registry:ui",
       "title": "Settings Icon",
       "description": "Settings icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/settings/index.tsx",
@@ -3767,12 +3460,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "cog",
-          "edit",
-          "gear",
-          "preferences"
-        ]
+        "keywords": ["cog", "edit", "gear", "preferences"]
       }
     },
     {
@@ -3780,12 +3468,8 @@
       "type": "registry:ui",
       "title": "Trash 2 Icon",
       "description": "Trash 2 icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/trash-2/index.tsx",
@@ -3794,12 +3478,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "garbage",
-          "delete",
-          "remove",
-          "bin"
-        ]
+        "keywords": ["garbage", "delete", "remove", "bin"]
       }
     },
     {
@@ -3807,12 +3486,8 @@
       "type": "registry:ui",
       "title": "User Icon",
       "description": "User icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/user/index.tsx",
@@ -3821,11 +3496,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "person",
-          "account",
-          "contact"
-        ]
+        "keywords": ["person", "account", "contact"]
       }
     },
     {
@@ -3833,12 +3504,8 @@
       "type": "registry:ui",
       "title": "Wifi Icon",
       "description": "Wifi icon component.",
-      "registryDependencies": [
-        "@animate-ui/icons-icon"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["@animate-ui/icons-icon"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/icons/wifi/index.tsx",
@@ -3847,11 +3514,7 @@
         }
       ],
       "meta": {
-        "keywords": [
-          "connection",
-          "signal",
-          "wireless"
-        ]
+        "keywords": ["connection", "signal", "wireless"]
       }
     },
     {
@@ -3872,12 +3535,8 @@
       "type": "registry:ui",
       "title": "Avatar Group",
       "description": "An animated avatar group that displays overlapping user images and smoothly shifts each avatar forward on hover to highlight it.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-tooltip"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-tooltip"],
       "files": [
         {
           "path": "registry/primitives/animate/avatar-group/index.tsx",
@@ -3891,12 +3550,8 @@
       "type": "registry:ui",
       "title": "Code Block",
       "description": "A code block component that animates the code as it is written.",
-      "dependencies": [
-        "shiki"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["shiki"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/animate/code-block/index.tsx",
@@ -3910,9 +3565,7 @@
       "type": "registry:ui",
       "title": "Cursor",
       "description": "An animated cursor component that allows you to customize both the cursor and cursor follow elements with smooth animations.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/lib-get-strict-context"
@@ -3930,9 +3583,7 @@
       "type": "registry:ui",
       "title": "Github Stars",
       "description": "A component that animates a number of stars, smoothly animating number transitions using the SlidingNumber component.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/primitives-texts-sliding-number",
@@ -3953,12 +3604,8 @@
       "type": "registry:ui",
       "title": "Pin List",
       "description": "A pin list component that allows you to pin items to the top of the list.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-slot"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-slot"],
       "files": [
         {
           "path": "registry/primitives/animate/pinned-list/index.tsx",
@@ -3972,9 +3619,7 @@
       "type": "registry:ui",
       "title": "Scroll Progress",
       "description": "A scroll progress component that allows you to track the progress of a scrollable element.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/lib-get-strict-context",
@@ -3993,9 +3638,7 @@
       "type": "registry:ui",
       "title": "Animate Slot",
       "description": "A slot component that allows you to use motion components with any element.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/primitives/animate/slot/index.tsx",
@@ -4009,9 +3652,7 @@
       "type": "registry:ui",
       "title": "Spring",
       "description": "A flexible, animated spring component that attaches a draggable element to its origin with a spring line.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/lib-get-strict-context",
@@ -4030,9 +3671,7 @@
       "type": "registry:ui",
       "title": "Tabs",
       "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-highlight",
         "@animate-ui/primitives-animate-slot",
@@ -4051,10 +3690,7 @@
       "type": "registry:ui",
       "title": "Tooltip",
       "description": "An animated tooltip that shows contextual info on hover or focus and smoothly glides to the next element without disappearing between transitions.",
-      "dependencies": [
-        "motion",
-        "@floating-ui/react"
-      ],
+      "dependencies": ["motion", "@floating-ui/react"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/lib-get-strict-context"
@@ -4072,10 +3708,7 @@
       "type": "registry:ui",
       "title": "Base Accordion",
       "description": "An easily stylable accordion component.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4093,10 +3726,7 @@
       "type": "registry:ui",
       "title": "Base Alert Dialog",
       "description": "A dialog that requires user response to proceed.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -4114,10 +3744,7 @@
       "type": "registry:ui",
       "title": "Base Checkbox",
       "description": "An easily stylable checkbox component.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4135,10 +3762,7 @@
       "type": "registry:ui",
       "title": "Base Collapsible",
       "description": "A collapsible panel controlled by a button.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4156,10 +3780,7 @@
       "type": "registry:ui",
       "title": "Base Dialog",
       "description": "A popup that opens on top of the entire page.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -4177,9 +3798,7 @@
       "type": "registry:ui",
       "title": "Files",
       "description": "A component that allows you to display a list of files and folders.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-base-accordion",
         "@animate-ui/primitives-effects-highlight",
@@ -4199,10 +3818,7 @@
       "type": "registry:ui",
       "title": "Base Menu",
       "description": "A list of actions in a dropdown, enhanced with keyboard navigation.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-highlight",
         "@animate-ui/lib-get-strict-context",
@@ -4222,10 +3838,7 @@
       "type": "registry:ui",
       "title": "Base Popover",
       "description": "An accessible popup anchored to a button.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4243,10 +3856,7 @@
       "type": "registry:ui",
       "title": "Base Preview Card",
       "description": "A popup that appears when a link is hovered, showing a preview for sighted users.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4264,10 +3874,7 @@
       "type": "registry:ui",
       "title": "Base Progress",
       "description": "Displays the status of a task that takes a long time.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/primitives-texts-counting-number"
@@ -4285,10 +3892,7 @@
       "type": "registry:ui",
       "title": "Base Radio",
       "description": "An easily stylable radio button component.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4306,10 +3910,7 @@
       "type": "registry:ui",
       "title": "Base Switch",
       "description": "A control that indicates whether a setting is on or off.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4327,10 +3928,7 @@
       "type": "registry:ui",
       "title": "Base Tabs",
       "description": "A component for toggling between related panels on the same page.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-auto-height",
         "@animate-ui/primitives-effects-highlight",
@@ -4350,10 +3948,7 @@
       "type": "registry:ui",
       "title": "Base Toggle",
       "description": "A two-state button that can be on or off.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4371,10 +3966,7 @@
       "type": "registry:ui",
       "title": "Base Toggle Group",
       "description": "Provides a shared state to a series of toggle buttons.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state",
@@ -4393,10 +3985,7 @@
       "type": "registry:ui",
       "title": "Base Tooltip",
       "description": "A popup that appears when an element is hovered or focused, showing a hint for sighted users.",
-      "dependencies": [
-        "motion",
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["motion", "@base-ui-components/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4414,12 +4003,8 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "A simple button that animates on hover and tap.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-slot"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-slot"],
       "files": [
         {
           "path": "registry/primitives/buttons/button/index.tsx",
@@ -4433,9 +4018,7 @@
       "type": "registry:ui",
       "title": "Flip Button",
       "description": "A button that flips between two states on hover.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/primitives-animate-slot"
@@ -4453,9 +4036,7 @@
       "type": "registry:ui",
       "title": "Liquid Button",
       "description": "A button that fills on hover.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/primitives-animate-slot"
@@ -4473,9 +4054,7 @@
       "type": "registry:ui",
       "title": "Ripple Button",
       "description": "A button that animates on tap with a ripple effect.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/primitives-animate-slot"
@@ -4493,9 +4072,7 @@
       "type": "registry:ui",
       "title": "Auto Height",
       "description": "An effect that automatically adjusts the height of an element based on its content.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-auto-height"
@@ -4513,9 +4090,7 @@
       "type": "registry:ui",
       "title": "Blur",
       "description": "An effect that allows you to animate elements with a blur effect on first view or load.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-is-in-view"
@@ -4533,9 +4108,7 @@
       "type": "registry:ui",
       "title": "Click",
       "description": "An effect that creates animated effects at the click position, adding interactive feedback to user actions.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/primitives/effects/click/index.tsx",
@@ -4549,9 +4122,7 @@
       "type": "registry:ui",
       "title": "Effect",
       "description": "An effect that allows you to animate elements on first view or load.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-is-in-view"
@@ -4569,9 +4140,7 @@
       "type": "registry:ui",
       "title": "Fade",
       "description": "An effect that allows you to animate elements with a fade effect on first view or load.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-is-in-view"
@@ -4589,9 +4158,7 @@
       "type": "registry:ui",
       "title": "Highlight",
       "description": "A highlight effect that allows you to highlight elements on hover, click or with a controlled value.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/primitives/effects/highlight/index.tsx",
@@ -4605,9 +4172,7 @@
       "type": "registry:ui",
       "title": "Image Zoom",
       "description": "An effect that allows you to zoom in on an image on hover.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/primitives/effects/image-zoom/index.tsx",
@@ -4621,12 +4186,8 @@
       "type": "registry:ui",
       "title": "Magnetic",
       "description": "A magnetic effect that clings to the cursor, creating a magnetic attraction effect.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/primitives-animate-slot"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/primitives-animate-slot"],
       "files": [
         {
           "path": "registry/primitives/effects/magnetic/index.tsx",
@@ -4640,9 +4201,7 @@
       "type": "registry:ui",
       "title": "Particles",
       "description": "A particles effect that creates a particle system.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-is-in-view"
@@ -4660,9 +4219,7 @@
       "type": "registry:ui",
       "title": "Shine",
       "description": "An animated light sweep effect with configurable timing, colors, and triggers (hover, tap, or continuous).",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/primitives/effects/shine/index.tsx",
@@ -4676,9 +4233,7 @@
       "type": "registry:ui",
       "title": "Slide",
       "description": "An effect that allows you to animate elements with a slide effect on first view or load.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-is-in-view"
@@ -4709,9 +4264,7 @@
       "type": "registry:ui",
       "title": "Tilt",
       "description": "An effect that allows you to animate elements with a tilt effect on mouse hover.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/lib-get-strict-context"
@@ -4729,9 +4282,7 @@
       "type": "registry:ui",
       "title": "Zoom",
       "description": "An effect that allows you to animate elements with a zoom effect on first view or load.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-animate-slot",
         "@animate-ui/hooks-use-is-in-view"
@@ -4749,10 +4300,7 @@
       "type": "registry:ui",
       "title": "Headless Checkbox",
       "description": "Checkboxes provide the same functionality as native HTML checkboxes, without any of the styling, giving you a clean slate to design them however you'd like.",
-      "dependencies": [
-        "motion",
-        "@headlessui/react"
-      ],
+      "dependencies": ["motion", "@headlessui/react"],
       "files": [
         {
           "path": "registry/primitives/headless/checkbox/index.tsx",
@@ -4766,10 +4314,7 @@
       "type": "registry:ui",
       "title": "Headless Dialog",
       "description": "A fully-managed, renderless dialog component jam-packed with accessibility and keyboard features, perfect for building completely custom dialogs and alerts.",
-      "dependencies": [
-        "motion",
-        "@headlessui/react"
-      ],
+      "dependencies": ["motion", "@headlessui/react"],
       "files": [
         {
           "path": "registry/primitives/headless/dialog/index.tsx",
@@ -4783,13 +4328,8 @@
       "type": "registry:ui",
       "title": "Headless Disclosure",
       "description": "A simple, accessible foundation for building custom UIs that show and hide content, like togglable accordion panels.",
-      "dependencies": [
-        "motion",
-        "@headlessui/react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
-      ],
+      "dependencies": ["motion", "@headlessui/react"],
+      "registryDependencies": ["@animate-ui/lib-get-strict-context"],
       "files": [
         {
           "path": "registry/primitives/headless/disclosure/index.tsx",
@@ -4803,13 +4343,8 @@
       "type": "registry:ui",
       "title": "Headless Popover",
       "description": "Popovers are perfect for floating panels with arbitrary content like navigation menus, mobile menus and flyout menus.",
-      "dependencies": [
-        "motion",
-        "@headlessui/react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
-      ],
+      "dependencies": ["motion", "@headlessui/react"],
+      "registryDependencies": ["@animate-ui/lib-get-strict-context"],
       "files": [
         {
           "path": "registry/primitives/headless/popover/index.tsx",
@@ -4823,13 +4358,8 @@
       "type": "registry:ui",
       "title": "Headless Switch",
       "description": "Switches are a pleasant interface for toggling a value between two states, and offer the same semantics and keyboard navigation as native checkbox elements.",
-      "dependencies": [
-        "motion",
-        "@headlessui/react"
-      ],
-      "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
-      ],
+      "dependencies": ["motion", "@headlessui/react"],
+      "registryDependencies": ["@animate-ui/lib-get-strict-context"],
       "files": [
         {
           "path": "registry/primitives/headless/switch/index.tsx",
@@ -4843,10 +4373,7 @@
       "type": "registry:ui",
       "title": "Headless Tabs",
       "description": "Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support.",
-      "dependencies": [
-        "motion",
-        "@headlessui/react"
-      ],
+      "dependencies": ["motion", "@headlessui/react"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/primitives-effects-highlight",
@@ -4865,10 +4392,7 @@
       "type": "registry:ui",
       "title": "Radix Accordion",
       "description": "A vertically stacked set of interactive headings that each reveal an associated section of content.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -4886,10 +4410,7 @@
       "type": "registry:ui",
       "title": "Radix Alert Dialog",
       "description": "A modal dialog that interrupts the user with important content and expects a response.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -4907,10 +4428,7 @@
       "type": "registry:ui",
       "title": "Radix Checkbox",
       "description": "A control that allows the user to toggle between checked and not checked.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -4928,10 +4446,7 @@
       "type": "registry:ui",
       "title": "Radix Collapsible",
       "description": "An interactive component which expands/collapses a panel.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -4949,10 +4464,7 @@
       "type": "registry:ui",
       "title": "Radix Dialog",
       "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -4970,10 +4482,7 @@
       "type": "registry:ui",
       "title": "Radix Dropdown Menu",
       "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-highlight",
         "@animate-ui/hooks-use-controlled-state",
@@ -4993,9 +4502,7 @@
       "type": "registry:ui",
       "title": "Files",
       "description": "A component that allows you to display a list of files and folders.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/primitives-radix-accordion",
         "@animate-ui/primitives-effects-highlight",
@@ -5015,10 +4522,7 @@
       "type": "registry:ui",
       "title": "Radix Hover Card",
       "description": "For sighted users to preview content available behind a link.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -5036,10 +4540,7 @@
       "type": "registry:ui",
       "title": "Radix Popover",
       "description": "Displays rich content in a portal, triggered by a button.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -5057,13 +4558,8 @@
       "type": "registry:ui",
       "title": "Radix Progress",
       "description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
-      "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
-      ],
+      "dependencies": ["motion", "radix-ui"],
+      "registryDependencies": ["@animate-ui/lib-get-strict-context"],
       "files": [
         {
           "path": "registry/primitives/radix/progress/index.tsx",
@@ -5077,10 +4573,7 @@
       "type": "registry:ui",
       "title": "Radix Radio Group",
       "description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -5098,10 +4591,7 @@
       "type": "registry:ui",
       "title": "Radix Sheet",
       "description": "Extends the Dialog component to display content that complements the main content of the screen.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -5119,10 +4609,7 @@
       "type": "registry:ui",
       "title": "Radix Switch",
       "description": "A control that allows the user to toggle between checked and not checked.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -5140,10 +4627,7 @@
       "type": "registry:ui",
       "title": "Radix Tabs",
       "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-highlight",
         "@animate-ui/primitives-effects-auto-height",
@@ -5163,10 +4647,7 @@
       "type": "registry:ui",
       "title": "Radix Toggle",
       "description": "A two-state button that can be either on or off.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/lib-get-strict-context",
         "@animate-ui/hooks-use-controlled-state"
@@ -5184,10 +4665,7 @@
       "type": "registry:ui",
       "title": "Radix Toggle Group",
       "description": "A set of two-state buttons that can be toggled on or off.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/primitives-effects-highlight",
         "@animate-ui/lib-get-strict-context",
@@ -5206,10 +4684,7 @@
       "type": "registry:ui",
       "title": "Radix Tooltip",
       "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-      "dependencies": [
-        "motion",
-        "radix-ui"
-      ],
+      "dependencies": ["motion", "radix-ui"],
       "registryDependencies": [
         "@animate-ui/hooks-use-controlled-state",
         "@animate-ui/lib-get-strict-context"
@@ -5227,12 +4702,8 @@
       "type": "registry:ui",
       "title": "Counting Number",
       "description": "A counting number animation.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/counting-number/index.tsx",
@@ -5246,9 +4717,7 @@
       "type": "registry:ui",
       "title": "Gradient Text",
       "description": "A gradient text animation.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/primitives/texts/gradient/index.tsx",
@@ -5262,12 +4731,8 @@
       "type": "registry:ui",
       "title": "Highlight Text",
       "description": "A highlight text animation.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/highlight/index.tsx",
@@ -5281,12 +4746,8 @@
       "type": "registry:ui",
       "title": "Morphing Text",
       "description": "A text component that smoothly morphs characters to transition between strings.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/morphing/index.tsx",
@@ -5300,12 +4761,8 @@
       "type": "registry:ui",
       "title": "Rolling Text",
       "description": "A rolling text animation.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/rolling/index.tsx",
@@ -5319,9 +4776,7 @@
       "type": "registry:ui",
       "title": "Rotating Text",
       "description": "A rotating text animation.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/hooks-use-is-in-view",
         "@animate-ui/lib-get-strict-context"
@@ -5339,9 +4794,7 @@
       "type": "registry:ui",
       "title": "Scrolling Number",
       "description": "A scrolling number animation.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/hooks-use-is-in-view",
         "@animate-ui/lib-get-strict-context"
@@ -5359,12 +4812,8 @@
       "type": "registry:ui",
       "title": "Shimmering Text",
       "description": "A shimmering text animation.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/shimmering/index.tsx",
@@ -5378,13 +4827,8 @@
       "type": "registry:ui",
       "title": "Sliding Number",
       "description": "A sliding number animation.",
-      "dependencies": [
-        "motion",
-        "react-use-measure"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion", "react-use-measure"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/sliding-number/index.tsx",
@@ -5398,12 +4842,8 @@
       "type": "registry:ui",
       "title": "Splitting Text",
       "description": "A splitting text animation.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
       "files": [
         {
           "path": "registry/primitives/texts/splitting/index.tsx",
@@ -5417,9 +4857,7 @@
       "type": "registry:ui",
       "title": "Typing Text",
       "description": "A typing text animation.",
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "@animate-ui/hooks-use-is-in-view",
         "@animate-ui/lib-get-strict-context"

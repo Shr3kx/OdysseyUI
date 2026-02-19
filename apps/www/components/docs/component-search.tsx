@@ -37,7 +37,7 @@ const GUIDE_PAGES: SearchResult[] = [
   {
     name: 'introduction',
     title: 'Introduction',
-    description: 'Get started with Animate UI',
+    description: 'Get started with Odyssey UI',
     path: '/docs',
     category: 'Pages',
     type: 'page',
@@ -45,7 +45,7 @@ const GUIDE_PAGES: SearchResult[] = [
   {
     name: 'installation',
     title: 'Installation',
-    description: 'How to install Animate UI in your project',
+    description: 'How to install Odyssey UI in your project',
     path: '/docs/installation',
     category: 'Pages',
     type: 'page',
@@ -139,7 +139,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
         const availableComponents = new Set<string>();
         if (metaData.pages && Array.isArray(metaData.pages)) {
           metaData.pages.forEach((page: string) => {
-            // Skip separator lines like "---Animate UI---"
+            // Skip separator lines like "---Odyssey UI---"
             if (!page.startsWith('---')) {
               availableComponents.add(page);
             }

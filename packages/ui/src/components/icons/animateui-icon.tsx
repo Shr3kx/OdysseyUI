@@ -3,7 +3,7 @@ export default function AnimateUIIcon(props: React.SVGProps<SVGSVGElement>) {
     <svg
       role="img"
       fill="currentColor"
-      aria-label="Animate UI"
+      aria-label="Odyssey UI"
       viewBox="0 0 40 40"
       {...props}
     >

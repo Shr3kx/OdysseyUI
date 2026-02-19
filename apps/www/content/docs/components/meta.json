@@ -4,7 +4,7 @@
   "icon": "Component",
   "root": true,
   "pages": [
-    "---Animate UI---",
+    "---Odyssey UI---",
     "animate/avatar-group",
     "animate/code",
     "animate/code-tabs",

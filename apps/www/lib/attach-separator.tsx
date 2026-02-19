@@ -43,11 +43,11 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
   node,
 ) => {
   switch (node.name) {
-    case 'Animate UI':
+    case 'Odyssey UI':
       node.name = (
         <Separator
           icon={<AnimateUIIcon className="!size-3" />}
-          name="Animate UI"
+          name="Odyssey UI"
         />
       );
       break;
