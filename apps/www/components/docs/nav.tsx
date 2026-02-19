@@ -79,7 +79,7 @@ export const Nav = () => {
 
   return (
     <>
-      <Navbar className="md:h-17 h-14 border-b-0 bg-background md:px-5 px-3 flex items-center gap-3 max-w-[1670px] w-full left-1/2 -translate-x-1/2">
+      <Navbar className="md:h-17 h-14 border bg-background/70 backdrop-blur-lg rounded-b-2xl md:px-5 px-3 flex items-center gap-3 max-w-410 w-full mx-auto">
         <Link
           href="/"
           className={buttonVariants({
@@ -107,10 +107,11 @@ export const Nav = () => {
               <span className="font-normal">Search...</span>
 
               <div className="flex items-center gap-1">
-                <kbd className="size-5 leading-none flex items-center justify-center border rounded-lg bg-background">
+                <kbd className="inline-flex h-4 min-w-4 items-center justify-center rounded border border-border bg-background px-1 font-mono">
                   <CommandIcon className="size-2.5" />
                 </kbd>
-                <kbd className="size-5 flex items-center justify-center border rounded-lg bg-background">
+
+                <kbd className="inline-flex h-4 min-w-4 items-center justify-center rounded border border-border bg-background px-1 font-mono">
                   <span className="leading-none text-[0.625rem] pt-px">K</span>
                 </kbd>
               </div>
@@ -127,9 +128,9 @@ export const Nav = () => {
                   href="https://github.com/shr3kx/odysseyUI"
                   rel="noreferrer noopener"
                   target="_blank"
-                  className="sm:mt-1 group cursor-pointer justify-center rounded-md text-sm group font-medium transition-colors duration-300 ease-in-out disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground p-1.5 [&_svg]:size-5 text-fd-muted-foreground sm:[&_svg]:size-5.5 flex items-center gap-x-2"
+                  className="group cursor-pointer justify-center rounded-md text-sm group font-medium transition-colors duration-300 ease-in-out disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground p-1.5 [&_svg]:size-5 text-fd-muted-foreground sm:[&_svg]:size-5.5 flex items-center gap-x-2"
                 >
-                  <GithubStarsLogo className="size-6" />
+                  <GithubStarsLogo className="size-4!" />
 
                   <span className="rounded-lg flex items-center gap-x-1 select-none bg-accent dark:group-hover:bg-neutral-900 group-hover:bg-white text-sm py-1 pl-1.5 pr-1.25">
                     <GithubStarsNumber />{' '}
@@ -151,7 +152,7 @@ export const Nav = () => {
                 className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground size-8 [&_svg]:size-5 text-fd-muted-foreground"
                 data-active="false"
               >
-                <XIcon />
+                <XIcon className="size-5!" />
               </a>
             </div>
 

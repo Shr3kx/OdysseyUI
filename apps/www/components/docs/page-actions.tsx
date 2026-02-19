@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import {
+  Brain,
   Check,
   ChevronDown,
   Copy,
@@ -162,7 +163,8 @@ export function ViewOptions({
           }),
         )}
       >
-        Open
+        <Brain className="size-3.5 text-fd-muted-foreground" />
+        Ask AI
         <ChevronDown className="size-3.5 text-fd-muted-foreground" />
       </PopoverTrigger>
       <PopoverContent className="flex flex-col overflow-auto">

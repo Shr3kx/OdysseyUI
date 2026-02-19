@@ -109,38 +109,47 @@ export default async function Page(props: {
     >
       <div className="flex flex-row gap-2 items-start w-full justify-between">
         <DocsTitle className="font-medium">{page.data.title}</DocsTitle>
-        {(prevNav || nextNav) && (
-          <div className="flex flex-row gap-1.5 items-center pt-0.5">
-            <Link
-              href={prevNav?.url ?? page.url}
-              aria-disabled={!prevNav}
-              className={
-                !prevNav ? 'pointer-events-none opacity-50' : undefined
-              }
-              aria-label={
-                prevNav ? `Aller à ${prevNav.name}` : 'Pas de page précédente'
-              }
-            >
-              <Button variant="accent" size="icon-sm">
-                <ArrowLeft />
-              </Button>
-            </Link>
-            <Link
-              href={nextNav?.url ?? page.url}
-              aria-disabled={!nextNav}
-              className={
-                !nextNav ? 'pointer-events-none opacity-50' : undefined
-              }
-              aria-label={
-                nextNav ? `Aller à ${nextNav.name}` : 'Pas de page suivante'
-              }
-            >
-              <Button variant="accent" size="icon-sm">
-                <ArrowRight />
-              </Button>
-            </Link>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-row gap-1.5 items-center">
+            <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+            <ViewOptions
+              markdownUrl={`${page.url}.mdx`}
+              githubUrl={`https://github.com/shr3kx/odysseyUI/blob/main/apps/www/content/docs/${page.path}`}
+            />
           </div>
-        )}
+          {(prevNav || nextNav) && (
+            <div className="flex flex-row gap-1.5 items-center">
+              <Link
+                href={prevNav?.url ?? page.url}
+                aria-disabled={!prevNav}
+                className={
+                  !prevNav ? 'pointer-events-none opacity-50' : undefined
+                }
+                aria-label={
+                  prevNav ? `Aller à ${prevNav.name}` : 'Pas de page précédente'
+                }
+              >
+                <Button variant="accent" size="icon-md">
+                  <ArrowLeft />
+                </Button>
+              </Link>
+              <Link
+                href={nextNav?.url ?? page.url}
+                aria-disabled={!nextNav}
+                className={
+                  !nextNav ? 'pointer-events-none opacity-50' : undefined
+                }
+                aria-label={
+                  nextNav ? `Aller à ${nextNav.name}` : 'Pas de page suivante'
+                }
+              >
+                <Button variant="accent" size="icon-md">
+                  <ArrowRight />
+                </Button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
       <DocsDescription className="mb-1 font-normal">
         {page.data.description}
@@ -148,14 +157,6 @@ export default async function Page(props: {
       {page.data.author && (
         <DocsAuthor name={page.data.author.name} url={page.data.author?.url} />
       )}
-
-      <div className="flex flex-row gap-2 items-center">
-        <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
-        <ViewOptions
-          markdownUrl={`${page.url}.mdx`}
-          githubUrl={`https://github.com/shr3kx/odysseyUI/blob/main/apps/www/content/docs/${page.path}`}
-        />
-      </div>
 
       <DocsBody id="docs-body" className="pb-10 pt-4">
         <MDXContent
