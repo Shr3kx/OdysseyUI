@@ -47,8 +47,6 @@ export default function HomePage() {
               >
                 <Hero key={String(transition)} />
               </motion.div>
-
-              <Features />
             </div>
 
             <Footer />

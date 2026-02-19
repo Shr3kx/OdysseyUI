@@ -6,15 +6,23 @@ export const Footer = ({ lastUpdate }: { lastUpdate?: Date }) => {
           <p className="text-start truncate">
             Built by{' '}
             <a
-              href="https://x.com/imskyleen"
+              href="https://x.com/shr3kxx"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Skyleen
+              Shr3kx
+            </a>{' '}
+            &{' '}
+            <a
+              href="https://x.com/ctrlcat0x"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              iam-sahil
             </a>
             . The source code is available on{' '}
             <a
-              href="https://github.com/imskyleen/animate-ui"
+              href="https://github.com/shr3kx/odysseyUI"
               rel="noopener noreferrer"
               target="_blank"
             >
