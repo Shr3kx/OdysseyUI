@@ -41,10 +41,5 @@ export const baseOptions: BaseLayoutProps = {
       url: '/docs/changelog',
       secondary: false,
     },
-    {
-      text: 'Roadmap',
-      url: '/docs/roadmap',
-      secondary: false,
-    },
   ],
 };
