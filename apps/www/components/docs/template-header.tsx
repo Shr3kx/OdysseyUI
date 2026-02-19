@@ -50,30 +50,20 @@ export function TemplateHeader({
 
       <div className="flex flex-col sm:flex-row gap-4">
         {buyLink && (
-          <Button
-            asChild
-            className="w-full sm:w-auto rounded-full font-bold h-12 px-8 text-base"
-          >
+          <Button asChild>
             <Link href={buyLink} target="_blank">
               Buy Now <ArrowRight className="ml-2 size-4" />
             </Link>
           </Button>
         )}
         {githubLink && (
-          <Button
-            asChild
-            className="w-full sm:w-auto rounded-full font-bold h-12 px-8 text-base"
-          >
+          <Button asChild>
             <Link href={githubLink} target="_blank">
               Get Code <Github className="ml-2 size-4" />
             </Link>
           </Button>
         )}
-        <Button
-          variant="outline"
-          asChild
-          className="w-full sm:w-auto rounded-full h-12 px-8 text-base"
-        >
+        <Button variant="outline" asChild>
           <Link href={previewLink} target="_blank">
             Live Preview <ExternalLink className="ml-2 size-4" />
           </Link>

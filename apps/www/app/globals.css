@@ -302,3 +302,15 @@
 .screenshot-mode #component-preview-tab-list {
   opacity: 0 !important;
 }
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  transition: all 0.15s ease;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  transition: all 0.15s ease;
+}
