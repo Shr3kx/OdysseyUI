@@ -92,6 +92,9 @@ export default async function Page(props: {
     <DocsPage
       toc={page.data.toc}
       full={page.data.full}
+      tableOfContent={{
+        style: 'clerk',
+      }}
       footer={{
         component: (
           <Footer

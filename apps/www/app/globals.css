@@ -275,14 +275,6 @@
     @apply !pb-18 !pt-24;
   }
 
-  #nd-toc div div {
-    @apply !pl-px;
-  }
-
-  #nd-toc div[role='none'] {
-    @apply !w-[3px] !rounded-full -ml-px;
-  }
-
   #nd-tocnav {
     @apply !hidden;
   }

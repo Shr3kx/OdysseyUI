@@ -46,10 +46,5 @@ export const baseOptions: BaseLayoutProps = {
       url: '/docs/roadmap',
       secondary: false,
     },
-    {
-      text: 'Components',
-      url: '/docs/components',
-      secondary: false,
-    },
   ],
 };
