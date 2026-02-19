@@ -42,9 +42,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/avatar-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/avatar-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -84,9 +83,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/code/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/code/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -123,9 +121,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/code-block/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/code-block/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -164,9 +161,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/code-tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/code-tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -203,9 +199,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/cursor/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/cursor/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -245,9 +240,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/github-stars-wheel/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/github-stars-wheel/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -284,9 +278,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/animate/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/animate/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -322,9 +315,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/buttons/button/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/buttons/button/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -364,9 +356,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/buttons/copy/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/buttons/copy/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -406,9 +397,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/buttons/github-stars/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/buttons/github-stars/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -448,9 +438,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/buttons/icon/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/buttons/icon/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -489,9 +478,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/buttons/theme-toggler/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/buttons/theme-toggler/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -529,9 +517,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/community/notification-list/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/community/notification-list/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -569,9 +556,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/community/playful-todolist/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/community/playful-todolist/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -608,9 +594,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/radix/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/radix/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -647,9 +632,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/radix/dropdown-menu/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/radix/dropdown-menu/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -686,9 +670,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/components/radix/hover-card/index.tsx'
-        );
+        const mod =
+          await import('@/registry/components/radix/hover-card/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -725,9 +708,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/avatar-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/avatar-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -763,9 +745,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/code/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/code/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -808,9 +789,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/code-block/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/code-block/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -846,9 +826,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/code-tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/code-tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -884,9 +863,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/cursor/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/cursor/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -946,9 +924,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/github-stars-wheel/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/github-stars-wheel/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -993,9 +970,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/animate/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/animate/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1031,9 +1007,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/buttons/button/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/buttons/button/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1095,9 +1070,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/buttons/copy/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/buttons/copy/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1153,9 +1127,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/buttons/github-stars/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/buttons/github-stars/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1208,9 +1181,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/buttons/theme-toggler/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/buttons/theme-toggler/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1270,9 +1242,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/community/notification-list/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/community/notification-list/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1309,9 +1280,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/community/playful-todolist/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/community/playful-todolist/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1347,9 +1317,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/radix/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/radix/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1404,9 +1373,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/components/radix/hover-card/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/components/radix/hover-card/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1461,9 +1429,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/avatar-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/avatar-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1499,9 +1466,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/code-block/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/code-block/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1544,9 +1510,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/cursor/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/cursor/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1606,9 +1571,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/github-stars/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/github-stars/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1644,9 +1608,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/pinned-list/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/pinned-list/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1683,9 +1646,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/scroll-progress/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/scroll-progress/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1729,9 +1691,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/spring/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/spring/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1767,9 +1728,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1805,9 +1765,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/animate/tooltip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/animate/tooltip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1866,9 +1825,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/accordion/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/accordion/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1907,9 +1865,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/alert-dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/alert-dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1957,9 +1914,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -1995,9 +1951,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/collapsible/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/collapsible/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2035,9 +1990,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2085,9 +2039,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/files/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/files/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2123,9 +2076,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/menu/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/menu/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2181,9 +2133,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/popover/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/popover/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2239,9 +2190,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/preview-card/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/preview-card/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2297,9 +2247,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/progress/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/progress/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2335,9 +2284,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/radio/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/radio/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2373,9 +2321,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/switch/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/switch/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2411,9 +2358,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2456,9 +2402,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/toggle/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/toggle/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2494,9 +2439,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/toggle-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/toggle-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2534,9 +2478,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/base/tooltip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/base/tooltip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2592,9 +2535,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/buttons/button/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/buttons/button/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2635,9 +2577,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/buttons/flip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/buttons/flip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2686,9 +2627,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/buttons/liquid/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/buttons/liquid/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2731,9 +2671,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/buttons/ripple/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/buttons/ripple/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2774,9 +2713,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/auto-height/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/auto-height/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2812,9 +2750,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/blur/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/blur/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2856,9 +2793,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/click/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/click/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2910,9 +2846,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/effect/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/effect/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -2956,9 +2891,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/fade/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/fade/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3000,9 +2934,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/highlight/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/highlight/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3047,9 +2980,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/image-zoom/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/image-zoom/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3085,9 +3017,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/magnetic/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/magnetic/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3129,9 +3060,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/particles/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/particles/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3191,9 +3121,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/shine/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/shine/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3240,9 +3169,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/slide/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/slide/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3288,9 +3216,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/theme-toggler/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/theme-toggler/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3333,9 +3260,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/tilt/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/tilt/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3376,9 +3302,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/effects/zoom/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/effects/zoom/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3420,9 +3345,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/headless/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/headless/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3458,9 +3382,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/headless/dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/headless/dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3508,9 +3431,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/headless/disclosure/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/headless/disclosure/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3548,9 +3470,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/headless/popover/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/headless/popover/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3607,9 +3528,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/headless/switch/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/headless/switch/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3645,9 +3565,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/headless/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/headless/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3690,9 +3609,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/accordion/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/accordion/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3731,9 +3649,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/alert-dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/alert-dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3781,9 +3698,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3830,9 +3746,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/collapsible/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/collapsible/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3870,9 +3785,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3920,9 +3834,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/dropdown-menu/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/dropdown-menu/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -3976,9 +3889,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/files/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/files/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4014,9 +3926,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/hover-card/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/hover-card/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4070,9 +3981,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/popover/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/popover/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4126,9 +4036,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/progress/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/progress/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4164,9 +4073,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/radio-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/radio-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4202,9 +4110,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/sheet/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/sheet/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4252,9 +4159,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/switch/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/switch/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4290,9 +4196,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4335,9 +4240,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/toggle/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/toggle/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4373,9 +4277,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/toggle-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/toggle-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4418,9 +4321,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/radix/tooltip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/radix/tooltip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4475,9 +4377,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/counting-number/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/counting-number/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4522,9 +4423,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/gradient/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/gradient/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4560,9 +4460,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/highlight/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/highlight/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4600,9 +4499,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/morphing/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/morphing/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4643,9 +4541,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/rolling/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/rolling/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4683,9 +4580,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/rotating/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/rotating/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4728,9 +4624,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/scrolling-number/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/scrolling-number/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4776,9 +4671,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/shimmering/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/shimmering/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4820,9 +4714,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/sliding-number/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/sliding-number/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4868,9 +4761,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/splitting/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/splitting/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4919,9 +4811,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/splitting-example/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/splitting-example/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -4957,9 +4848,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/primitives/texts/typing/index.tsx'
-        );
+        const mod =
+          await import('@/registry/demo/primitives/texts/typing/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5039,9 +4929,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/hooks/use-controlled-state/index.tsx'
-        );
+        const mod =
+          await import('@/registry/hooks/use-controlled-state/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5149,9 +5038,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/hooks/use-motion-value-state/index.tsx'
-        );
+        const mod =
+          await import('@/registry/hooks/use-motion-value-state/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5822,9 +5710,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/avatar-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/avatar-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5861,9 +5748,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/code-block/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/code-block/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5903,9 +5789,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/cursor/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/cursor/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5948,9 +5833,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/github-stars/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/github-stars/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -5987,9 +5871,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/pinned-list/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/pinned-list/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6030,9 +5913,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/scroll-progress/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/scroll-progress/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6069,9 +5951,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/slot/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/slot/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6112,9 +5993,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/spring/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/spring/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6155,9 +6035,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/tabs/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/tabs/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6197,9 +6076,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/animate/tooltip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/animate/tooltip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6238,9 +6116,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/accordion/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/accordion/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6279,9 +6156,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/alert-dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/alert-dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6320,9 +6196,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6361,9 +6236,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/collapsible/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/collapsible/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6525,9 +6399,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/popover/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/popover/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6567,9 +6440,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/preview-card/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/preview-card/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6608,9 +6480,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/progress/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/progress/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6809,9 +6680,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/toggle-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/toggle-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6851,9 +6721,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/base/tooltip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/base/tooltip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6889,9 +6758,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/buttons/button/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/buttons/button/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6930,9 +6798,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/buttons/flip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/buttons/flip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -6971,9 +6838,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/buttons/liquid/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/buttons/liquid/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7012,9 +6878,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/buttons/ripple/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/buttons/ripple/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7054,9 +6919,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/auto-height/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/auto-height/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7096,9 +6960,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/blur/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/blur/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7135,9 +6998,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/click/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/click/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7177,9 +7039,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/effect/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/effect/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7219,9 +7080,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/fade/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/fade/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7258,9 +7118,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/highlight/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/highlight/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7296,9 +7155,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/image-zoom/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/image-zoom/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7335,9 +7193,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/magnetic/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/magnetic/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7376,9 +7233,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/particles/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/particles/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7415,9 +7271,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/shine/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/shine/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7457,9 +7312,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/slide/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/slide/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7495,9 +7349,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/theme-toggler/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/theme-toggler/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7537,9 +7390,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/tilt/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/tilt/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7579,9 +7431,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/effects/zoom/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/effects/zoom/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7618,9 +7469,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/headless/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/headless/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7657,9 +7507,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/headless/dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/headless/dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7696,9 +7545,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/headless/disclosure/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/headless/disclosure/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7735,9 +7583,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/headless/popover/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/headless/popover/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7774,9 +7621,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/headless/switch/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/headless/switch/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7817,9 +7663,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/headless/switch/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/headless/switch/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7859,9 +7704,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/accordion/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/accordion/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7901,9 +7745,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/alert-dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/alert-dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7943,9 +7786,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/checkbox/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/checkbox/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -7984,9 +7826,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/collapsible/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/collapsible/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8026,9 +7867,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/dialog/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/dialog/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8070,9 +7910,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/dropdown-menu/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/dropdown-menu/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8154,9 +7993,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/hover-card/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/hover-card/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8195,9 +8033,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/popover/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/popover/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8234,9 +8071,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/progress/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/progress/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8276,9 +8112,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/radio-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/radio-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8358,9 +8193,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/switch/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/switch/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8441,9 +8275,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/toggle/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/toggle/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8483,9 +8316,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/toggle-group/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/toggle-group/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8525,9 +8357,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/radix/tooltip/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/radix/tooltip/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8563,9 +8394,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/counting-number/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/counting-number/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8601,9 +8431,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/gradient/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/gradient/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8639,9 +8468,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/highlight/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/highlight/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8678,9 +8506,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/morphing/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/morphing/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8716,9 +8543,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/rolling/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/rolling/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8757,9 +8583,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/rotating/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/rotating/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8798,9 +8623,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/scrolling-number/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/scrolling-number/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8836,9 +8660,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/shimmering/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/shimmering/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8874,9 +8697,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/sliding-number/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/sliding-number/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8912,9 +8734,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/splitting/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/splitting/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
@@ -8953,9 +8774,8 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/primitives/texts/typing/index.tsx'
-        );
+        const mod =
+          await import('@/registry/primitives/texts/typing/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>

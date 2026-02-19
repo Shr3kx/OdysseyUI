@@ -1,5 +1,5 @@
 {
-  "name": "animate-ui",
+  "name": "odyssey-ui",
   "version": "1.0.20",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "registry:build": "pnpm --filter animate-ui registry:build"
+    "registry:build": "pnpm --filter odyssey-ui registry:build"
   },
   "dependencies": {
     "next": "^16.0.1",
