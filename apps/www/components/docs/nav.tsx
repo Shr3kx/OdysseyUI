@@ -6,11 +6,17 @@ import React from 'react';
 import { IconLogo } from '../icon-logo';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { cn } from '@workspace/ui/lib/utils';
-import { CommandIcon } from 'lucide-react';
+import { CommandIcon, StarIcon } from 'lucide-react';
 import { useSidebar } from 'fumadocs-ui/provider';
 import { ThemeSwitcher } from '../animate/theme-switcher';
 import XIcon from '@workspace/ui/components/icons/x-icon';
-import { GithubStarsLogo } from '@/registry/primitives/animate/github-stars';
+import {
+  GithubStars,
+  GithubStarsIcon,
+  GithubStarsLogo,
+  GithubStarsNumber,
+  GithubStarsParticles,
+} from '@/registry/primitives/animate/github-stars';
 import { Menu } from '@/registry/icons/menu';
 import { ComponentSearch } from './component-search';
 
@@ -107,15 +113,32 @@ export const Nav = () => {
             </button>
 
             <div className="flex items-center gap-1 max-md:hidden">
-              <a
-                href="https://github.com/shr3kx/odysseyUI"
-                rel="noreferrer noopener"
-                target="_blank"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground size-8 [&_svg]:size-5 text-fd-muted-foreground"
-                data-active="false"
+              <GithubStars
+                username="shr3kx"
+                repo="odysseyUI"
+                delay={2000}
+                asChild
               >
-                <GithubStarsLogo />
-              </a>
+                <a
+                  href="https://github.com/shr3kx/odysseyUI"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                  className="sm:mt-1 group cursor-pointer justify-center rounded-md text-sm group font-medium transition-colors duration-300 ease-in-out disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground p-1.5 [&_svg]:size-5 text-fd-muted-foreground sm:[&_svg]:size-5.5 flex items-center gap-x-2"
+                >
+                  <GithubStarsLogo className="size-6" />
+
+                  <span className="rounded-lg flex items-center gap-x-1 select-none bg-accent dark:group-hover:bg-neutral-900 group-hover:bg-white text-sm py-1 pl-1.5 pr-1.25">
+                    <GithubStarsNumber />{' '}
+                    <GithubStarsParticles>
+                      <GithubStarsIcon
+                        icon={StarIcon}
+                        className="size-4!"
+                        activeClassName="group-hover:text-yellow-600 text-yellow-500 transition-all duration-300"
+                      />
+                    </GithubStarsParticles>
+                  </span>
+                </a>
+              </GithubStars>
 
               <a
                 href="https://x.com/iam-sahil"

@@ -77,7 +77,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         ref={ref}
         {...props}
         className={cn(
-          'not-prose group fd-codeblock relative my-6 overflow-hidden rounded-xl text-sm [&.shiki]:!bg-background border',
+          'not-prose group fd-codeblock relative my-6 overflow-hidden rounded-xl text-sm [&.shiki]:bg-background! border',
           props.className,
         )}
       >
@@ -108,11 +108,11 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
           </div>
         ) : (
           allowCopy && (
-            <div className="absolute right-1.5 top-1.5 z-[2]">
+            <div className="absolute right-1.5 top-1.5 z-2">
               <CopyButton
                 size="xs"
                 variant="ghost"
-                className="size-9 border-l border-b bg-background rounded-tl-none rounded-br-none hover:bg-accent"
+                className="size-9 border-l border-b bg-background rounded-tl-none rounded-br-none hover:bg-black/5 dark:hover:bg-white/10"
                 onClick={onCopy}
                 isCopied={isCopied}
               />
@@ -125,7 +125,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
               {...viewportProps}
               data-slot="codeblock-viewport"
               className={cn(
-                'max-h-[600px] bg-muted border rounded-md [&_code]:!text-[13px] [&_code_.line]:!px-0',
+                'max-h-150 bg-muted border rounded-md [&_code]:text-[13px]! [&_code_.line]:px-0!',
                 viewportProps?.className,
               )}
             >
