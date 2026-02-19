@@ -1,31 +1,28 @@
 ---
 title: Accessibility
-description: How is accessibility with Odyssey UI?
+description: Building interfaces that work for everyone.
 ---
 
-Animations can greatly enhance user experience, but they can also create accessibility issues if not handled with care. Some users are sensitive to motion and may experience discomfort, dizziness, or difficulty focusing when faced with strong visual effects.
+Good UI doesn't exclude people. Odyssey UI is built to be usable by default—no extra configuration needed for basic accessibility. We believe that inclusive design creates better experiences for all users, not just those with disabilities.
 
-To address this, operating systems and browsers expose a setting called **Reduced Motion** (`prefers-reduced-motion`). When enabled, it communicates that the user prefers simpler or fewer animations.
+---
 
-As developers, it’s our responsibility to make sure our components adapt to this preference.
+## Motion & Animation
 
-## Prefers Reduced Motion
+### Understanding motion sensitivity
 
-`prefers-reduced-motion` is a CSS media query and system-level setting. If a user has enabled it, it usually means:
+Some people experience discomfort, dizziness, or nausea from animation. Browsers and operating systems include a **Reduced Motion** setting (`prefers-reduced-motion`) for this.
 
-- Avoiding large-scale movement (scale, translate, rotate).
-- Preferring subtle effects such as opacity fades.
-- Disabling parallax or auto-scrolling animations.
-- Turning off looping or auto-playing background motion.
+When enabled, users typically prefer:
 
-The goal isn't to remove animation entirely, but to make it comfortable and safe.
+- Skip large movements like scaling, sliding, or rotating
+- Subtle opacity fades instead of motion
+- No parallax or auto-scrolling effects
+- No looping or auto-playing background animation
 
-## Odyssey UI & Motion
+### How we handle it
 
-Odyssey UI **is built on top of [Motion](https://motion.dev/)**.
-This means all Odyssey UI components can leverage Motion’s accessibility features.
-
-The recommended way to support Reduced Motion is to wrap your app with `MotionConfig`:
+Odyssey UI uses [Motion](https://motion.dev/) under the hood. Wrap your app once to automatically respect this setting across all components:
 
 ```tsx
 import { MotionConfig } from 'motion/react';
@@ -35,18 +32,55 @@ export function App({ children }: { children: React.ReactNode }) {
 }
 ```
 
-With `reducedMotion="user"`, Motion will automatically:
+This ensures that users who have requested reduced motion in their system preferences will automatically receive a more comfortable experience without any additional code changes in your components.
 
-- Disable transform and layout animations if the user has Reduced Motion enabled.
-- Keep helpful transitions like opacity or background-color.
+## Keyboard Navigation
 
-As a result, Odyssey UI components will automatically respect user preferences without extra configuration.
+### Full keyboard support
 
-## Conclusion
+All interactive elements in Odyssey UI are fully accessible via keyboard:
 
-Accessible animations help ensure your UI is usable for everyone.
-By combining Odyssey UI with Motion’s `MotionConfig`, you can provide a smooth, animated experience while adapting gracefully to `prefers-reduced-motion`.
+- **Tab navigation**: Logical focus order follows the visual layout
+- **Focus indicators**: Clear, high-contrast focus rings show where you are
+- **Shortcut keys**: Common actions support standard keyboard shortcuts
+- **Escape handling**: Modals and dropdowns close with the Escape key
+- **Trap focus**: When a modal opens, focus stays within it until closed
 
-**We recommend adding `MotionConfig reducedMotion="user"` at the root of your app.**
+### Testing keyboard accessibility
 
-For more details, see the [Motion documentation](https://motion.dev/docs/react-accessibility).
+You can verify keyboard support by unplugging your mouse and navigating your application using only:
+
+- `Tab` / `Shift+Tab` to move between elements
+- `Enter` or `Space` to activate buttons and links
+- `Arrow keys` for radio groups, sliders, and menus
+- `Home` / `End` for jumping to start/end of lists
+
+---
+
+## Screen Readers
+
+### Semantic HTML and ARIA
+
+Odyssey UI components use proper semantic HTML elements and ARIA attributes to ensure screen readers can interpret them correctly:
+
+- **Landmarks**: Header, main, navigation, and footer regions are properly marked
+- **Headings**: Hierarchical heading structure for easy navigation
+- **Labels**: All form inputs have associated labels
+- **Live regions**: Dynamic content updates are announced appropriately
+- **Descriptions**: Complex components include supplementary text when needed
+
+### Testing with screen readers
+
+We test with the following screen reader combinations:
+
+- NVDA + Firefox (Windows)
+- JAWS + Chrome (Windows)
+- VoiceOver + Safari (macOS and iOS)
+- TalkBack + Chrome (Android)
+
+<Callout>
+  **Accessibility Note:** While our components are designed with accessibility
+  in mind, we recommend always testing with real assistive technologies and
+  users. Automated tools catch only about 30% of accessibility issues—human
+  testing is irreplaceable for creating truly inclusive experiences.
+</Callout>

@@ -36,10 +36,10 @@ Run the `add` command to add a component to your project.
 
 <CodeTabs
   codes={{
-    pnpm: `pnpm dlx shadcn@latest add @animate-ui/primitives-texts-sliding-number`,
-    npm: `npx shadcn@latest add @animate-ui/primitives-texts-sliding-number`,
-    yarn: `npx shadcn@latest add @animate-ui/primitives-texts-sliding-number`,
-    bun: `bunx --bun shadcn@latest add @animate-ui/primitives-texts-sliding-number`,
+    pnpm: `pnpm dlx shadcn@latest add @odyssey/components-animate-code-block`,
+    npm: `npx shadcn@latest add @odyssey/components-animate-code-block`,
+    yarn: `npx shadcn@latest add @odyssey/components-animate-code-block`,
+    bun: `bunx --bun shadcn@latest add @odyssey/components-animate-code-block`,
   }}
 />
 
@@ -51,12 +51,12 @@ Run the `add` command to add a component to your project.
 Import the component to your project.
 
 ```tsx
-import { SlidingNumber } from '@/components/animate-ui/primitives/texts/sliding-number';
+import { CodeBlock } from '@/components/odyssey/code-block';
 
 export default function Home() {
   return (
     <div>
-      <SlidingNumber />
+      <CodeBlock />
     </div>
   );
 }
