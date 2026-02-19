@@ -103,6 +103,45 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/components-animate-code',
   },
+  'components-animate-code-block': {
+    name: 'components-animate-code-block',
+    description:
+      'A styled code block frame component with language badge and optional copy functionality.',
+    type: 'registry:ui',
+    dependencies: [],
+    devDependencies: undefined,
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'registry/components/animate/code-block/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/animate/code-block.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { cn } from \'@/lib/utils\';\n// import { CopyButton } from "@/components/ui/cubby-ui/copy-button/copy-button";\ntype CodeFrameProps = {\n  code: string;\n  language?: string;\n  className?: string;\n  children: React.ReactNode;\n};\n\nexport function CodeFrame({\n  code,\n  language = \'JS\',\n  className,\n  children,\n}: CodeFrameProps) {\n  return (\n    <div\n      className={cn(\n        \'group bg-muted border border-border/60 max-w-full w-full rounded-2xl p-1 pt-0 relative\',\n        className,\n      )}\n    >\n      <div className="flex items-center justify-between bg-transparent px-3 py-1">\n        <div className="flex min-w-0 items-center gap-2">\n          <span className="inline-flex items-center rounded-sm border border-border/70 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-muted-foreground">\n            {language.toUpperCase()}\n          </span>\n        </div>\n\n        {/* <CopyButton content={code} /> */}\n      </div>\n\n      <pre className="relative bg-card border border-border/60 rounded-lg whitespace-pre overflow-hidden max-h-96">\n        <div className="">{children}</div>\n      </pre>\n    </div>\n  );\n}\n\n//   <CodeFrame code={snippet.code} language="js">\n//     <CodeBlock code={snippet.code} language={snippet.language} />\n//   </CodeFrame>;',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/components/animate/code-block/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-animate-code-block';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-animate-code-block',
+  },
   'components-animate-code-tabs': {
     name: 'components-animate-code-tabs',
     description: 'A tabs component that displays code for different languages.',
@@ -749,6 +788,44 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-animate-code',
+  },
+  'demo-components-animate-code-block': {
+    name: 'demo-components-animate-code-block',
+    description: 'Demo showing a code block frame with a Python snippet.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['@animate-ui/components-animate-code-block'],
+    files: [
+      {
+        path: 'registry/demo/components/animate/code-block/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/animate/code-block.tsx',
+        content:
+          "import { CodeFrame } from '@/components/odyssey/components/animate/code-block';\n\nconst snippet_3 = {\n  id: '3',\n  title: 'Python Context Manager',\n  description:\n    'A custom context manager for file operations with error handling.',\n  code: `from contextlib import contextmanager\nfrom typing import Generator\n\n@contextmanager\ndef safe_file_operation(filepath: str, mode: str = 'r') -> Generator:\n    \"\"\"Context manager for safe file operations.\"\"\"\n    file = None\n    try:\n        file = open(filepath, mode)\n        yield file\n    except FileNotFoundError:\n        print(f\"File {filepath} not found\")\n        raise\n    except IOError as e:\n        print(f\"IO error: {e}\")\n        raise\n    finally:\n        if file:\n            file.close()\n\n# Usage\nwith safe_file_operation('data.txt', 'r') as f:\n    content = f.read()\n    print(content)`,\n  language: 'python',\n  tags: ['python', 'context-manager', 'file-handling'],\n  folder: 'Learning',\n  createdAt: Date.now(),\n  updatedAt: Date.now(),\n};\nexport const CodeFrameDemo = () => {\n  return (\n    <CodeFrame language=\"python\" code={snippet_3.code}>\n      <code className=\"p-4 text-sm\">{snippet_3.code}</code>\n    </CodeFrame>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/components/animate/code-block/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-animate-code-block';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-animate-code-block',
   },
   'demo-components-animate-code-tabs': {
     name: 'demo-components-animate-code-tabs',

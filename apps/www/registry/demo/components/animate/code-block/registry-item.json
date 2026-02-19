@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-code-block",
+  "type": "registry:ui",
+  "title": "Code Block Demo",
+  "description": "Demo showing a code block frame with a Python snippet.",
+  "registryDependencies": ["@animate-ui/components-animate-code-block"],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/code-block/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/animate/code-block.tsx"
+    }
+  ]
+}

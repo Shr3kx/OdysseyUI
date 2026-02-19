@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-animate-code-block",
+  "title": "Code Block",
+  "description": "A styled code block frame component with language badge and optional copy functionality.",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/components/animate/code-block/index.tsx",
+      "content": "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\n// import { CopyButton } from \"@/components/ui/cubby-ui/copy-button/copy-button\";\ntype CodeFrameProps = {\n  code: string;\n  language?: string;\n  className?: string;\n  children: React.ReactNode;\n};\n\nexport function CodeFrame({\n  code,\n  language = 'JS',\n  className,\n  children,\n}: CodeFrameProps) {\n  return (\n    <div\n      className={cn(\n        'group bg-muted border border-border/60 max-w-full w-full rounded-2xl p-1 pt-0 relative',\n        className,\n      )}\n    >\n      <div className=\"flex items-center justify-between bg-transparent px-3 py-1\">\n        <div className=\"flex min-w-0 items-center gap-2\">\n          <span className=\"inline-flex items-center rounded-sm border border-border/70 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-muted-foreground\">\n            {language.toUpperCase()}\n          </span>\n        </div>\n\n        {/* <CopyButton content={code} /> */}\n      </div>\n\n      <pre className=\"relative bg-card border border-border/60 rounded-lg whitespace-pre overflow-hidden max-h-96\">\n        <div className=\"\">{children}</div>\n      </pre>\n    </div>\n  );\n}\n\n//   <CodeFrame code={snippet.code} language=\"js\">\n//     <CodeBlock code={snippet.code} language={snippet.language} />\n//   </CodeFrame>;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/animate/code-block.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

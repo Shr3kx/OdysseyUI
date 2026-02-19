@@ -1,0 +1,70 @@
+---
+title: Code Block
+description: A styled code block frame component with language badge and optional copy functionality.
+---
+
+<ComponentPreview name="demo-components-animate-code-block" />
+
+## Installation
+
+<ComponentInstallation name="components-animate-code-block" />
+
+## Usage
+
+```tsx
+<CodeFrame code={codeString} language="tsx">
+  <code>{codeString}</code>
+</CodeFrame>
+```
+
+## API Reference
+
+### CodeFrame
+
+<TypeTable
+  type={{
+    code: {
+      description: 'The code string to be copied.',
+      type: 'string',
+      required: true,
+    },
+    language: {
+      description: 'The programming language displayed in the badge.',
+      type: 'string',
+      required: false,
+      default: 'JS',
+    },
+    className: {
+      description: 'Additional CSS classes for the frame container.',
+      type: 'string',
+      required: false,
+    },
+    children: {
+      description: 'The rendered code content to display inside the frame.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+  }}
+/>
+
+## Examples
+
+### With Different Languages
+
+```tsx
+<CodeFrame code="const hello = 'world';" language="tsx">
+  <code>const hello = 'world';</code>
+</CodeFrame>
+
+<CodeFrame code="def hello():\n    print('world')" language="python">
+  <code>def hello():{'\n'}    print('world')</code>
+</CodeFrame>
+```
+
+### With Custom Styling
+
+```tsx
+<CodeFrame code={codeString} language="typescript" className="max-w-2xl">
+  <code className="text-sm">{codeString}</code>
+</CodeFrame>
+```
