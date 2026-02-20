@@ -9,10 +9,87 @@ import {
   ChangelogItemTitle,
   ChangelogItemDescription,
   ChangelogItemVersion,
-  ChangelogItemList,
 } from '@/components/docs/changelog';
 
 <Changelog>
+
+<ChangelogItem date="2025-09-10">
+  <ChangelogItemVersion>
+
+## 1.0.1
+
+  </ChangelogItemVersion>
+
+  <ChangelogItemTitle>Initial Foundation</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Introduced core documentation structure. Added base styling tokens and a typography scale. Set up the initial component registry layout.
+  </ChangelogItemDescription>
+</ChangelogItem>
+
+<ChangelogItem date="2025-09-18">
+  <ChangelogItemVersion>
+
+## 1.0.5
+
+  </ChangelogItemVersion>
+
+  <ChangelogItemTitle>Early Components</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Added initial UI primitives such as Button, Badge, and Card. Implemented basic focus and hover states. Improved layout consistency across documentation pages.
+  </ChangelogItemDescription>
+</ChangelogItem>
+
+<ChangelogItem date="2025-09-28">
+  <ChangelogItemVersion>
+
+## 1.0.9
+
+  </ChangelogItemVersion>
+
+  <ChangelogItemTitle>Accessibility & Motion</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Improved keyboard navigation across interactive components. Added motion-safe defaults for users who prefer reduced motion. Refined transition timing for smoother UI feedback.
+  </ChangelogItemDescription>
+</ChangelogItem>
+
+<ChangelogItem date="2025-10-08">
+  <ChangelogItemVersion>
+
+## 1.0.12
+
+  </ChangelogItemVersion>
+
+  <ChangelogItemTitle>Icon Library Expansion</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Added multiple icon sets including weather icons, UI icons, system icons, and horizontal and vertical gallery variants.
+  </ChangelogItemDescription>
+</ChangelogItem>
+
+<ChangelogItem date="2025-11-02">
+  <ChangelogItemVersion>
+
+## 1.0.15
+
+  </ChangelogItemVersion>
+
+  <ChangelogItemTitle>Design System Improvements</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Refined focus ring styles for better visibility. Improved color contrast in dark mode for secondary text. Updated the spacing scale for a more consistent vertical rhythm. Enhanced mobile navigation with larger touch targets.
+  </ChangelogItemDescription>
+</ChangelogItem>
+
+<ChangelogItem date="2025-12-12">
+  <ChangelogItemVersion>
+
+## 1.0.18
+
+  </ChangelogItemVersion>
+
+  <ChangelogItemTitle>Component & Documentation Enhancements</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    GithubStars now supports delayed rendering. CodeTabs supports multiple package managers. Manual installation guides were improved with clearer step-by-step instructions.
+  </ChangelogItemDescription>
+</ChangelogItem>
 
 <ChangelogItem date="2026-02-19">
   <ChangelogItemVersion>
@@ -21,81 +98,25 @@ import {
 
   </ChangelogItemVersion>
 
-<ChangelogItemTitle>New Primitives</ChangelogItemTitle>
+  <ChangelogItemTitle>New Primitives</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Added the CodeBlock primitive component and the ImageZoom effect primitive.
+  </ChangelogItemDescription>
 
-<ChangelogItemDescription>
+  <ChangelogItemTitle>Primitive Updates</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Improved animation systems for Radix UI Accordion and Collapsible, Headless UI Disclosure, and Base UI Accordion and Collapsible primitives.
+  </ChangelogItemDescription>
 
-- Added `CodeBlock` primitive component (`registry/components/animate/code-block`).
-- Added `ImageZoom` effect primitive.
+  <ChangelogItemTitle>Infrastructure</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Introduced a registry build system with automatic path replacement, LLM-powered documentation text generation, and a static JSON API for search.
+  </ChangelogItemDescription>
 
-</ChangelogItemDescription>
-
-<ChangelogItemTitle>Primitive Updates</ChangelogItemTitle>
-
-<ChangelogItemDescription>
-
-- Radix UI `Accordion` — improved animation system (`registry/primitives/radix/accordion`).
-- Radix UI `Collapsible` — enhanced animation behavior.
-- Headless UI `Disclosure` — smoother animation transitions (`registry/primitives/headless/disclosure`).
-- Base UI `Accordion` — animation improvements (`registry/primitives/base/accordion`).
-- Base UI `Collapsible` — enhanced animation system (`registry/primitives/base/collapsible`).
-
-</ChangelogItemDescription>
-
-<ChangelogItemTitle>Design System Improvements</ChangelogItemTitle>
-
-<ChangelogItemDescription>
-
-- Refined focus ring styles for better visibility across interactive components.
-- Improved color contrast in dark mode for secondary text.
-- Updated spacing scale for a more consistent vertical rhythm in documentation.
-- Enhanced mobile navigation with larger, more accessible touch targets.
-
-</ChangelogItemDescription>
-
-<ChangelogItemTitle>Icon Library Expansion</ChangelogItemTitle>
-
-<ChangelogItemDescription>
-
-Multiple batches of new icons added between **September–October 2025**, including:
-
-- Weather icons (cloud variants, sun, moon, and more).
-- UI icons (check variants, lock variants, etc.).
-- System icons (Wi-Fi, signal strength, battery states).
-- Gallery icons (horizontal and vertical variants).
-
-</ChangelogItemDescription>
-
-<ChangelogItemTitle>Component Features</ChangelogItemTitle>
-
-<ChangelogItemDescription>
-
-- `GithubStars` component now supports delayed rendering (`nav.tsx:110–116`).
-- `CodeTabs` component supports multiple package managers (`components/docs/code-tabs.tsx`).
-- `ComponentWrapper` now supports iframe rendering and Tweakpane integration (`components/docs/component-wrapper.tsx`).
-
-</ChangelogItemDescription>
-
-<ChangelogItemTitle>Infrastructure</ChangelogItemTitle>
-
-<ChangelogItemDescription>
-
-- Registry build system with automatic path replacement (`scripts/build-registry.mts`).
-- LLM-powered text generation for documentation (`lib/get-llm-text.ts`).
-- Static JSON API introduced for search functionality (`app/static.json/route.ts`).
-
-</ChangelogItemDescription>
-
-<ChangelogItemTitle>Documentation</ChangelogItemTitle>
-
-<ChangelogItemDescription>
-
-- Introduced a new changelog system with versioning (`components/docs/changelog.tsx`).
-- Enhanced component installation documentation (`components/docs/component-installation.tsx`).
-- Improved manual installation guides with clear, step-by-step instructions.
-
-</ChangelogItemDescription>
-
+  <ChangelogItemTitle>Documentation</ChangelogItemTitle>
+  <ChangelogItemDescription>
+    Introduced a versioned changelog system, enhanced component installation documentation, and improved clarity across all docs.
+  </ChangelogItemDescription>
 </ChangelogItem>
 
 </Changelog>

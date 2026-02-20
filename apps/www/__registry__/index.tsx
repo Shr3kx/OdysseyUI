@@ -784,7 +784,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odyssey/demo/animate/code-block.tsx',
         content:
-          "import { CodeFrame } from '@/components/odyssey/components/animate/code-block';\n\nconst snippet_3 = {\n  id: '3',\n  title: 'Python Context Manager',\n  description:\n    'A custom context manager for file operations with error handling.',\n  code: `from contextlib import contextmanager\nfrom typing import Generator\n\n@contextmanager\ndef safe_file_operation(filepath: str, mode: str = 'r') -> Generator:\n    \"\"\"Context manager for safe file operations.\"\"\"\n    file = None\n    try:\n        file = open(filepath, mode)\n        yield file\n    except FileNotFoundError:\n        print(f\"File {filepath} not found\")\n        raise\n    except IOError as e:\n        print(f\"IO error: {e}\")\n        raise\n    finally:\n        if file:\n            file.close()\n\n# Usage\nwith safe_file_operation('data.txt', 'r') as f:\n    content = f.read()\n    print(content)`,\n  language: 'python',\n  tags: ['python', 'context-manager', 'file-handling'],\n  folder: 'Learning',\n  createdAt: Date.now(),\n  updatedAt: Date.now(),\n};\nexport const CodeFrameDemo = () => {\n  return <CodeFrame code={snippet_3.code} language=\"python\" />;\n};",
+          "'use client';\n\nimport { CodeFrame } from '@/components/odyssey/components/animate/code-block';\n\ninterface CodeFrameDemoProps {\n  writing: boolean;\n  duration: number;\n  delay: number;\n  theme: string;\n  language: string;\n}\n\nexport const CodeFrameDemo = ({\n  writing,\n  duration,\n  delay,\n  theme,\n  language,\n}: CodeFrameDemoProps) => {\n  return (\n    <CodeFrame\n      key={`${writing}-${duration}-${delay}-${language}`}\n      code={code}\n      language={language}\n      writing={writing}\n      duration={duration}\n      delay={delay}\n      theme={theme}\n      className=\"w-[500px]\"\n    />\n  );\n};",
       },
     ],
     keywords: [],
@@ -803,7 +803,35 @@ export const index: Record<string, any> = {
         }
         return { default: Comp };
       });
-      LazyComp.demoProps = {};
+      LazyComp.demoProps = {
+        CodeFrame: {
+          delay: { value: 0, min: 0, max: 3000, step: 100 },
+          duration: { value: 5000, min: 500, max: 30000, step: 500 },
+          typeEffect: { value: true },
+          theme: {
+            value: 'one-dark-pro',
+            options: {
+              'One Dark Pro': 'one-dark-pro',
+              'GitHub Dark': 'github-dark',
+              'GitHub Light': 'github-light',
+              Dracula: 'dracula',
+              Nord: 'nord',
+              Monokai: 'monokai',
+              'Tokyo Night': 'tokyo-night',
+              'Solarized Dark': 'solarized-dark',
+            },
+          },
+          language: {
+            value: 'react',
+            options: {
+              React: 'react',
+              Python: 'python',
+              JavaScript: 'javascript',
+              Java: 'java',
+            },
+          },
+        },
+      };
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-animate-code-block',
