@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Rolling Text Demo",
   "description": "Demo showing an animated rolling text.",
-  "registryDependencies": ["@animate-ui/primitives-texts-rolling"],
+  "registryDependencies": ["@odysseyui/primitives-texts-rolling"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/rolling/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/rolling.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/rolling.tsx"
     }
   ],
   "meta": {

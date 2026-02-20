@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Magnetic Demo",
   "description": "Demo showing a magnetic effect.",
-  "registryDependencies": ["@animate-ui/primitives-effects-magnetic"],
+  "registryDependencies": ["@odysseyui/primitives-effects-magnetic"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/magnetic/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/magnetic.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/magnetic.tsx"
     }
   ],
   "meta": {

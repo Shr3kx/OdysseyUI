@@ -199,7 +199,7 @@ export async function generateMetadata(props: {
     openGraph: {
       title: page.data.title,
       description: page.data.description,
-      url: 'https://animate-ui.com',
+      url: 'https://odysseyui.com',
       siteName: 'Odyssey UI',
       images: image,
       locale: 'en_US',

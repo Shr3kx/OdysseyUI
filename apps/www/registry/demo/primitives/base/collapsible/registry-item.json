@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Base Collapsible Demo",
   "description": "Demo showing an animated base collapsible.",
-  "registryDependencies": ["@animate-ui/primitives-base-collapsible"],
+  "registryDependencies": ["@odysseyui/primitives-base-collapsible"],
   "files": [
     {
       "path": "registry/demo/primitives/base/collapsible/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/collapsible.tsx"
+      "target": "components/odysseyui/demo/primitives/base/collapsible.tsx"
     }
   ],
   "meta": {

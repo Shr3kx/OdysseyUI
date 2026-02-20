@@ -4,14 +4,14 @@
   "title": "Ripple Button Demo",
   "description": "Demo showing a ripple button.",
   "registryDependencies": [
-    "@animate-ui/primitives-buttons-ripple"
+    "@odysseyui/primitives-buttons-ripple"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/buttons/ripple/index.tsx",
       "content": "import {\n  RippleButton,\n  RippleButtonRipples,\n} from '@/components/odyssey/primitives/buttons/ripple';\n\ninterface RippleButtonDemoProps {\n  hoverScale: number;\n  tapScale: number;\n}\n\nexport default function RippleButtonDemo({\n  hoverScale,\n  tapScale,\n}: RippleButtonDemoProps) {\n  return (\n    <RippleButton\n      key={`${hoverScale}-${tapScale}`}\n      hoverScale={hoverScale}\n      tapScale={tapScale}\n      className=\"bg-primary text-primary-foreground text-sm font-medium px-4 py-2 h-10 [--ripple-button-ripple-color:var(--primary-foreground)]\"\n    >\n      Ripple Button\n      <RippleButtonRipples />\n    </RippleButton>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/buttons/ripple.tsx"
+      "target": "components/odysseyui/demo/primitives/buttons/ripple.tsx"
     }
   ],
   "meta": {

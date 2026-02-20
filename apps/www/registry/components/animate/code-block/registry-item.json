@@ -6,7 +6,6 @@
   "description": "A styled code block frame component with language badge and optional copy functionality.",
   "dependencies": ["shiki"],
   "registryDependencies": [
-    "https://odysseyui.vercel.app/r/primitives-animate-tabs.json",
     "https://odysseyui.vercel.app/r/components-buttons-copy.json"
   ],
   "files": [

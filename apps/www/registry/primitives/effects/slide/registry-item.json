@@ -6,14 +6,14 @@
   "description": "An effect that allows you to animate elements with a slide effect on first view or load.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "@animate-ui/primitives-animate-slot",
-    "@animate-ui/hooks-use-is-in-view"
+    "@odysseyui/primitives-animate-slot",
+    "@odysseyui/hooks-use-is-in-view"
   ],
   "files": [
     {
       "path": "registry/primitives/effects/slide/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/effects/slide.tsx"
+      "target": "components/odysseyui/primitives/effects/slide.tsx"
     }
   ]
 }

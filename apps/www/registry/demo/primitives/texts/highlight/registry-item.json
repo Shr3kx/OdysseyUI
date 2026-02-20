@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Highlight Text Demo",
   "description": "Demo showing an animated highlight text.",
-  "registryDependencies": ["@animate-ui/primitives-texts-highlight"],
+  "registryDependencies": ["@odysseyui/primitives-texts-highlight"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/highlight/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/highlight.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/highlight.tsx"
     }
   ],
   "meta": {

@@ -4,13 +4,13 @@
   "type": "registry:ui",
   "title": "Trash 2 Icon",
   "description": "Trash 2 icon component.",
-  "registryDependencies": ["@animate-ui/icons-icon"],
+  "registryDependencies": ["@odysseyui/icons-icon"],
   "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/icons/trash-2/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/icons/trash-2.tsx"
+      "target": "components/odysseyui/icons/trash-2.tsx"
     }
   ],
   "meta": {

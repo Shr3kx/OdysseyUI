@@ -4,14 +4,14 @@
   "title": "Counting Number Demo",
   "description": "Demo showing an animated counting number.",
   "registryDependencies": [
-    "@animate-ui/primitives-texts-counting-number"
+    "@odysseyui/primitives-texts-counting-number"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/texts/counting-number/index.tsx",
       "content": "import { CountingNumber } from '@/components/odyssey/primitives/texts/counting-number';\n\ninterface CountingFromNumberDemoProps {\n  number: number;\n  fromNumber: number;\n  padStart: boolean;\n  decimalSeparator: string;\n  decimalPlaces: number;\n  delay: number;\n}\n\nexport const CountingFromNumberDemo = ({\n  number,\n  fromNumber,\n  padStart,\n  decimalSeparator,\n  decimalPlaces,\n  delay,\n}: CountingFromNumberDemoProps) => {\n  return (\n    <CountingNumber\n      key={delay}\n      delay={delay}\n      number={number}\n      fromNumber={fromNumber}\n      padStart={padStart}\n      decimalSeparator={decimalSeparator}\n      decimalPlaces={decimalPlaces}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/counting-number.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/counting-number.tsx"
     }
   ],
   "meta": {

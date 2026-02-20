@@ -5,12 +5,12 @@
   "title": "Button Demo",
   "description": "Demo showing a button.",
   "dependencies": ["lucide-react"],
-  "registryDependencies": ["@animate-ui/components-buttons-button"],
+  "registryDependencies": ["@odysseyui/components-buttons-button"],
   "files": [
     {
       "path": "registry/demo/components/buttons/button/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/buttons/button.tsx"
+      "target": "components/odysseyui/demo/components/buttons/button.tsx"
     }
   ],
   "meta": {

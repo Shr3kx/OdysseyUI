@@ -4,13 +4,13 @@
   "type": "registry:ui",
   "title": "Audio Lines Icon",
   "description": "Audio Lines icon component.",
-  "registryDependencies": ["@animate-ui/icons-icon"],
+  "registryDependencies": ["@odysseyui/icons-icon"],
   "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/icons/audio-lines/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/icons/audio-lines.tsx"
+      "target": "components/odysseyui/icons/audio-lines.tsx"
     }
   ],
   "meta": {

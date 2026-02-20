@@ -17,7 +17,7 @@ export default function GitHubStarsButtonDemo({
       variant={variant}
       size={size}
       username="imskyleen"
-      repo="animate-ui"
+      repo="odysseyui"
     />
   );
 }

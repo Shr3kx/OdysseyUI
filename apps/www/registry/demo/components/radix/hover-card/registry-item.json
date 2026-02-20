@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Hover Card Demo",
   "description": "Demo showing a hover card.",
-  "registryDependencies": ["@animate-ui/components-radix-hover-card"],
+  "registryDependencies": ["@odysseyui/components-radix-hover-card"],
   "files": [
     {
       "path": "registry/demo/components/radix/hover-card/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/radix/hover-card.tsx"
+      "target": "components/odysseyui/demo/components/radix/hover-card.tsx"
     }
   ],
   "meta": {

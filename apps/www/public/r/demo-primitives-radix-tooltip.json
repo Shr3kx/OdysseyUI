@@ -4,14 +4,14 @@
   "title": "Radix Tooltip Demo",
   "description": "Demo showing an animated radix tooltip.",
   "registryDependencies": [
-    "@animate-ui/primitives-radix-tooltip"
+    "@odysseyui/primitives-radix-tooltip"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/radix/tooltip/index.tsx",
       "content": "import {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipPortal,\n  TooltipTrigger,\n} from '@/components/odyssey/primitives/radix/tooltip';\n\ninterface RadixTooltipDemoProps {\n  side?: 'top' | 'bottom' | 'left' | 'right';\n  sideOffset?: number;\n  align?: 'start' | 'center' | 'end';\n  alignOffset?: number;\n}\n\nexport const RadixTooltipDemo = ({\n  side,\n  sideOffset,\n  align,\n  alignOffset,\n}: RadixTooltipDemoProps) => {\n  return (\n    <TooltipProvider>\n      <Tooltip>\n        <TooltipTrigger>Hover</TooltipTrigger>\n        <TooltipPortal>\n          <TooltipContent\n            side={side}\n            sideOffset={sideOffset}\n            align={align}\n            alignOffset={alignOffset}\n            className=\"bg-primary text-primary-foreground px-2 py-1 text-sm z-50\"\n          >\n            <p>Add to library</p>\n          </TooltipContent>\n        </TooltipPortal>\n      </Tooltip>\n    </TooltipProvider>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/radix/tooltip.tsx"
+      "target": "components/odysseyui/demo/primitives/radix/tooltip.tsx"
     }
   ],
   "meta": {

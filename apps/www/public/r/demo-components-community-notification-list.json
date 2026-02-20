@@ -4,14 +4,14 @@
   "title": "Notification List Demo",
   "description": "Demo showing a notification list.",
   "registryDependencies": [
-    "@animate-ui/components-community-notification-list"
+    "@odysseyui/components-community-notification-list"
   ],
   "files": [
     {
       "path": "registry/demo/components/community/notification-list/index.tsx",
       "content": "'use client';\n\nimport * as React from 'react';\n\nimport { NotificationList } from '@/components/odyssey/components/community/notification-list';\n\nexport const NotificationListDemo = () => <NotificationList />;\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/community/notification-list.tsx"
+      "target": "components/odysseyui/demo/components/community/notification-list.tsx"
     }
   ],
   "type": "registry:ui"

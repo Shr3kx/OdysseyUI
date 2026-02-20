@@ -6,14 +6,14 @@
   "description": "A two-state button that can be either on or off.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/toggle/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/toggle.tsx"
+      "target": "components/odysseyui/primitives/radix/toggle.tsx"
     }
   ]
 }

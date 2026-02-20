@@ -5,12 +5,12 @@
   "title": "Button",
   "description": "A simple button that animates on hover and tap.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@animate-ui/primitives-animate-slot"],
+  "registryDependencies": ["@odysseyui/primitives-animate-slot"],
   "files": [
     {
       "path": "registry/primitives/buttons/button/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/buttons/button.tsx"
+      "target": "components/odysseyui/primitives/buttons/button.tsx"
     }
   ]
 }

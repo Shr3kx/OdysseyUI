@@ -12,7 +12,7 @@ export const GithubStarsDemo = () => {
     <GithubStars
       className="flex gap-2 items-center"
       username="imskyleen"
-      repo="animate-ui"
+      repo="odysseyui"
     >
       <GithubStarsLogo className="text-muted-foreground size-6" />
       <div className="p-1 bg-muted flex items-center gap-1">

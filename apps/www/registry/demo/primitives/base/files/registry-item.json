@@ -5,12 +5,12 @@
   "title": "Base Files Demo",
   "description": "Demo showing an animated base files.",
   "dependencies": ["lucide-react"],
-  "registryDependencies": ["@animate-ui/primitives-base-files"],
+  "registryDependencies": ["@odysseyui/primitives-base-files"],
   "files": [
     {
       "path": "registry/demo/primitives/base/files/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/files.tsx"
+      "target": "components/odysseyui/demo/primitives/base/files.tsx"
     }
   ]
 }

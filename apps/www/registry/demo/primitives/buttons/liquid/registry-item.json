@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Liquid Button Demo",
   "description": "Demo showing an animated liquid button.",
-  "registryDependencies": ["@animate-ui/primitives-buttons-liquid"],
+  "registryDependencies": ["@odysseyui/primitives-buttons-liquid"],
   "files": [
     {
       "path": "registry/demo/primitives/buttons/liquid/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/buttons/liquid.tsx"
+      "target": "components/odysseyui/demo/primitives/buttons/liquid.tsx"
     }
   ],
   "meta": {

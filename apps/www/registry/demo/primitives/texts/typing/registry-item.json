@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Typing Text Demo",
   "description": "Demo showing an animated typing text.",
-  "registryDependencies": ["@animate-ui/primitives-texts-typing"],
+  "registryDependencies": ["@odysseyui/primitives-texts-typing"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/typing/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/typing.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/typing.tsx"
     }
   ],
   "meta": {

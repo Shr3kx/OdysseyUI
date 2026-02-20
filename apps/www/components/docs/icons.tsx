@@ -461,10 +461,10 @@ export const Icons = () => {
                   <TabsContent value="cli">
                     <CodeTabs
                       codes={{
-                        npm: `npx shadcn@latest add @animate-ui/${activeIcon}`,
-                        pnpm: `pnpm dlx shadcn@latest add @animate-ui/${activeIcon}`,
-                        yarn: `npx shadcn@latest add @animate-ui/${activeIcon}`,
-                        bun: `bun x --bun shadcn@latest add @animate-ui/${activeIcon}`,
+                        npm: `npx shadcn@latest add @odysseyui/${activeIcon}`,
+                        pnpm: `pnpm dlx shadcn@latest add @odysseyui/${activeIcon}`,
+                        yarn: `npx shadcn@latest add @odysseyui/${activeIcon}`,
+                        bun: `bun x --bun shadcn@latest add @odysseyui/${activeIcon}`,
                       }}
                     />
                   </TabsContent>

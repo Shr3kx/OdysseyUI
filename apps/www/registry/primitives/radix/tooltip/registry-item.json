@@ -6,14 +6,14 @@
   "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/hooks-use-controlled-state",
-    "@animate-ui/lib-get-strict-context"
+    "@odysseyui/hooks-use-controlled-state",
+    "@odysseyui/lib-get-strict-context"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/tooltip/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/tooltip.tsx"
+      "target": "components/odysseyui/primitives/radix/tooltip.tsx"
     }
   ]
 }

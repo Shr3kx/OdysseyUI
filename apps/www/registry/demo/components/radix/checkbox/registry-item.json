@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Checkbox Demo",
   "description": "Demo showing a checkbox.",
-  "registryDependencies": ["@animate-ui/components-radix-checkbox"],
+  "registryDependencies": ["@odysseyui/components-radix-checkbox"],
   "files": [
     {
       "path": "registry/demo/components/radix/checkbox/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/radix/checkbox.tsx"
+      "target": "components/odysseyui/demo/components/radix/checkbox.tsx"
     }
   ],
   "meta": {

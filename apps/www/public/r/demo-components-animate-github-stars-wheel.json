@@ -4,14 +4,14 @@
   "title": "Animate GitHub Stars Wheel Demo",
   "description": "Demo showing an animated github stars wheel.",
   "registryDependencies": [
-    "@animate-ui/components-animate-github-stars-wheel"
+    "@odysseyui/components-animate-github-stars-wheel"
   ],
   "files": [
     {
       "path": "registry/demo/components/animate/github-stars-wheel/index.tsx",
-      "content": "import { GitHubStarsWheel } from '@/components/odyssey/components/animate/github-stars-wheel';\n\ninterface GitHubStarsWheelDemoProps {\n  delay: number;\n  direction: 'btt' | 'ttb';\n}\n\nexport const GitHubStarsWheelDemo = ({\n  delay,\n  direction,\n}: GitHubStarsWheelDemoProps) => {\n  return (\n    <div className=\"size-full flex items-center justify-center\">\n      <GitHubStarsWheel\n        username=\"imskyleen\"\n        repo=\"animate-ui\"\n        delay={delay}\n        direction={direction}\n      />\n    </div>\n  );\n};\n",
+      "content": "import { GitHubStarsWheel } from '@/components/odyssey/components/animate/github-stars-wheel';\n\ninterface GitHubStarsWheelDemoProps {\n  delay: number;\n  direction: 'btt' | 'ttb';\n}\n\nexport const GitHubStarsWheelDemo = ({\n  delay,\n  direction,\n}: GitHubStarsWheelDemoProps) => {\n  return (\n    <div className=\"size-full flex items-center justify-center\">\n      <GitHubStarsWheel\n        username=\"imskyleen\"\n        repo=\"odysseyui\"\n        delay={delay}\n        direction={direction}\n      />\n    </div>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/animate/github-stars-wheel.tsx"
+      "target": "components/odysseyui/demo/components/animate/github-stars-wheel.tsx"
     }
   ],
   "meta": {

@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Ripple Button Demo",
   "description": "Demo showing a ripple button.",
-  "registryDependencies": ["@animate-ui/primitives-buttons-ripple"],
+  "registryDependencies": ["@odysseyui/primitives-buttons-ripple"],
   "files": [
     {
       "path": "registry/demo/primitives/buttons/ripple/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/buttons/ripple.tsx"
+      "target": "components/odysseyui/demo/primitives/buttons/ripple.tsx"
     }
   ],
   "meta": {

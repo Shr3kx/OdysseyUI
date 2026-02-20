@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Shimmering Text Demo",
   "description": "Demo showing an animated shimmering text.",
-  "registryDependencies": ["@animate-ui/primitives-texts-shimmering"],
+  "registryDependencies": ["@odysseyui/primitives-texts-shimmering"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/shimmering/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/shimmering.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/shimmering.tsx"
     }
   ],
   "meta": {

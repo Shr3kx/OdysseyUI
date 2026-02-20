@@ -5,12 +5,12 @@
   "title": "Splitting Text",
   "description": "A splitting text animation.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
+  "registryDependencies": ["@odysseyui/hooks-use-is-in-view"],
   "files": [
     {
       "path": "registry/primitives/texts/splitting/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/texts/splitting.tsx"
+      "target": "components/odysseyui/primitives/texts/splitting.tsx"
     }
   ]
 }

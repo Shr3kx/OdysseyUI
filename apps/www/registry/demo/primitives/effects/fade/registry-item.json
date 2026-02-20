@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Fade Demo",
   "description": "Demo showing an animated fade.",
-  "registryDependencies": ["@animate-ui/primitives-effects-fade"],
+  "registryDependencies": ["@odysseyui/primitives-effects-fade"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/fade/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/fade.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/fade.tsx"
     }
   ],
   "meta": {

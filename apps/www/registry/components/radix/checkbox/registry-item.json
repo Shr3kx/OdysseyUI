@@ -5,12 +5,12 @@
   "title": "Checkbox",
   "description": "A control that allows the user to toggle between checked and not checked.",
   "dependencies": ["class-variance-authority"],
-  "registryDependencies": ["@animate-ui/primitives-radix-checkbox"],
+  "registryDependencies": ["@odysseyui/primitives-radix-checkbox"],
   "files": [
     {
       "path": "registry/components/radix/checkbox/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/components/radix/checkbox.tsx"
+      "target": "components/odysseyui/components/radix/checkbox.tsx"
     }
   ]
 }

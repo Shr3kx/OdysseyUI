@@ -4,14 +4,14 @@
   "title": "Magnetic Demo",
   "description": "Demo showing a magnetic effect.",
   "registryDependencies": [
-    "@animate-ui/primitives-effects-magnetic"
+    "@odysseyui/primitives-effects-magnetic"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/effects/magnetic/index.tsx",
       "content": "import { Magnetic } from '@/components/odyssey/primitives/effects/magnetic';\n\ninterface MagneticDemoProps {\n  onlyOnHover: boolean;\n  strength: number;\n  range: number;\n}\n\nexport const MagneticDemo = (props: MagneticDemoProps) => {\n  return (\n    <div className=\"size-full flex items-center justify-center\">\n      <Magnetic className=\"size-20 bg-primary\" {...props} />\n    </div>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/magnetic.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/magnetic.tsx"
     }
   ],
   "meta": {

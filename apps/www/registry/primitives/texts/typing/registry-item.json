@@ -6,14 +6,14 @@
   "description": "A typing text animation.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "@animate-ui/hooks-use-is-in-view",
-    "@animate-ui/lib-get-strict-context"
+    "@odysseyui/hooks-use-is-in-view",
+    "@odysseyui/lib-get-strict-context"
   ],
   "files": [
     {
       "path": "registry/primitives/texts/typing/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/texts/typing.tsx"
+      "target": "components/odysseyui/primitives/texts/typing.tsx"
     }
   ]
 }

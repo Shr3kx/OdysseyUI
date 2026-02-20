@@ -6,16 +6,16 @@
   "description": "A list of actions in a dropdown, enhanced with keyboard navigation.",
   "dependencies": ["motion", "@base-ui-components/react"],
   "registryDependencies": [
-    "@animate-ui/primitives-effects-highlight",
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state",
-    "@animate-ui/hooks-use-data-state"
+    "@odysseyui/primitives-effects-highlight",
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state",
+    "@odysseyui/hooks-use-data-state"
   ],
   "files": [
     {
       "path": "registry/primitives/base/menu/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/base/menu.tsx"
+      "target": "components/odysseyui/primitives/base/menu.tsx"
     }
   ]
 }

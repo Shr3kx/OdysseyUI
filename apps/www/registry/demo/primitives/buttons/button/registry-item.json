@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Button Demo",
   "description": "Demo showing a button.",
-  "registryDependencies": ["@animate-ui/primitives-buttons-button"],
+  "registryDependencies": ["@odysseyui/primitives-buttons-button"],
   "files": [
     {
       "path": "registry/demo/primitives/buttons/button/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/buttons/button.tsx"
+      "target": "components/odysseyui/demo/primitives/buttons/button.tsx"
     }
   ],
   "meta": {

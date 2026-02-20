@@ -83,7 +83,7 @@ export async function GET(_req: Request, { params }: any) {
               tw="text-white/80 text-2xl -mb-2"
               style={{ fontFamily: 'Outfit' }}
             >
-              animate-ui.com
+              odysseyui.com
             </p>
           </div>
         </div>
@@ -95,7 +95,7 @@ export async function GET(_req: Request, { params }: any) {
           name: 'Outfit',
           data: await loadGoogleFont(
             'Outfit',
-            `${page.data.description} ${page.data.title} animate-ui.com`,
+            `${page.data.description} ${page.data.title} odysseyui.com`,
           ),
           style: 'normal',
         },

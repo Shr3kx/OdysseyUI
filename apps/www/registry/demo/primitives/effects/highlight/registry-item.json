@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Highlight Demo",
   "description": "Demo showing an animated highlight.",
-  "registryDependencies": ["@animate-ui/primitives-effects-highlight"],
+  "registryDependencies": ["@odysseyui/primitives-effects-highlight"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/highlight/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/highlight.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/highlight.tsx"
     }
   ],
   "meta": {

@@ -4,14 +4,14 @@
   "title": "Flip Button Demo",
   "description": "Demo showing an animated flip button.",
   "registryDependencies": [
-    "@animate-ui/primitives-buttons-flip"
+    "@odysseyui/primitives-buttons-flip"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/buttons/flip/index.tsx",
       "content": "import {\n  FlipButton,\n  FlipButtonBack,\n  FlipButtonFront,\n} from '@/components/odyssey/primitives/buttons/flip';\n\ntype FlipButtonDemoProps = {\n  from?: 'top' | 'right' | 'bottom' | 'left';\n  tapScale?: number;\n};\n\nexport default function FlipButtonDemo({\n  from,\n  tapScale,\n}: FlipButtonDemoProps) {\n  return (\n    <FlipButton\n      key={`${from}-${tapScale}`}\n      from={from}\n      tapScale={tapScale}\n      className=\"text-sm font-medium\"\n    >\n      <FlipButtonFront className=\"px-4 py-2 h-10 bg-primary text-primary-foreground flex items-center justify-center\">\n        Front\n      </FlipButtonFront>\n      <FlipButtonBack className=\"px-4 py-2 h-10 bg-accent text-accent-foreground flex items-center justify-center\">\n        Back Button\n      </FlipButtonBack>\n    </FlipButton>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/buttons/flip.tsx"
+      "target": "components/odysseyui/demo/primitives/buttons/flip.tsx"
     }
   ],
   "meta": {

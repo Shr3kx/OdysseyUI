@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Gradient Text Demo",
   "description": "Demo showing an animated gradient text.",
-  "registryDependencies": ["@animate-ui/primitives-texts-gradient"],
+  "registryDependencies": ["@odysseyui/primitives-texts-gradient"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/gradient/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/gradient.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/gradient.tsx"
     }
   ],
   "meta": {

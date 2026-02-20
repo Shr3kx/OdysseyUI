@@ -6,15 +6,15 @@
   "description": "Provides a shared state to a series of toggle buttons.",
   "dependencies": ["motion", "@base-ui-components/react"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state",
-    "@animate-ui/primitives-effects-highlight"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state",
+    "@odysseyui/primitives-effects-highlight"
   ],
   "files": [
     {
       "path": "registry/primitives/base/toggle-group/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/base/toggle-group.tsx"
+      "target": "components/odysseyui/primitives/base/toggle-group.tsx"
     }
   ]
 }

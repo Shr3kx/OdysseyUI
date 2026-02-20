@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Scrolling Number Demo",
   "description": "Demo showing an animated scrolling number.",
-  "registryDependencies": ["@animate-ui/primitives-texts-scrolling-number"],
+  "registryDependencies": ["@odysseyui/primitives-texts-scrolling-number"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/scrolling-number/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/scrolling-number.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/scrolling-number.tsx"
     }
   ],
   "meta": {

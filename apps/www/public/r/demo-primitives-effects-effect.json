@@ -4,14 +4,14 @@
   "title": "Effect Demo",
   "description": "Demo showing an animated effect.",
   "registryDependencies": [
-    "@animate-ui/primitives-effects-effect"
+    "@odysseyui/primitives-effects-effect"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/effects/effect/index.tsx",
       "content": "import { Effect } from '@/components/odyssey/primitives/effects/effect';\n\ntype EffectDemoProps = {\n  delay?: number;\n  blur?: boolean;\n  slide?: boolean;\n  fade?: boolean;\n  zoom?: boolean;\n};\n\nexport default function EffectDemo({\n  delay = 0,\n  blur = false,\n  slide = false,\n  fade = false,\n  zoom = false,\n}: EffectDemoProps) {\n  return (\n    <Effect\n      delay={delay}\n      blur={blur}\n      slide={slide}\n      fade={fade}\n      zoom={zoom}\n      className=\"px-6 py-4 bg-accent\"\n    >\n      Effect\n    </Effect>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/effect.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/effect.tsx"
     }
   ],
   "meta": {

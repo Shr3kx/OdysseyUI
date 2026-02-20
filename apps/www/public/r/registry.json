@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "Odyssey UI",
-  "homepage": "https://animate-ui.com",
+  "homepage": "https://odysseyui.com",
   "items": [
     {
       "name": "index",
@@ -26,13 +26,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-avatar-group"
+        "@odysseyui/primitives-animate-avatar-group"
       ],
       "files": [
         {
           "path": "registry/components/animate/avatar-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/animate/avatar-group.tsx"
+          "target": "components/odysseyui/components/animate/avatar-group.tsx"
         }
       ]
     },
@@ -45,15 +45,15 @@
         "next-themes"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-code-block",
-        "@animate-ui/components-buttons-copy",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-animate-code-block",
+        "@odysseyui/components-buttons-copy",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/components/animate/code/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/animate/code.tsx"
+          "target": "components/odysseyui/components/animate/code.tsx"
         }
       ]
     },
@@ -66,7 +66,6 @@
         "shiki"
       ],
       "registryDependencies": [
-        "https://odysseyui.vercel.app/r/primitives-animate-tabs.json",
         "https://odysseyui.vercel.app/r/components-buttons-copy.json"
       ],
       "files": [
@@ -103,13 +102,13 @@
       "title": "Cursor",
       "description": "An animated cursor component that allows you to customize both the cursor and cursor follow elements with smooth animations.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-cursor"
+        "@odysseyui/primitives-animate-cursor"
       ],
       "files": [
         {
           "path": "registry/components/animate/cursor/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/animate/cursor.tsx"
+          "target": "components/odysseyui/components/animate/cursor.tsx"
         }
       ]
     },
@@ -122,14 +121,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-particles",
-        "@animate-ui/primitives-texts-scrolling-number"
+        "@odysseyui/primitives-effects-particles",
+        "@odysseyui/primitives-texts-scrolling-number"
       ],
       "files": [
         {
           "path": "registry/components/animate/github-stars-wheel/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/animate/github-stars-wheel.tsx"
+          "target": "components/odysseyui/components/animate/github-stars-wheel.tsx"
         }
       ]
     },
@@ -139,13 +138,13 @@
       "title": "Tabs",
       "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-tabs"
+        "@odysseyui/primitives-animate-tabs"
       ],
       "files": [
         {
           "path": "registry/components/animate/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/animate/tabs.tsx"
+          "target": "components/odysseyui/components/animate/tabs.tsx"
         }
       ]
     },
@@ -158,13 +157,13 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-button"
+        "@odysseyui/primitives-buttons-button"
       ],
       "files": [
         {
           "path": "registry/components/buttons/button/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/buttons/button.tsx"
+          "target": "components/odysseyui/components/buttons/button.tsx"
         }
       ]
     },
@@ -199,14 +198,14 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-button",
-        "@animate-ui/primitives-animate-github-stars"
+        "@odysseyui/primitives-buttons-button",
+        "@odysseyui/primitives-animate-github-stars"
       ],
       "files": [
         {
           "path": "registry/components/buttons/github-stars/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/buttons/github-stars.tsx"
+          "target": "components/odysseyui/components/buttons/github-stars.tsx"
         }
       ]
     },
@@ -219,14 +218,14 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-button",
-        "@animate-ui/primitives-effects-particles"
+        "@odysseyui/primitives-buttons-button",
+        "@odysseyui/primitives-effects-particles"
       ],
       "files": [
         {
           "path": "registry/components/buttons/icon/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/buttons/icon.tsx"
+          "target": "components/odysseyui/components/buttons/icon.tsx"
         }
       ]
     },
@@ -241,14 +240,14 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-theme-toggler",
-        "@animate-ui/components-buttons-icon"
+        "@odysseyui/primitives-effects-theme-toggler",
+        "@odysseyui/components-buttons-icon"
       ],
       "files": [
         {
           "path": "registry/components/buttons/theme-toggler/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/buttons/theme-toggler.tsx"
+          "target": "components/odysseyui/components/buttons/theme-toggler.tsx"
         }
       ]
     },
@@ -265,7 +264,7 @@
         {
           "path": "registry/components/community/notification-list/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/community/notification-list.tsx"
+          "target": "components/odysseyui/components/community/notification-list.tsx"
         }
       ]
     },
@@ -278,13 +277,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-radix-checkbox"
+        "@odysseyui/primitives-radix-checkbox"
       ],
       "files": [
         {
           "path": "registry/components/community/playful-todolist/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/community/playful-todolist.tsx"
+          "target": "components/odysseyui/components/community/playful-todolist.tsx"
         }
       ]
     },
@@ -297,13 +296,13 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-radix-checkbox"
+        "@odysseyui/primitives-radix-checkbox"
       ],
       "files": [
         {
           "path": "registry/components/radix/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/radix/checkbox.tsx"
+          "target": "components/odysseyui/components/radix/checkbox.tsx"
         }
       ]
     },
@@ -316,13 +315,13 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-radix-dropdown-menu"
+        "@odysseyui/primitives-radix-dropdown-menu"
       ],
       "files": [
         {
           "path": "registry/components/radix/dropdown-menu/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/radix/dropdown-menu.tsx"
+          "target": "components/odysseyui/components/radix/dropdown-menu.tsx"
         }
       ]
     },
@@ -332,13 +331,13 @@
       "title": "Hover Card",
       "description": "For sighted users to preview content available behind a link.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-hover-card"
+        "@odysseyui/primitives-radix-hover-card"
       ],
       "files": [
         {
           "path": "registry/components/radix/hover-card/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/radix/hover-card.tsx"
+          "target": "components/odysseyui/components/radix/hover-card.tsx"
         }
       ]
     },
@@ -348,13 +347,13 @@
       "title": "Avatar Group Demo",
       "description": "Demo showing a avatar group.",
       "registryDependencies": [
-        "@animate-ui/components-animate-avatar-group"
+        "@odysseyui/components-animate-avatar-group"
       ],
       "files": [
         {
           "path": "registry/demo/components/animate/avatar-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/animate/avatar-group.tsx"
+          "target": "components/odysseyui/demo/components/animate/avatar-group.tsx"
         }
       ]
     },
@@ -364,13 +363,13 @@
       "title": "Code Demo",
       "description": "Demo showing a code.",
       "registryDependencies": [
-        "@animate-ui/components-animate-code"
+        "@odysseyui/components-animate-code"
       ],
       "files": [
         {
           "path": "registry/demo/components/animate/code/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/animate/code.tsx"
+          "target": "components/odysseyui/demo/components/animate/code.tsx"
         }
       ],
       "meta": {
@@ -420,13 +419,13 @@
       "title": "Code Tabs Demo",
       "description": "Demo showing a code tabs.",
       "registryDependencies": [
-        "@animate-ui/components-animate-code-tabs"
+        "@odysseyui/components-animate-code-tabs"
       ],
       "files": [
         {
           "path": "registry/demo/components/animate/code-tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/animate/code-tabs.tsx"
+          "target": "components/odysseyui/demo/components/animate/code-tabs.tsx"
         }
       ]
     },
@@ -436,13 +435,13 @@
       "title": "Cursor Demo",
       "description": "Demo showing a cursor.",
       "registryDependencies": [
-        "@animate-ui/components-animate-cursor"
+        "@odysseyui/components-animate-cursor"
       ],
       "files": [
         {
           "path": "registry/demo/components/animate/cursor/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/animate/cursor.tsx"
+          "target": "components/odysseyui/demo/components/animate/cursor.tsx"
         }
       ],
       "meta": {
@@ -492,13 +491,13 @@
       "title": "Animate GitHub Stars Wheel Demo",
       "description": "Demo showing an animated github stars wheel.",
       "registryDependencies": [
-        "@animate-ui/components-animate-github-stars-wheel"
+        "@odysseyui/components-animate-github-stars-wheel"
       ],
       "files": [
         {
           "path": "registry/demo/components/animate/github-stars-wheel/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/animate/github-stars-wheel.tsx"
+          "target": "components/odysseyui/demo/components/animate/github-stars-wheel.tsx"
         }
       ],
       "meta": {
@@ -535,13 +534,13 @@
       "title": "Animate Tabs Demo",
       "description": "Demo showing an animated tabs.",
       "registryDependencies": [
-        "@animate-ui/components-animate-tabs"
+        "@odysseyui/components-animate-tabs"
       ],
       "files": [
         {
           "path": "registry/demo/components/animate/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/animate/tabs.tsx"
+          "target": "components/odysseyui/demo/components/animate/tabs.tsx"
         }
       ]
     },
@@ -554,13 +553,13 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/components-buttons-button"
+        "@odysseyui/components-buttons-button"
       ],
       "files": [
         {
           "path": "registry/demo/components/buttons/button/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/buttons/button.tsx"
+          "target": "components/odysseyui/demo/components/buttons/button.tsx"
         }
       ],
       "meta": {
@@ -599,13 +598,13 @@
       "title": "Copy Button Demo",
       "description": "Demo showing a copy button.",
       "registryDependencies": [
-        "@animate-ui/components-buttons-copy"
+        "@odysseyui/components-buttons-copy"
       ],
       "files": [
         {
           "path": "registry/demo/components/buttons/copy/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/buttons/copy.tsx"
+          "target": "components/odysseyui/demo/components/buttons/copy.tsx"
         }
       ],
       "meta": {
@@ -642,13 +641,13 @@
       "title": "GitHub Stars Button Demo",
       "description": "Demo showing a GitHub stars button.",
       "registryDependencies": [
-        "@animate-ui/components-buttons-github-stars"
+        "@odysseyui/components-buttons-github-stars"
       ],
       "files": [
         {
           "path": "registry/demo/components/buttons/github-stars/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/buttons/github-stars.tsx"
+          "target": "components/odysseyui/demo/components/buttons/github-stars.tsx"
         }
       ],
       "meta": {
@@ -684,13 +683,13 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/components-buttons-theme-toggler"
+        "@odysseyui/components-buttons-theme-toggler"
       ],
       "files": [
         {
           "path": "registry/demo/components/buttons/theme-toggler/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/buttons/theme-toggler.tsx"
+          "target": "components/odysseyui/demo/components/buttons/theme-toggler.tsx"
         }
       ],
       "meta": {
@@ -735,13 +734,13 @@
       "title": "Notification List Demo",
       "description": "Demo showing a notification list.",
       "registryDependencies": [
-        "@animate-ui/components-community-notification-list"
+        "@odysseyui/components-community-notification-list"
       ],
       "files": [
         {
           "path": "registry/demo/components/community/notification-list/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/community/notification-list.tsx"
+          "target": "components/odysseyui/demo/components/community/notification-list.tsx"
         }
       ]
     },
@@ -751,13 +750,13 @@
       "title": "Playful Todolist Demo",
       "description": "Demo showing a playful todolist.",
       "registryDependencies": [
-        "@animate-ui/components-community-playful-todolist"
+        "@odysseyui/components-community-playful-todolist"
       ],
       "files": [
         {
           "path": "registry/demo/components/community/playful-todolist/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/community/playful-todolist.tsx"
+          "target": "components/odysseyui/demo/components/community/playful-todolist.tsx"
         }
       ]
     },
@@ -767,13 +766,13 @@
       "title": "Checkbox Demo",
       "description": "Demo showing a checkbox.",
       "registryDependencies": [
-        "@animate-ui/components-radix-checkbox"
+        "@odysseyui/components-radix-checkbox"
       ],
       "files": [
         {
           "path": "registry/demo/components/radix/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/radix/checkbox.tsx"
+          "target": "components/odysseyui/demo/components/radix/checkbox.tsx"
         }
       ],
       "meta": {
@@ -812,13 +811,13 @@
       "title": "Hover Card Demo",
       "description": "Demo showing a hover card.",
       "registryDependencies": [
-        "@animate-ui/components-radix-hover-card"
+        "@odysseyui/components-radix-hover-card"
       ],
       "files": [
         {
           "path": "registry/demo/components/radix/hover-card/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/components/radix/hover-card.tsx"
+          "target": "components/odysseyui/demo/components/radix/hover-card.tsx"
         }
       ],
       "meta": {
@@ -860,13 +859,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-avatar-group"
+        "@odysseyui/primitives-animate-avatar-group"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/avatar-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/avatar-group.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/avatar-group.tsx"
         }
       ]
     },
@@ -876,13 +875,13 @@
       "title": "Animate Code Block Demo",
       "description": "Demo showing an animated code block.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-code-block"
+        "@odysseyui/primitives-animate-code-block"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/code-block/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/code-block.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/code-block.tsx"
         }
       ],
       "meta": {
@@ -916,13 +915,13 @@
       "title": "Animate Cursor Demo",
       "description": "Demo showing an animated cursor.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-cursor"
+        "@odysseyui/primitives-animate-cursor"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/cursor/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/cursor.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/cursor.tsx"
         }
       ],
       "meta": {
@@ -972,13 +971,13 @@
       "title": "GitHub Stars Demo",
       "description": "Demo showing an animated github stars counter.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-github-stars"
+        "@odysseyui/primitives-animate-github-stars"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/github-stars/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/github-stars.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/github-stars.tsx"
         }
       ]
     },
@@ -988,13 +987,13 @@
       "title": "Animate Pinned List Demo",
       "description": "Demo showing an animated pinned list.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-pinned-list"
+        "@odysseyui/primitives-animate-pinned-list"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/pinned-list/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/pinned-list.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/pinned-list.tsx"
         }
       ]
     },
@@ -1004,13 +1003,13 @@
       "title": "Animate Scroll Progress Demo",
       "description": "Demo showing an animated scroll progress.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-scroll-progress"
+        "@odysseyui/primitives-animate-scroll-progress"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/scroll-progress/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/scroll-progress.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/scroll-progress.tsx"
         }
       ],
       "meta": {
@@ -1036,13 +1035,13 @@
       "title": "Animate Spring Demo",
       "description": "Demo showing an animated spring.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-spring"
+        "@odysseyui/primitives-animate-spring"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/spring/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/spring.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/spring.tsx"
         }
       ]
     },
@@ -1052,13 +1051,13 @@
       "title": "Animate Tabs Demo",
       "description": "Demo showing an animated tabs.",
       "registryDependencies": [
-        "@animate-ui/primitives-animate-tabs"
+        "@odysseyui/primitives-animate-tabs"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/tabs.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/tabs.tsx"
         }
       ]
     },
@@ -1071,13 +1070,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-tooltip"
+        "@odysseyui/primitives-animate-tooltip"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/animate/tooltip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/animate/tooltip.tsx"
+          "target": "components/odysseyui/demo/primitives/animate/tooltip.tsx"
         }
       ],
       "meta": {
@@ -1129,13 +1128,13 @@
       "title": "Base Accordion Demo",
       "description": "Demo showing an animated base accordion.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-accordion"
+        "@odysseyui/primitives-base-accordion"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/accordion/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/accordion.tsx"
+          "target": "components/odysseyui/demo/primitives/base/accordion.tsx"
         }
       ],
       "meta": {
@@ -1159,13 +1158,13 @@
       "title": "Base Alert Dialog Demo",
       "description": "Demo showing an animated base alert dialog.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-alert-dialog"
+        "@odysseyui/primitives-base-alert-dialog"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/alert-dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/alert-dialog.tsx"
+          "target": "components/odysseyui/demo/primitives/base/alert-dialog.tsx"
         }
       ],
       "meta": {
@@ -1190,13 +1189,13 @@
       "title": "Base Checkbox Demo",
       "description": "Demo showing an animated base checkbox.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-checkbox"
+        "@odysseyui/primitives-base-checkbox"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/checkbox.tsx"
+          "target": "components/odysseyui/demo/primitives/base/checkbox.tsx"
         }
       ],
       "meta": {
@@ -1215,13 +1214,13 @@
       "title": "Base Collapsible Demo",
       "description": "Demo showing an animated base collapsible.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-collapsible"
+        "@odysseyui/primitives-base-collapsible"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/collapsible/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/collapsible.tsx"
+          "target": "components/odysseyui/demo/primitives/base/collapsible.tsx"
         }
       ],
       "meta": {
@@ -1240,13 +1239,13 @@
       "title": "Base Dialog Demo",
       "description": "Demo showing an animated base dialog.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-dialog"
+        "@odysseyui/primitives-base-dialog"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/dialog.tsx"
+          "target": "components/odysseyui/demo/primitives/base/dialog.tsx"
         }
       ],
       "meta": {
@@ -1274,13 +1273,13 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-base-files"
+        "@odysseyui/primitives-base-files"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/files/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/files.tsx"
+          "target": "components/odysseyui/demo/primitives/base/files.tsx"
         }
       ]
     },
@@ -1290,13 +1289,13 @@
       "title": "Base Menu Demo",
       "description": "Demo showing an animated base menu.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-menu"
+        "@odysseyui/primitives-base-menu"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/menu/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/menu.tsx"
+          "target": "components/odysseyui/demo/primitives/base/menu.tsx"
         }
       ],
       "meta": {
@@ -1337,13 +1336,13 @@
       "title": "Base Popover Demo",
       "description": "Demo showing an animated base popover.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-popover"
+        "@odysseyui/primitives-base-popover"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/popover/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/popover.tsx"
+          "target": "components/odysseyui/demo/primitives/base/popover.tsx"
         }
       ],
       "meta": {
@@ -1384,13 +1383,13 @@
       "title": "Base Preview Card Demo",
       "description": "Demo showing an animated base preview card.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-preview-card"
+        "@odysseyui/primitives-base-preview-card"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/preview-card/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/preview-card.tsx"
+          "target": "components/odysseyui/demo/primitives/base/preview-card.tsx"
         }
       ],
       "meta": {
@@ -1431,13 +1430,13 @@
       "title": "Base Progress Demo",
       "description": "Demo showing an animated base progress.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-progress"
+        "@odysseyui/primitives-base-progress"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/progress/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/progress.tsx"
+          "target": "components/odysseyui/demo/primitives/base/progress.tsx"
         }
       ]
     },
@@ -1447,13 +1446,13 @@
       "title": "Base Radio Demo",
       "description": "Demo showing an animated base radio.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-radio"
+        "@odysseyui/primitives-base-radio"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/radio/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/radio.tsx"
+          "target": "components/odysseyui/demo/primitives/base/radio.tsx"
         }
       ]
     },
@@ -1463,13 +1462,13 @@
       "title": "Base Switch Demo",
       "description": "Demo showing an animated base switch.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-switch"
+        "@odysseyui/primitives-base-switch"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/switch.tsx"
+          "target": "components/odysseyui/demo/primitives/base/switch.tsx"
         }
       ]
     },
@@ -1479,13 +1478,13 @@
       "title": "Base Tabs Demo",
       "description": "Demo showing an animated base tabs.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-tabs"
+        "@odysseyui/primitives-base-tabs"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/tabs.tsx"
+          "target": "components/odysseyui/demo/primitives/base/tabs.tsx"
         }
       ],
       "meta": {
@@ -1508,13 +1507,13 @@
       "title": "Base Toggle Demo",
       "description": "Demo showing an animated base toggle.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-toggle"
+        "@odysseyui/primitives-base-toggle"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/toggle/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/toggle.tsx"
+          "target": "components/odysseyui/demo/primitives/base/toggle.tsx"
         }
       ]
     },
@@ -1524,13 +1523,13 @@
       "title": "Base Toggle Group Demo",
       "description": "Demo showing an animated base toggle group.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-toggle-group"
+        "@odysseyui/primitives-base-toggle-group"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/toggle-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/toggle-group.tsx"
+          "target": "components/odysseyui/demo/primitives/base/toggle-group.tsx"
         }
       ],
       "meta": {
@@ -1549,13 +1548,13 @@
       "title": "Base Tooltip Demo",
       "description": "Demo showing an animated base tooltip.",
       "registryDependencies": [
-        "@animate-ui/primitives-base-tooltip"
+        "@odysseyui/primitives-base-tooltip"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/base/tooltip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/base/tooltip.tsx"
+          "target": "components/odysseyui/demo/primitives/base/tooltip.tsx"
         }
       ],
       "meta": {
@@ -1596,13 +1595,13 @@
       "title": "Button Demo",
       "description": "Demo showing a button.",
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-button"
+        "@odysseyui/primitives-buttons-button"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/button/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/buttons/button.tsx"
+          "target": "components/odysseyui/demo/primitives/buttons/button.tsx"
         }
       ],
       "meta": {
@@ -1630,13 +1629,13 @@
       "title": "Flip Button Demo",
       "description": "Demo showing an animated flip button.",
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-flip"
+        "@odysseyui/primitives-buttons-flip"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/flip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/buttons/flip.tsx"
+          "target": "components/odysseyui/demo/primitives/buttons/flip.tsx"
         }
       ],
       "meta": {
@@ -1667,13 +1666,13 @@
       "title": "Liquid Button Demo",
       "description": "Demo showing an animated liquid button.",
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-liquid"
+        "@odysseyui/primitives-buttons-liquid"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/liquid/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/buttons/liquid.tsx"
+          "target": "components/odysseyui/demo/primitives/buttons/liquid.tsx"
         }
       ],
       "meta": {
@@ -1713,13 +1712,13 @@
       "title": "Ripple Button Demo",
       "description": "Demo showing a ripple button.",
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-ripple"
+        "@odysseyui/primitives-buttons-ripple"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/buttons/ripple/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/buttons/ripple.tsx"
+          "target": "components/odysseyui/demo/primitives/buttons/ripple.tsx"
         }
       ],
       "meta": {
@@ -1750,13 +1749,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-auto-height"
+        "@odysseyui/primitives-effects-auto-height"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/auto-height/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/auto-height.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/auto-height.tsx"
         }
       ]
     },
@@ -1766,13 +1765,13 @@
       "title": "Blur Demo",
       "description": "Demo showing an animated blur.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-blur"
+        "@odysseyui/primitives-effects-blur"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/blur/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/blur.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/blur.tsx"
         }
       ],
       "meta": {
@@ -1806,13 +1805,13 @@
       "title": "Click Demo",
       "description": "Demo showing an animated click.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-click"
+        "@odysseyui/primitives-effects-click"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/click/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/click.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/click.tsx"
         }
       ],
       "meta": {
@@ -1853,13 +1852,13 @@
       "title": "Effect Demo",
       "description": "Demo showing an animated effect.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-effect"
+        "@odysseyui/primitives-effects-effect"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/effect/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/effect.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/effect.tsx"
         }
       ],
       "meta": {
@@ -1893,13 +1892,13 @@
       "title": "Fade Demo",
       "description": "Demo showing an animated fade.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-fade"
+        "@odysseyui/primitives-effects-fade"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/fade/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/fade.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/fade.tsx"
         }
       ],
       "meta": {
@@ -1933,13 +1932,13 @@
       "title": "Highlight Demo",
       "description": "Demo showing an animated highlight.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight"
+        "@odysseyui/primitives-effects-highlight"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/highlight/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/highlight.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/highlight.tsx"
         }
       ],
       "meta": {
@@ -1971,13 +1970,13 @@
       "title": "Image Zoom Demo",
       "description": "Demo showing a image zoom effect.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-image-zoom"
+        "@odysseyui/primitives-effects-image-zoom"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/image-zoom/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/image-zoom.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/image-zoom.tsx"
         }
       ]
     },
@@ -1987,13 +1986,13 @@
       "title": "Magnetic Demo",
       "description": "Demo showing a magnetic effect.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-magnetic"
+        "@odysseyui/primitives-effects-magnetic"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/magnetic/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/magnetic.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/magnetic.tsx"
         }
       ],
       "meta": {
@@ -2021,13 +2020,13 @@
       "title": "Particles Demo",
       "description": "Demo showing an animated particles.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-particles"
+        "@odysseyui/primitives-effects-particles"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/particles/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/particles.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/particles.tsx"
         }
       ],
       "meta": {
@@ -2108,13 +2107,13 @@
       "title": "Shine Demo",
       "description": "Demo showing an animated shine.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-shine"
+        "@odysseyui/primitives-effects-shine"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/shine/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/shine.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/shine.tsx"
         }
       ],
       "meta": {
@@ -2166,13 +2165,13 @@
       "title": "Slide Demo",
       "description": "Demo showing an animated slide.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-slide"
+        "@odysseyui/primitives-effects-slide"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/slide/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/slide.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/slide.tsx"
         }
       ],
       "meta": {
@@ -2209,13 +2208,13 @@
       "title": "Theme Toggler Demo",
       "description": "Demo showing a theme toggler.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-theme-toggler"
+        "@odysseyui/primitives-effects-theme-toggler"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/theme-toggler/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/theme-toggler.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/theme-toggler.tsx"
         }
       ],
       "meta": {
@@ -2240,13 +2239,13 @@
       "title": "Tilt Demo",
       "description": "Demo showing an animated tilt.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-tilt"
+        "@odysseyui/primitives-effects-tilt"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/tilt/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/tilt.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/tilt.tsx"
         }
       ],
       "meta": {
@@ -2274,13 +2273,13 @@
       "title": "Zoom Demo",
       "description": "Demo showing an animated zoom.",
       "registryDependencies": [
-        "@animate-ui/primitives-effects-zoom"
+        "@odysseyui/primitives-effects-zoom"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/effects/zoom/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/effects/zoom.tsx"
+          "target": "components/odysseyui/demo/primitives/effects/zoom.tsx"
         }
       ],
       "meta": {
@@ -2314,13 +2313,13 @@
       "title": "Headless Checkbox Demo",
       "description": "Demo showing an animated headless checkbox.",
       "registryDependencies": [
-        "@animate-ui/primitives-headless-checkbox"
+        "@odysseyui/primitives-headless-checkbox"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/headless/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/headless/checkbox.tsx"
+          "target": "components/odysseyui/demo/primitives/headless/checkbox.tsx"
         }
       ],
       "meta": {
@@ -2339,13 +2338,13 @@
       "title": "Headless Dialog Demo",
       "description": "Demo showing an animated headless dialog.",
       "registryDependencies": [
-        "@animate-ui/primitives-headless-dialog"
+        "@odysseyui/primitives-headless-dialog"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/headless/dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/headless/dialog.tsx"
+          "target": "components/odysseyui/demo/primitives/headless/dialog.tsx"
         }
       ],
       "meta": {
@@ -2370,13 +2369,13 @@
       "title": "Headless Disclosure Demo",
       "description": "Demo showing an animated headless disclosure.",
       "registryDependencies": [
-        "@animate-ui/primitives-headless-disclosure"
+        "@odysseyui/primitives-headless-disclosure"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/headless/disclosure/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/headless/disclosure.tsx"
+          "target": "components/odysseyui/demo/primitives/headless/disclosure.tsx"
         }
       ],
       "meta": {
@@ -2395,13 +2394,13 @@
       "title": "Headless Popover Demo",
       "description": "Demo showing an animated headless popover.",
       "registryDependencies": [
-        "@animate-ui/primitives-headless-popover"
+        "@odysseyui/primitives-headless-popover"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/headless/popover/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/headless/popover.tsx"
+          "target": "components/odysseyui/demo/primitives/headless/popover.tsx"
         }
       ],
       "meta": {
@@ -2437,13 +2436,13 @@
       "title": "Headless Switch Demo",
       "description": "Demo showing an animated headless switch.",
       "registryDependencies": [
-        "@animate-ui/primitives-headless-switch"
+        "@odysseyui/primitives-headless-switch"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/headless/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/headless/switch.tsx"
+          "target": "components/odysseyui/demo/primitives/headless/switch.tsx"
         }
       ]
     },
@@ -2453,13 +2452,13 @@
       "title": "Headless Tabs Demo",
       "description": "Demo showing an animated headless tabs.",
       "registryDependencies": [
-        "@animate-ui/primitives-headless-tabs"
+        "@odysseyui/primitives-headless-tabs"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/headless/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/headless/tabs.tsx"
+          "target": "components/odysseyui/demo/primitives/headless/tabs.tsx"
         }
       ],
       "meta": {
@@ -2482,13 +2481,13 @@
       "title": "Radix Accordion Demo",
       "description": "Demo showing an animated radix accordion.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-accordion"
+        "@odysseyui/primitives-radix-accordion"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/accordion/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/accordion.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/accordion.tsx"
         }
       ],
       "meta": {
@@ -2515,13 +2514,13 @@
       "title": "Radix Alert Dialog Demo",
       "description": "Demo showing an animated radix alert dialog.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-alert-dialog"
+        "@odysseyui/primitives-radix-alert-dialog"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/alert-dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/alert-dialog.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/alert-dialog.tsx"
         }
       ],
       "meta": {
@@ -2546,13 +2545,13 @@
       "title": "Radix Checkbox Demo",
       "description": "Demo showing an animated radix checkbox.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-checkbox"
+        "@odysseyui/primitives-radix-checkbox"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/checkbox.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/checkbox.tsx"
         }
       ],
       "meta": {
@@ -2576,13 +2575,13 @@
       "title": "Radix Collapsible Demo",
       "description": "Demo showing an animated radix collapsible.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-collapsible"
+        "@odysseyui/primitives-radix-collapsible"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/collapsible/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/collapsible.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/collapsible.tsx"
         }
       ],
       "meta": {
@@ -2601,13 +2600,13 @@
       "title": "Radix Dialog Demo",
       "description": "Demo showing an animated radix dialog.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-dialog"
+        "@odysseyui/primitives-radix-dialog"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/dialog.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/dialog.tsx"
         }
       ],
       "meta": {
@@ -2632,13 +2631,13 @@
       "title": "Radix Dropdown Menu Demo",
       "description": "Demo showing an animated radix dropdown menu.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-dropdown-menu"
+        "@odysseyui/primitives-radix-dropdown-menu"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/dropdown-menu/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/dropdown-menu.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/dropdown-menu.tsx"
         }
       ],
       "meta": {
@@ -2680,13 +2679,13 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-radix-files"
+        "@odysseyui/primitives-radix-files"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/files/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/files.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/files.tsx"
         }
       ]
     },
@@ -2696,13 +2695,13 @@
       "title": "Radix Hover Card Demo",
       "description": "Demo showing an animated radix hover card.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-hover-card"
+        "@odysseyui/primitives-radix-hover-card"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/hover-card/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/hover-card.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/hover-card.tsx"
         }
       ],
       "meta": {
@@ -2741,13 +2740,13 @@
       "title": "Radix Popover Demo",
       "description": "Demo showing an animated radix popover.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-popover"
+        "@odysseyui/primitives-radix-popover"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/popover/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/popover.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/popover.tsx"
         }
       ],
       "meta": {
@@ -2786,13 +2785,13 @@
       "title": "Radix Progress Demo",
       "description": "Demo showing an animated radix progress.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-progress"
+        "@odysseyui/primitives-radix-progress"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/progress/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/progress.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/progress.tsx"
         }
       ]
     },
@@ -2802,13 +2801,13 @@
       "title": "Radix Radio Group Demo",
       "description": "Demo showing an animated radix radio group.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-radio-group"
+        "@odysseyui/primitives-radix-radio-group"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/radio-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/radio-group.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/radio-group.tsx"
         }
       ]
     },
@@ -2818,13 +2817,13 @@
       "title": "Radix Sheet Demo",
       "description": "Demo showing an animated radix sheet.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-sheet"
+        "@odysseyui/primitives-radix-sheet"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/sheet/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/sheet.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/sheet.tsx"
         }
       ],
       "meta": {
@@ -2849,13 +2848,13 @@
       "title": "Radix Switch Demo",
       "description": "Demo showing an animated radix switch.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-switch"
+        "@odysseyui/primitives-radix-switch"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/switch.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/switch.tsx"
         }
       ]
     },
@@ -2865,13 +2864,13 @@
       "title": "Radix Tabs Demo",
       "description": "Demo showing an animated radix tabs.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-tabs"
+        "@odysseyui/primitives-radix-tabs"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/tabs.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/tabs.tsx"
         }
       ],
       "meta": {
@@ -2894,13 +2893,13 @@
       "title": "Radix Toggle Demo",
       "description": "Demo showing an animated radix toggle.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-toggle"
+        "@odysseyui/primitives-radix-toggle"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/toggle/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/toggle.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/toggle.tsx"
         }
       ]
     },
@@ -2910,13 +2909,13 @@
       "title": "Radix Toggle Group Demo",
       "description": "Demo showing an animated radix toggle group.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-toggle-group"
+        "@odysseyui/primitives-radix-toggle-group"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/toggle-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/toggle-group.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/toggle-group.tsx"
         }
       ],
       "meta": {
@@ -2939,13 +2938,13 @@
       "title": "Radix Tooltip Demo",
       "description": "Demo showing an animated radix tooltip.",
       "registryDependencies": [
-        "@animate-ui/primitives-radix-tooltip"
+        "@odysseyui/primitives-radix-tooltip"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/radix/tooltip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/radix/tooltip.tsx"
+          "target": "components/odysseyui/demo/primitives/radix/tooltip.tsx"
         }
       ],
       "meta": {
@@ -2984,13 +2983,13 @@
       "title": "Counting Number Demo",
       "description": "Demo showing an animated counting number.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-counting-number"
+        "@odysseyui/primitives-texts-counting-number"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/counting-number/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/counting-number.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/counting-number.tsx"
         }
       ],
       "meta": {
@@ -3027,13 +3026,13 @@
       "title": "Gradient Text Demo",
       "description": "Demo showing an animated gradient text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-gradient"
+        "@odysseyui/primitives-texts-gradient"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/gradient/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/gradient.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/gradient.tsx"
         }
       ],
       "meta": {
@@ -3052,13 +3051,13 @@
       "title": "Highlight Text Demo",
       "description": "Demo showing an animated highlight text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-highlight"
+        "@odysseyui/primitives-texts-highlight"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/highlight/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/highlight.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/highlight.tsx"
         }
       ],
       "meta": {
@@ -3080,13 +3079,13 @@
       "title": "Morphing Text Demo",
       "description": "Demo showing an animated morphing text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-morphing"
+        "@odysseyui/primitives-texts-morphing"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/morphing/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/morphing.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/morphing.tsx"
         }
       ],
       "meta": {
@@ -3111,13 +3110,13 @@
       "title": "Rolling Text Demo",
       "description": "Demo showing an animated rolling text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-rolling"
+        "@odysseyui/primitives-texts-rolling"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/rolling/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/rolling.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/rolling.tsx"
         }
       ],
       "meta": {
@@ -3139,13 +3138,13 @@
       "title": "Rotating Text Demo",
       "description": "Demo showing an animated rotating text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-rotating"
+        "@odysseyui/primitives-texts-rotating"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/rotating/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/rotating.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/rotating.tsx"
         }
       ],
       "meta": {
@@ -3179,13 +3178,13 @@
       "title": "Scrolling Number Demo",
       "description": "Demo showing an animated scrolling number.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-scrolling-number"
+        "@odysseyui/primitives-texts-scrolling-number"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/scrolling-number/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/scrolling-number.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/scrolling-number.tsx"
         }
       ],
       "meta": {
@@ -3218,13 +3217,13 @@
       "title": "Shimmering Text Demo",
       "description": "Demo showing an animated shimmering text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-shimmering"
+        "@odysseyui/primitives-texts-shimmering"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/shimmering/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/shimmering.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/shimmering.tsx"
         }
       ],
       "meta": {
@@ -3249,13 +3248,13 @@
       "title": "Sliding Number Demo",
       "description": "Demo showing an animated sliding number.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-sliding-number"
+        "@odysseyui/primitives-texts-sliding-number"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/sliding-number/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/sliding-number.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/sliding-number.tsx"
         }
       ],
       "meta": {
@@ -3295,13 +3294,13 @@
       "title": "Splitting Text Demo",
       "description": "Demo showing an animated splitting text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-splitting"
+        "@odysseyui/primitives-texts-splitting"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/splitting/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/splitting.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/splitting.tsx"
         }
       ],
       "meta": {
@@ -3339,13 +3338,13 @@
       "title": "Splitting Text Demo",
       "description": "Demo showing an animated splitting text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-splitting"
+        "@odysseyui/primitives-texts-splitting"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/splitting-example/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/splitting-example.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/splitting-example.tsx"
         }
       ]
     },
@@ -3355,13 +3354,13 @@
       "title": "Typing Text Demo",
       "description": "Demo showing an animated typing text.",
       "registryDependencies": [
-        "@animate-ui/primitives-texts-typing"
+        "@odysseyui/primitives-texts-typing"
       ],
       "files": [
         {
           "path": "registry/demo/primitives/texts/typing/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/demo/primitives/texts/typing.tsx"
+          "target": "components/odysseyui/demo/primitives/texts/typing.tsx"
         }
       ],
       "meta": {
@@ -3463,7 +3462,7 @@
       "title": "Alarm Clock Icon",
       "description": "Alarm clock icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3472,7 +3471,7 @@
         {
           "path": "registry/icons/alarm-clock/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/alarm-clock.tsx"
+          "target": "components/odysseyui/icons/alarm-clock.tsx"
         }
       ],
       "meta": {
@@ -3487,7 +3486,7 @@
       "title": "Arrow Right Icon",
       "description": "Arrow right icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3496,7 +3495,7 @@
         {
           "path": "registry/icons/arrow-right/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/arrow-right.tsx"
+          "target": "components/odysseyui/icons/arrow-right.tsx"
         }
       ],
       "meta": {
@@ -3517,7 +3516,7 @@
       "title": "Audio Lines Icon",
       "description": "Audio Lines icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3526,7 +3525,7 @@
         {
           "path": "registry/icons/audio-lines/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/audio-lines.tsx"
+          "target": "components/odysseyui/icons/audio-lines.tsx"
         }
       ],
       "meta": {
@@ -3563,7 +3562,7 @@
       "title": "Battery Full Icon",
       "description": "Battery Full icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3572,7 +3571,7 @@
         {
           "path": "registry/icons/battery-full/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/battery-full.tsx"
+          "target": "components/odysseyui/icons/battery-full.tsx"
         }
       ],
       "meta": {
@@ -3591,7 +3590,7 @@
       "title": "Bell Ring Icon",
       "description": "Bell ring icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3600,7 +3599,7 @@
         {
           "path": "registry/icons/bell-ring/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/bell-ring.tsx"
+          "target": "components/odysseyui/icons/bell-ring.tsx"
         }
       ],
       "meta": {
@@ -3618,7 +3617,7 @@
       "title": "Clock Icon",
       "description": "Clock icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3627,7 +3626,7 @@
         {
           "path": "registry/icons/clock/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/clock.tsx"
+          "target": "components/odysseyui/icons/clock.tsx"
         }
       ],
       "meta": {
@@ -3646,7 +3645,7 @@
       "title": "Disc 3 Icon",
       "description": "Disc 3 icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3655,7 +3654,7 @@
         {
           "path": "registry/icons/disc-3/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/disc-3.tsx"
+          "target": "components/odysseyui/icons/disc-3.tsx"
         }
       ],
       "meta": {
@@ -3682,14 +3681,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view",
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/hooks-use-is-in-view",
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/icons/icon/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/icon.tsx"
+          "target": "components/odysseyui/icons/icon.tsx"
         }
       ]
     },
@@ -3699,7 +3698,7 @@
       "title": "Loader Icon",
       "description": "Loader icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3708,7 +3707,7 @@
         {
           "path": "registry/icons/loader/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/loader.tsx"
+          "target": "components/odysseyui/icons/loader.tsx"
         }
       ],
       "meta": {
@@ -3729,7 +3728,7 @@
       "title": "Menu Icon",
       "description": "Menu icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3738,7 +3737,7 @@
         {
           "path": "registry/icons/menu/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/menu.tsx"
+          "target": "components/odysseyui/icons/menu.tsx"
         }
       ],
       "meta": {
@@ -3756,7 +3755,7 @@
       "title": "Party Popper Icon",
       "description": "Party popper icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3765,7 +3764,7 @@
         {
           "path": "registry/icons/party-popper/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/party-popper.tsx"
+          "target": "components/odysseyui/icons/party-popper.tsx"
         }
       ],
       "meta": {
@@ -3790,7 +3789,7 @@
       "title": "Settings Icon",
       "description": "Settings icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3799,7 +3798,7 @@
         {
           "path": "registry/icons/settings/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/settings.tsx"
+          "target": "components/odysseyui/icons/settings.tsx"
         }
       ],
       "meta": {
@@ -3817,7 +3816,7 @@
       "title": "Trash 2 Icon",
       "description": "Trash 2 icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3826,7 +3825,7 @@
         {
           "path": "registry/icons/trash-2/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/trash-2.tsx"
+          "target": "components/odysseyui/icons/trash-2.tsx"
         }
       ],
       "meta": {
@@ -3844,7 +3843,7 @@
       "title": "User Icon",
       "description": "User icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3853,7 +3852,7 @@
         {
           "path": "registry/icons/user/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/user.tsx"
+          "target": "components/odysseyui/icons/user.tsx"
         }
       ],
       "meta": {
@@ -3870,7 +3869,7 @@
       "title": "Wifi Icon",
       "description": "Wifi icon component.",
       "registryDependencies": [
-        "@animate-ui/icons-icon"
+        "@odysseyui/icons-icon"
       ],
       "dependencies": [
         "motion"
@@ -3879,7 +3878,7 @@
         {
           "path": "registry/icons/wifi/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/icons/wifi.tsx"
+          "target": "components/odysseyui/icons/wifi.tsx"
         }
       ],
       "meta": {
@@ -3912,13 +3911,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-tooltip"
+        "@odysseyui/primitives-animate-tooltip"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/avatar-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/avatar-group.tsx"
+          "target": "components/odysseyui/primitives/animate/avatar-group.tsx"
         }
       ]
     },
@@ -3931,13 +3930,13 @@
         "shiki"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/code-block/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/code-block.tsx"
+          "target": "components/odysseyui/primitives/animate/code-block.tsx"
         }
       ]
     },
@@ -3950,14 +3949,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/cursor/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/cursor.tsx"
+          "target": "components/odysseyui/primitives/animate/cursor.tsx"
         }
       ]
     },
@@ -3970,17 +3969,17 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/primitives-texts-sliding-number",
-        "@animate-ui/primitives-effects-particles",
-        "@animate-ui/hooks-use-is-in-view",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/primitives-texts-sliding-number",
+        "@odysseyui/primitives-effects-particles",
+        "@odysseyui/hooks-use-is-in-view",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/github-stars/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/github-stars.tsx"
+          "target": "components/odysseyui/primitives/animate/github-stars.tsx"
         }
       ]
     },
@@ -3993,13 +3992,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/pinned-list/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/pinned-list.tsx"
+          "target": "components/odysseyui/primitives/animate/pinned-list.tsx"
         }
       ]
     },
@@ -4012,15 +4011,15 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-motion-value-state"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-motion-value-state"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/scroll-progress/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/scroll-progress.tsx"
+          "target": "components/odysseyui/primitives/animate/scroll-progress.tsx"
         }
       ]
     },
@@ -4036,7 +4035,7 @@
         {
           "path": "registry/primitives/animate/slot/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/slot.tsx"
+          "target": "components/odysseyui/primitives/animate/slot.tsx"
         }
       ]
     },
@@ -4049,15 +4048,15 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-motion-value-state"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-motion-value-state"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/spring/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/spring.tsx"
+          "target": "components/odysseyui/primitives/animate/spring.tsx"
         }
       ]
     },
@@ -4070,15 +4069,15 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/tabs.tsx"
+          "target": "components/odysseyui/primitives/animate/tabs.tsx"
         }
       ]
     },
@@ -4092,14 +4091,14 @@
         "@floating-ui/react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/animate/tooltip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/animate/tooltip.tsx"
+          "target": "components/odysseyui/primitives/animate/tooltip.tsx"
         }
       ]
     },
@@ -4113,14 +4112,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/accordion/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/accordion.tsx"
+          "target": "components/odysseyui/primitives/base/accordion.tsx"
         }
       ]
     },
@@ -4134,14 +4133,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/base/alert-dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/alert-dialog.tsx"
+          "target": "components/odysseyui/primitives/base/alert-dialog.tsx"
         }
       ]
     },
@@ -4155,14 +4154,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/checkbox.tsx"
+          "target": "components/odysseyui/primitives/base/checkbox.tsx"
         }
       ]
     },
@@ -4176,14 +4175,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/collapsible/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/collapsible.tsx"
+          "target": "components/odysseyui/primitives/base/collapsible.tsx"
         }
       ]
     },
@@ -4197,14 +4196,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/base/dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/dialog.tsx"
+          "target": "components/odysseyui/primitives/base/dialog.tsx"
         }
       ]
     },
@@ -4217,16 +4216,16 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-base-accordion",
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/primitives-base-accordion",
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/files/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/files.tsx"
+          "target": "components/odysseyui/primitives/base/files.tsx"
         }
       ]
     },
@@ -4240,16 +4239,16 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/hooks-use-data-state"
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/hooks-use-data-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/menu/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/menu.tsx"
+          "target": "components/odysseyui/primitives/base/menu.tsx"
         }
       ]
     },
@@ -4263,14 +4262,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/popover/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/popover.tsx"
+          "target": "components/odysseyui/primitives/base/popover.tsx"
         }
       ]
     },
@@ -4284,14 +4283,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/preview-card/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/preview-card.tsx"
+          "target": "components/odysseyui/primitives/base/preview-card.tsx"
         }
       ]
     },
@@ -4305,14 +4304,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/primitives-texts-counting-number"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/primitives-texts-counting-number"
       ],
       "files": [
         {
           "path": "registry/primitives/base/progress/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/progress.tsx"
+          "target": "components/odysseyui/primitives/base/progress.tsx"
         }
       ]
     },
@@ -4326,14 +4325,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/radio/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/radio.tsx"
+          "target": "components/odysseyui/primitives/base/radio.tsx"
         }
       ]
     },
@@ -4347,14 +4346,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/switch.tsx"
+          "target": "components/odysseyui/primitives/base/switch.tsx"
         }
       ]
     },
@@ -4368,16 +4367,16 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-auto-height",
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/primitives-effects-auto-height",
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/tabs.tsx"
+          "target": "components/odysseyui/primitives/base/tabs.tsx"
         }
       ]
     },
@@ -4391,14 +4390,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/toggle/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/toggle.tsx"
+          "target": "components/odysseyui/primitives/base/toggle.tsx"
         }
       ]
     },
@@ -4412,15 +4411,15 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/primitives-effects-highlight"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/primitives-effects-highlight"
       ],
       "files": [
         {
           "path": "registry/primitives/base/toggle-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/toggle-group.tsx"
+          "target": "components/odysseyui/primitives/base/toggle-group.tsx"
         }
       ]
     },
@@ -4434,14 +4433,14 @@
         "@base-ui-components/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/base/tooltip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/base/tooltip.tsx"
+          "target": "components/odysseyui/primitives/base/tooltip.tsx"
         }
       ]
     },
@@ -4454,13 +4453,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/primitives/buttons/button/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/buttons/button.tsx"
+          "target": "components/odysseyui/primitives/buttons/button.tsx"
         }
       ]
     },
@@ -4473,14 +4472,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/primitives/buttons/flip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/buttons/flip.tsx"
+          "target": "components/odysseyui/primitives/buttons/flip.tsx"
         }
       ]
     },
@@ -4493,14 +4492,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/primitives/buttons/liquid/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/buttons/liquid.tsx"
+          "target": "components/odysseyui/primitives/buttons/liquid.tsx"
         }
       ]
     },
@@ -4513,14 +4512,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/primitives/buttons/ripple/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/buttons/ripple.tsx"
+          "target": "components/odysseyui/primitives/buttons/ripple.tsx"
         }
       ]
     },
@@ -4533,14 +4532,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-auto-height"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-auto-height"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/auto-height/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/auto-height.tsx"
+          "target": "components/odysseyui/primitives/effects/auto-height.tsx"
         }
       ]
     },
@@ -4553,14 +4552,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/blur/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/blur.tsx"
+          "target": "components/odysseyui/primitives/effects/blur.tsx"
         }
       ]
     },
@@ -4576,7 +4575,7 @@
         {
           "path": "registry/primitives/effects/click/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/click.tsx"
+          "target": "components/odysseyui/primitives/effects/click.tsx"
         }
       ]
     },
@@ -4589,14 +4588,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/effect/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/effect.tsx"
+          "target": "components/odysseyui/primitives/effects/effect.tsx"
         }
       ]
     },
@@ -4609,14 +4608,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/fade/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/fade.tsx"
+          "target": "components/odysseyui/primitives/effects/fade.tsx"
         }
       ]
     },
@@ -4632,7 +4631,7 @@
         {
           "path": "registry/primitives/effects/highlight/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/highlight.tsx"
+          "target": "components/odysseyui/primitives/effects/highlight.tsx"
         }
       ]
     },
@@ -4648,7 +4647,7 @@
         {
           "path": "registry/primitives/effects/image-zoom/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/image-zoom.tsx"
+          "target": "components/odysseyui/primitives/effects/image-zoom.tsx"
         }
       ]
     },
@@ -4661,13 +4660,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot"
+        "@odysseyui/primitives-animate-slot"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/magnetic/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/magnetic.tsx"
+          "target": "components/odysseyui/primitives/effects/magnetic.tsx"
         }
       ]
     },
@@ -4680,14 +4679,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/particles/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/particles.tsx"
+          "target": "components/odysseyui/primitives/effects/particles.tsx"
         }
       ]
     },
@@ -4703,7 +4702,7 @@
         {
           "path": "registry/primitives/effects/shine/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/shine.tsx"
+          "target": "components/odysseyui/primitives/effects/shine.tsx"
         }
       ]
     },
@@ -4716,14 +4715,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/slide/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/slide.tsx"
+          "target": "components/odysseyui/primitives/effects/slide.tsx"
         }
       ]
     },
@@ -4736,7 +4735,7 @@
         {
           "path": "registry/primitives/effects/theme-toggler/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/theme-toggler.tsx"
+          "target": "components/odysseyui/primitives/effects/theme-toggler.tsx"
         }
       ]
     },
@@ -4749,14 +4748,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/tilt/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/tilt.tsx"
+          "target": "components/odysseyui/primitives/effects/tilt.tsx"
         }
       ]
     },
@@ -4769,14 +4768,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-slot",
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/primitives-animate-slot",
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/effects/zoom/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/effects/zoom.tsx"
+          "target": "components/odysseyui/primitives/effects/zoom.tsx"
         }
       ]
     },
@@ -4793,7 +4792,7 @@
         {
           "path": "registry/primitives/headless/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/headless/checkbox.tsx"
+          "target": "components/odysseyui/primitives/headless/checkbox.tsx"
         }
       ]
     },
@@ -4810,7 +4809,7 @@
         {
           "path": "registry/primitives/headless/dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/headless/dialog.tsx"
+          "target": "components/odysseyui/primitives/headless/dialog.tsx"
         }
       ]
     },
@@ -4824,13 +4823,13 @@
         "@headlessui/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/headless/disclosure/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/headless/disclosure.tsx"
+          "target": "components/odysseyui/primitives/headless/disclosure.tsx"
         }
       ]
     },
@@ -4844,13 +4843,13 @@
         "@headlessui/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/headless/popover/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/headless/popover.tsx"
+          "target": "components/odysseyui/primitives/headless/popover.tsx"
         }
       ]
     },
@@ -4864,13 +4863,13 @@
         "@headlessui/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/headless/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/headless/switch.tsx"
+          "target": "components/odysseyui/primitives/headless/switch.tsx"
         }
       ]
     },
@@ -4884,15 +4883,15 @@
         "@headlessui/react"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/primitives-effects-auto-height"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/primitives-effects-auto-height"
       ],
       "files": [
         {
           "path": "registry/primitives/headless/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/headless/switch.tsx"
+          "target": "components/odysseyui/primitives/headless/switch.tsx"
         }
       ]
     },
@@ -4906,14 +4905,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/accordion/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/accordion.tsx"
+          "target": "components/odysseyui/primitives/radix/accordion.tsx"
         }
       ]
     },
@@ -4927,14 +4926,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/alert-dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/alert-dialog.tsx"
+          "target": "components/odysseyui/primitives/radix/alert-dialog.tsx"
         }
       ]
     },
@@ -4948,14 +4947,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/checkbox/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/checkbox.tsx"
+          "target": "components/odysseyui/primitives/radix/checkbox.tsx"
         }
       ]
     },
@@ -4969,14 +4968,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/collapsible/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/collapsible.tsx"
+          "target": "components/odysseyui/primitives/radix/collapsible.tsx"
         }
       ]
     },
@@ -4990,14 +4989,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/dialog/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/dialog.tsx"
+          "target": "components/odysseyui/primitives/radix/dialog.tsx"
         }
       ]
     },
@@ -5011,16 +5010,16 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/hooks-use-data-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/hooks-use-data-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/dropdown-menu/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/dropdown-menu.tsx"
+          "target": "components/odysseyui/primitives/radix/dropdown-menu.tsx"
         }
       ]
     },
@@ -5033,16 +5032,16 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-radix-accordion",
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/primitives-radix-accordion",
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/files/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/files.tsx"
+          "target": "components/odysseyui/primitives/radix/files.tsx"
         }
       ]
     },
@@ -5056,14 +5055,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/hover-card/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/hover-card.tsx"
+          "target": "components/odysseyui/primitives/radix/hover-card.tsx"
         }
       ]
     },
@@ -5077,14 +5076,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/popover/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/popover.tsx"
+          "target": "components/odysseyui/primitives/radix/popover.tsx"
         }
       ]
     },
@@ -5098,13 +5097,13 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/progress/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/progress.tsx"
+          "target": "components/odysseyui/primitives/radix/progress.tsx"
         }
       ]
     },
@@ -5118,14 +5117,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/radio-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/radio-group.tsx"
+          "target": "components/odysseyui/primitives/radix/radio-group.tsx"
         }
       ]
     },
@@ -5139,14 +5138,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/sheet/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/sheet.tsx"
+          "target": "components/odysseyui/primitives/radix/sheet.tsx"
         }
       ]
     },
@@ -5160,14 +5159,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/switch/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/switch.tsx"
+          "target": "components/odysseyui/primitives/radix/switch.tsx"
         }
       ]
     },
@@ -5181,16 +5180,16 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/primitives-effects-auto-height",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/primitives-effects-auto-height",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/tabs.tsx"
+          "target": "components/odysseyui/primitives/radix/tabs.tsx"
         }
       ]
     },
@@ -5204,14 +5203,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/toggle/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/toggle.tsx"
+          "target": "components/odysseyui/primitives/radix/toggle.tsx"
         }
       ]
     },
@@ -5225,15 +5224,15 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-effects-highlight",
-        "@animate-ui/lib-get-strict-context",
-        "@animate-ui/hooks-use-controlled-state"
+        "@odysseyui/primitives-effects-highlight",
+        "@odysseyui/lib-get-strict-context",
+        "@odysseyui/hooks-use-controlled-state"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/toggle-group/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/toggle-group.tsx"
+          "target": "components/odysseyui/primitives/radix/toggle-group.tsx"
         }
       ]
     },
@@ -5247,14 +5246,14 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-controlled-state",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-controlled-state",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/radix/tooltip/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/radix/tooltip.tsx"
+          "target": "components/odysseyui/primitives/radix/tooltip.tsx"
         }
       ]
     },
@@ -5267,13 +5266,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/counting-number/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/counting-number.tsx"
+          "target": "components/odysseyui/primitives/texts/counting-number.tsx"
         }
       ]
     },
@@ -5289,7 +5288,7 @@
         {
           "path": "registry/primitives/texts/gradient/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/gradient.tsx"
+          "target": "components/odysseyui/primitives/texts/gradient.tsx"
         }
       ]
     },
@@ -5302,13 +5301,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/highlight/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/highlight.tsx"
+          "target": "components/odysseyui/primitives/texts/highlight.tsx"
         }
       ]
     },
@@ -5321,13 +5320,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/morphing/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/morphing.tsx"
+          "target": "components/odysseyui/primitives/texts/morphing.tsx"
         }
       ]
     },
@@ -5340,13 +5339,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/rolling/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/rolling.tsx"
+          "target": "components/odysseyui/primitives/texts/rolling.tsx"
         }
       ]
     },
@@ -5359,14 +5358,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-is-in-view",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/rotating/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/rotating.tsx"
+          "target": "components/odysseyui/primitives/texts/rotating.tsx"
         }
       ]
     },
@@ -5379,14 +5378,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-is-in-view",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/scrolling-number/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/scrolling-number.tsx"
+          "target": "components/odysseyui/primitives/texts/scrolling-number.tsx"
         }
       ]
     },
@@ -5399,13 +5398,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/shimmering/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/shimmering.tsx"
+          "target": "components/odysseyui/primitives/texts/shimmering.tsx"
         }
       ]
     },
@@ -5419,13 +5418,13 @@
         "react-use-measure"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/sliding-number/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/sliding-number.tsx"
+          "target": "components/odysseyui/primitives/texts/sliding-number.tsx"
         }
       ]
     },
@@ -5438,13 +5437,13 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view"
+        "@odysseyui/hooks-use-is-in-view"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/splitting/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/splitting.tsx"
+          "target": "components/odysseyui/primitives/texts/splitting.tsx"
         }
       ]
     },
@@ -5457,14 +5456,14 @@
         "motion"
       ],
       "registryDependencies": [
-        "@animate-ui/hooks-use-is-in-view",
-        "@animate-ui/lib-get-strict-context"
+        "@odysseyui/hooks-use-is-in-view",
+        "@odysseyui/lib-get-strict-context"
       ],
       "files": [
         {
           "path": "registry/primitives/texts/typing/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/primitives/texts/typing.tsx"
+          "target": "components/odysseyui/primitives/texts/typing.tsx"
         }
       ]
     }

@@ -4,14 +4,14 @@
   "title": "Scrolling Number Demo",
   "description": "Demo showing an animated scrolling number.",
   "registryDependencies": [
-    "@animate-ui/primitives-texts-scrolling-number"
+    "@odysseyui/primitives-texts-scrolling-number"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/texts/scrolling-number/index.tsx",
       "content": "'use client';\n\nimport React from 'react';\n\nimport {\n  ScrollingNumberContainer,\n  ScrollingNumber,\n  ScrollingNumberHighlight,\n  ScrollingNumberItems,\n  type ScrollingNumberDirection,\n} from '@/components/odyssey/primitives/texts/scrolling-number';\n\ninterface ScrollingNumberDemoProps {\n  direction: ScrollingNumberDirection;\n  delay: number;\n}\n\nexport const ScrollingNumberDemo = ({\n  direction = 'btt',\n  delay = 1000,\n}: ScrollingNumberDemoProps) => {\n  const isVertical = direction === 'btt' || direction === 'ttb';\n\n  return (\n    <ScrollingNumberContainer\n      key={direction}\n      number={1000}\n      step={100}\n      className={isVertical ? 'w-18' : 'h-10'}\n      itemsSize={isVertical ? 40 : 75}\n      direction={direction}\n    >\n      <ScrollingNumber delay={delay}>\n        <ScrollingNumberItems className=\"flex items-center justify-center\" />\n      </ScrollingNumber>\n      <ScrollingNumberHighlight className=\"bg-accent size-full\" />\n    </ScrollingNumberContainer>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/scrolling-number.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/scrolling-number.tsx"
     }
   ],
   "meta": {

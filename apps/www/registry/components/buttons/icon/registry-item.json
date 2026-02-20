@@ -6,14 +6,14 @@
   "description": "An icon button component with a variety of styles and animations.",
   "dependencies": ["class-variance-authority"],
   "registryDependencies": [
-    "@animate-ui/primitives-buttons-button",
-    "@animate-ui/primitives-effects-particles"
+    "@odysseyui/primitives-buttons-button",
+    "@odysseyui/primitives-effects-particles"
   ],
   "files": [
     {
       "path": "registry/components/buttons/icon/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/components/buttons/icon.tsx"
+      "target": "components/odysseyui/components/buttons/icon.tsx"
     }
   ]
 }

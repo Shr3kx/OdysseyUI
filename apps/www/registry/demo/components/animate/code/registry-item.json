@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Code Demo",
   "description": "Demo showing a code.",
-  "registryDependencies": ["@animate-ui/components-animate-code"],
+  "registryDependencies": ["@odysseyui/components-animate-code"],
   "files": [
     {
       "path": "registry/demo/components/animate/code/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/animate/code.tsx"
+      "target": "components/odysseyui/demo/components/animate/code.tsx"
     }
   ],
   "meta": {

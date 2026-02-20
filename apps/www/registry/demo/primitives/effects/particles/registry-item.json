@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Particles Demo",
   "description": "Demo showing an animated particles.",
-  "registryDependencies": ["@animate-ui/primitives-effects-particles"],
+  "registryDependencies": ["@odysseyui/primitives-effects-particles"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/particles/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/particles.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/particles.tsx"
     }
   ],
   "meta": {

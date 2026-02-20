@@ -9,7 +9,7 @@
     {
       "path": "registry/primitives/effects/image-zoom/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/effects/image-zoom.tsx"
+      "target": "components/odysseyui/primitives/effects/image-zoom.tsx"
     }
   ]
 }

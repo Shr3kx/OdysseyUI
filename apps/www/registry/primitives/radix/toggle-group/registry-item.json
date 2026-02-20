@@ -6,15 +6,15 @@
   "description": "A set of two-state buttons that can be toggled on or off.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/primitives-effects-highlight",
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/primitives-effects-highlight",
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/toggle-group/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/toggle-group.tsx"
+      "target": "components/odysseyui/primitives/radix/toggle-group.tsx"
     }
   ]
 }

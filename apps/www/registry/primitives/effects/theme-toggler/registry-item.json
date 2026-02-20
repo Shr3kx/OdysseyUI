@@ -8,7 +8,7 @@
     {
       "path": "registry/primitives/effects/theme-toggler/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/effects/theme-toggler.tsx"
+      "target": "components/odysseyui/primitives/effects/theme-toggler.tsx"
     }
   ]
 }

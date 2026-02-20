@@ -4,14 +4,12 @@
   "type": "registry:ui",
   "title": "Notification List Demo",
   "description": "Demo showing a notification list.",
-  "registryDependencies": [
-    "@animate-ui/components-community-notification-list"
-  ],
+  "registryDependencies": ["@odysseyui/components-community-notification-list"],
   "files": [
     {
       "path": "registry/demo/components/community/notification-list/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/community/notification-list.tsx"
+      "target": "components/odysseyui/demo/components/community/notification-list.tsx"
     }
   ]
 }

@@ -5,12 +5,12 @@
   "title": "Rolling Text",
   "description": "A rolling text animation.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
+  "registryDependencies": ["@odysseyui/hooks-use-is-in-view"],
   "files": [
     {
       "path": "registry/primitives/texts/rolling/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/texts/rolling.tsx"
+      "target": "components/odysseyui/primitives/texts/rolling.tsx"
     }
   ]
 }

@@ -9,7 +9,7 @@
     {
       "path": "registry/primitives/headless/dialog/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/headless/dialog.tsx"
+      "target": "components/odysseyui/primitives/headless/dialog.tsx"
     }
   ]
 }

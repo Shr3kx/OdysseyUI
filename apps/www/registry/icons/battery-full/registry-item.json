@@ -4,13 +4,13 @@
   "type": "registry:ui",
   "title": "Battery Full Icon",
   "description": "Battery Full icon component.",
-  "registryDependencies": ["@animate-ui/icons-icon"],
+  "registryDependencies": ["@odysseyui/icons-icon"],
   "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/icons/battery-full/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/icons/battery-full.tsx"
+      "target": "components/odysseyui/icons/battery-full.tsx"
     }
   ],
   "meta": {

@@ -7,7 +7,6 @@
     "shiki"
   ],
   "registryDependencies": [
-    "https://odysseyui.vercel.app/r/primitives-animate-tabs.json",
     "https://odysseyui.vercel.app/r/components-buttons-copy.json"
   ],
   "files": [

@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Animate Cursor Demo",
   "description": "Demo showing an animated cursor.",
-  "registryDependencies": ["@animate-ui/primitives-animate-cursor"],
+  "registryDependencies": ["@odysseyui/primitives-animate-cursor"],
   "files": [
     {
       "path": "registry/demo/primitives/animate/cursor/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/animate/cursor.tsx"
+      "target": "components/odysseyui/demo/primitives/animate/cursor.tsx"
     }
   ],
   "meta": {

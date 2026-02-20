@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Radix Collapsible Demo",
   "description": "Demo showing an animated radix collapsible.",
-  "registryDependencies": ["@animate-ui/primitives-radix-collapsible"],
+  "registryDependencies": ["@odysseyui/primitives-radix-collapsible"],
   "files": [
     {
       "path": "registry/demo/primitives/radix/collapsible/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/radix/collapsible.tsx"
+      "target": "components/odysseyui/demo/primitives/radix/collapsible.tsx"
     }
   ],
   "meta": {

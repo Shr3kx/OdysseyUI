@@ -5,12 +5,12 @@
   "title": "Highlight Text",
   "description": "A highlight text animation.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
+  "registryDependencies": ["@odysseyui/hooks-use-is-in-view"],
   "files": [
     {
       "path": "registry/primitives/texts/highlight/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/texts/highlight.tsx"
+      "target": "components/odysseyui/primitives/texts/highlight.tsx"
     }
   ]
 }

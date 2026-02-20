@@ -6,16 +6,16 @@
   "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/primitives-effects-highlight",
-    "@animate-ui/primitives-effects-auto-height",
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/primitives-effects-highlight",
+    "@odysseyui/primitives-effects-auto-height",
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/tabs/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/tabs.tsx"
+      "target": "components/odysseyui/primitives/radix/tabs.tsx"
     }
   ]
 }

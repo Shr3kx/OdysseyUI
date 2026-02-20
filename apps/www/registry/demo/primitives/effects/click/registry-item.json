@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Click Demo",
   "description": "Demo showing an animated click.",
-  "registryDependencies": ["@animate-ui/primitives-effects-click"],
+  "registryDependencies": ["@odysseyui/primitives-effects-click"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/click/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/click.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/click.tsx"
     }
   ],
   "meta": {

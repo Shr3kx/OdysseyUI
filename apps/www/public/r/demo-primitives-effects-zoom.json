@@ -4,14 +4,14 @@
   "title": "Zoom Demo",
   "description": "Demo showing an animated zoom.",
   "registryDependencies": [
-    "@animate-ui/primitives-effects-zoom"
+    "@odysseyui/primitives-effects-zoom"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/effects/zoom/index.tsx",
       "content": "import { Zoom } from '@/components/odyssey/primitives/effects/zoom';\n\ntype ZoomDemoProps = {\n  delay?: number;\n  initialScale?: number;\n  scale?: number;\n};\n\nexport default function ZoomDemo({\n  delay = 0,\n  initialScale = 0.5,\n  scale = 1,\n}: ZoomDemoProps) {\n  return (\n    <Zoom\n      delay={delay}\n      initialScale={initialScale}\n      scale={scale}\n      className=\"px-6 py-4 bg-accent\"\n    >\n      Zoom\n    </Zoom>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/zoom.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/zoom.tsx"
     }
   ],
   "meta": {

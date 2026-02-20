@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Base Popover Demo",
   "description": "Demo showing an animated base popover.",
-  "registryDependencies": ["@animate-ui/primitives-base-popover"],
+  "registryDependencies": ["@odysseyui/primitives-base-popover"],
   "files": [
     {
       "path": "registry/demo/primitives/base/popover/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/popover.tsx"
+      "target": "components/odysseyui/demo/primitives/base/popover.tsx"
     }
   ],
   "meta": {

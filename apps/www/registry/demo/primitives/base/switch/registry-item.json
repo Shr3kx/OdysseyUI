@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Base Switch Demo",
   "description": "Demo showing an animated base switch.",
-  "registryDependencies": ["@animate-ui/primitives-base-switch"],
+  "registryDependencies": ["@odysseyui/primitives-base-switch"],
   "files": [
     {
       "path": "registry/demo/primitives/base/switch/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/switch.tsx"
+      "target": "components/odysseyui/demo/primitives/base/switch.tsx"
     }
   ]
 }

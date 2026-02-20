@@ -7,14 +7,14 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "@animate-ui/components-buttons-button"
+    "@odysseyui/components-buttons-button"
   ],
   "files": [
     {
       "path": "registry/demo/components/buttons/button/index.tsx",
       "content": "import { PlusIcon } from 'lucide-react';\nimport { Button, type ButtonProps } from '@/components/odyssey/components/buttons/button';\n\ninterface ButtonDemoProps {\n  variant: ButtonProps['variant'];\n  size: ButtonProps['size'];\n}\n\nexport default function ButtonDemo({ variant, size }: ButtonDemoProps) {\n  return (\n    <Button variant={variant} size={size}>\n      {size === 'icon' ? <PlusIcon /> : 'Click me'}\n    </Button>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/buttons/button.tsx"
+      "target": "components/odysseyui/demo/components/buttons/button.tsx"
     }
   ],
   "meta": {

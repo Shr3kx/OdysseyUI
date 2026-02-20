@@ -6,14 +6,14 @@
   "description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/radio-group/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/radio-group.tsx"
+      "target": "components/odysseyui/primitives/radix/radio-group.tsx"
     }
   ]
 }

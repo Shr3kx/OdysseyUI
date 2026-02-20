@@ -4,14 +4,14 @@
   "title": "Copy Button Demo",
   "description": "Demo showing a copy button.",
   "registryDependencies": [
-    "@animate-ui/components-buttons-copy"
+    "@odysseyui/components-buttons-copy"
   ],
   "files": [
     {
       "path": "registry/demo/components/buttons/copy/index.tsx",
       "content": "import {\n  CopyButton,\n  type CopyButtonProps,\n} from '@/components/odyssey/components/buttons/copy';\n\ninterface CopyButtonDemoProps {\n  variant: CopyButtonProps['variant'];\n  size: CopyButtonProps['size'];\n}\n\nexport default function CopyButtonDemo({ variant, size }: CopyButtonDemoProps) {\n  return <CopyButton variant={variant} size={size} content=\"Hello world!\" />;\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/buttons/copy.tsx"
+      "target": "components/odysseyui/demo/components/buttons/copy.tsx"
     }
   ],
   "meta": {

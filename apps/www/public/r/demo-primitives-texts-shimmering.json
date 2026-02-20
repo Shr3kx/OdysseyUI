@@ -4,14 +4,14 @@
   "title": "Shimmering Text Demo",
   "description": "Demo showing an animated shimmering text.",
   "registryDependencies": [
-    "@animate-ui/primitives-texts-shimmering"
+    "@odysseyui/primitives-texts-shimmering"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/texts/shimmering/index.tsx",
       "content": "import { ShimmeringText } from '@/components/odyssey/primitives/texts/shimmering';\n\ninterface ShimmeringTextDemoProps {\n  wave: boolean;\n  duration: number;\n}\n\nexport const ShimmeringTextDemo = ({\n  wave,\n  duration,\n}: ShimmeringTextDemoProps) => {\n  return (\n    <ShimmeringText\n      key={`${wave}-${duration}`}\n      className=\"text-4xl font-semibold\"\n      wave={wave}\n      duration={duration}\n      text=\"Shimmering Text\"\n    />\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/shimmering.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/shimmering.tsx"
     }
   ],
   "meta": {

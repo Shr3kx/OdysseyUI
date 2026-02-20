@@ -6,14 +6,14 @@
   "description": "An animated cursor component that allows you to customize both the cursor and cursor follow elements with smooth animations.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "@animate-ui/primitives-animate-slot",
-    "@animate-ui/lib-get-strict-context"
+    "@odysseyui/primitives-animate-slot",
+    "@odysseyui/lib-get-strict-context"
   ],
   "files": [
     {
       "path": "registry/primitives/animate/cursor/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/animate/cursor.tsx"
+      "target": "components/odysseyui/primitives/animate/cursor.tsx"
     }
   ]
 }

@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Image Zoom Demo",
   "description": "Demo showing a image zoom effect.",
-  "registryDependencies": ["@animate-ui/primitives-effects-image-zoom"],
+  "registryDependencies": ["@odysseyui/primitives-effects-image-zoom"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/image-zoom/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/image-zoom.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/image-zoom.tsx"
     }
   ]
 }

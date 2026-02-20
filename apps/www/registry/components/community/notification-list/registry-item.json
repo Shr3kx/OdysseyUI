@@ -9,7 +9,7 @@
     {
       "path": "registry/components/community/notification-list/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/components/community/notification-list.tsx"
+      "target": "components/odysseyui/components/community/notification-list.tsx"
     }
   ]
 }

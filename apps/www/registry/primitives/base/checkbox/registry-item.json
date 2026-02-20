@@ -6,14 +6,14 @@
   "description": "An easily stylable checkbox component.",
   "dependencies": ["motion", "@base-ui-components/react"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/base/checkbox/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/base/checkbox.tsx"
+      "target": "components/odysseyui/primitives/base/checkbox.tsx"
     }
   ]
 }

@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Shine Demo",
   "description": "Demo showing an animated shine.",
-  "registryDependencies": ["@animate-ui/primitives-effects-shine"],
+  "registryDependencies": ["@odysseyui/primitives-effects-shine"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/shine/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/shine.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/shine.tsx"
     }
   ],
   "meta": {

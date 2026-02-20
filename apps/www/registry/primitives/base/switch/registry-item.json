@@ -6,14 +6,14 @@
   "description": "A control that indicates whether a setting is on or off.",
   "dependencies": ["motion", "@base-ui-components/react"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/base/switch/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/base/switch.tsx"
+      "target": "components/odysseyui/primitives/base/switch.tsx"
     }
   ]
 }

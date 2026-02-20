@@ -13,7 +13,7 @@ export const GitHubStarsWheelDemo = ({
     <div className="size-full flex items-center justify-center">
       <GitHubStarsWheel
         username="imskyleen"
-        repo="animate-ui"
+        repo="odysseyui"
         delay={delay}
         direction={direction}
       />

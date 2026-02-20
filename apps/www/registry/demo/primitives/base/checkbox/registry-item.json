@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Base Checkbox Demo",
   "description": "Demo showing an animated base checkbox.",
-  "registryDependencies": ["@animate-ui/primitives-base-checkbox"],
+  "registryDependencies": ["@odysseyui/primitives-base-checkbox"],
   "files": [
     {
       "path": "registry/demo/primitives/base/checkbox/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/checkbox.tsx"
+      "target": "components/odysseyui/demo/primitives/base/checkbox.tsx"
     }
   ],
   "meta": {

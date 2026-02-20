@@ -6,16 +6,16 @@
   "description": "A component that allows you to display a list of files and folders.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "@animate-ui/primitives-base-accordion",
-    "@animate-ui/primitives-effects-highlight",
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/primitives-base-accordion",
+    "@odysseyui/primitives-effects-highlight",
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/base/files/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/base/files.tsx"
+      "target": "components/odysseyui/primitives/base/files.tsx"
     }
   ]
 }

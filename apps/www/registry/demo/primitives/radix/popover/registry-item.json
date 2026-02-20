@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Radix Popover Demo",
   "description": "Demo showing an animated radix popover.",
-  "registryDependencies": ["@animate-ui/primitives-radix-popover"],
+  "registryDependencies": ["@odysseyui/primitives-radix-popover"],
   "files": [
     {
       "path": "registry/demo/primitives/radix/popover/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/radix/popover.tsx"
+      "target": "components/odysseyui/demo/primitives/radix/popover.tsx"
     }
   ],
   "meta": {

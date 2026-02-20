@@ -6,14 +6,14 @@
   "description": "A control that allows the user to toggle between checked and not checked.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/hooks-use-controlled-state",
-    "@animate-ui/lib-get-strict-context"
+    "@odysseyui/hooks-use-controlled-state",
+    "@odysseyui/lib-get-strict-context"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/checkbox/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/checkbox.tsx"
+      "target": "components/odysseyui/primitives/radix/checkbox.tsx"
     }
   ]
 }

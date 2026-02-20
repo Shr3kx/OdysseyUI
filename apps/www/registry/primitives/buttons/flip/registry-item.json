@@ -6,14 +6,14 @@
   "description": "A button that flips between two states on hover.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/primitives-animate-slot"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/primitives-animate-slot"
   ],
   "files": [
     {
       "path": "registry/primitives/buttons/flip/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/buttons/flip.tsx"
+      "target": "components/odysseyui/primitives/buttons/flip.tsx"
     }
   ]
 }

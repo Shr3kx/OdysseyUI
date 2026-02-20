@@ -4,14 +4,14 @@
   "title": "Sliding Number Demo",
   "description": "Demo showing an animated sliding number.",
   "registryDependencies": [
-    "@animate-ui/primitives-texts-sliding-number"
+    "@odysseyui/primitives-texts-sliding-number"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/texts/sliding-number/index.tsx",
       "content": "import { SlidingNumber } from '@/components/odyssey/primitives/texts/sliding-number';\n\ninterface SlidingNumberDemoProps {\n  number: number;\n  fromNumber: boolean;\n  padStart: boolean;\n  decimalSeparator: string;\n  decimalPlaces: number;\n  thousandSeparator: string;\n  delay: number;\n}\n\nexport const SlidingNumberDemo = ({\n  number,\n  fromNumber,\n  padStart,\n  decimalSeparator,\n  decimalPlaces,\n  thousandSeparator,\n  delay,\n}: SlidingNumberDemoProps) => {\n  return (\n    <SlidingNumber\n      key={`${delay}-${fromNumber}`}\n      delay={delay}\n      number={number}\n      fromNumber={fromNumber ? 0 : undefined}\n      padStart={padStart}\n      decimalSeparator={decimalSeparator}\n      decimalPlaces={decimalPlaces}\n      thousandSeparator={thousandSeparator}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/sliding-number.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/sliding-number.tsx"
     }
   ],
   "meta": {

@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Hover Card",
   "description": "For sighted users to preview content available behind a link.",
-  "registryDependencies": ["@animate-ui/primitives-radix-hover-card"],
+  "registryDependencies": ["@odysseyui/primitives-radix-hover-card"],
   "files": [
     {
       "path": "registry/components/radix/hover-card/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/components/radix/hover-card.tsx"
+      "target": "components/odysseyui/components/radix/hover-card.tsx"
     }
   ]
 }

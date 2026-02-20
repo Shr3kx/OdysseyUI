@@ -4,14 +4,14 @@
   "title": "Shine Demo",
   "description": "Demo showing an animated shine.",
   "registryDependencies": [
-    "@animate-ui/primitives-effects-shine"
+    "@odysseyui/primitives-effects-shine"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/effects/shine/index.tsx",
       "content": "import { Shine } from '@/components/odyssey/primitives/effects/shine';\nimport { Button } from '@/components/ui/button';\n\ntype ShineDemoProps = {\n  delay?: number;\n  duration?: number;\n  loop?: boolean;\n  loopDelay?: number;\n  deg?: number;\n  enable?: boolean;\n  enableOnHover?: boolean;\n  enableOnTap?: boolean;\n};\n\nexport default function SlideDemo({\n  delay,\n  duration,\n  loop,\n  loopDelay,\n  deg,\n  enable,\n  enableOnHover,\n  enableOnTap,\n}: ShineDemoProps) {\n  return (\n    <Shine\n      delay={delay}\n      duration={duration}\n      loop={loop}\n      loopDelay={loopDelay}\n      deg={deg}\n      enable={enable}\n      enableOnHover={enableOnHover}\n      enableOnTap={enableOnTap}\n      asChild\n    >\n      <Button>Shine Effect</Button>\n    </Shine>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/shine.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/shine.tsx"
     }
   ],
   "meta": {

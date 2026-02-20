@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Counting Number Demo",
   "description": "Demo showing an animated counting number.",
-  "registryDependencies": ["@animate-ui/primitives-texts-counting-number"],
+  "registryDependencies": ["@odysseyui/primitives-texts-counting-number"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/counting-number/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/counting-number.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/counting-number.tsx"
     }
   ],
   "meta": {

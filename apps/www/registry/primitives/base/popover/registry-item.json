@@ -6,14 +6,14 @@
   "description": "An accessible popup anchored to a button.",
   "dependencies": ["motion", "@base-ui-components/react"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/base/popover/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/base/popover.tsx"
+      "target": "components/odysseyui/primitives/base/popover.tsx"
     }
   ]
 }

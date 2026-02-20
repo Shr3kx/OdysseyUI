@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Morphing Text Demo",
   "description": "Demo showing an animated morphing text.",
-  "registryDependencies": ["@animate-ui/primitives-texts-morphing"],
+  "registryDependencies": ["@odysseyui/primitives-texts-morphing"],
   "files": [
     {
       "path": "registry/demo/primitives/texts/morphing/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/texts/morphing.tsx"
+      "target": "components/odysseyui/demo/primitives/texts/morphing.tsx"
     }
   ],
   "meta": {

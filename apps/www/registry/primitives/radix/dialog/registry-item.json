@@ -6,14 +6,14 @@
   "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/hooks-use-controlled-state",
-    "@animate-ui/lib-get-strict-context"
+    "@odysseyui/hooks-use-controlled-state",
+    "@odysseyui/lib-get-strict-context"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/dialog/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/dialog.tsx"
+      "target": "components/odysseyui/primitives/radix/dialog.tsx"
     }
   ]
 }

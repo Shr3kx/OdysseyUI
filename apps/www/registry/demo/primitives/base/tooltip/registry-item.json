@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Base Tooltip Demo",
   "description": "Demo showing an animated base tooltip.",
-  "registryDependencies": ["@animate-ui/primitives-base-tooltip"],
+  "registryDependencies": ["@odysseyui/primitives-base-tooltip"],
   "files": [
     {
       "path": "registry/demo/primitives/base/tooltip/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/tooltip.tsx"
+      "target": "components/odysseyui/demo/primitives/base/tooltip.tsx"
     }
   ],
   "meta": {

@@ -6,14 +6,14 @@
   "description": "An interactive component which expands/collapses a panel.",
   "dependencies": ["motion", "radix-ui"],
   "registryDependencies": [
-    "@animate-ui/lib-get-strict-context",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/lib-get-strict-context",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/primitives/radix/collapsible/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/radix/collapsible.tsx"
+      "target": "components/odysseyui/primitives/radix/collapsible.tsx"
     }
   ]
 }

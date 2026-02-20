@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Copy Button Demo",
   "description": "Demo showing a copy button.",
-  "registryDependencies": ["@animate-ui/components-buttons-copy"],
+  "registryDependencies": ["@odysseyui/components-buttons-copy"],
   "files": [
     {
       "path": "registry/demo/components/buttons/copy/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/buttons/copy.tsx"
+      "target": "components/odysseyui/demo/components/buttons/copy.tsx"
     }
   ],
   "meta": {

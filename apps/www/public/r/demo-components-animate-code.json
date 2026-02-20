@@ -4,14 +4,14 @@
   "title": "Code Demo",
   "description": "Demo showing a code.",
   "registryDependencies": [
-    "@animate-ui/components-animate-code"
+    "@odysseyui/components-animate-code"
   ],
   "files": [
     {
       "path": "registry/demo/components/animate/code/index.tsx",
       "content": "'use client';\n\nimport {\n  Code,\n  CodeBlock,\n  CodeHeader,\n} from '@/components/odyssey/components/animate/code';\nimport ReactIcon from '@/components/icons/react-icon';\nimport { File } from 'lucide-react';\n\ninterface CodeDemoProps {\n  duration: number;\n  delay: number;\n  writing: boolean;\n  cursor: boolean;\n}\n\nexport const CodeDemo = ({\n  duration,\n  delay,\n  writing,\n  cursor,\n}: CodeDemoProps) => {\n  return (\n    <Code\n      key={`${duration}-${delay}-${writing}-${cursor}`}\n      className=\"w-[420px] h-[372px]\"\n      code={`'use client';\n \nimport * as React from 'react';\n  \ntype MyComponentProps = {\n  myProps: string;\n} & React.ComponentProps<'div'>;\n  \nfunction MyComponent(props: MyComponentProps) {\n  return (\n    <div {...props}>\n      <p>My Component</p>\n    </div>\n  );\n}\n\nexport { MyComponent, type MyComponentProps };`}\n    >\n      <CodeHeader icon={ReactIcon} copyButton>\n        my-component.tsx\n      </CodeHeader>\n\n      <CodeBlock\n        cursor={cursor}\n        lang=\"tsx\"\n        writing={writing}\n        duration={duration}\n        delay={delay}\n      />\n    </Code>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/animate/code.tsx"
+      "target": "components/odysseyui/demo/components/animate/code.tsx"
     }
   ],
   "meta": {

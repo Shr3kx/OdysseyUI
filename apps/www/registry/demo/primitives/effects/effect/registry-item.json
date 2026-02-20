@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Effect Demo",
   "description": "Demo showing an animated effect.",
-  "registryDependencies": ["@animate-ui/primitives-effects-effect"],
+  "registryDependencies": ["@odysseyui/primitives-effects-effect"],
   "files": [
     {
       "path": "registry/demo/primitives/effects/effect/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/effects/effect.tsx"
+      "target": "components/odysseyui/demo/primitives/effects/effect.tsx"
     }
   ],
   "meta": {

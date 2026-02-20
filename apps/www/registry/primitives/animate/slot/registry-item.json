@@ -9,7 +9,7 @@
     {
       "path": "registry/primitives/animate/slot/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/animate/slot.tsx"
+      "target": "components/odysseyui/primitives/animate/slot.tsx"
     }
   ]
 }

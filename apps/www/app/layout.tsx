@@ -55,11 +55,11 @@ export const metadata: Metadata = {
     title: 'Odyssey UI',
     description:
       'Fully animated, open-source component distribution built with React, TypeScript, Tailwind CSS, Motion and Shadcn CLI. Browse a list of components you can install, modify, and use in your projects.',
-    url: 'https://animate-ui.com',
+    url: 'https://odysseyui.com',
     siteName: 'Odyssey UI',
     images: [
       {
-        url: 'https://animate-ui.com/og-image.png',
+        url: 'https://odysseyui.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Odyssey UI',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
       'Fully animated, open-source component distribution built with React, TypeScript, Tailwind CSS, Motion and Shadcn CLI. Browse a list of components you can install, modify, and use in your projects.',
     images: [
       {
-        url: 'https://animate-ui.com/og-image.png',
+        url: 'https://odysseyui.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Odyssey UI',

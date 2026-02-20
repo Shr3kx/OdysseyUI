@@ -4,14 +4,14 @@
   "title": "Base Switch Demo",
   "description": "Demo showing an animated base switch.",
   "registryDependencies": [
-    "@animate-ui/primitives-base-switch"
+    "@odysseyui/primitives-base-switch"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/base/switch/index.tsx",
       "content": "import { Switch, SwitchThumb } from '@/components/odyssey/primitives/base/switch';\nimport { Label } from '@/components/ui/label';\nimport { cn } from '@/lib/utils';\n\nexport const BaseSwitchDemo = () => {\n  return (\n    <Label className=\"flex items-center gap-x-3\">\n      <Switch\n        className={cn(\n          'relative flex p-0.5 h-6 w-10 items-center justify-start rounded-full border transition-colors',\n          'data-[checked]:bg-primary data-[checked]:justify-end',\n        )}\n        defaultChecked\n      >\n        <SwitchThumb\n          className=\"rounded-full bg-accent h-full aspect-square\"\n          pressedAnimation={{ width: 22 }}\n        />\n      </Switch>\n      Airplane mode\n    </Label>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/base/switch.tsx"
+      "target": "components/odysseyui/demo/primitives/base/switch.tsx"
     }
   ],
   "type": "registry:ui"

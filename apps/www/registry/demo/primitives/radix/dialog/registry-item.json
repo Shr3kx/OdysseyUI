@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Radix Dialog Demo",
   "description": "Demo showing an animated radix dialog.",
-  "registryDependencies": ["@animate-ui/primitives-radix-dialog"],
+  "registryDependencies": ["@odysseyui/primitives-radix-dialog"],
   "files": [
     {
       "path": "registry/demo/primitives/radix/dialog/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/radix/dialog.tsx"
+      "target": "components/odysseyui/demo/primitives/radix/dialog.tsx"
     }
   ],
   "meta": {

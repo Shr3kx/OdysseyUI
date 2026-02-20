@@ -4,14 +4,14 @@
   "title": "Radix Toggle Demo",
   "description": "Demo showing an animated radix toggle.",
   "registryDependencies": [
-    "@animate-ui/primitives-radix-toggle"
+    "@odysseyui/primitives-radix-toggle"
   ],
   "files": [
     {
       "path": "registry/demo/primitives/radix/toggle/index.tsx",
       "content": "import {\n  Toggle,\n  ToggleHighlight,\n  ToggleItem,\n} from '@/components/odyssey/primitives/radix/toggle';\nimport { Bold } from 'lucide-react';\n\nexport const RadixToggleDemo = () => {\n  return (\n    <Toggle className=\"relative size-8 flex items-center justify-center\">\n      <ToggleHighlight className=\"bg-accent\" />\n      <ToggleItem>\n        <Bold className=\"h-4 w-4\" />\n      </ToggleItem>\n    </Toggle>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/radix/toggle.tsx"
+      "target": "components/odysseyui/demo/primitives/radix/toggle.tsx"
     }
   ],
   "type": "registry:ui"

@@ -18,6 +18,6 @@
     "ui": "@workspace/ui/components"
   },
   "registries": {
-    "@animate-ui": "http://localhost:3000/r/{name}.json"
+    "@odysseyui": "http://localhost:3000/r/{name}.json"
   }
 }

@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Headless Switch Demo",
   "description": "Demo showing an animated headless switch.",
-  "registryDependencies": ["@animate-ui/primitives-headless-switch"],
+  "registryDependencies": ["@odysseyui/primitives-headless-switch"],
   "files": [
     {
       "path": "registry/demo/primitives/headless/switch/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/primitives/headless/switch.tsx"
+      "target": "components/odysseyui/demo/primitives/headless/switch.tsx"
     }
   ]
 }

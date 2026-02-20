@@ -5,12 +5,12 @@
   "title": "Sliding Number",
   "description": "A sliding number animation.",
   "dependencies": ["motion", "react-use-measure"],
-  "registryDependencies": ["@animate-ui/hooks-use-is-in-view"],
+  "registryDependencies": ["@odysseyui/hooks-use-is-in-view"],
   "files": [
     {
       "path": "registry/primitives/texts/sliding-number/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/primitives/texts/sliding-number.tsx"
+      "target": "components/odysseyui/primitives/texts/sliding-number.tsx"
     }
   ]
 }

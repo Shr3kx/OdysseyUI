@@ -10,7 +10,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@workspace/ui/components/animate-ui/collapsible';
+} from '@workspace/ui/components/odysseyui/collapsible';
 import {
   Select,
   SelectContent,
@@ -56,8 +56,7 @@ interface UncontrolledTweakpaneProps {
 
 type TweakpaneProps = ControlledTweakpaneProps | UncontrolledTweakpaneProps;
 
-interface NumericInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+interface NumericInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   value: number;
   onValueChange: (value: number) => void;
   min?: number;

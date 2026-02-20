@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Animate GitHub Stars Wheel Demo",
   "description": "Demo showing an animated github stars wheel.",
-  "registryDependencies": ["@animate-ui/components-animate-github-stars-wheel"],
+  "registryDependencies": ["@odysseyui/components-animate-github-stars-wheel"],
   "files": [
     {
       "path": "registry/demo/components/animate/github-stars-wheel/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/demo/components/animate/github-stars-wheel.tsx"
+      "target": "components/odysseyui/demo/components/animate/github-stars-wheel.tsx"
     }
   ],
   "meta": {
