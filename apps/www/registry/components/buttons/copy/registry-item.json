@@ -6,14 +6,14 @@
   "description": "A copy button component with a variety of styles and animations.",
   "dependencies": ["motion", "lucide-react", "class-variance-authority"],
   "registryDependencies": [
-    "@animate-ui/primitives-buttons-button",
-    "@animate-ui/hooks-use-controlled-state"
+    "@odysseyui/primitives-buttons-button",
+    "@odysseyui/hooks-use-controlled-state"
   ],
   "files": [
     {
       "path": "registry/components/buttons/copy/index.tsx",
       "type": "registry:ui",
-      "target": "components/animate-ui/components/buttons/copy.tsx"
+      "target": "components/odysseyui/components/buttons/copy.tsx"
     }
   ]
 }
