@@ -4,12 +4,12 @@
   "type": "registry:ui",
   "title": "Code Block Demo",
   "description": "Demo showing a code block frame with a Python snippet.",
-  "registryDependencies": ["odysseyui/components-animate-code-block"],
+  "registryDependencies": ["odyssey/components-animate-code-block"],
   "files": [
     {
       "path": "registry/demo/components/animate/code-block/index.tsx",
       "type": "registry:ui",
-      "target": "components/odysseyui/demo/animate/code-block.tsx"
+      "target": "components/odyssey/demo/animate/code-block.tsx"
     }
   ]
 }
