@@ -12,9 +12,10 @@ description: A styled code block frame component with language badge and optiona
 ## Usage
 
 ```tsx
-<CodeFrame code={codeString} language="tsx">
-  <code>{codeString}</code>
-</CodeFrame>
+<CodeFrame
+  code={`console.log("Hello from JavaScript");`}
+  language="javascript"
+/>
 ```
 
 ## API Reference
@@ -52,19 +53,28 @@ description: A styled code block frame component with language badge and optiona
 ### With Different Languages
 
 ```tsx
-<CodeFrame code="const hello = 'world';" language="tsx">
-  <code>const hello = 'world';</code>
-</CodeFrame>
+  <CodeFrame
+  code={`console.log("Hello from JavaScript");`}
+  language="javascript"
+/>
 
-<CodeFrame code="def hello():\n    print('world')" language="python">
-  <code>def hello():{'\n'}    print('world')</code>
-</CodeFrame>
+<CodeFrame
+  code={`print("Hello from Python")`}
+  language="python"
+/>
+
+<CodeFrame
+  code={`System.out.println("Hello from Java");`}
+  language="java"
+/>
 ```
 
 ### With Custom Styling
 
 ```tsx
-<CodeFrame code={codeString} language="typescript" className="max-w-2xl">
-  <code className="text-sm">{codeString}</code>
-</CodeFrame>
+<CodeFrame
+  code={`console.log("Styled CodeFrame");`}
+  language="javascript"
+  className="rounded-xl border border-neutral-200 bg-neutral-50"
+/>
 ```

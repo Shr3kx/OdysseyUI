@@ -36,9 +36,5 @@ with safe_file_operation('data.txt', 'r') as f:
   updatedAt: Date.now(),
 };
 export const CodeFrameDemo = () => {
-  return (
-    <CodeFrame language="python" code={snippet_3.code}>
-      <code className="p-4 text-sm">{snippet_3.code}</code>
-    </CodeFrame>
-  );
+  return <CodeFrame code={snippet_3.code} language="python" />;
 };
