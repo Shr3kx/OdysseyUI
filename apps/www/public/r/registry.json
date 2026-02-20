@@ -62,9 +62,12 @@
       "type": "registry:ui",
       "title": "Code Block",
       "description": "A styled code block frame component with language badge and optional copy functionality.",
-      "dependencies": [],
+      "dependencies": [
+        "shiki"
+      ],
       "registryDependencies": [
-        "utils"
+        "https://odysseyui.vercel.app/r/primitives-animate-tabs.json",
+        "https://odysseyui.vercel.app/r/components-buttons-copy.json"
       ],
       "files": [
         {
@@ -83,14 +86,14 @@
         "shiki"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-animate-tabs",
-        "@animate-ui/components-buttons-copy"
+        "https://odysseyui.vercel.app/r/primitives-animate-tabs.json",
+        "https://odysseyui.vercel.app/r/components-buttons-copy.json"
       ],
       "files": [
         {
           "path": "registry/components/animate/code-tabs/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/animate/code-tabs.tsx"
+          "target": "components/odyssey/components/animate/code-tabs.tsx"
         }
       ]
     },
@@ -176,14 +179,14 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@animate-ui/primitives-buttons-button",
-        "@animate-ui/hooks-use-controlled-state"
+        "https://odysseyui.vercel.app/r/primitives-buttons-button.json",
+        "https://odysseyui.vercel.app/r/hooks-use-controlled-state.json"
       ],
       "files": [
         {
           "path": "registry/components/buttons/copy/index.tsx",
           "type": "registry:ui",
-          "target": "components/animate-ui/components/buttons/copy.tsx"
+          "target": "components/odyssey/components/buttons/copy.tsx"
         }
       ]
     },
@@ -401,7 +404,7 @@
       "title": "Code Block Demo",
       "description": "Demo showing a code block frame with a Python snippet.",
       "registryDependencies": [
-        "@animate-ui/components-animate-code-block"
+        "odyssey/components-animate-code-block"
       ],
       "files": [
         {

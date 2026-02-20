@@ -6,8 +6,8 @@
   "description": "A copy button component with a variety of styles and animations.",
   "dependencies": ["motion", "lucide-react", "class-variance-authority"],
   "registryDependencies": [
-    "@odyssey/primitives-buttons-button",
-    "@odyssey/hooks-use-controlled-state"
+    "https://odysseyui.vercel.app/r/primitives-buttons-button.json",
+    "https://odysseyui.vercel.app/r/hooks-use-controlled-state.json"
   ],
   "files": [
     {
