@@ -79,7 +79,7 @@ export const Nav = () => {
 
   return (
     <>
-      <Navbar className="md:h-17 h-14 border bg-background/70 backdrop-blur-lg rounded-b-2xl md:px-5 px-3 flex items-center gap-3 max-w-410 w-full mx-auto">
+      <Navbar className="md:h-17 h-14 border bg-background/70 backdrop-blur-lg rounded-b-2xl md:px-5 px-3 flex items-center gap-3 max-w-410 border-t-0 w-full mx-auto">
         <Link
           href="/"
           className={buttonVariants({
@@ -146,7 +146,7 @@ export const Nav = () => {
               </GithubStars>
 
               <a
-                href="https://x.com/iam-sahil"
+                href="https://x.com/ctrlcat0x"
                 rel="noreferrer noopener"
                 target="_blank"
                 className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 hover:bg-fd-accent hover:text-fd-accent-foreground size-8 [&_svg]:size-5 text-fd-muted-foreground"
