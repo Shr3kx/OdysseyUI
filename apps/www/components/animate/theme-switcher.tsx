@@ -10,8 +10,8 @@ import { switchOffSound } from '@/lib/switch-off';
 
 export const ThemeSwitcher = ({ className }: { className?: string }) => {
   const { resolvedTheme: theme, setTheme } = useTheme();
-  const [playOn] = useSound(switchOnSound, { volume: 0.125 });
-  const [playOff] = useSound(switchOffSound, { volume: 0.125 });
+  const [playOn] = useSound(switchOnSound, { volume: 0.25 });
+  const [playOff] = useSound(switchOffSound, { volume: 0.25 });
 
   const [isClient, setIsClient] = useState(false);
 

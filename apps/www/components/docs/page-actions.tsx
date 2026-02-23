@@ -18,6 +18,8 @@ import {
   PopoverTrigger,
 } from 'fumadocs-ui/components/ui/popover';
 import { cva } from 'class-variance-authority';
+import { useSound } from '@/hooks/use-sound';
+import { clickSoftSound } from '@/lib/click-soft';
 
 const cache = new Map<string, string>();
 
@@ -29,6 +31,7 @@ export function LLMCopyButton({
 }: {
   markdownUrl: string;
 }) {
+  const [playClick] = useSound(clickSoftSound, { volume: 0.5 });
   const [isLoading, setLoading] = useState(false);
   const [checked, onClick] = useCopyButton(async () => {
     const cached = cache.get(markdownUrl);
@@ -63,7 +66,10 @@ export function LLMCopyButton({
             'gap-2 [&_svg]:size-3.5 [&_svg]:text-fd-muted-foreground border-0',
         }),
       )}
-      onClick={onClick}
+      onClick={(e) => {
+        playClick();
+        onClick(e);
+      }}
     >
       {checked ? <Check /> : <Copy />}
       Copy Markdown
@@ -89,6 +95,7 @@ export function ViewOptions({
    */
   githubUrl: string;
 }) {
+  const [playClick] = useSound(clickSoftSound, { volume: 0.5 });
   const items = useMemo(() => {
     const fullMarkdownUrl =
       typeof window !== 'undefined'
@@ -162,6 +169,7 @@ export function ViewOptions({
             className: 'gap-2 border-0',
           }),
         )}
+        onClick={() => playClick()}
       >
         <Brain className="size-3.5 text-fd-muted-foreground" />
         Ask AI
@@ -175,6 +183,7 @@ export function ViewOptions({
             rel="noreferrer noopener"
             target="_blank"
             className={cn(optionVariants())}
+            onClick={() => playClick()}
           >
             {item.icon}
             {item.title}

@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { useSound } from '@/hooks/use-sound';
 import { clickSoftSound } from '@/lib/click-soft';
-import { scroll002Sound } from '@/lib/scroll-002';
+import { impactGenericLight002Sound } from '@/lib/impact-generic-light-002';
 
 interface RegistryItem {
   name: string;
@@ -33,6 +33,11 @@ interface SearchResult {
   category: string;
   type: 'page' | 'component';
   installCommand?: string;
+}
+
+interface ComponentsMetaResponse {
+  pages?: string[];
+  templatePages?: string[];
 }
 
 // Guide pages
@@ -86,9 +91,9 @@ export interface ComponentSearchProps {
 
 export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
   const [playClick] = useSound(clickSoftSound, { volume: 0.5 });
-  const [playScroll] = useSound(scroll002Sound, { volume: 0.1 });
+  const [playDialTick] = useSound(impactGenericLight002Sound, { volume: 0.15 });
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  const lastScrollTimeRef = React.useRef<number>(0);
+  const scrollStepRef = React.useRef<number>(0);
 
   const [query, setQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState<SearchResult[]>([]);
@@ -105,6 +110,22 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
   // copied state for footer feedback
   const [copied, setCopied] = React.useState(false);
   const copiedTimeoutRef = React.useRef<number | null>(null);
+
+  const formatSlugTitle = React.useCallback((slug: string) => {
+    return slug
+      .split('/')
+      .map((segment) =>
+        segment
+          .split('-')
+          .map((word) =>
+            word.length > 0
+              ? word.charAt(0).toUpperCase() + word.slice(1)
+              : word,
+          )
+          .join(' '),
+      )
+      .join(' / ');
+  }, []);
 
   // Copy install command to clipboard and show feedback
   const copyInstallCommand = React.useCallback(
@@ -141,7 +162,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
 
         // Load meta.json to cross-reference available components
         const metaResponse = await fetch('/api/components-meta');
-        const metaData = await metaResponse.json();
+        const metaData: ComponentsMetaResponse = await metaResponse.json();
 
         // Extract component paths from meta.json (e.g., "animate/github-stars-wheel")
         const availableComponents = new Set<string>();
@@ -153,6 +174,24 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
             }
           });
         }
+
+        const templatePages: SearchResult[] = [];
+        if (metaData.templatePages && Array.isArray(metaData.templatePages)) {
+          metaData.templatePages.forEach((page: string) => {
+            if (!page.startsWith('---')) {
+              templatePages.push({
+                name: `template-${page}`,
+                title: formatSlugTitle(page),
+                description: 'Template documentation',
+                path: `/docs/templates/${page}`,
+                category: 'Templates',
+                type: 'page',
+              });
+            }
+          });
+        }
+
+        const allPages = [...GUIDE_PAGES, ...templatePages];
 
         const components: SearchResult[] = [];
 
@@ -191,11 +230,11 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
         }
 
         setRegistryData(components);
-        setGuidePages(GUIDE_PAGES);
+        setGuidePages(allPages);
 
         // Default: show more guide pages and components by default
         setSearchResults([
-          ...GUIDE_PAGES.slice(0, 10),
+          ...allPages.slice(0, 10),
           ...components.slice(0, 50),
         ]);
 
@@ -216,6 +255,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
       setQuery('');
       setSelectedIndex(0);
       setHoveredIndex(null);
+      scrollStepRef.current = 0;
       setTimeout(() => inputRef.current?.focus(), 0);
     }
   }, [open]);
@@ -314,20 +354,24 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
     const categoryMap: Record<string, SearchResult[]> = {};
 
     searchResults.forEach((result) => {
-      const cat = result.type === 'page' ? 'Pages' : result.category;
+      const cat = result.category;
       if (!categoryMap[cat]) {
         categoryMap[cat] = [];
       }
       categoryMap[cat].push(result);
     });
 
-    // Pages first, then other categories
+    // Pages first, Templates second, then other categories
     if (categoryMap['Pages']) {
       groups.push({ category: 'Pages', items: categoryMap['Pages'] });
     }
 
+    if (categoryMap['Templates']) {
+      groups.push({ category: 'Templates', items: categoryMap['Templates'] });
+    }
+
     Object.entries(categoryMap).forEach(([category, items]) => {
-      if (category !== 'Pages') {
+      if (category !== 'Pages' && category !== 'Templates') {
         groups.push({ category, items });
       }
     });
@@ -432,10 +476,17 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
             ref={scrollContainerRef}
             className="max-h-[420px] overflow-y-auto custom-scrollbar pt-2"
             onScroll={() => {
-              const now = Date.now();
-              if (now - lastScrollTimeRef.current > 80) {
-                lastScrollTimeRef.current = now;
-                playScroll();
+              const container = scrollContainerRef.current;
+              if (!container) return;
+
+              const stepSizePx = 28;
+              const nextStep = Math.floor(container.scrollTop / stepSizePx);
+
+              if (nextStep !== scrollStepRef.current) {
+                scrollStepRef.current = nextStep;
+                if (nextStep % 2 === 0) {
+                  playDialTick();
+                }
               }
             }}
           >

@@ -8,6 +8,7 @@ import { ThemeSwitcher } from '@/components/animate/theme-switcher';
 import XIcon from '@workspace/ui/components/icons/x-icon';
 import { SIDEBAR_TABS } from '@/lib/sidebar';
 import { Nav } from '@/components/docs/nav';
+import { GlobalContextMenu } from '@/components/docs/global-context-menu';
 
 const DOCS_LAYOUT_PROPS: DocsLayoutProps = {
   tree: source.pageTree,
@@ -15,7 +16,7 @@ const DOCS_LAYOUT_PROPS: DocsLayoutProps = {
     tabs: SIDEBAR_TABS,
   },
 
-  githubUrl: 'https://github.com/imskyleen/odysseyui',
+  githubUrl: 'https://github.com/shr3kx/odysseyui',
   themeSwitch: {
     component: <ThemeSwitcher />,
   },
@@ -24,7 +25,7 @@ const DOCS_LAYOUT_PROPS: DocsLayoutProps = {
     ...(baseOptions.links || []),
     {
       icon: <XIcon />,
-      url: 'https://x.com/animate_ui',
+      url: 'https://x.com/ctrlcat0x',
       text: 'X',
       type: 'icon',
     },
@@ -33,16 +34,18 @@ const DOCS_LAYOUT_PROPS: DocsLayoutProps = {
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout
-      {...DOCS_LAYOUT_PROPS}
-      sidebar={{
-        component: <DocsSidebar {...DOCS_LAYOUT_PROPS} />,
-      }}
-      nav={{
-        component: <Nav />,
-      }}
-    >
-      {children}
-    </DocsLayout>
+    <GlobalContextMenu>
+      <DocsLayout
+        {...DOCS_LAYOUT_PROPS}
+        sidebar={{
+          component: <DocsSidebar {...DOCS_LAYOUT_PROPS} />,
+        }}
+        nav={{
+          component: <Nav />,
+        }}
+      >
+        {children}
+      </DocsLayout>
+    </GlobalContextMenu>
   );
 }

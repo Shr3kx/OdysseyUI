@@ -79,7 +79,7 @@ export const Nav = () => {
 
   return (
     <>
-      <Navbar className="md:h-17 h-14 border bg-background/70 backdrop-blur-lg rounded-b-2xl md:px-5 px-3 flex items-center gap-3 max-w-410 border-t-0 w-full mx-auto">
+      <Navbar className="md:h-17 h-14 border bg-background/70 backdrop-blur-lg rounded-b-2xl md:px-5 px-3 flex items-center gap-3 max-w-410 border-t-0 w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] mx-auto">
         <Link
           href="/"
           className={buttonVariants({
