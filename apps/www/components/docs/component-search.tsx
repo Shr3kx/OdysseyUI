@@ -12,6 +12,9 @@ import {
   Forward,
   Check,
 } from 'lucide-react';
+import { useSound } from '@/hooks/use-sound';
+import { clickSoftSound } from '@/lib/click-soft';
+import { scroll002Sound } from '@/lib/scroll-002';
 
 interface RegistryItem {
   name: string;
@@ -82,6 +85,11 @@ export interface ComponentSearchProps {
 }
 
 export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
+  const [playClick] = useSound(clickSoftSound, { volume: 0.5 });
+  const [playScroll] = useSound(scroll002Sound, { volume: 0.1 });
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const lastScrollTimeRef = React.useRef<number>(0);
+
   const [query, setQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState<SearchResult[]>([]);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -203,6 +211,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
     };
 
     if (open) {
+      playClick();
       loadData();
       setQuery('');
       setSelectedIndex(0);
@@ -239,6 +248,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
   };
 
   const handleSelect = (result: SearchResult) => {
+    playClick();
     router.push(result.path);
     onOpenChange(false);
   };
@@ -418,7 +428,17 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
           </div>
 
           {/* Search Results */}
-          <div className="max-h-[420px] overflow-y-auto custom-scrollbar pt-2">
+          <div
+            ref={scrollContainerRef}
+            className="max-h-[420px] overflow-y-auto custom-scrollbar pt-2"
+            onScroll={() => {
+              const now = Date.now();
+              if (now - lastScrollTimeRef.current > 80) {
+                lastScrollTimeRef.current = now;
+                playScroll();
+              }
+            }}
+          >
             {searchResults.length === 0 ? (
               <div className="py-12 text-center text-sm text-muted-foreground">
                 No results found.

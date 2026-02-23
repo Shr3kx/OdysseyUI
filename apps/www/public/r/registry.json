@@ -411,7 +411,50 @@
           "type": "registry:ui",
           "target": "components/odyssey/demo/animate/code-block.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "demoProps": {
+          "CodeFrame": {
+            "delay": {
+              "value": 0,
+              "min": 0,
+              "max": 3000,
+              "step": 100
+            },
+            "duration": {
+              "value": 5000,
+              "min": 500,
+              "max": 30000,
+              "step": 500
+            },
+            "typeEffect": {
+              "value": true
+            },
+            "theme": {
+              "value": "one-dark-pro",
+              "options": {
+                "One Dark Pro": "one-dark-pro",
+                "GitHub Dark": "github-dark",
+                "GitHub Light": "github-light",
+                "Dracula": "dracula",
+                "Nord": "nord",
+                "Monokai": "monokai",
+                "Tokyo Night": "tokyo-night",
+                "Solarized Dark": "solarized-dark"
+              }
+            },
+            "language": {
+              "value": "react",
+              "options": {
+                "React": "react",
+                "Python": "python",
+                "JavaScript": "javascript",
+                "Java": "java"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "name": "demo-components-animate-code-tabs",

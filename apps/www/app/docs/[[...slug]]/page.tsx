@@ -12,12 +12,9 @@ import { Metadata } from 'next';
 import { DocsAuthor } from '@/components/docs/docs-author';
 import { ViewOptions, LLMCopyButton } from '@/components/docs/page-actions';
 import { Footer } from '@workspace/ui/components/docs/footer';
-import { Button } from '@/registry/components/buttons/button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { findNeighbour } from 'fumadocs-core/server';
+import { NavButtons } from '@/components/docs/nav-buttons';
 import { baseOptions } from '@/app/layout.config';
-
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
@@ -118,36 +115,11 @@ export default async function Page(props: {
             />
           </div>
           {(prevNav || nextNav) && (
-            <div className="flex flex-row gap-1.5 items-center">
-              <Link
-                href={prevNav?.url ?? page.url}
-                aria-disabled={!prevNav}
-                className={
-                  !prevNav ? 'pointer-events-none opacity-50' : undefined
-                }
-                aria-label={
-                  prevNav ? `Aller à ${prevNav.name}` : 'Pas de page précédente'
-                }
-              >
-                <Button variant="accent" size="icon-md">
-                  <ArrowLeft />
-                </Button>
-              </Link>
-              <Link
-                href={nextNav?.url ?? page.url}
-                aria-disabled={!nextNav}
-                className={
-                  !nextNav ? 'pointer-events-none opacity-50' : undefined
-                }
-                aria-label={
-                  nextNav ? `Aller à ${nextNav.name}` : 'Pas de page suivante'
-                }
-              >
-                <Button variant="accent" size="icon-md">
-                  <ArrowRight />
-                </Button>
-              </Link>
-            </div>
+            <NavButtons
+              prevNav={prevNav}
+              nextNav={nextNav}
+              currentUrl={page.url}
+            />
           )}
         </div>
       </div>

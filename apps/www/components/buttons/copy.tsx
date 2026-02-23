@@ -77,6 +77,7 @@ function CopyButton({
 
   const handleCopy = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
+      // handlePlay();
       if (isCopied) return;
       if (content) {
         navigator.clipboard
@@ -90,6 +91,7 @@ function CopyButton({
             console.error('Error copying command', error);
           });
       }
+
       onClick?.(e);
     },
     [isCopied, content, delay, onClick, onCopy, handleIsCopied],

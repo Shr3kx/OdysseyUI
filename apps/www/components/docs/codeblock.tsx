@@ -16,6 +16,8 @@ import {
 } from '@workspace/ui/components/ui/scroll-area';
 import type { ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import { CopyButton } from '@/components/buttons/copy';
+import { useSound } from '@/hooks/use-sound';
+import { clickSoftSound } from '@/lib/click-soft';
 
 export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
   icon?: ReactNode;
@@ -54,10 +56,9 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
   ) => {
     const [isCopied, setIsCopied] = useState(false);
     const areaRef = useRef<HTMLDivElement>(null);
-
+    const [play] = useSound(clickSoftSound);
     const onCopy = useCallback(() => {
       const pre = areaRef.current?.getElementsByTagName('pre').item(0);
-
       if (!pre) return;
 
       const clone = pre.cloneNode(true) as HTMLElement;
@@ -65,6 +66,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         node.remove();
       });
 
+      play();
       void navigator.clipboard.writeText(clone.textContent ?? '').then(() => {
         setIsCopied(true);
         onCopyEvent?.();
@@ -108,11 +110,11 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
           </div>
         ) : (
           allowCopy && (
-            <div className="absolute right-1.5 top-1.5 z-2">
+            <div className="absolute right-1.5 top-1.5 z-2 ">
               <CopyButton
                 size="xs"
                 variant="ghost"
-                className="size-9 border-l border-b bg-background rounded-tl-none rounded-br-none hover:bg-black/5 dark:hover:bg-white/10"
+                className="size-9 border-l border-b bg-background rounded-tl-none rounded-br-none hover:bg-black/5 dark:hover:bg-white/10 hover:backdrop-blur-xs"
                 onClick={onCopy}
                 isCopied={isCopied}
               />

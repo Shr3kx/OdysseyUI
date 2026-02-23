@@ -8,7 +8,7 @@ TODO
 - change templates index page
 - landing page reconfigure
 - tweakcn themeswitcher component import
-- use soundCn to add sound (copy btn(clicksoft) , search, scrool dial sound(sound-0002), theme togle(ripple effect + drop 004 sound) or(flickr + switch off + on) right_+left)
+- use soundCn to add sound (, search, scrool dial sound(sound-0002), theme togle(ripple effect + drop 004 sound) or (flickr + switch off + on) right_+left)
 - add lenis scroll
 - Templates to add:- 
                      - Portfolio (Posthog inspired)     

@@ -4,6 +4,8 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import { CheckIcon, CopyIcon } from 'lucide-react';
+import { useSound } from '@/hooks/use-sound';
+import { clickSoftSound } from '@/lib/click-soft';
 
 import {
   Button as ButtonPrimitive,
@@ -67,7 +69,7 @@ function CopyButton({
     value: copied,
     onChange: onCopiedChange,
   });
-
+  const [play] = useSound(clickSoftSound);
   const handleCopy = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       onClick?.(e);
@@ -77,6 +79,7 @@ function CopyButton({
           .writeText(content)
           .then(() => {
             setIsCopied(true);
+            play();
             onCopiedChange?.(true, content);
             setTimeout(() => {
               setIsCopied(false);
