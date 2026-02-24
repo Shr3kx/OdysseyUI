@@ -7,6 +7,14 @@ import type {
   UseSoundOptions,
   UseSoundReturn,
 } from '@/lib/sound-types';
+const SOUND_STORAGE_KEY = 'odyssey-sound-enabled';
+const SOUND_EVENT = 'odyssey-sound-toggle';
+
+function readSoundEnabled(): boolean {
+  if (typeof window === 'undefined') return true;
+  const stored = localStorage.getItem(SOUND_STORAGE_KEY);
+  return stored === null ? true : stored === 'true';
+}
 
 export function useSound(
   sound: SoundAsset,
@@ -16,14 +24,30 @@ export function useSound(
     volume = 1,
     playbackRate = 1,
     interrupt = false,
-    soundEnabled = true,
+    soundEnabled: soundEnabledOption,
     onPlay,
     onEnd,
     onPause,
     onStop,
   } = options;
 
+  const [globalSoundEnabled, setGlobalSoundEnabled] =
+    useState<boolean>(readSoundEnabled);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<boolean>).detail;
+      setGlobalSoundEnabled(detail);
+    };
+    window.addEventListener(SOUND_EVENT, handler);
+    return () => window.removeEventListener(SOUND_EVENT, handler);
+  }, []);
+
+  const soundEnabled =
+    soundEnabledOption !== undefined ? soundEnabledOption : globalSoundEnabled;
+
   const [isPlaying, setIsPlaying] = useState(false);
+
   const [duration, setDuration] = useState<number | null>(
     sound.duration ?? null,
   );

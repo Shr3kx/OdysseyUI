@@ -1,18 +1,17 @@
 'use client';
 
 import * as React from 'react';
-import { motion } from 'motion/react';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   ContextMenu,
+  ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuLabel,
   ContextMenuSeparator,
   ContextMenuShortcut,
   ContextMenuTrigger,
 } from '@workspace/ui/components/ui/context-menu';
-import { Copy, PackagePlus, Settings } from 'lucide-react';
+import { Copy, PackagePlus, Settings, Volume2, VolumeOff } from 'lucide-react';
 import { useSound } from '@/hooks/use-sound';
 import { clickSoftSound } from '@/lib/click-soft';
 
@@ -26,12 +25,15 @@ function normalizePath(path: string) {
   if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
   return path;
 }
-
+const STORAGE_KEY = 'odyssey-sound-enabled';
 export function GlobalContextMenu({ children }: { children: React.ReactNode }) {
   const [playClick] = useSound(clickSoftSound, { volume: 0.5 });
   const pathname = usePathname();
   const router = useRouter();
-
+  const [enabled, setEnabled] = React.useState<boolean>(() => {
+    if (typeof window === 'undefined') return true;
+    return localStorage.getItem(STORAGE_KEY) !== 'false';
+  });
   const [selectedText, setSelectedText] = React.useState('');
   const [pathToCommand, setPathToCommand] = React.useState<
     Record<string, string>
@@ -75,81 +77,17 @@ export function GlobalContextMenu({ children }: { children: React.ReactNode }) {
     return pathToCommand[normalizedPath] ?? null;
   }, [pathname, pathToCommand]);
 
-  const hasSelectedText = selectedText.trim().length > 0;
-
-  const handleCopySelectedText = React.useCallback(() => {
-    if (!hasSelectedText) return;
-    playClick();
-    navigator.clipboard.writeText(selectedText);
-  }, [hasSelectedText, playClick, selectedText]);
-
   const handleCopyInstallCommand = React.useCallback(() => {
     if (!installCommand) return;
     playClick();
     navigator.clipboard.writeText(installCommand);
   }, [installCommand, playClick]);
 
-  const menuItems = React.useMemo(
-    () => [
-      {
-        key: 'copy-selected',
-        icon: Copy,
-        label: 'Copy Selected Text',
-        shortcut: '⌘C',
-        disabled: !hasSelectedText,
-        onSelect: handleCopySelectedText,
-      },
-      {
-        key: 'copy-install',
-        icon: PackagePlus,
-        label: 'Copy Install Command',
-        disabled: !installCommand,
-        onSelect: handleCopyInstallCommand,
-      },
-      {
-        key: 'settings',
-        icon: Settings,
-        label: 'Settings',
-        onSelect: () => {
-          playClick();
-          router.push('/docs#settings');
-        },
-      },
-    ],
-    [
-      handleCopyInstallCommand,
-      handleCopySelectedText,
-      hasSelectedText,
-      installCommand,
-      playClick,
-      router,
-    ],
-  );
-
-  const listVariants = React.useMemo(
-    () => ({
-      hidden: { opacity: 0 },
-      show: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.05,
-        },
-      },
-    }),
-    [],
-  );
-
-  const itemVariants = React.useMemo(
-    () => ({
-      hidden: { opacity: 0, x: -10 },
-      show: { opacity: 1, x: 0, transition: { duration: 0.14 } },
-    }),
-    [],
-  );
+  const hasSelectedText = selectedText.trim().length > 0;
 
   return (
     <ContextMenu
-      modal={false}
+      // modal={false}
       onOpenChange={(open) => {
         if (!open) return;
         const selection = window.getSelection()?.toString() ?? '';
@@ -160,39 +98,44 @@ export function GlobalContextMenu({ children }: { children: React.ReactNode }) {
         <div className="h-full w-full">{children}</div>
       </ContextMenuTrigger>
 
-      <ContextMenuContent className="w-56 rounded-xl p-2">
-        <ContextMenuLabel>Actions</ContextMenuLabel>
-        <ContextMenuSeparator />
-
-        <motion.div
-          initial="hidden"
-          animate="show"
-          transition={{ duration: 0.14 }}
-          variants={listVariants}
-          style={{ transformOrigin: 'top left' }}
+      <ContextMenuContent className="w-56">
+        <ContextMenuItem
+          disabled={!hasSelectedText}
+          onClick={() => playClick()}
+          onSelect={() => {
+            if (!hasSelectedText) return;
+            navigator.clipboard.writeText(selectedText);
+          }}
         >
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.key}
-                variants={itemVariants}
-                whileHover={{ x: 4 }}
-              >
-                <ContextMenuItem
-                  disabled={item.disabled}
-                  onSelect={item.onSelect}
-                >
-                  <Icon />
-                  {item.label}
-                  {item.shortcut ? (
-                    <ContextMenuShortcut>{item.shortcut}</ContextMenuShortcut>
-                  ) : null}
-                </ContextMenuItem>
-              </motion.div>
+          <Copy />
+          Copy Selected Text
+        </ContextMenuItem>
+
+        <ContextMenuItem
+          disabled={!installCommand}
+          onClick={() => handleCopyInstallCommand()}
+        >
+          <PackagePlus />
+          Copy Install Command
+        </ContextMenuItem>
+
+        <ContextMenuCheckboxItem
+          checked={enabled}
+          onCheckedChange={(val) => {
+            const next = val === true;
+            setEnabled(next);
+            playClick();
+            localStorage.setItem(STORAGE_KEY, String(next));
+            window.dispatchEvent(
+              new CustomEvent<boolean>('odyssey-sound-toggle', {
+                detail: next,
+              }),
             );
-          })}
-        </motion.div>
+          }}
+        >
+          {enabled ? <Volume2 /> : <VolumeOff />}
+          Sound Effects
+        </ContextMenuCheckboxItem>
       </ContextMenuContent>
     </ContextMenu>
   );
