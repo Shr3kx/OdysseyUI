@@ -456,7 +456,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
         <div className="overflow-hidden rounded-lg border bg-background shadow-2xl">
           {/* Search Input */}
           <div className="px-2 pt-2">
-            <div className="flex items-center gap-3 px-4 py-3 bg-accent rounded-lg border shadow-xs">
+            <div className="flex items-center gap-3 px-4 py-3 bg-accent rounded-md border shadow-xs">
               <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
               <input
                 ref={inputRef}
