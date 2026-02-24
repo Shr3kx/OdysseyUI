@@ -1,14 +1,13 @@
 TODO
 
-- Changelog order update
-- figure out padding in navbar (mx)
-- components section changes to sidebar sections
-- Add templates in search
+
+
+
+
 - codeblocks duration prop fix
 - change templates index page
 - landing page reconfigure
 - tweakcn themeswitcher component import
-- use soundCn to add sound (, search, scrool dial sound(sound-0002), theme togle(ripple effect + drop 004 sound) or (flickr + switch off + on) right_+left)
 - add lenis scroll
 - Templates to add:- 
                      - Portfolio (Posthog inspired)     
