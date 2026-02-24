@@ -91,7 +91,7 @@ export interface ComponentSearchProps {
 
 export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
   const [playClick] = useSound(clickSoftSound, { volume: 0.5 });
-  const [playDialTick] = useSound(impactGenericLight002Sound, { volume: 0.15 });
+  const [playDialTick] = useSound(impactGenericLight002Sound, { volume: 0.1 });
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const scrollStepRef = React.useRef<number>(0);
 
@@ -449,7 +449,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
       {/* Modal with slide and fade animation */}
       <div
         className={cn(
-          'fixed left-1/2 top-[20%] z-50 w-full max-w-[640px] -translate-x-1/2 p-1 bg-accent rounded-xl',
+          'fixed left-1/2 top-[20%] z-50 w-full max-w-160 -translate-x-1/2 p-1 bg-accent rounded-xl',
           'animate-in fade-in-0 slide-in-from-top-4 duration-200',
         )}
       >
@@ -474,7 +474,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
           {/* Search Results */}
           <div
             ref={scrollContainerRef}
-            className="max-h-[420px] overflow-y-auto custom-scrollbar pt-2"
+            className="max-h-105 overflow-y-auto custom-scrollbar pt-2"
             onScroll={() => {
               const container = scrollContainerRef.current;
               if (!container) return;
@@ -589,7 +589,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
                     }
                     className="flex items-center gap-3 text-xs text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    <div className="max-w-[360px] text-xs text-muted-foreground truncate">
+                    <div className="max-w-90 text-xs text-muted-foreground truncate">
                       {selected.installCommand}
                     </div>
                     <div className="flex items-center gap-1">

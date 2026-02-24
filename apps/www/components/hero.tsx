@@ -47,7 +47,7 @@ export const Hero = () => {
           delay={0.15}
         >
           <div className="relative z-10">
-            <h1 className="md:max-w-[800px] max-w-[320px]">
+            <h1 className="md:max-w-200 max-w-[320px]">
               <SplittingText
                 text={TITLE}
                 aria-hidden="true"
@@ -55,7 +55,7 @@ export const Hero = () => {
                 disableAnimation
               />
             </h1>
-            <div className="md:max-w-[800px] max-w-[320px] absolute inset-0 flex items-center justify-center">
+            <div className="md:max-w-200 max-w-[320px] absolute inset-0 flex items-center justify-center">
               <SplittingText
                 text={TITLE}
                 className="block md:text-5xl text-4xl font-medium text-center"
@@ -78,7 +78,7 @@ export const Hero = () => {
           inView
           delay={0.3}
         >
-          <p className="block font-normal md:text-lg sm:text-base text-sm text-center mt-3 text-muted-foreground md:max-w-[660px] sm:max-w-[450px] text-balance">
+          <p className="block font-normal md:text-lg sm:text-base text-sm text-center mt-3 text-muted-foreground md:max-w-165 sm:max-w-112.5 text-balance">
             A fully animated, open-source React component distribution. Browse a
             list of animated primitives, components and icons you can install
             and use in your projects.
@@ -96,11 +96,11 @@ export const Hero = () => {
           >
             <Link
               href="/docs/components"
-              className="group relative flex flex-col items-center justify-center w-[180px] max-sm:w-full h-[50px] no-underline transition-transform active:scale-95 cursor-pointer outline-none [--glow:rgb(2,132,199)]  [--btn-bg:rgba(0,0,0,0.05)] dark:[--btn-bg:rgba(255,255,255,0.05)]"
+              className="group relative flex flex-col items-center justify-center w-45 max-sm:w-full h-12.5 no-underline transition-transform active:scale-95 cursor-pointer outline-none [--glow:rgb(2,132,199)]  [--btn-bg:rgba(0,0,0,0.05)] dark:[--btn-bg:rgba(255,255,255,0.05)]"
               style={{ backgroundColor: 'var(--btn-bg)', borderRadius: '8px' }}
             >
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-[1200ms] opacity-100 group-hover:opacity-0"
+                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-1200 opacity-100 group-hover:opacity-0"
                 style={{
                   background:
                     'radial-gradient(15% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
@@ -109,7 +109,7 @@ export const Hero = () => {
                 }}
               />
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-[1200ms] opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-1200 opacity-0 group-hover:opacity-100"
                 style={{
                   background:
                     'radial-gradient(60.6% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
@@ -118,7 +118,7 @@ export const Hero = () => {
                 }}
               />
               <div
-                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-[1200ms] opacity-100 group-hover:opacity-0"
+                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-1200 opacity-100 group-hover:opacity-0"
                 style={{
                   background:
                     'radial-gradient(10.7% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
@@ -126,14 +126,14 @@ export const Hero = () => {
                 }}
               />
               <div
-                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-[1200ms] opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-1200 opacity-0 group-hover:opacity-100"
                 style={{
                   background:
                     'radial-gradient(60.1% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
                   borderRadius: '8px',
                 }}
               />
-              <div className="absolute inset-[1px] pointer-events-none z-10 rounded-[7px] bg-neutral-100 dark:bg-black border-1" />
+              <div className="absolute inset-px pointer-events-none z-10 rounded-[7px] bg-neutral-50 dark:bg-black border" />
               <div className="relative z-20 flex flex-col items-center justify-center">
                 <p
                   className="m-0 p-0 font-sans text-[15px] font-semibold text-black dark:text-white tracking-wide"
@@ -155,11 +155,11 @@ export const Hero = () => {
           >
             <Link
               href="/docs/templates"
-              className="group relative flex flex-col items-center justify-center w-[180px] max-sm:w-full h-[50px] no-underline transition-transform active:scale-95 cursor-pointer outline-none [--glow:rgb(0,0,0)] dark:[--glow:rgb(255,255,255)] [--btn-bg:rgba(0,0,0,0.05)] dark:[--btn-bg:rgba(255,255,255,0.05)]"
+              className="group relative flex flex-col items-center justify-center w-45 max-sm:w-full h-12.5 no-underline transition-transform active:scale-95 cursor-pointer outline-none [--glow:rgb(0,0,0)] dark:[--glow:rgb(255,255,255)] [--btn-bg:rgba(0,0,0,0.05)] dark:[--btn-bg:rgba(255,255,255,0.05)]"
               style={{ backgroundColor: 'var(--btn-bg)', borderRadius: '8px' }}
             >
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-[1200ms] opacity-100 group-hover:opacity-0"
+                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-1200 opacity-100 group-hover:opacity-0"
                 style={{
                   background:
                     'radial-gradient(15% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
@@ -168,7 +168,7 @@ export const Hero = () => {
                 }}
               />
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-[1200ms] opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 pointer-events-none transition-opacity ease-in-out duration-1200 opacity-0 group-hover:opacity-100"
                 style={{
                   background:
                     'radial-gradient(60.6% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
@@ -177,7 +177,7 @@ export const Hero = () => {
                 }}
               />
               <div
-                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-[1200ms] opacity-100 group-hover:opacity-0"
+                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-1200 opacity-100 group-hover:opacity-0"
                 style={{
                   background:
                     'radial-gradient(10.7% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
@@ -185,14 +185,14 @@ export const Hero = () => {
                 }}
               />
               <div
-                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-[1200ms] opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 pointer-events-none will-change-auto transition-opacity ease-in-out duration-1200 opacity-0 group-hover:opacity-100"
                 style={{
                   background:
                     'radial-gradient(60.1% 50% at 50% 100%, var(--glow) 0%, transparent 100%)',
                   borderRadius: '8px',
                 }}
               />
-              <div className="absolute inset-[1px] pointer-events-none z-10 rounded-[7px] bg-neutral-100 border-1 dark:bg-black" />
+              <div className="absolute inset-px pointer-events-none z-10 rounded-[7px] bg-neutral-50 border dark:bg-black" />
               <div className="relative z-20 flex flex-col items-center justify-center">
                 <p
                   className="m-0 p-0 font-sans text-[15px] font-semibold text-black dark:text-white tracking-wide"

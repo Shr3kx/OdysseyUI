@@ -23,6 +23,7 @@
     "@headlessui/react": "^2.2.6",
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/react": "^1.1.5",
+    "@react-three/fiber": "^9.3.0",
     "@workspace/ui": "workspace:*",
     "ai": "^4.3.19",
     "class-variance-authority": "^0.7.1",
@@ -52,6 +53,7 @@
     "rimraf": "^6.0.1",
     "shiki": "^3.2.1",
     "tailwind-merge": "^3.5.0",
+    "three": "^0.167.1",
     "tsx": "^4.19.3",
     "zod": "^3.24.2"
   },
