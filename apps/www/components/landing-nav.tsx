@@ -27,7 +27,7 @@ export const LandingNav = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      <nav className="flex items-center gap-x-1 rounded-2xl border border-black/8 dark:border-white/10 bg-white/85 dark:bg-neutral-950/85 px-3 py-2 shadow-lg shadow-black/8 dark:shadow-black/40 backdrop-blur-xl">
+      <nav className="flex items-center gap-x-1 rounded-2xl border border-black/8 dark:border-white/10 bg-slate-200 dark:bg-neutral-950/85 px-3 py-2 shadow-lg shadow-black/8 dark:shadow-black/40 backdrop-blur-xl">
         {/* Logo */}
         <Link
           href="/"

@@ -3,7 +3,13 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Outfit } from 'next/font/google';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
-
+import {
+  GeistPixelSquare,
+  GeistPixelGrid,
+  GeistPixelCircle,
+  GeistPixelTriangle,
+  GeistPixelLine,
+} from 'geist/font/pixel';
 import './globals.css';
 import { jsonLd } from '@/lib/json-ld';
 import { cn } from '@workspace/ui/lib/utils';
@@ -89,7 +95,18 @@ const outfit = Outfit({ subsets: ['latin'] });
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={outfit.className} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cn(
+        outfit.className,
+        GeistPixelSquare.variable,
+        GeistPixelGrid.variable,
+        GeistPixelCircle.variable,
+        GeistPixelTriangle.variable,
+        GeistPixelLine.variable,
+      )}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"

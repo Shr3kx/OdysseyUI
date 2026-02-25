@@ -11,11 +11,12 @@ export default function HomePage() {
       <LandingNav />
       <div className="relative h-dvh w-full overflow-hidden">
         {/* Light mode silk */}
-        <div className="block dark:hidden absolute inset-0">
+        <div className="block dark:hidden absolute inset-0 opacity-75">
           <Silk
             speed={5}
             scale={1}
-            color="#ffffff"
+            // color="#8f9db0"
+            color="#8f9db0"
             noiseIntensity={1.5}
             rotation={0}
           />
@@ -38,22 +39,26 @@ export default function HomePage() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
         >
-          <p className="mb-5 text-[11px] uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 font-medium select-none">
-            OdysseyUI
+          <p className="mb-5 text-md uppercase tracking-wide text-neutral-700 dark:text-neutral-500 font-medium select-none">
+            Odyssey UI
           </p>
 
           <h1
-            className="text-center font-black leading-[0.9] text-neutral-900 dark:text-white select-none"
-            style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}
+            className="text-center font-black leading-[0.9] text-black dark:text-white select-none"
+            style={{
+              fontSize: 'clamp(3.5rem, 10vw, 9rem)',
+              fontFamily: 'var(--font-geist-pixel-line)',
+            }}
+            // style={{  }}
           >
             Good design
             <br />
-            <span className="italic text-neutral-500 dark:text-neutral-400">
+            <span className="italic text-neutral-700 dark:text-neutral-400">
               shouts.
             </span>
           </h1>
 
-          <p className="mt-7 max-w-104 text-center text-base text-neutral-500 dark:text-neutral-400 font-normal leading-relaxed select-none px-6">
+          <p className="mt-7 max-w-104 text-center text-base text-black dark:text-neutral-400 font-normal leading-relaxed select-none px-6">
             Animated primitives and components built for
             React&nbsp;&amp;&nbsp;Next.js.
           </p>
