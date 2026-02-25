@@ -13,12 +13,15 @@
 
 @import 'fumadocs-ui/css/black.css';
 @import 'fumadocs-ui/css/preset.css';
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @source '../node_modules/fumadocs-ui/dist/**/*.js';
 
 :root {
+  --theme-transition-duration: 420ms;
+
+  --theme-transition-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --card: oklch(1 0 0);
 
@@ -257,6 +260,20 @@
   body {
     @apply bg-background text-foreground;
     overscroll-behavior: none;
+  }
+
+  html,
+  body,
+  body :where(*) {
+    transition-property:
+      background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: var(--theme-transition-ease);
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
   }
 
   #nd-sidebar {

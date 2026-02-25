@@ -69,7 +69,7 @@ export const Logo = ({
         </defs>
       </svg>
       <span
-        className="text-md font-medium tracking-wide"
+        className="text-md font-bold tracking-wide"
         style={{ fontFamily: 'var(--font-geist-pixel-line)' }}
       >
         Odyssey UI

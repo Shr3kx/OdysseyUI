@@ -46,7 +46,7 @@ export const LandingNav = ({ className }: { className?: string }) => {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-150 hover:bg-black/6 dark:hover:bg-white/8 hover:text-neutral-900 dark:hover:text-white"
+              className="rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-700 dark:text-neutral-400 transition-colors duration-150 hover:bg-black/6 dark:hover:bg-white/8 hover:text-neutral-900 dark:hover:text-white"
             >
               {link.title}
             </Link>
@@ -64,7 +64,7 @@ export const LandingNav = ({ className }: { className?: string }) => {
               href="https://github.com/shr3kx/odysseyUI"
               rel="noreferrer noopener"
               target="_blank"
-              className="group flex cursor-pointer items-center gap-x-1.5 rounded-lg p-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 transition-colors duration-150 hover:bg-black/6 dark:hover:bg-white/8 hover:text-neutral-900 dark:hover:text-white [&_svg]:size-4"
+              className="group flex cursor-pointer items-center gap-x-1.5 rounded-lg p-1.5 text-sm font-medium text-neutral-700 dark:text-neutral-400 transition-colors duration-150 hover:bg-black/6 dark:hover:bg-white/8 hover:text-neutral-900 dark:hover:text-white [&_svg]:size-4"
             >
               <GithubStarsLogo className="size-4 shrink-0" />
               <span className="flex items-center gap-x-1 rounded-lg bg-black/5 dark:bg-white/6 px-1.5 py-0.5 text-xs select-none group-hover:bg-black/10 dark:group-hover:bg-white/10">

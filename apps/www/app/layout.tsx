@@ -13,6 +13,7 @@ import {
 import './globals.css';
 import { jsonLd } from '@/lib/json-ld';
 import { cn } from '@workspace/ui/lib/utils';
+import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
 
 export const metadata: Metadata = {
   title: {
@@ -122,6 +123,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         )}
       >
         <RootProvider theme={{ defaultTheme: 'dark' }}>
+          <SmoothScrollProvider />
           <NuqsAdapter>{children}</NuqsAdapter>
         </RootProvider>
       </body>

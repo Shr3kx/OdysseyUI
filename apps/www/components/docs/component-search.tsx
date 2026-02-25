@@ -111,6 +111,24 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
   const [copied, setCopied] = React.useState(false);
   const copiedTimeoutRef = React.useRef<number | null>(null);
 
+  React.useEffect(() => {
+    if (!open) return;
+
+    window.dispatchEvent(
+      new CustomEvent('odyssey:lenis-control', {
+        detail: { action: 'stop' as const },
+      }),
+    );
+
+    return () => {
+      window.dispatchEvent(
+        new CustomEvent('odyssey:lenis-control', {
+          detail: { action: 'start' as const },
+        }),
+      );
+    };
+  }, [open]);
+
   const formatSlugTitle = React.useCallback((slug: string) => {
     return slug
       .split('/')
@@ -448,6 +466,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
 
       {/* Modal with slide and fade animation */}
       <div
+        data-lenis-prevent
         className={cn(
           'fixed left-1/2 top-[20%] z-50 w-full max-w-160 -translate-x-1/2 p-1 bg-accent rounded-xl',
           'animate-in fade-in-0 slide-in-from-top-4 duration-200',
@@ -474,7 +493,9 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
           {/* Search Results */}
           <div
             ref={scrollContainerRef}
+            data-lenis-prevent
             className="max-h-105 overflow-y-auto custom-scrollbar pt-2"
+            onWheelCapture={(e) => e.stopPropagation()}
             onScroll={() => {
               const container = scrollContainerRef.current;
               if (!container) return;

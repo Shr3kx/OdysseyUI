@@ -21,6 +21,8 @@ function Switch({
   onCheckedChange,
   ...props
 }: SwitchProps) {
+  const smoothBezier: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
   const [isChecked, setIsChecked] = React.useState(
     props?.checked ?? props?.defaultChecked ?? false,
   );
@@ -63,7 +65,7 @@ function Switch({
             animate={
               isChecked ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
             }
-            transition={{ type: 'spring', bounce: 0 }}
+            transition={{ duration: 0.36, ease: smoothBezier }}
             className="absolute [&_svg]:size-3 left-1 top-1/2 -translate-y-1/2 dark:text-neutral-500 text-neutral-400"
           >
             <>{leftIcon}</>
@@ -76,7 +78,7 @@ function Switch({
             animate={
               isChecked ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }
             }
-            transition={{ type: 'spring', bounce: 0 }}
+            transition={{ duration: 0.36, ease: smoothBezier }}
             className="absolute [&_svg]:size-3 right-1 top-1/2 -translate-y-1/2 dark:text-neutral-400 text-neutral-500"
           >
             <>{rightIcon}</>
@@ -88,10 +90,10 @@ function Switch({
             data-slot="switch-thumb"
             whileTap="tab"
             className={cn(
-              'relative z-[1] [&_svg]:size-3 flex items-center justify-center rounded-full bg-background shadow-lg ring-0 dark:text-neutral-400 text-neutral-500',
+              'relative z-1 [&_svg]:size-3 flex items-center justify-center rounded-full bg-background shadow-lg ring-0 dark:text-neutral-400 text-neutral-500',
             )}
             layout
-            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            transition={{ duration: 0.42, ease: smoothBezier }}
             style={{
               width: 18,
               height: 18,
