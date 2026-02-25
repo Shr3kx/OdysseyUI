@@ -5,26 +5,33 @@ import { ImageResponse } from 'next/og';
 export const revalidate = false;
 
 async function loadGoogleFont(font: string, text: string) {
-  const url = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(text)}`;
-  const css = await (await fetch(url)).text();
-  const resource = css.match(
-    /src: url\((.+)\) format\('(opentype|truetype)'\)/,
-  );
+  try {
+    const url = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(text)}`;
+    const css = await (await fetch(url)).text();
+    const resource = css.match(
+      /src: url\((.+)\) format\('(opentype|truetype)'\)/,
+    );
 
-  if (resource) {
-    const response = await fetch(resource[1]);
-    if (response.status == 200) {
-      return await response.arrayBuffer();
+    if (resource) {
+      const response = await fetch(resource[1]);
+      if (response.status === 200) {
+        return await response.arrayBuffer();
+      }
     }
-  }
+  } catch {}
 
-  throw new Error('failed to load font data');
+  return null;
 }
 
 export async function GET(_req: Request, { params }: any) {
   const { slug } = await params;
   const page = source.getPage(slug.slice(0, -1));
   if (!page) notFound();
+
+  const outfitFont = await loadGoogleFont(
+    'Outfit',
+    `${page.data.description} ${page.data.title} odysseyui.com`,
+  );
 
   return new ImageResponse(
     <div tw="relative flex w-full h-full bg-[#0A0A0A]">
@@ -64,14 +71,14 @@ export async function GET(_req: Request, { params }: any) {
           <div tw="flex flex-col">
             <p
               tw="text-white text-6xl font-medium mb-0"
-              style={{ fontFamily: 'Outfit' }}
+              style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               {page.data.title}
             </p>
             {page.data.description && (
               <p
                 tw="text-white/60 text-2xl mt-6 -mb-2 max-w-2xl"
-                style={{ fontFamily: 'Outfit' }}
+                style={{ fontFamily: 'Outfit, sans-serif' }}
               >
                 {page.data.description}
               </p>
@@ -81,7 +88,7 @@ export async function GET(_req: Request, { params }: any) {
           <div tw="flex ml-6">
             <p
               tw="text-white/80 text-2xl -mb-2"
-              style={{ fontFamily: 'Outfit' }}
+              style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               odysseyui.com
             </p>
@@ -90,16 +97,15 @@ export async function GET(_req: Request, { params }: any) {
       </div>
     </div>,
     {
-      fonts: [
-        {
-          name: 'Outfit',
-          data: await loadGoogleFont(
-            'Outfit',
-            `${page.data.description} ${page.data.title} odysseyui.com`,
-          ),
-          style: 'normal',
-        },
-      ],
+      fonts: outfitFont
+        ? [
+            {
+              name: 'Outfit',
+              data: outfitFont,
+              style: 'normal' as const,
+            },
+          ]
+        : [],
     },
   );
 }
