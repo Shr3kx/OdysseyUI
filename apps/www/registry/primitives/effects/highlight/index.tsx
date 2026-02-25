@@ -131,6 +131,7 @@ function Highlight<T extends React.ElementType = 'div'>({
     exitDelay = 200,
     mode = 'children',
   } = props;
+  const Tag = Component as React.ElementType;
 
   const localRef = React.useRef<HTMLDivElement>(null);
   React.useImperativeHandle(ref, () => localRef.current as HTMLDivElement);
@@ -218,7 +219,7 @@ function Highlight<T extends React.ElementType = 'div'>({
     (children: React.ReactNode) => {
       if (mode === 'parent') {
         return (
-          <Component
+          <Tag
             ref={localRef}
             data-slot="motion-highlight-container"
             style={{ position: 'relative', zIndex: 1 }}
@@ -256,7 +257,7 @@ function Highlight<T extends React.ElementType = 'div'>({
               )}
             </AnimatePresence>
             {children}
-          </Component>
+          </Tag>
         );
       }
 
@@ -264,7 +265,7 @@ function Highlight<T extends React.ElementType = 'div'>({
     },
     [
       mode,
-      Component,
+      Tag,
       props,
       boundsState,
       transition,
@@ -391,6 +392,7 @@ function HighlightItem<T extends React.ElementType>({
   } = useHighlight();
 
   const Component = as ?? 'div';
+  const Tag = Component as React.ElementType;
   const element = children as React.ReactElement<ExtendedChildProps>;
   const childValue =
     id ?? value ?? element.props?.['data-value'] ?? element.props?.id ?? itemId;
@@ -525,14 +527,14 @@ function HighlightItem<T extends React.ElementType>({
             )}
           </AnimatePresence>
 
-          <Component
+          <Tag
             data-slot="motion-highlight-item"
             style={{ position: 'relative', zIndex: 1 }}
             className={className}
             {...dataAttributes}
           >
             {children}
-          </Component>
+          </Tag>
         </>,
       );
     }
@@ -548,7 +550,7 @@ function HighlightItem<T extends React.ElementType>({
   }
 
   return enabled ? (
-    <Component
+    <Tag
       key={childValue}
       ref={localRef}
       data-slot="motion-highlight-item-container"
@@ -596,7 +598,7 @@ function HighlightItem<T extends React.ElementType>({
           'data-slot': 'motion-highlight-item',
         }),
       })}
-    </Component>
+    </Tag>
   ) : (
     children
   );

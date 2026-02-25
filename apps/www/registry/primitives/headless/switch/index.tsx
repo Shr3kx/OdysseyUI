@@ -32,6 +32,10 @@ type SwitchProps<TTag extends React.ElementType = typeof motion.button> =
 function Switch<TTag extends React.ElementType = typeof motion.button>(
   props: SwitchProps<TTag>,
 ) {
+  type SwitchRenderBag = Parameters<
+    Exclude<SwitchPrimitiveProps<TTag>['children'], React.ReactNode>
+  >[0];
+
   const { as = motion.button, children, ...rest } = props;
 
   const [isPressed, setIsPressed] = React.useState(false);
@@ -47,7 +51,7 @@ function Switch<TTag extends React.ElementType = typeof motion.button>(
       {...rest}
       as={as}
     >
-      {(bag) => (
+      {(bag: SwitchRenderBag) => (
         <SwitchProvider value={{ isPressed, isChecked: bag.checked }}>
           {typeof children === 'function' ? children(bag) : children}
         </SwitchProvider>
@@ -74,9 +78,10 @@ function SwitchThumb<TTag extends React.ElementType = typeof motion.div>(
   const {
     transition = { type: 'spring', stiffness: 300, damping: 25 },
     pressedAnimation,
-    as: Component = motion.div,
+    as,
     ...rest
   } = props;
+  const Component = (as ?? motion.div) as React.ElementType;
 
   return (
     <Component
@@ -105,9 +110,10 @@ function SwitchIcon<TTag extends React.ElementType = typeof motion.div>(
   const {
     position,
     transition = { type: 'spring', bounce: 0 },
-    as: Component = motion.div,
+    as,
     ...rest
   } = props;
+  const Component = (as ?? motion.div) as React.ElementType;
   const { isChecked } = useSwitch();
 
   const isAnimated = React.useMemo(() => {

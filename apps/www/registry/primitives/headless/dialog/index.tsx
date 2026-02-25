@@ -88,6 +88,10 @@ type DialogPanelProps<TTag extends React.ElementType = typeof motion.div> =
 function DialogPanel<TTag extends React.ElementType = typeof motion.div>(
   props: DialogPanelProps<TTag>,
 ) {
+  type DialogPanelRenderBag = Parameters<
+    Exclude<DialogPanelPrimitiveProps<TTag>['children'], React.ReactNode>
+  >[0];
+
   const {
     children,
     as = motion.div,
@@ -126,7 +130,7 @@ function DialogPanel<TTag extends React.ElementType = typeof motion.div>(
       }}
       {...rest}
     >
-      {(bag) => (
+      {(bag: DialogPanelRenderBag) => (
         <>{typeof children === 'function' ? children(bag) : children}</>
       )}
     </DialogPanelPrimitive>

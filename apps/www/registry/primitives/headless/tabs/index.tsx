@@ -41,9 +41,13 @@ function TabGroup<TTag extends React.ElementType = 'div'>({
   children,
   ...props
 }: TabGroupProps<TTag>) {
+  type TabGroupRenderBag = Parameters<
+    Exclude<TabGroupPrimitiveProps<TTag>['children'], React.ReactNode>
+  >[0];
+
   return (
     <TabGroupPrimitive data-slot="tab-group" {...props}>
-      {(bag) => (
+      {(bag: TabGroupRenderBag) => (
         <TabsProvider value={{ selectedIndex: bag.selectedIndex }}>
           {typeof children === 'function' ? children(bag) : children}
         </TabsProvider>

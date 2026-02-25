@@ -18,6 +18,11 @@ type CheckboxContextType = {
   isIndeterminate: boolean;
 };
 
+type CheckboxRenderBag = {
+  checked: boolean;
+  indeterminate: boolean;
+};
+
 const [CheckboxProvider, useCheckbox] =
   getStrictContext<CheckboxContextType>('CheckboxContext');
 
@@ -44,7 +49,7 @@ function Checkbox<TTag extends React.ElementType = typeof motion.button>({
       {...rest}
       as={as as React.ElementType}
     >
-      {(bag) => (
+      {(bag: CheckboxRenderBag) => (
         <CheckboxProvider
           value={{ isChecked: bag.checked, isIndeterminate: bag.indeterminate }}
         >

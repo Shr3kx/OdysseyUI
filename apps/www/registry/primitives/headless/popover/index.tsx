@@ -38,9 +38,13 @@ function Popover<TTag extends React.ElementType = 'div'>({
   children,
   ...props
 }: PopoverProps<TTag>) {
+  type PopoverRenderBag = Parameters<
+    Exclude<PopoverPrimitiveProps<TTag>['children'], React.ReactNode>
+  >[0];
+
   return (
     <PopoverPrimitive data-slot="popover" {...props}>
-      {(bag) => (
+      {(bag: PopoverRenderBag) => (
         <PopoverProvider value={{ isOpen: bag.open }}>
           {typeof children === 'function' ? children(bag) : children}
         </PopoverProvider>

@@ -30,9 +30,13 @@ function Disclosure<TTag extends React.ElementType = 'div'>({
   children,
   ...props
 }: DisclosureProps<TTag>) {
+  type DisclosureRenderBag = Parameters<
+    Exclude<DisclosurePrimitiveProps<TTag>['children'], React.ReactNode>
+  >[0];
+
   return (
     <DisclosurePrimitive data-slot="disclosure" {...props}>
-      {(bag) => (
+      {(bag: DisclosureRenderBag) => (
         <DisclosureProvider value={{ isOpen: bag.open }}>
           {typeof children === 'function' ? children(bag) : children}
         </DisclosureProvider>
@@ -53,7 +57,8 @@ function DisclosureButton<TTag extends React.ElementType = 'button'>(
 }
 
 type DisclosurePanelProps<TTag extends React.ElementType = typeof motion.div> =
-  Pick<DisclosurePanelPrimitiveProps<TTag>, 'static' | 'unmount' | 'children'> &
+  Partial<Pick<DisclosurePanelPrimitiveProps<TTag>, 'static' | 'unmount'>> &
+    Pick<DisclosurePanelPrimitiveProps<TTag>, 'children'> &
     Omit<HTMLMotionProps<'div'>, 'children'> & {
       as?: TTag;
       keepRendered?: boolean;
@@ -62,6 +67,10 @@ type DisclosurePanelProps<TTag extends React.ElementType = typeof motion.div> =
 function DisclosurePanel<TTag extends React.ElementType = typeof motion.div>(
   props: DisclosurePanelProps<TTag>,
 ) {
+  type DisclosurePanelRenderBag = Parameters<
+    Exclude<DisclosurePanelPrimitiveProps<TTag>['children'], React.ReactNode>
+  >[0];
+
   const {
     children,
     transition = { duration: 0.35, ease: 'easeInOut' },
@@ -80,7 +89,7 @@ function DisclosurePanel<TTag extends React.ElementType = typeof motion.div>(
           as={as as React.ElementType}
           unmount={unmount}
         >
-          {(bag) => (
+          {(bag: DisclosurePanelRenderBag) => (
             <motion.div
               key="disclosure-panel"
               data-slot="disclosure-panel"
@@ -111,7 +120,7 @@ function DisclosurePanel<TTag extends React.ElementType = typeof motion.div>(
             as={as as React.ElementType}
             unmount={unmount}
           >
-            {(bag) => (
+            {(bag: DisclosurePanelRenderBag) => (
               <motion.div
                 key="disclosure-panel"
                 data-slot="disclosure-panel"
