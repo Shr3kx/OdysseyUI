@@ -262,15 +262,6 @@
     overscroll-behavior: none;
   }
 
-  html,
-  body,
-  body :where(*) {
-    transition-property:
-      background-color, border-color, color, fill, stroke, box-shadow;
-    transition-duration: var(--theme-transition-duration);
-    transition-timing-function: var(--theme-transition-ease);
-  }
-
   html.lenis,
   html.lenis body {
     height: auto;
