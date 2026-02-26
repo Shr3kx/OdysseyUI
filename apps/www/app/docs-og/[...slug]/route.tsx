@@ -4,6 +4,18 @@ import { ImageResponse } from 'next/og';
 
 export const revalidate = false;
 
+function isSupportedOpenType(buffer: ArrayBuffer) {
+  if (buffer.byteLength < 4) return false;
+
+  const signature = new DataView(buffer).getUint32(0, false);
+
+  return (
+    signature === 0x00010000 || // TrueType
+    signature === 0x4f54544f || // OTTO (CFF/OpenType)
+    signature === 0x74746366 // ttcf (TrueType Collection)
+  );
+}
+
 async function loadGoogleFont(font: string, text: string) {
   try {
     const url = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(text)}`;
@@ -15,7 +27,11 @@ async function loadGoogleFont(font: string, text: string) {
     if (resource) {
       const response = await fetch(resource[1]);
       if (response.status === 200) {
-        return await response.arrayBuffer();
+        const fontData = await response.arrayBuffer();
+
+        if (isSupportedOpenType(fontData)) {
+          return fontData;
+        }
       }
     }
   } catch {}
