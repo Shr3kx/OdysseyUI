@@ -12,6 +12,8 @@
     "---Buttons---",
     "buttons/github-stars",
     "buttons/theme-toggler",
+    "---AI---",
+    "ai/prompt-input",
     "---Community---",
     "community/notification-list",
     "community/playful-todolist"

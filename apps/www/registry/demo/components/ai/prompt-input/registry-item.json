@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-prompt-input",
+  "type": "registry:ui",
+  "title": "Prompt Input Demo",
+  "description": "Demo of the AI prompt input interface.",
+  "registryDependencies": ["odyssey/components-ai-prompt-input"],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/prompt-input/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/prompt-input.tsx"
+    }
+  ]
+}

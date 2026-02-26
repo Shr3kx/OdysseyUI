@@ -12,7 +12,7 @@
     {
       "path": "registry/components/animate/code-block/index.tsx",
       "type": "registry:ui",
-      "target": "components/odyssey/animate/code-block.tsx"
+      "target": "components/odysseyui/code-block.tsx"
     }
   ]
 }

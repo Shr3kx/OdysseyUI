@@ -18,6 +18,31 @@
       "files": []
     },
     {
+      "name": "components-ai-prompt-input",
+      "type": "registry:ui",
+      "title": "Prompt Input",
+      "description": "Simple Prompt Interface input design.",
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ],
+      "registryDependencies": [
+        "https://odysseyui.vercel.app/r/components-buttons-button.json"
+      ],
+      "cssVars": {
+        "light": {
+          "blue-glossy": "linear-gradient(135deg, hsl(217 92% 75%) 0%, hsl(217 92% 55%) 50%, hsl(217 92% 70%) 100%)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/components/ai/prompt-input/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/prompt-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-animate-avatar-group",
       "type": "registry:ui",
       "title": "Avatar Group",
@@ -72,7 +97,7 @@
         {
           "path": "registry/components/animate/code-block/index.tsx",
           "type": "registry:ui",
-          "target": "components/odyssey/animate/code-block.tsx"
+          "target": "components/odysseyui/code-block.tsx"
         }
       ]
     },
@@ -338,6 +363,22 @@
           "path": "registry/components/radix/hover-card/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/components/radix/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ai-prompt-input",
+      "type": "registry:ui",
+      "title": "Prompt Input Demo",
+      "description": "Demo of the AI prompt input interface.",
+      "registryDependencies": [
+        "odyssey/components-ai-prompt-input"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ai/prompt-input/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ai/prompt-input.tsx"
         }
       ]
     },

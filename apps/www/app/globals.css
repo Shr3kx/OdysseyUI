@@ -94,6 +94,15 @@
   --background: oklch(1 0 0);
 
   --foreground: oklch(0.145 0 0);
+
+  --blue-glossy: linear-gradient(
+    145deg,
+    hsl(217 90% 54%) 0%,
+    hsl(217 90% 34%) 25%,
+    hsl(217 90% 62%) 50%,
+    hsl(217 90% 38%) 75%,
+    hsl(217 90% 48%) 100%
+  );
 }
 
 .dark {
@@ -330,4 +339,8 @@
   background-color: var(--color-primary);
   color: var(--color-primary-foreground);
   transition: all 0.15s ease;
+}
+
+@utility bg-blue-glossy {
+  background: var(--blue-glossy);
 }
