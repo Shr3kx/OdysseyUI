@@ -1,0 +1,29 @@
+---
+title: Greetings Preloader
+description: A greeting preloader that displays rapid greetings in different languages.
+---
+
+<ComponentPreview name="demo-components-preloaders-greetings" />
+
+## Installation
+
+<ComponentInstallation name="components-preloaders-greetings" />
+
+## Usage
+
+```tsx
+import GreetingPreloader from '@/registry/components/preloaders/greetings';
+
+<GreetingPreloader
+  greetings={[
+    { text: 'Hello', language: 'English' },
+    { text: 'Bonjour', language: 'French' },
+    { text: '안녕하세요', language: 'Korean' },
+    { text: 'Hola', language: 'Spanish' },
+    { text: 'Ciao', language: 'Italian' },
+    { text: 'नमस्ते', language: 'Hindi' },
+    { text: 'こんにちは', language: 'Japanese' },
+  ]}
+  intervalMs={600}
+/>;
+```

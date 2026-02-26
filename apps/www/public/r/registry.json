@@ -331,6 +331,23 @@
       ]
     },
     {
+      "name": "components-preloaders-greetings",
+      "type": "registry:ui",
+      "title": "Greeting Preloader",
+      "description": "A greeting preloader that displays rapid greetings in different languages.",
+      "dependencies": [
+        "gsap",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/preloaders/greetings/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/greetings-preloader.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-radix-checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
@@ -892,6 +909,23 @@
           "path": "registry/demo/components/community/playful-todolist/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/demo/components/community/playful-todolist.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-preloaders-greetings",
+      "type": "registry:ui",
+      "title": "Greeting Preloader Demo",
+      "description": "Demo of a greeting preloader that displays rapid greetings in different languages.",
+      "dependencies": [
+        "gsap",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/preloaders/greetings/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/preloaders/greetings-preloader.tsx"
         }
       ]
     },

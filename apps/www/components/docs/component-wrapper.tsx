@@ -40,7 +40,7 @@ export const ComponentWrapper = ({
       >
         <motion.div className="relative size-full flex-1">
           {!iframe && (
-            <div className="absolute top-3 right-3 z-[9] bg-background flex items-center justify-end gap-2 p-1 rounded-[11px]">
+            <div className="absolute top-1 right-2 z-9 bg-background flex items-center justify-end gap-2 p-1 pr-0 rounded-[11px]">
               <Button
                 onClick={() => setKey((prev) => prev + 1)}
                 className="flex items-center rounded-lg"
@@ -97,7 +97,7 @@ export const ComponentWrapper = ({
           ) : (
             <div
               key={key}
-              className="flex min-h-[400px] w-full items-center justify-center px-10 py-16"
+              className="flex min-h-100 w-full items-center justify-center px-10 py-16"
             >
               {children}
             </div>

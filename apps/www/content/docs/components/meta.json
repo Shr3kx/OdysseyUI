@@ -13,6 +13,8 @@
     "---Buttons---",
     "buttons/github-stars",
     "buttons/theme-toggler",
+    "---Preloaders---",
+    "preloaders/greetings",
     "---AI Elements---",
     "ai/prompt-input",
     "---Community---",

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-preloaders-greetings",
+  "title": "Greeting Preloader Demo",
+  "description": "Demo of a greeting preloader that displays rapid greetings in different languages.",
+  "dependencies": [
+    "gsap",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/preloaders/greetings/index.tsx",
+      "content": "import GreetingPreloader from '@/components/odyssey/components/preloaders/greetings';\n\nexport default function DemoComponentsPreloadersGreetings() {\n  return (\n    <div className=\"relative flex min-h-100 w-full items-center justify-center overflow-hidden bg-background\">\n      <p className=\"text-md text-muted-foreground\">\n        Refresh to view loader again\n      </p>\n\n      <GreetingPreloader\n        fullPage={false}\n        greetings={[\n          { text: 'Hello', language: 'English' },\n          { text: 'Bonjour', language: 'French' },\n          { text: '안녕하세요', language: 'Korean' },\n          { text: 'Ciao', language: 'Italian' },\n          { text: 'Hallo', language: 'German' },\n          { text: 'नमस्ते', language: 'Hindi' },\n          { text: 'こんにちは', language: 'Japanese' },\n        ]}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/preloaders/greetings-preloader.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

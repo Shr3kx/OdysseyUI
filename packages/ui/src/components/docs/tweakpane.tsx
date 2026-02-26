@@ -400,8 +400,8 @@ const Tweakpane = ({ onBindsChange, ...props }: TweakpaneProps) => {
   }, [props]);
 
   return (
-    <div className="bg-transparent pr-0 p-1.5 mt-3">
-      <div className="overflow-y-auto bg-accent rounded-[5px] p-1.5 size-full flex flex-col">
+    <div className="bg-transparent pl-0 p-1.5 mt-0.5 mr-0.5">
+      <div className="overflow-y-auto bg-accent rounded-[5px] p-1 size-full flex flex-col">
         {renderBinds(localBinds, handleBindsChange, initial)}
       </div>
     </div>
