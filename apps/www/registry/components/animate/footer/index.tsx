@@ -12,44 +12,116 @@ type FooterColorProps = {
   gradient?: string[];
 };
 
+type FooterThemePreset = {
+  text: string;
+  gradient: string[];
+};
+
+export const FOOTER_THEME_PRESETS = {
+  ocean: {
+    text: '#0F172A',
+    gradient: [
+      '#1E3A8A',
+      '#1D4ED8',
+      '#2563EB',
+      '#3B82F6',
+      '#60A5FA',
+      '#93C5FD',
+      '#BFDBFE',
+      '#E0F2FE',
+    ],
+  },
+  amber: {
+    text: '#451A03',
+    gradient: [
+      '#FEF3C7',
+      '#FCD34D',
+      '#F59E0B',
+      '#D97706',
+      '#B45309',
+      '#92400E',
+      '#78350F',
+      '#451A03',
+    ],
+  },
+  emerald: {
+    text: '#022C22',
+    gradient: [
+      '#D1FAE5',
+      '#6EE7B7',
+      '#34D399',
+      '#10B981',
+      '#059669',
+      '#047857',
+      '#065F46',
+      '#022C22',
+    ],
+  },
+  violet: {
+    text: '#2E1065',
+    gradient: [
+      '#F5F3FF',
+      '#DDD6FE',
+      '#C4B5FD',
+      '#A78BFA',
+      '#8B5CF6',
+      '#7C3AED',
+      '#6D28D9',
+      '#4C1D95',
+    ],
+  },
+  rose: {
+    text: '#4A044E',
+    gradient: [
+      '#FFE4E6',
+      '#FDA4AF',
+      '#FB7185',
+      '#F43F5E',
+      '#E11D48',
+      '#BE123C',
+      '#9F1239',
+      '#4A044E',
+    ],
+  },
+} satisfies Record<string, FooterThemePreset>;
+
+export type FooterTheme = keyof typeof FOOTER_THEME_PRESETS;
+
 type FooterProps = {
   colors?: FooterColorProps;
+  theme?: FooterTheme;
   copyrightText?: string;
 };
 
-const DEFAULT_FOOTER_COLORS = {
-  text: '#451A03',
-  gradient: [
-    '#1E40AF',
-    '#3B82F6',
-    '#60A5FA',
-    '#FFFFFF',
-    '#FED7AA',
-    '#FB923C',
-    '#EA580C',
-    '#9A3412',
-  ],
-};
+const DEFAULT_FOOTER_THEME: FooterTheme = 'ocean';
 
 const currentYear = new Date().getFullYear();
 
-export default function Footer({ colors, copyrightText }: FooterProps) {
+export default function Footer({
+  colors,
+  theme = DEFAULT_FOOTER_THEME,
+  copyrightText,
+}: FooterProps) {
   const rootRef = useRef<HTMLDivElement>(null);
+
+  const activeTheme = useMemo(
+    () =>
+      FOOTER_THEME_PRESETS[theme] ?? FOOTER_THEME_PRESETS[DEFAULT_FOOTER_THEME],
+    [theme],
+  );
 
   const resolvedColors = useMemo(() => {
     const gradient = Array.from({ length: 8 }, (_, index) => {
       return (
-        colors?.gradient?.[index] ??
-        DEFAULT_FOOTER_COLORS.gradient[index] ??
-        '#9A3412'
+        colors?.gradient?.[index] ?? activeTheme.gradient[index] ?? '#9A3412'
       );
     });
 
     return {
-      text: colors?.text ?? DEFAULT_FOOTER_COLORS.text,
+      text: colors?.text ?? activeTheme.text,
       gradient,
     };
-  }, [colors]);
+  }, [activeTheme, colors]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -170,7 +242,7 @@ export default function Footer({ colors, copyrightText }: FooterProps) {
       <div className="scroll-space bg-background transition-colors duration-300" />
       <div className="animation-section relative h-screen bg-background transition-colors duration-300">
         <div className="footer-container pointer-events-none fixed inset-x-0 bottom-0 z-10 h-screen">
-          <div className="svg-container pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-screen origin-bottom opacity-0 will-change-[transform,opacity,filter] [transform:scaleY(0.05)_translateY(100vh)]">
+          <div className="svg-container pointer-events-none absolute inset-x-0 bottom-0 z-15 h-screen origin-bottom opacity-0 will-change-[transform,opacity,filter] transform-[scaleY(0.05)_translateY(100vh)]">
             <svg
               className="spectrum-svg size-full"
               viewBox="0 0 1567 584"
@@ -289,7 +361,7 @@ export default function Footer({ colors, copyrightText }: FooterProps) {
           </div>
           <div
             className="main-title pointer-events-none absolute bottom-1/2 left-1/2 z-20 -translate-x-1/2 translate-y-1/2 bg-transparent text-center text-foreground leading-[1.4] opacity-0 transition-colors duration-300 font-serif"
-            style={colors?.text ? { color: resolvedColors.text } : undefined}
+            style={{ color: resolvedColors.text }}
           >
             {footerCopy}
           </div>

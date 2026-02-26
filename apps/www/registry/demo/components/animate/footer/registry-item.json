@@ -11,5 +11,21 @@
       "type": "registry:ui",
       "target": "components/odyssey/demo/animate/footer.tsx"
     }
-  ]
+  ],
+  "meta": {
+    "demoProps": {
+      "Footer": {
+        "theme": {
+          "value": "amber",
+          "options": {
+            "Ocean": "ocean",
+            "Amber": "amber",
+            "Emerald": "emerald",
+            "Violet": "violet",
+            "Rose": "rose"
+          }
+        }
+      }
+    }
+  }
 }
