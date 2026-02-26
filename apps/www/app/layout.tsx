@@ -14,7 +14,7 @@ import './globals.css';
 import { jsonLd } from '@/lib/json-ld';
 import { cn } from '@workspace/ui/lib/utils';
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
   title: {
     template: '%s - Odyssey UI',
@@ -124,6 +124,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       >
         <RootProvider theme={{ defaultTheme: 'dark' }}>
           <SmoothScrollProvider />
+          <SpeedInsights />
           <NuqsAdapter>{children}</NuqsAdapter>
         </RootProvider>
       </body>

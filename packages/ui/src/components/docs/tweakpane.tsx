@@ -102,15 +102,12 @@ const NumericInput: React.FC<NumericInputProps> = ({
   return (
     <Input
       {...props}
-      className={cn(
-        '[&[type="number"]::-webkit-inner-spin-button]:appearance-none [&[type="number"]::-webkit-outer-spin-button]:appearance-none text-sm',
-        className,
-      )}
+      className={cn('text-sm', className)}
       min={min}
       max={max}
       step={step}
       autoComplete="off"
-      type="number"
+      type="text"
       inputMode="numeric"
       value={display}
       onChange={handleChange}
@@ -149,7 +146,7 @@ const renderNumber = (
 
       <Slider
         min={bind.min}
-        max={bind.max}
+        max={100}
         step={bind.step}
         value={[bind.value]}
         onValueChange={(v) => onChange(v[0] ?? 0)}
@@ -403,7 +400,7 @@ const Tweakpane = ({ onBindsChange, ...props }: TweakpaneProps) => {
   }, [props]);
 
   return (
-    <div className="bg-transparent pl-0 p-1.5 size-full">
+    <div className="bg-transparent pr-0 p-1.5 mt-3">
       <div className="overflow-y-auto bg-accent rounded-[5px] p-1.5 size-full flex flex-col">
         {renderBinds(localBinds, handleBindsChange, initial)}
       </div>
