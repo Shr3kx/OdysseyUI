@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-footer",
+  "type": "registry:ui",
+  "title": "Footer  Demo",
+  "description": "Demo of the dia browser inspired footer.",
+  "registryDependencies": ["odyssey/components-animate-footer"],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/footer/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/animate/footer.tsx"
+    }
+  ]
+}

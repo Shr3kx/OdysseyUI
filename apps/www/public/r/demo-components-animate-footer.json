@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-footer",
+  "title": "Footer  Demo",
+  "description": "Demo of the dia browser inspired footer.",
+  "registryDependencies": [
+    "odyssey/components-animate-footer"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/footer/index.tsx",
+      "content": "import Footer from '@/components/odyssey/components/animate/footer';\n\nexport const FooterDemo = () => {\n  const footerColors = {\n    text: '#451A03',\n    gradient: [\n      '#FEF3C7',\n      '#FCD34D',\n      '#F59E0B',\n      '#D97706',\n      '#B45309',\n      '#92400E',\n      '#78350F',\n      '#451A03',\n    ],\n  };\n  return (\n    <Footer\n      colors={footerColors}\n      copyrightText={`copyright © ${new Date().getFullYear()} — Odyssey UI`}\n    />\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/animate/footer.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

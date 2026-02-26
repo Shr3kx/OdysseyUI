@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-animate-footer",
+  "type": "registry:ui",
+  "title": "Footer ",
+  "description": "A minimal footer design inspired by Dia browser.",
+  "dependencies": ["gsap"],
+  "files": [
+    {
+      "path": "registry/components/animate/footer/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/footer.tsx"
+    }
+  ]
+}
