@@ -2,10 +2,10 @@ import Footer from '@/registry/components/animate/footer';
 import { ArrowDown } from 'lucide-react';
 
 interface FooterDemoProps {
-  theme: 'ocean' | 'amber' | 'emerald' | 'violet' | 'rose';
+  theme: 'dia-browser' | 'ocean' | 'amber' | 'emerald' | 'violet' | 'rose';
 }
 
-export const FooterDemo = ({ theme = 'amber' }: FooterDemoProps) => {
+export const FooterDemo = ({ theme = 'dia-browser' }: FooterDemoProps) => {
   return (
     <div className="relative mx-auto h-100 w-full overflow-hidden rounded-lg transform-[translateZ(0)]">
       <div className="sticky top-3 z-30 flex flex-col items-center gap-2 mx-auto w-fit font-medium text-muted-foreground">

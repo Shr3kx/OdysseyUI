@@ -601,7 +601,24 @@
           "type": "registry:ui",
           "target": "components/odyssey/demo/animate/footer.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "demoProps": {
+          "Footer": {
+            "theme": {
+              "value": "dia-browser",
+              "options": {
+                "Dia Browser": "dia-browser",
+                "Ocean": "ocean",
+                "Amber": "amber",
+                "Emerald": "emerald",
+                "Violet": "violet",
+                "Rose": "rose"
+              }
+            }
+          }
+        }
+      }
     },
     {
       "name": "demo-components-animate-github-stars-wheel",

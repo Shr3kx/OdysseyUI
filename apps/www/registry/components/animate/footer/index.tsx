@@ -18,6 +18,19 @@ type FooterThemePreset = {
 };
 
 export const FOOTER_THEME_PRESETS = {
+  'dia-browser': {
+    text: '#3F3F46',
+    gradient: [
+      '#1D4ED8',
+      '#60A5FA',
+      '#E5E7EB',
+      '#fbbb0c',
+      '#f93b3b',
+      '#FB7185',
+      '#EC4899',
+      '#fb3af2',
+    ],
+  },
   ocean: {
     text: '#0F172A',
     gradient: [
@@ -93,7 +106,7 @@ type FooterProps = {
   copyrightText?: string;
 };
 
-const DEFAULT_FOOTER_THEME: FooterTheme = 'ocean';
+const DEFAULT_FOOTER_THEME: FooterTheme = 'dia-browser';
 
 const currentYear = new Date().getFullYear();
 

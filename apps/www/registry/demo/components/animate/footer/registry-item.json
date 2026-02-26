@@ -16,8 +16,9 @@
     "demoProps": {
       "Footer": {
         "theme": {
-          "value": "amber",
+          "value": "dia-browser",
           "options": {
+            "Dia Browser": "dia-browser",
             "Ocean": "ocean",
             "Amber": "amber",
             "Emerald": "emerald",
