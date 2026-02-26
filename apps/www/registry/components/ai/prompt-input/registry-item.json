@@ -7,7 +7,7 @@
   "dependencies": ["@hugeicons/core-free-icons", "@hugeicons/react"],
   "cssVars": {
     "light": {
-      "blue-glossy": "linear-gradient(135deg, hsl(217 92% 75%) 0%, hsl(217 92% 55%) 50%, hsl(217 92% 70%) 100%)"
+      "blue-glossy": "linear-gradient(145deg, hsl(217 90% 54%) 0%, hsl(217 90% 34%) 25%, hsl(217 90% 62%) 50%, hsl(217 90% 38%) 75%, hsl(217 90% 48%) 100%)"
     }
   },
   "css": {
