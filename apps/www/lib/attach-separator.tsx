@@ -3,9 +3,13 @@ import BaseUIIcon from '@workspace/ui/components/icons/baseui-icon';
 import CommunityIcon from '@workspace/ui/components/icons/community-icon';
 import ImageIcon from '@workspace/ui/components/icons/image-icon';
 import HeadlessUIIcon from '@workspace/ui/components/icons/headlessui-icon';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArtificialIntelligence04Icon } from '@hugeicons/core-free-icons';
 import RadixIcon from '@workspace/ui/components/icons/radix-icon';
 import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
+  Bot,
+  Brain,
   Code,
   Cuboid,
   RectangleHorizontalIcon,
@@ -60,9 +64,12 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
         />
       );
       break;
-    case 'Radix UI':
+    case 'AI Elements':
       node.name = (
-        <Separator icon={<RadixIcon className="size-2.5!" />} name="Radix UI" />
+        <Separator
+          icon={<HugeiconsIcon icon={ArtificialIntelligence04Icon} />}
+          name="AI Elements"
+        />
       );
       break;
     case 'Base UI':
