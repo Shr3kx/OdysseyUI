@@ -1,0 +1,34 @@
+---
+title: Card Stroke
+description: A card component with an animated stroke effect on hover.
+---
+
+<ComponentPreview name="demo-components-animate-card-stroke" />
+
+## Installation
+
+<ComponentInstallation name="components-animate-card-stroke" />
+<Callout>
+  **Note:** This component is inspired by this amazing post by
+  [joaopaulots](https://x.com/joaopaulots/status/2019123435310596275).
+</Callout>
+
+## Usage
+
+```tsx
+import CardStroke from '@/components/odysseyui/card-stroke';
+
+export default function Page() {
+  return (
+    <CardStroke
+      title="Card Title"
+      description="A small two line paragraph passed by prop."
+      imageSrc="/templateImages/placeholder.png"
+      imageAlt="Placeholder preview image"
+      accentStrokeColor="#E0E0E0"
+      baseStrokeColor="#FE5E41"
+      textColor="#F5F5F5"
+    />
+  );
+}
+```

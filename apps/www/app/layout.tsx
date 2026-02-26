@@ -123,7 +123,8 @@ export default function Layout({ children }: { children: ReactNode }) {
         )}
       >
         <RootProvider theme={{ defaultTheme: 'dark' }}>
-          <SmoothScrollProvider />
+          {/* Temporarily disabling smooth scroll provider. Will look into a fix. */}
+          {/* <SmoothScrollProvider /> */}
           <SpeedInsights />
           <NuqsAdapter>{children}</NuqsAdapter>
         </RootProvider>

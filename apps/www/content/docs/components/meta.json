@@ -10,6 +10,7 @@
     "animate/tabs",
     "animate/code-block",
     "animate/footer",
+    "animate/card-stroke",
     "---Buttons---",
     "buttons/github-stars",
     "buttons/theme-toggler",

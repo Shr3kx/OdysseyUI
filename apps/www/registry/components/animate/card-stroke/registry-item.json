@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-animate-card-stroke",
+  "type": "registry:ui",
+  "title": "Card Stroke",
+  "description": "A card component with animated SVG stroke and split-text reveal on hover.",
+  "dependencies": ["gsap"],
+  "files": [
+    {
+      "path": "registry/components/animate/card-stroke/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/card-stroke.tsx"
+    }
+  ]
+}
