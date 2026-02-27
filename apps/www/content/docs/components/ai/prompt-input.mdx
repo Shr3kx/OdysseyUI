@@ -18,3 +18,53 @@ export default function Page() {
   return <PromptInput />;
 }
 ```
+
+## How It Works
+
+- Uses a **controlled textarea** with internal state.
+- Automatically resizes using `useLayoutEffect` (max height: 240px).
+- Pressing **Enter (without Shift)** prevents newline and can trigger submit logic.
+- Includes:
+  - File attachment trigger
+  - Search toggle button
+  - Microphone button
+  - Send button
+- Hidden `<input type="file" />` handles file selection.
+- Search button toggles active visual state.
+
+---
+
+## API Reference
+
+### PromptInput
+
+<TypeTable
+  type={{
+    value: {
+      description: 'Internally managed textarea value (controlled component).',
+      type: 'string',
+      required: false,
+    },
+    searchEnabled: {
+      description:
+        'Internal boolean state that toggles the search mode button styling.',
+      type: 'boolean',
+      required: false,
+      default: 'false',
+    },
+  }}
+/>
+
+> Note: This component currently does not expose external props.  
+> It is designed as a self-contained prompt UI.  
+> You can extend it by adding `onSubmit`, `onFileUpload`, or `onSearchToggle` props.
+
+---
+
+## Examples
+
+### Basic Usage
+
+```tsx
+<PromptInput />
+```
