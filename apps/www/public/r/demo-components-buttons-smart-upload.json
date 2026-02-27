@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-buttons-smart-upload",
+  "title": "Smart Upload Demo",
+  "description": "Demo of the Smart File Uploader.",
+  "registryDependencies": [
+    "odyssey/components-buttons-smart-upload"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/buttons/smart-upload/index.tsx",
+      "content": "import SmartUpload from '@/components/odyssey/components/buttons/smart-upload';\n\nexport const SmartUploadDemo = () => {\n  return <SmartUpload />;\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/buttons/smart-upload.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

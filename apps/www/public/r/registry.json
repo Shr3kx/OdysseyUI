@@ -289,6 +289,24 @@
       ]
     },
     {
+      "name": "components-buttons-smart-upload",
+      "type": "registry:ui",
+      "title": "Smart Upload",
+      "description": "Turn file uploads into engaging moments with smooth animations and intuitive visual feedback",
+      "dependencies": [
+        "framer-motion",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/components/buttons/smart-upload/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/smart-upload.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-buttons-theme-toggler",
       "type": "registry:ui",
       "title": "Theme Toggler Button",
@@ -878,6 +896,22 @@
           }
         }
       }
+    },
+    {
+      "name": "demo-components-buttons-smart-upload",
+      "type": "registry:ui",
+      "title": "Smart Upload Demo",
+      "description": "Demo of the Smart File Uploader.",
+      "registryDependencies": [
+        "odyssey/components-buttons-smart-upload"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/buttons/smart-upload/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/buttons/smart-upload.tsx"
+        }
+      ]
     },
     {
       "name": "demo-components-buttons-theme-toggler",

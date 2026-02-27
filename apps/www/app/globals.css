@@ -103,6 +103,14 @@
     hsl(217 90% 38%) 75%,
     hsl(217 90% 48%) 100%
   );
+  --green-metallic: linear-gradient(
+    145deg,
+    hsl(145 70% 38%) 0%,
+    hsl(145 70% 24%) 25%,
+    hsl(145 70% 46%) 50%,
+    hsl(145 70% 28%) 75%,
+    hsl(145 70% 36%) 100%
+  );
 }
 
 .dark {
@@ -343,4 +351,8 @@
 
 @utility bg-blue-glossy {
   background: var(--blue-glossy);
+}
+
+@utility bg-green-metallic {
+  background: var(--green-metallic);
 }

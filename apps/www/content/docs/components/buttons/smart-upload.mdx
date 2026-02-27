@@ -1,0 +1,98 @@
+---
+title: Smart Upload
+description: A cinematic multi-stage upload component with scanning, encryption, and progress animations.
+---
+
+<ComponentPreview name="demo-components-buttons-smart-upload" />
+
+## Installation
+
+<ComponentInstallation name="components-buttons-smart-upload" />
+
+<Callout>
+  **Note:** This component uses **Framer Motion** for layout transitions and
+  animated states. It is inspired by
+  [shoryacodes](https://shoryacodes.vercel.app/)
+</Callout>
+
+## Usage
+
+```tsx
+import SmartUpload from '@/components/odysseyui/smart-upload';
+
+export default function Page() {
+  return <SmartUpload />;
+}
+```
+
+## How It Works
+
+- Uses a finite visual state system:
+  - `idle`
+  - `scanning`
+  - `encrypting`
+  - `uploading`
+  - `done`
+- Automatically sequences states using timed transitions.
+- Uses `URL.createObjectURL()` to generate a live preview.
+- Uses `motion.div` with `layout` for smooth container resizing.
+- Includes animated overlays for:
+  - Scanning beam
+  - Encryption grid pulses
+  - Upload progress fill
+- Automatically resets back to `idle` after completion.
+
+---
+
+## Animation Flow
+
+1. User selects a file.
+2. Preview renders.
+3. Virus Scan animation plays.
+4. Encryption grid overlay animates.
+5. Upload progress fills.
+6. Completion state appears.
+7. Component resets.
+
+---
+
+## API Reference
+
+### SmartUpload
+
+<TypeTable
+  type={{
+    status: {
+      description: 'Internal upload state machine.',
+      type: "'idle' | 'scanning' | 'encrypting' | 'uploading' | 'done'",
+      required: false,
+    },
+    previewUrl: {
+      description: 'Object URL generated for selected image preview.',
+      type: 'string | null',
+      required: false,
+    },
+  }}
+/>
+
+> **Note:** This component is currently self-contained and does not expose external props.  
+> You can extend it by adding `onUploadStart`, `onUploadComplete`, or real API integration.
+
+## Examples
+
+### Basic Usage
+
+```tsx
+<SmartUpload />
+```
+
+## Features
+
+- Multi-stage animated upload simulation
+- Smooth layout transitions
+- Live image preview
+- Animated scanning beam
+- Encryption grid pulse effect
+- Dynamic progress indicator
+- Auto reset after completion
+- Fully responsive design
