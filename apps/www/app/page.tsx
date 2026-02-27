@@ -15,8 +15,7 @@ export default function HomePage() {
           <Silk
             speed={5}
             scale={1}
-            // color="#8f9db0"
-            color="#8f9db0"
+            color="#98CAF3"
             noiseIntensity={1.5}
             rotation={0}
           />

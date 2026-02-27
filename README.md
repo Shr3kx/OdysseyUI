@@ -2,6 +2,7 @@ TODO
 
 - codeblocks duration prop fix
 - tweakcn themeswitcher component import
+- remove title and description from props
 - Templates to add:- - Portfolio (Posthog inspired)
   - Portfolio (designer)
   - Portfolio (minimal template) - Saas 1
