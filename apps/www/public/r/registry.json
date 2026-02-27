@@ -298,6 +298,16 @@
         "@hugeicons/core-free-icons",
         "@hugeicons/react"
       ],
+      "cssVars": {
+        "light": {
+          "green-metallic": "linear-gradient(145deg, hsl(145 70% 38%) 0%, hsl(145 70% 24%) 25%, hsl(145 70% 46%) 50%, hsl(145 70% 28%) 75%, hsl(145 70% 36%) 100%)"
+        }
+      },
+      "css": {
+        "@utility bg-green-metallic": {
+          "background": "var(--green-metallic)"
+        }
+      },
       "files": [
         {
           "path": "registry/components/buttons/smart-upload/index.tsx",

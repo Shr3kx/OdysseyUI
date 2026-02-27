@@ -21,6 +21,45 @@ const getDepsCommands = (dependencies?: string[]) => {
   };
 };
 
+const generateCssCode = (
+  cssVars?: { light?: Record<string, string>; dark?: Record<string, string> },
+  css?: Record<string, Record<string, string>>,
+) => {
+  const lines: string[] = [];
+
+  if (cssVars?.light || cssVars?.dark) {
+    lines.push('@layer base {');
+    if (cssVars.light && Object.keys(cssVars.light).length > 0) {
+      lines.push('  :root {');
+      for (const [key, value] of Object.entries(cssVars.light)) {
+        lines.push(`    --${key}: ${value};`);
+      }
+      lines.push('  }');
+    }
+    if (cssVars.dark && Object.keys(cssVars.dark).length > 0) {
+      lines.push('  .dark {');
+      for (const [key, value] of Object.entries(cssVars.dark)) {
+        lines.push(`    --${key}: ${value};`);
+      }
+      lines.push('  }');
+    }
+    lines.push('}');
+  }
+
+  if (css && Object.keys(css).length > 0) {
+    if (lines.length > 0) lines.push('');
+    for (const [selector, properties] of Object.entries(css)) {
+      lines.push(`${selector} {`);
+      for (const [prop, value] of Object.entries(properties)) {
+        lines.push(`  ${prop}: ${value};`);
+      }
+      lines.push('}');
+    }
+  }
+
+  return lines.join('\n');
+};
+
 const getRegistryDepsCommands = (dependencies?: string[]) => {
   if (!dependencies) return undefined;
   const quotedDependencies = dependencies
@@ -48,16 +87,25 @@ export const ComponentManualInstallation = ({
   devDependencies,
   registryDependencies,
   code,
+  cssVars,
+  css,
 }: {
   path: string;
   dependencies?: string[];
   devDependencies?: string[];
   registryDependencies?: string[];
   code: string;
+  cssVars?: {
+    light?: Record<string, string>;
+    dark?: Record<string, string>;
+  };
+  css?: Record<string, Record<string, string>>;
 }) => {
   const depsCommands = getDepsCommands(dependencies);
   const devDepsCommands = getDepsCommands(devDependencies);
   const registryDepsCommands = getRegistryDepsCommands(registryDependencies);
+  const cssCode = generateCssCode(cssVars, css);
+  const hasCss = cssCode.trim().length > 0;
 
   const [isOpened, setIsOpened] = useState(false);
   const collapsibleRef = useRef<HTMLDivElement>(null);
@@ -132,6 +180,15 @@ export const ComponentManualInstallation = ({
             </div>
           </Collapsible>
         </Step>
+
+        {hasCss && (
+          <Step>
+            <h4 className="pt-1 pb-4">
+              Add the following CSS to your global stylesheet:
+            </h4>
+            <DynamicCodeBlock code={cssCode} lang="css" title="globals.css" />
+          </Step>
+        )}
 
         <Step>
           <h4 className="pt-1 pb-4">
