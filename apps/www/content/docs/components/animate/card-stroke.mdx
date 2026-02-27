@@ -1,6 +1,6 @@
 ---
 title: Card Stroke
-description: A card component with an animated stroke effect on hover.
+description: A card component with an animated SVG stroke and word-by-word text reveal on hover.
 ---
 
 <ComponentPreview name="demo-components-animate-card-stroke" />
@@ -8,9 +8,11 @@ description: A card component with an animated stroke effect on hover.
 ## Installation
 
 <ComponentInstallation name="components-animate-card-stroke" />
+
 <Callout>
-  **Note:** This component is inspired by this amazing post by
-  [joaopaulots](https://x.com/joaopaulots/status/2019123435310596275).
+  **Note:** This component uses **GSAP** with the **SplitText** plugin for
+  word-based animations. It is inspired by this amazing post by
+  [joaopaulots](https://x.com/joaopaulots/status/2019123435310596275)
 </Callout>
 
 ## Usage
@@ -31,4 +33,114 @@ export default function Page() {
     />
   );
 }
+```
+
+## How It Works
+
+- Uses **GSAP** timelines for hover animations.
+- Uses **SplitText** to animate title and description word-by-word.
+- SVG paths are animated using `strokeDasharray` and `strokeDashoffset`.
+
+### On Hover
+
+- Stroke expands and reveals.
+- Title and description slide up into view.
+
+### On Mouse Leave
+
+- Stroke retracts.
+- Text animates back down.
+
+---
+
+## API Reference
+
+### CardStroke
+
+<TypeTable
+  type={{
+    title: {
+      description: 'The heading text displayed at the bottom-left of the card.',
+      type: 'string',
+      required: false,
+      default: 'Card Title',
+    },
+    description: {
+      description: 'Supporting paragraph text displayed below the title.',
+      type: 'string',
+      required: false,
+      default: 'A small two line paragraph passed by prop.',
+    },
+    imageSrc: {
+      description: 'Source URL for the background image.',
+      type: 'string',
+      required: false,
+      default: '/templateImages/placeholder.png',
+    },
+    imageAlt: {
+      description: 'Alt text for the background image.',
+      type: 'string',
+      required: false,
+      default: 'Card background',
+    },
+    accentStrokeColor: {
+      description: 'Color of the first animated SVG stroke.',
+      type: 'string',
+      required: false,
+      default: '#E0E0E0',
+    },
+    baseStrokeColor: {
+      description: 'Color of the second animated SVG stroke.',
+      type: 'string',
+      required: false,
+      default: '#FE5E41',
+    },
+    textColor: {
+      description: 'Color applied to the title and description text.',
+      type: 'string',
+      required: false,
+      default: '#F5F5F5',
+    },
+    className: {
+      description:
+        'Additional Tailwind or custom classes applied to the root container.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+## Examples
+
+### Custom Colors
+
+```tsx
+<CardStroke
+  title="Dark Accent"
+  description="Custom stroke and text colors."
+  accentStrokeColor="#00E5FF"
+  baseStrokeColor="#7C3AED"
+  textColor="#FFFFFF"
+/>
+```
+
+### Custom Image
+
+```tsx
+<CardStroke
+  title="Nature Preview"
+  description="Using a custom background image."
+  imageSrc="/images/nature.jpg"
+  imageAlt="Nature landscape"
+/>
+```
+
+### With Custom Styling
+
+```tsx
+<CardStroke
+  title="Rounded Card"
+  description="Extended styling using className."
+  className="shadow-2xl ring-1 ring-white/10"
+/>
 ```

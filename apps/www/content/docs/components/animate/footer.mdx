@@ -29,3 +29,88 @@ export default function Page() {
 ```
 
 Available `theme` presets: `dia-browser`, `ocean`, `amber`, `emerald`, `violet`, `rose`.
+
+## How It Works
+
+- Uses **GSAP + ScrollTrigger** to animate the footer on scroll.
+- Uses **SplitText** to animate the copyright text line-by-line.
+- Dynamically injects gradient colors into SVG `<linearGradient>` stops.
+- Animates the SVG spectrum bars with scale and transform effects.
+- Supports both preset themes and fully custom color overrides.
+
+### Scroll Animation Flow
+
+- Footer enters viewport.
+- SVG container fades in.
+- Spectrum bars scale vertically (`scaleY`) and settle.
+- Copyright text animates upward with blur fade-in.
+- Uses `scrub: 1` for smooth scroll-linked animation.
+
+---
+
+## API Reference
+
+### Footer
+
+<TypeTable
+  type={{
+    theme: {
+      description:
+        'Predefined color theme preset. Controls text color and SVG gradient palette.',
+      type: `'dia-browser' | 'ocean' | 'amber' | 'emerald' | 'violet' | 'rose'`,
+      required: false,
+      default: `'dia-browser'`,
+    },
+    colors: {
+      description:
+        'Custom color override object. Overrides theme values. Accepts text color and 8 gradient stops.',
+      type: '{ text?: string; gradient?: string[] }',
+      required: false,
+    },
+    copyrightText: {
+      description:
+        'Custom footer text. Defaults to current year with author name.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+---
+
+## Examples
+
+### Using a Theme Preset
+
+```tsx
+<Footer theme="ocean" />
+```
+
+### Custom Colors Override
+
+```tsx
+<Footer
+  colors={{
+    text: '#111827',
+    gradient: [
+      '#111827',
+      '#1F2937',
+      '#374151',
+      '#4B5563',
+      '#6B7280',
+      '#9CA3AF',
+      '#D1D5DB',
+      '#F3F4F6',
+    ],
+  }}
+/>
+```
+
+### Custom text
+
+```tsx
+<Footer
+  theme="emerald"
+  copyrightText={`copyright © ${new Date().getFullYear()} — Odyssey UI`}
+/>
+```

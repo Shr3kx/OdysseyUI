@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-card-stroke",
+  "title": "Card Stroke Demo",
+  "description": "Demo of the card stroke animation.",
+  "registryDependencies": [
+    "@odysseyui/components-animate-card-stroke"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/card-stroke/index.tsx",
+      "content": "import CardStroke from '@/components/odyssey/components/animate/card-stroke';\n\ninterface CardStrokeDemoProps {\n  title: string;\n  description: string;\n  accentStrokeColor: string;\n  baseStrokeColor: string;\n  textColor: string;\n}\n\nexport function CardStrokeDemo({\n  title,\n  description,\n  accentStrokeColor,\n  baseStrokeColor,\n  textColor,\n}: CardStrokeDemoProps) {\n  return (\n    <div className=\"mx-auto w-full max-w-xl\">\n      <CardStroke\n        title={title}\n        description={description}\n        accentStrokeColor={accentStrokeColor}\n        baseStrokeColor={baseStrokeColor}\n        textColor={textColor}\n        imageSrc=\"/templateImages/placeholder.png\"\n        imageAlt=\"Placeholder preview image\"\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/odysseyui/demo/components/animate/card-stroke.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "CardStroke": {
+        "title": {
+          "value": "Card Title"
+        },
+        "description": {
+          "value": "A small two line paragraph passed by prop."
+        },
+        "accentStrokeColor": {
+          "value": "#E0E0E0"
+        },
+        "baseStrokeColor": {
+          "value": "#FE5E41"
+        },
+        "textColor": {
+          "value": "#F5F5F5"
+        }
+      }
+    }
+  },
+  "type": "registry:ui"
+}

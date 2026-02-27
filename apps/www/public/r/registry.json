@@ -64,6 +64,22 @@
       ]
     },
     {
+      "name": "components-animate-card-stroke",
+      "type": "registry:ui",
+      "title": "Card Stroke",
+      "description": "A card component with animated SVG stroke and split-text reveal on hover.",
+      "dependencies": [
+        "gsap"
+      ],
+      "files": [
+        {
+          "path": "registry/components/animate/card-stroke/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/card-stroke.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-animate-code",
       "type": "registry:ui",
       "title": "Code",
@@ -432,6 +448,43 @@
           "target": "components/odysseyui/demo/components/animate/avatar-group.tsx"
         }
       ]
+    },
+    {
+      "name": "demo-components-animate-card-stroke",
+      "type": "registry:ui",
+      "title": "Card Stroke Demo",
+      "description": "Demo of the card stroke animation.",
+      "registryDependencies": [
+        "@odysseyui/components-animate-card-stroke"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/animate/card-stroke/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/demo/components/animate/card-stroke.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "CardStroke": {
+            "title": {
+              "value": "Card Title"
+            },
+            "description": {
+              "value": "A small two line paragraph passed by prop."
+            },
+            "accentStrokeColor": {
+              "value": "#E0E0E0"
+            },
+            "baseStrokeColor": {
+              "value": "#FE5E41"
+            },
+            "textColor": {
+              "value": "#F5F5F5"
+            }
+          }
+        }
+      }
     },
     {
       "name": "demo-components-animate-code",

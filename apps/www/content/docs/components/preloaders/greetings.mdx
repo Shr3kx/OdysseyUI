@@ -27,3 +27,78 @@ import GreetingPreloader from '@/registry/components/preloaders/greetings';
   intervalMs={600}
 />;
 ```
+
+## How It Works
+
+- Cycles through a list of greetings using `setInterval`.
+- Uses **Framer Motion** (`AnimatePresence` + `motion.div`) for vertical text transitions.
+- Uses **GSAP** for overlay exit animation and page reveal sequencing.
+- Supports both **full-page preloader mode** and **inline mode**.
+
+### Greeting Animation
+
+- Each greeting fades and slides in (`y: 20 → 0`).
+- Previous greeting exits upward (`y: -100`).
+- After the final greeting:
+  - Interval stops.
+  - `onComplete` triggers overlay animation.
+
+### Overlay Exit (Full Page Mode)
+
+- Preloader slides upward (`yPercent: -110`).
+- Navbar, headings, and other elements animate into view.
+- Uses staggered GSAP timeline for smooth sequencing.
+
+---
+
+## API Reference
+
+### GreetingPreloader
+
+<TypeTable
+  type={{
+    greetings: {
+      description:
+        'Custom array of greeting objects. Falls back to default greetings if not provided.',
+      type: 'Array<{ text: string; language: string }>',
+      required: false,
+    },
+    intervalMs: {
+      description:
+        'Interval duration (in milliseconds) between greeting transitions.',
+      type: 'number',
+      required: false,
+      default: 300,
+    },
+    fullPage: {
+      description:
+        'Whether the preloader should cover the entire page and animate layout elements.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+  }}
+/>
+
+---
+
+## Examples
+
+### Custom Greetings
+
+```tsx
+<GreetingPreloader
+  greetings={[
+    { text: 'Hello', language: 'English' },
+    { text: 'Hola', language: 'Spanish' },
+    { text: 'नमस्ते', language: 'Hindi' },
+  ]}
+  intervalMs={500}
+/>
+```
+
+### Inline Mode (Non-Full Page)
+
+```tsx
+<GreetingPreloader fullPage={false} intervalMs={400} />
+```
