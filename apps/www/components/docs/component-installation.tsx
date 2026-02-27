@@ -54,6 +54,8 @@ export function ComponentInstallation({
               dependencies={component.dependencies}
               devDependencies={component.devDependencies}
               registryDependencies={component.registryDependencies}
+              cssVars={component.cssVars}
+              css={component.css}
               code={component.files[0].content}
             />
           </TabsContent>
