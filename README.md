@@ -9,4 +9,4 @@ TODO
   - Saas 2 - AI company landing
   - AI chatbot frontend
 
-- Components to add:- - custom cal.com with mail to feature - Apple like feature cards - Project showcase with svg stroke - Otp verifcation form - dock style menu component
+- Components to add:- - custom cal.com with mail to feature - Apple like feature cards - Otp verifcation form - dock style menu component
