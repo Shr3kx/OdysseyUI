@@ -3,9 +3,7 @@
   "name": "demo-components-animate-card-stroke",
   "title": "Card Stroke Demo",
   "description": "Demo of the card stroke animation.",
-  "registryDependencies": [
-    "@odysseyui/components-animate-card-stroke"
-  ],
+  "registryDependencies": ["@odysseyui/components-animate-card-stroke"],
   "files": [
     {
       "path": "registry/demo/components/animate/card-stroke/index.tsx",
@@ -27,7 +25,7 @@
           "value": "#E0E0E0"
         },
         "baseStrokeColor": {
-          "value": "#FE5E41"
+          "value": "#2B7FFF"
         },
         "textColor": {
           "value": "#F5F5F5"

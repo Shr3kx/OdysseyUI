@@ -16,7 +16,6 @@ import { cn } from '@workspace/ui/lib/utils';
 const NAV_LINKS = [
   { title: 'Components', href: '/docs/components' },
   { title: 'Templates', href: '/docs/templates' },
-  { title: 'Pricing', href: '/pricing' },
 ];
 
 export const LandingNav = ({ className }: { className?: string }) => {

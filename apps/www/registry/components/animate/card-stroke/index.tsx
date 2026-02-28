@@ -24,7 +24,7 @@ export default function CardStroke({
   imageSrc = '/templateImages/placeholder.png',
   imageAlt = 'Card background',
   accentStrokeColor = '#E0E0E0',
-  baseStrokeColor = '#FE5E41',
+  baseStrokeColor = '#2B7FFF',
   textColor = '#F5F5F5',
   className,
 }: CardStrokeProps) {

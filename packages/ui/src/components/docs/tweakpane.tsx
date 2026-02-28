@@ -146,7 +146,7 @@ const renderNumber = (
 
       <Slider
         min={bind.min}
-        max={100}
+        max={bind.max}
         step={bind.step}
         value={[bind.value]}
         onValueChange={(v) => onChange(v[0] ?? 0)}
