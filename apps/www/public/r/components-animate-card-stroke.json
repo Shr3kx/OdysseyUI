@@ -3,7 +3,9 @@
   "name": "components-animate-card-stroke",
   "title": "Card Stroke",
   "description": "A card component with animated SVG stroke and split-text reveal on hover.",
-  "dependencies": ["gsap"],
+  "dependencies": [
+    "gsap"
+  ],
   "files": [
     {
       "path": "registry/components/animate/card-stroke/index.tsx",

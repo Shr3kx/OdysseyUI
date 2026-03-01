@@ -17,6 +17,8 @@ export const index: Record<string, any> = {
     ],
     devDependencies: undefined,
     registryDependencies: ['utils'],
+    cssVars: {},
+    css: undefined,
     files: [],
     keywords: [],
     component: null,
@@ -29,6 +31,13 @@ export const index: Record<string, any> = {
     dependencies: ['@hugeicons/core-free-icons', '@hugeicons/react'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: {
+      light: {
+        'blue-glossy':
+          'linear-gradient(145deg, hsl(217 90% 54%) 0%, hsl(217 90% 34%) 25%, hsl(217 90% 62%) 50%, hsl(217 90% 38%) 75%, hsl(217 90% 48%) 100%)',
+      },
+    },
+    css: { '@utility bg-blue-glossy': { background: 'var(--blue-glossy)' } },
     files: [
       {
         path: 'registry/components/ai/prompt-input/index.tsx',
@@ -67,6 +76,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-avatar-group'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/avatar-group/index.tsx',
@@ -105,6 +116,8 @@ export const index: Record<string, any> = {
     dependencies: ['gsap'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/card-stroke/index.tsx',
@@ -146,6 +159,8 @@ export const index: Record<string, any> = {
       '@odysseyui/components-buttons-copy',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/code/index.tsx',
@@ -186,6 +201,8 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://odysseyui.vercel.app/r/components-buttons-copy.json',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/code-block/index.tsx',
@@ -226,6 +243,8 @@ export const index: Record<string, any> = {
       'https://odysseyui.vercel.app/r/primitives-animate-tabs.json',
       'https://odysseyui.vercel.app/r/components-buttons-copy.json',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/code-tabs/index.tsx',
@@ -264,6 +283,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-cursor'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/cursor/index.tsx',
@@ -301,6 +322,8 @@ export const index: Record<string, any> = {
     dependencies: ['gsap'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/footer/index.tsx',
@@ -341,6 +364,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-effects-particles',
       '@odysseyui/primitives-texts-scrolling-number',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/github-stars-wheel/index.tsx',
@@ -380,6 +405,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/animate/tabs/index.tsx',
@@ -417,6 +444,8 @@ export const index: Record<string, any> = {
     dependencies: ['class-variance-authority'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-buttons-button'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/buttons/button/index.tsx',
@@ -458,6 +487,8 @@ export const index: Record<string, any> = {
       'https://odysseyui.vercel.app/r/primitives-buttons-button.json',
       'https://odysseyui.vercel.app/r/hooks-use-controlled-state.json',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/buttons/copy/index.tsx',
@@ -499,6 +530,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-buttons-button',
       '@odysseyui/primitives-animate-github-stars',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/buttons/github-stars/index.tsx',
@@ -540,6 +573,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-buttons-button',
       '@odysseyui/primitives-effects-particles',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/buttons/icon/index.tsx',
@@ -582,6 +617,15 @@ export const index: Record<string, any> = {
     ],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: {
+      light: {
+        'green-metallic':
+          'linear-gradient(145deg, hsl(145 70% 38%) 0%, hsl(145 70% 24%) 25%, hsl(145 70% 46%) 50%, hsl(145 70% 28%) 75%, hsl(145 70% 36%) 100%)',
+      },
+    },
+    css: {
+      '@utility bg-green-metallic': { background: 'var(--green-metallic)' },
+    },
     files: [
       {
         path: 'registry/components/buttons/smart-upload/index.tsx',
@@ -622,6 +666,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-effects-theme-toggler',
       '@odysseyui/components-buttons-icon',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/buttons/theme-toggler/index.tsx',
@@ -660,6 +706,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', 'lucide-react'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/community/notification-list/index.tsx',
@@ -699,6 +747,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-checkbox'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/community/playful-todolist/index.tsx',
@@ -738,6 +788,8 @@ export const index: Record<string, any> = {
     dependencies: ['gsap', 'framer-motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/preloaders/greetings/index.tsx',
@@ -776,6 +828,8 @@ export const index: Record<string, any> = {
     dependencies: ['class-variance-authority'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-checkbox'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/radix/checkbox/index.tsx',
@@ -814,6 +868,8 @@ export const index: Record<string, any> = {
     dependencies: ['lucide-react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-dropdown-menu'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/radix/dropdown-menu/index.tsx',
@@ -852,6 +908,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-hover-card'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/components/radix/hover-card/index.tsx',
@@ -889,6 +947,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['odyssey/components-ai-prompt-input'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/ai/prompt-input/index.tsx',
@@ -926,6 +986,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-avatar-group'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/avatar-group/index.tsx',
@@ -963,6 +1025,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-card-stroke'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/card-stroke/index.tsx',
@@ -990,6 +1054,8 @@ export const index: Record<string, any> = {
       });
       LazyComp.demoProps = {
         CardStroke: {
+          title: { value: 'Card Title' },
+          description: { value: 'A small two line paragraph passed by prop.' },
           accentStrokeColor: { value: '#E0E0E0' },
           baseStrokeColor: { value: '#2B7FFF' },
           textColor: { value: '#F5F5F5' },
@@ -1006,6 +1072,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-code'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/code/index.tsx',
@@ -1050,6 +1118,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['odyssey/components-animate-code-block'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/code-block/index.tsx',
@@ -1115,6 +1185,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-code-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/code-tabs/index.tsx',
@@ -1152,6 +1224,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-cursor'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/cursor/index.tsx',
@@ -1212,6 +1286,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['odyssey/components-animate-footer'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/footer/index.tsx',
@@ -1263,6 +1339,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-github-stars-wheel'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/github-stars-wheel/index.tsx',
@@ -1310,6 +1388,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-animate-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/animate/tabs/index.tsx',
@@ -1347,6 +1427,8 @@ export const index: Record<string, any> = {
     dependencies: ['lucide-react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-buttons-button'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/buttons/button/index.tsx',
@@ -1410,6 +1492,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-buttons-copy'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/buttons/copy/index.tsx',
@@ -1466,6 +1550,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-buttons-github-stars'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/buttons/github-stars/index.tsx',
@@ -1519,6 +1605,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['odyssey/components-buttons-smart-upload'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/buttons/smart-upload/index.tsx',
@@ -1556,6 +1644,8 @@ export const index: Record<string, any> = {
     dependencies: ['lucide-react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-buttons-theme-toggler'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/buttons/theme-toggler/index.tsx',
@@ -1615,6 +1705,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-community-notification-list'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/community/notification-list/index.tsx',
@@ -1653,6 +1745,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-community-playful-todolist'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/community/playful-todolist/index.tsx',
@@ -1692,6 +1786,8 @@ export const index: Record<string, any> = {
     dependencies: ['gsap', 'framer-motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/preloaders/greetings/index.tsx',
@@ -1729,6 +1825,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-radix-checkbox'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/radix/checkbox/index.tsx',
@@ -1785,6 +1883,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/components-radix-hover-card'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/components/radix/hover-card/index.tsx',
@@ -1840,6 +1940,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-avatar-group'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/avatar-group/index.tsx',
@@ -1877,6 +1979,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-code-block'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/code-block/index.tsx',
@@ -1921,6 +2025,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-cursor'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/cursor/index.tsx',
@@ -1981,6 +2087,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-github-stars'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/github-stars/index.tsx',
@@ -2018,6 +2126,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-pinned-list'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/pinned-list/index.tsx',
@@ -2055,6 +2165,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-scroll-progress'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/scroll-progress/index.tsx',
@@ -2101,6 +2213,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-spring'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/spring/index.tsx',
@@ -2138,6 +2252,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/tabs/index.tsx',
@@ -2175,6 +2291,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-tooltip'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/animate/tooltip/index.tsx',
@@ -2235,6 +2353,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-accordion'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/accordion/index.tsx',
@@ -2275,6 +2395,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-alert-dialog'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/alert-dialog/index.tsx',
@@ -2324,6 +2446,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-checkbox'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/checkbox/index.tsx',
@@ -2361,6 +2485,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-collapsible'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/collapsible/index.tsx',
@@ -2400,6 +2526,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-dialog'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/dialog/index.tsx',
@@ -2449,6 +2577,8 @@ export const index: Record<string, any> = {
     dependencies: ['lucide-react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-files'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/files/index.tsx',
@@ -2486,6 +2616,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-menu'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/menu/index.tsx',
@@ -2543,6 +2675,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-popover'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/popover/index.tsx',
@@ -2600,6 +2734,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-preview-card'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/preview-card/index.tsx',
@@ -2657,6 +2793,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-progress'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/progress/index.tsx',
@@ -2694,6 +2832,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-radio'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/radio/index.tsx',
@@ -2731,6 +2871,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-switch'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/switch/index.tsx',
@@ -2768,6 +2910,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/tabs/index.tsx',
@@ -2812,6 +2956,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-toggle'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/toggle/index.tsx',
@@ -2849,6 +2995,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-toggle-group'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/toggle-group/index.tsx',
@@ -2888,6 +3036,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-base-tooltip'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/base/tooltip/index.tsx',
@@ -2945,6 +3095,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-buttons-button'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/buttons/button/index.tsx',
@@ -2987,6 +3139,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-buttons-flip'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/buttons/flip/index.tsx',
@@ -3037,6 +3191,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-buttons-liquid'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/buttons/liquid/index.tsx',
@@ -3081,6 +3237,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-buttons-ripple'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/buttons/ripple/index.tsx',
@@ -3123,6 +3281,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-auto-height'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/auto-height/index.tsx',
@@ -3160,6 +3320,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-blur'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/blur/index.tsx',
@@ -3203,6 +3365,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-click'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/click/index.tsx',
@@ -3256,6 +3420,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-effect'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/effect/index.tsx',
@@ -3301,6 +3467,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-fade'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/fade/index.tsx',
@@ -3344,6 +3512,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-highlight'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/highlight/index.tsx',
@@ -3390,6 +3560,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-image-zoom'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/image-zoom/index.tsx',
@@ -3427,6 +3599,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-magnetic'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/magnetic/index.tsx',
@@ -3470,6 +3644,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-particles'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/particles/index.tsx',
@@ -3531,6 +3707,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-shine'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/shine/index.tsx',
@@ -3579,6 +3757,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-slide'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/slide/index.tsx',
@@ -3625,6 +3805,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-theme-toggler'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/theme-toggler/index.tsx',
@@ -3670,6 +3852,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-tilt'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/tilt/index.tsx',
@@ -3712,6 +3896,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-effects-zoom'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/effects/zoom/index.tsx',
@@ -3755,6 +3941,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-headless-checkbox'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/headless/checkbox/index.tsx',
@@ -3792,6 +3980,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-headless-dialog'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/headless/dialog/index.tsx',
@@ -3841,6 +4031,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-headless-disclosure'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/headless/disclosure/index.tsx',
@@ -3880,6 +4072,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-headless-popover'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/headless/popover/index.tsx',
@@ -3938,6 +4132,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-headless-switch'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/headless/switch/index.tsx',
@@ -3975,6 +4171,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-headless-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/headless/tabs/index.tsx',
@@ -4019,6 +4217,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-accordion'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/accordion/index.tsx',
@@ -4059,6 +4259,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-alert-dialog'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/alert-dialog/index.tsx',
@@ -4108,6 +4310,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-checkbox'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/checkbox/index.tsx',
@@ -4156,6 +4360,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-collapsible'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/collapsible/index.tsx',
@@ -4195,6 +4401,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-dialog'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/dialog/index.tsx',
@@ -4244,6 +4452,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-dropdown-menu'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/dropdown-menu/index.tsx',
@@ -4299,6 +4509,8 @@ export const index: Record<string, any> = {
     dependencies: ['lucide-react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-files'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/files/index.tsx',
@@ -4336,6 +4548,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-hover-card'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/hover-card/index.tsx',
@@ -4391,6 +4605,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-popover'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/popover/index.tsx',
@@ -4446,6 +4662,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-progress'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/progress/index.tsx',
@@ -4483,6 +4701,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-radio-group'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/radio-group/index.tsx',
@@ -4520,6 +4740,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-sheet'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/sheet/index.tsx',
@@ -4569,6 +4791,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-switch'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/switch/index.tsx',
@@ -4606,6 +4830,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-tabs'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/tabs/index.tsx',
@@ -4650,6 +4876,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-toggle'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/toggle/index.tsx',
@@ -4687,6 +4915,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-toggle-group'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/toggle-group/index.tsx',
@@ -4731,6 +4961,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-radix-tooltip'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/radix/tooltip/index.tsx',
@@ -4786,6 +5018,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-counting-number'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/counting-number/index.tsx',
@@ -4833,6 +5067,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-gradient'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/gradient/index.tsx',
@@ -4870,6 +5106,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-highlight'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/highlight/index.tsx',
@@ -4909,6 +5147,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-morphing'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/morphing/index.tsx',
@@ -4951,6 +5191,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-rolling'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/rolling/index.tsx',
@@ -4990,6 +5232,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-rotating'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/rotating/index.tsx',
@@ -5033,6 +5277,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-scrolling-number'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/scrolling-number/index.tsx',
@@ -5081,6 +5327,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-shimmering'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/shimmering/index.tsx',
@@ -5123,6 +5371,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-sliding-number'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/sliding-number/index.tsx',
@@ -5170,6 +5420,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-splitting'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/splitting/index.tsx',
@@ -5219,6 +5471,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-splitting'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/splitting-example/index.tsx',
@@ -5257,6 +5511,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-texts-typing'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/demo/primitives/texts/typing/index.tsx',
@@ -5302,6 +5558,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/hooks/use-auto-height/index.tsx',
@@ -5338,6 +5596,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/hooks/use-controlled-state/index.tsx',
@@ -5375,6 +5635,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/hooks/use-data-state/index.tsx',
@@ -5411,6 +5673,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/hooks/use-is-in-view/index.tsx',
@@ -5447,6 +5711,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/hooks/use-motion-value-state/index.tsx',
@@ -5484,6 +5750,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/alarm-clock/index.tsx',
@@ -5520,6 +5788,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/arrow-right/index.tsx',
@@ -5556,6 +5826,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/audio-lines/index.tsx',
@@ -5616,6 +5888,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/battery-full/index.tsx',
@@ -5652,6 +5926,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/bell-ring/index.tsx',
@@ -5688,6 +5964,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/clock/index.tsx',
@@ -5724,6 +6002,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/disc-3/index.tsx',
@@ -5774,6 +6054,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-is-in-view',
       '@odysseyui/primitives-animate-slot',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/icon/index.tsx',
@@ -5810,6 +6092,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/loader/index.tsx',
@@ -5854,6 +6138,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/menu/index.tsx',
@@ -5890,6 +6176,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/party-popper/index.tsx',
@@ -5938,6 +6226,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/settings/index.tsx',
@@ -5974,6 +6264,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/trash-2/index.tsx',
@@ -6010,6 +6302,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/user/index.tsx',
@@ -6046,6 +6340,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/icons-icon'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/icons/wifi/index.tsx',
@@ -6082,6 +6378,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/lib/get-strict-context/index.tsx',
@@ -6119,6 +6417,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-tooltip'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/avatar-group/index.tsx',
@@ -6157,6 +6457,8 @@ export const index: Record<string, any> = {
     dependencies: ['shiki'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/code-block/index.tsx',
@@ -6198,6 +6500,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/cursor/index.tsx',
@@ -6242,6 +6546,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-is-in-view',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/github-stars/index.tsx',
@@ -6280,6 +6586,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-slot'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/pinned-list/index.tsx',
@@ -6322,6 +6630,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-motion-value-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/scroll-progress/index.tsx',
@@ -6360,6 +6670,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/slot/index.tsx',
@@ -6402,6 +6714,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-motion-value-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/spring/index.tsx',
@@ -6444,6 +6758,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/tabs/index.tsx',
@@ -6485,6 +6801,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/animate/tooltip/index.tsx',
@@ -6525,6 +6843,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/accordion/index.tsx',
@@ -6565,6 +6885,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/alert-dialog/index.tsx',
@@ -6605,6 +6927,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/checkbox/index.tsx',
@@ -6645,6 +6969,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/collapsible/index.tsx',
@@ -6685,6 +7011,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/dialog/index.tsx',
@@ -6727,6 +7055,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/files/index.tsx',
@@ -6769,6 +7099,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/hooks-use-data-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/menu/index.tsx',
@@ -6808,6 +7140,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/popover/index.tsx',
@@ -6849,6 +7183,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/preview-card/index.tsx',
@@ -6889,6 +7225,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/primitives-texts-counting-number',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/progress/index.tsx',
@@ -6929,6 +7267,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/radio/index.tsx',
@@ -6968,6 +7308,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/switch/index.tsx',
@@ -7010,6 +7352,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/tabs/index.tsx',
@@ -7049,6 +7393,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/toggle/index.tsx',
@@ -7089,6 +7435,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/primitives-effects-highlight',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/toggle-group/index.tsx',
@@ -7130,6 +7478,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/base/tooltip/index.tsx',
@@ -7167,6 +7517,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-slot'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/buttons/button/index.tsx',
@@ -7207,6 +7559,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/primitives-animate-slot',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/buttons/flip/index.tsx',
@@ -7247,6 +7601,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/primitives-animate-slot',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/buttons/liquid/index.tsx',
@@ -7287,6 +7643,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/primitives-animate-slot',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/buttons/ripple/index.tsx',
@@ -7328,6 +7686,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-auto-height',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/auto-height/index.tsx',
@@ -7369,6 +7729,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-is-in-view',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/blur/index.tsx',
@@ -7407,6 +7769,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/click/index.tsx',
@@ -7448,6 +7812,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-is-in-view',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/effect/index.tsx',
@@ -7489,6 +7855,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-is-in-view',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/fade/index.tsx',
@@ -7527,6 +7895,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/highlight/index.tsx',
@@ -7564,6 +7934,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/image-zoom/index.tsx',
@@ -7602,6 +7974,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/primitives-animate-slot'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/magnetic/index.tsx',
@@ -7642,6 +8016,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-is-in-view',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/particles/index.tsx',
@@ -7680,6 +8056,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/shine/index.tsx',
@@ -7721,6 +8099,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-is-in-view',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/slide/index.tsx',
@@ -7758,6 +8138,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/theme-toggler/index.tsx',
@@ -7799,6 +8181,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/tilt/index.tsx',
@@ -7840,6 +8224,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-animate-slot',
       '@odysseyui/hooks-use-is-in-view',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/effects/zoom/index.tsx',
@@ -7878,6 +8264,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', '@headlessui/react'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/headless/checkbox/index.tsx',
@@ -7916,6 +8304,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', '@headlessui/react'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/headless/dialog/index.tsx',
@@ -7954,6 +8344,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', '@headlessui/react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/lib-get-strict-context'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/headless/disclosure/index.tsx',
@@ -7992,6 +8384,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', '@headlessui/react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/lib-get-strict-context'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/headless/popover/index.tsx',
@@ -8030,6 +8424,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', '@headlessui/react'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/lib-get-strict-context'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/headless/switch/index.tsx',
@@ -8072,6 +8468,8 @@ export const index: Record<string, any> = {
       '@odysseyui/primitives-effects-highlight',
       '@odysseyui/primitives-effects-auto-height',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/headless/switch/index.tsx',
@@ -8113,6 +8511,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/accordion/index.tsx',
@@ -8154,6 +8554,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/alert-dialog/index.tsx',
@@ -8195,6 +8597,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/checkbox/index.tsx',
@@ -8235,6 +8639,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/collapsible/index.tsx',
@@ -8276,6 +8682,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/dialog/index.tsx',
@@ -8319,6 +8727,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-data-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/dropdown-menu/index.tsx',
@@ -8362,6 +8772,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/files/index.tsx',
@@ -8402,6 +8814,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/hover-card/index.tsx',
@@ -8442,6 +8856,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/popover/index.tsx',
@@ -8480,6 +8896,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', 'radix-ui'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/lib-get-strict-context'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/progress/index.tsx',
@@ -8521,6 +8939,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/radio-group/index.tsx',
@@ -8562,6 +8982,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/sheet/index.tsx',
@@ -8602,6 +9024,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/switch/index.tsx',
@@ -8645,6 +9069,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/tabs/index.tsx',
@@ -8684,6 +9110,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/toggle/index.tsx',
@@ -8725,6 +9153,8 @@ export const index: Record<string, any> = {
       '@odysseyui/lib-get-strict-context',
       '@odysseyui/hooks-use-controlled-state',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/toggle-group/index.tsx',
@@ -8766,6 +9196,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-controlled-state',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/radix/tooltip/index.tsx',
@@ -8803,6 +9235,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/counting-number/index.tsx',
@@ -8840,6 +9274,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/gradient/index.tsx',
@@ -8877,6 +9313,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/highlight/index.tsx',
@@ -8915,6 +9353,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/morphing/index.tsx',
@@ -8952,6 +9392,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/rolling/index.tsx',
@@ -8992,6 +9434,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-is-in-view',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/rotating/index.tsx',
@@ -9032,6 +9476,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-is-in-view',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/scrolling-number/index.tsx',
@@ -9069,6 +9515,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/shimmering/index.tsx',
@@ -9106,6 +9554,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', 'react-use-measure'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/sliding-number/index.tsx',
@@ -9143,6 +9593,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: ['@odysseyui/hooks-use-is-in-view'],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/splitting/index.tsx',
@@ -9183,6 +9635,8 @@ export const index: Record<string, any> = {
       '@odysseyui/hooks-use-is-in-view',
       '@odysseyui/lib-get-strict-context',
     ],
+    cssVars: undefined,
+    css: undefined,
     files: [
       {
         path: 'registry/primitives/texts/typing/index.tsx',
