@@ -8,5 +8,6 @@ TODO
   - Portfolio (minimal template) - Saas 1
   - Saas 2 - AI company landing
   - AI chatbot frontend
+  -dashboard template
 
 - Components to add:- - custom cal.com with mail to feature - Apple like feature cards - Otp verifcation form - dock style menu component
