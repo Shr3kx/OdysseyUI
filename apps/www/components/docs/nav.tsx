@@ -3,7 +3,7 @@
 import { Navbar } from 'fumadocs-ui/layouts/docs-client';
 import Link from 'next/link';
 import React from 'react';
-import { IconLogo } from '../icon-logo';
+import Image from 'next/image';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { cn } from '@workspace/ui/lib/utils';
 import { CommandIcon, StarIcon } from 'lucide-react';
@@ -86,10 +86,23 @@ export const Nav = () => {
             color: 'ghost',
             size: 'icon-sm',
             className:
-              '[&_svg]:!size-5 md:[&_svg]:!size-4.5 !p-0 !size-8 transition-colors duration-200 ease-in-out',
+              '!p-0 !size-10 transition-colors duration-200 ease-in-out',
           })}
         >
-          <IconLogo size="sm" />
+          <Image
+            src="/Black.png"
+            alt="OdysseyUI"
+            width={40}
+            height={40}
+            className="dark:hidden size-8"
+          />
+          <Image
+            src="/white.png"
+            alt="OdysseyUI"
+            width={40}
+            height={40}
+            className="hidden dark:block size-8"
+          />
         </Link>
 
         <div className="flex items-center md:justify-between justify-end gap-2 flex-1">

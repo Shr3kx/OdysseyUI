@@ -4,6 +4,8 @@
 
 OdysseyUI is a pnpm + Turborepo monorepo for building and publishing an animated React component system and its documentation site.
 
+Built on the foundation of [Animate UI](https://animate-ui.com/).
+
 ## Tech Stack
 
 - Next.js (App Router)
