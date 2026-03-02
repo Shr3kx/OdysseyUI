@@ -15,6 +15,7 @@ import { jsonLd } from '@/lib/json-ld';
 import { cn } from '@workspace/ui/lib/utils';
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 export const metadata: Metadata = {
   title: {
     template: '%s - Odyssey UI',
@@ -126,6 +127,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           {/* Temporarily disabling smooth scroll provider. Will look into a fix. */}
           {/* <SmoothScrollProvider /> */}
           <SpeedInsights />
+          <Analytics />
           <NuqsAdapter>{children}</NuqsAdapter>
         </RootProvider>
       </body>
