@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
-    "next": "^16.0.1",
+    "next": "16.0.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
