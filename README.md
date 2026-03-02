@@ -1,6 +1,6 @@
 # OdysseyUI
 
-[![RepoStars](https://repostars.dev/api/embed?repo=Shr3kx%2FOdysseyUI&theme=sakura)](https://repostars.dev/?repos=Shr3kx%2FOdysseyUI&theme=sakura)
+
 
 OdysseyUI is a pnpm + Turborepo monorepo for building and publishing an animated React component system and its documentation site.
 
@@ -130,3 +130,4 @@ pnpm install --frozen-lockfile
 pnpm --filter ./apps/www exec rimraf .next
 pnpm build
 ```
+[![RepoStars](https://repostars.dev/api/embed?repo=Shr3kx%2FOdysseyUI&theme=sakura)](https://repostars.dev/?repos=Shr3kx%2FOdysseyUI&theme=sakura)
