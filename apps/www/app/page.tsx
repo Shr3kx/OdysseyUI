@@ -89,10 +89,10 @@ export default function HomePage() {
               Read Docs
             </a>
           </div>
-          <div className="absolute bottom-0 left-0 w-full">
-            <Footer />
-          </div>
         </motion.div>
+        <div className="absolute bottom-0 left-0 w-full">
+          <Footer />
+        </div>
       </div>
     </>
   );

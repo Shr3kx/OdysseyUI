@@ -18,7 +18,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              iam-sahil
+              ctrlcat0x
             </a>
             . The source code is available on{' '}
             <a
