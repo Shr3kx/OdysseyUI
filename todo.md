@@ -10,4 +10,8 @@ TODO
   - AI chatbot frontend
     -dashboard template
 
-- Components to add:- - custom cal.com with mail to feature - Apple like feature cards - Otp verifcation form - dock style menu component
+- Components to add:-
+- custom cal.com with mail to feature
+- Apple like feature cards
+- Otp verifcation form
+- dock style menu component
