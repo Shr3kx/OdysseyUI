@@ -3,5 +3,5 @@
   "description": "Animated Components",
   "icon": "Cuboid",
   "root": true,
-  "pages": ["---Odyssey Templates---", "ai-agent"]
+  "pages": ["---Odyssey Templates---", "os-portfolio"]
 }
