@@ -121,7 +121,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         className={cn(
           'flex flex-col min-h-screen',
           // Allows to make more attractive video recordings
-          'screenshot-mode',
+          // 'screenshot-mode',
         )}
       >
         <RootProvider theme={{ defaultTheme: 'dark' }}>
