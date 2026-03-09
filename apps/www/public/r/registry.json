@@ -45,6 +45,48 @@
       ]
     },
     {
+      "name": "components-ai-steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "description": "A collapsible AI tool-run steps component with animated shimmer trigger and a vertical progress bar.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "odyssey/components-animate-text-shimmer"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ai/steps/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-ai-thought-chain",
+      "type": "registry:ui",
+      "title": "Thought Chain",
+      "description": "An animated AI reasoning step-by-step thought chain component with collapsible steps and status indicators.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "badge",
+        "odyssey/components-animate-text-shimmer"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ai/thought-chain/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/thought-chain.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-animate-avatar-group",
       "type": "registry:ui",
       "title": "Avatar Group",
@@ -204,6 +246,22 @@
           "path": "registry/components/animate/tabs/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/components/animate/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-animate-text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer",
+      "description": "Sleek text shimmer effect.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/animate/text-shimmer/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/text-shimmer.tsx"
         }
       ]
     },
@@ -458,6 +516,38 @@
           "path": "registry/demo/components/ai/prompt-input/index.tsx",
           "type": "registry:ui",
           "target": "components/odyssey/demo/ai/prompt-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ai-steps",
+      "type": "registry:ui",
+      "title": "Steps Demo",
+      "description": "Demo of the AI steps tool-run component.",
+      "registryDependencies": [
+        "odyssey/components-ai-steps"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ai/steps/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ai/steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ai-thought-chain",
+      "type": "registry:ui",
+      "title": "Thought Chain Demo",
+      "description": "Demo of the AI thought chain reasoning component.",
+      "registryDependencies": [
+        "odyssey/components-ai-thought-chain"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ai/thought-chain/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ai/thought-chain.tsx"
         }
       ]
     },
@@ -774,6 +864,22 @@
           "path": "registry/demo/components/animate/tabs/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/demo/components/animate/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-animate-text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer Demo",
+      "description": "Demo of text shimmer.",
+      "registryDependencies": [
+        "odyssey/components-animate-text-shimmer"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/animate/text-shimmer/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/animate/text-shimmer.tsx"
         }
       ]
     },

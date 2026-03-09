@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-steps",
+  "title": "Steps Demo",
+  "description": "Demo of the AI steps tool-run component.",
+  "registryDependencies": [
+    "odyssey/components-ai-steps"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/steps/index.tsx",
+      "content": "import { FileSearch } from 'lucide-react';\nimport {\n  Steps,\n  StepsTrigger,\n  StepsContent,\n  StepsBar,\n  StepsItem,\n} from '@/components/odyssey/components/ai/steps';\n\nexport const StepsDemo = () => {\n  return (\n    <div className=\"w-full max-w-sm p-4\">\n      <Steps defaultOpen>\n        <StepsTrigger leftIcon={<FileSearch className=\"size-4\" />}>\n          Tool run: analyze repo\n        </StepsTrigger>\n        <StepsContent bar={<StepsBar className=\"mr-2 ml-1.5\" />}>\n          <div className=\"space-y-1\">\n            <StepsItem>\n              Cloning repository <strong>odyssey-ui/www</strong>\n            </StepsItem>\n            <StepsItem>\n              Detected <strong>TypeScript</strong> +{' '}\n              <strong>Tailwind CSS</strong>\n            </StepsItem>\n            <StepsItem>Found 142 components across 6 packages</StepsItem>\n            <StepsItem>Dependency graph resolved in 280ms</StepsItem>\n          </div>\n        </StepsContent>\n      </Steps>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/steps.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

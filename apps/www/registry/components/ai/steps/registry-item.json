@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-steps",
+  "type": "registry:ui",
+  "title": "Steps",
+  "description": "A collapsible AI tool-run steps component with animated shimmer trigger and a vertical progress bar.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [
+    "collapsible",
+    "odyssey/components-animate-text-shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/components/ai/steps/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/steps.tsx"
+    }
+  ]
+}

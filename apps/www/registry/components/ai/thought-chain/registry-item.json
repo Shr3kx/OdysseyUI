@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-thought-chain",
+  "type": "registry:ui",
+  "title": "Thought Chain",
+  "description": "An animated AI reasoning step-by-step thought chain component with collapsible steps and status indicators.",
+  "dependencies": ["motion", "lucide-react"],
+  "registryDependencies": [
+    "collapsible",
+    "badge",
+    "odyssey/components-animate-text-shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/components/ai/thought-chain/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/thought-chain.tsx"
+    }
+  ]
+}

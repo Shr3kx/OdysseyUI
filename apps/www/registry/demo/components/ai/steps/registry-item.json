@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-steps",
+  "type": "registry:ui",
+  "title": "Steps Demo",
+  "description": "Demo of the AI steps tool-run component.",
+  "registryDependencies": ["odyssey/components-ai-steps"],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/steps/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/steps.tsx"
+    }
+  ]
+}

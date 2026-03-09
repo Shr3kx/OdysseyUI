@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-thought-chain",
+  "title": "Thought Chain Demo",
+  "description": "Demo of the AI thought chain reasoning component.",
+  "registryDependencies": [
+    "odyssey/components-ai-thought-chain"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/thought-chain/index.tsx",
+      "content": "import {\n  ThoughtChain,\n  ThoughtChainStep,\n  ThoughtChainTrigger,\n  ThoughtChainContent,\n  ThoughtChainItem,\n} from '@/components/odyssey/components/ai/thought-chain';\n\nexport const ThoughtChainDemo = () => {\n  return (\n    <ThoughtChain>\n      <ThoughtChainStep status=\"done\">\n        <ThoughtChainTrigger>Understanding the codebase</ThoughtChainTrigger>\n\n        <ThoughtChainContent>\n          <ThoughtChainItem>\n            Scanned 47 files across src/ and packages/\n          </ThoughtChainItem>\n\n          <ThoughtChainItem>\n            Identified React 18 with TypeScript and Tailwind CSS\n          </ThoughtChainItem>\n\n          <ThoughtChainItem>No existing auth layer detected</ThoughtChainItem>\n        </ThoughtChainContent>\n      </ThoughtChainStep>\n\n      <ThoughtChainStep status=\"active\">\n        <ThoughtChainTrigger>Planning the implementation</ThoughtChainTrigger>\n\n        <ThoughtChainContent>\n          <ThoughtChainItem>\n            Choosing NextAuth.js for session management\n          </ThoughtChainItem>\n\n          <ThoughtChainItem>\n            Designing protected route middleware\n          </ThoughtChainItem>\n        </ThoughtChainContent>\n      </ThoughtChainStep>\n\n      <ThoughtChainStep status=\"pending\">\n        <ThoughtChainTrigger>Writing the code</ThoughtChainTrigger>\n\n        <ThoughtChainContent>\n          <ThoughtChainItem>auth.ts — provider config</ThoughtChainItem>\n\n          <ThoughtChainItem>middleware.ts — route protection</ThoughtChainItem>\n\n          <ThoughtChainItem>SessionProvider wrapper</ThoughtChainItem>\n        </ThoughtChainContent>\n      </ThoughtChainStep>\n    </ThoughtChain>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/thought-chain.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

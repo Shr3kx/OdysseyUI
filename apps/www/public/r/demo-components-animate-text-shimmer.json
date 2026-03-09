@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-text-shimmer",
+  "title": "Text Shimmer Demo",
+  "description": "Demo of text shimmer.",
+  "registryDependencies": [
+    "odyssey/components-animate-text-shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/text-shimmer/index.tsx",
+      "content": "import { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\nexport const TextShimmerDemo = () => {\n  return <ShimmerText text=\"Odyssey UI\" />;\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/animate/text-shimmer.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

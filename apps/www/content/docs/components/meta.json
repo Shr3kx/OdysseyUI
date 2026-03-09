@@ -10,6 +10,7 @@
     "animate/code-block",
     "animate/footer",
     "animate/card-stroke",
+    "animate/text-shimmer",
     "---Buttons---",
     "buttons/github-stars",
     "buttons/theme-toggler",
@@ -18,6 +19,8 @@
     "preloaders/greetings",
     "---AI Elements---",
     "ai/prompt-input",
+    "ai/thought-chain",
+    "ai/steps",
     "---Community---",
     "community/notification-list",
     "community/playful-todolist"

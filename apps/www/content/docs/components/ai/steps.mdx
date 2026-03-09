@@ -1,0 +1,125 @@
+---
+title: Steps
+description: A collapsible AI tool-run steps component with an animated shimmer trigger and a vertical progress bar.
+---
+
+<ComponentPreview name="demo-components-ai-steps" />
+
+## Installation
+
+<ComponentInstallation name="components-ai-steps" />
+
+## Usage
+
+```tsx
+import { FileSearch } from 'lucide-react';
+import {
+  Steps,
+  StepsTrigger,
+  StepsContent,
+  StepsBar,
+  StepsItem,
+} from '@/components/odysseyui/steps';
+
+export default function Page() {
+  return (
+    <Steps defaultOpen>
+      <StepsTrigger leftIcon={<FileSearch className="size-4" />}>
+        Tool run: analyze repo
+      </StepsTrigger>
+      <StepsContent bar={<StepsBar className="mr-2 ml-1.5" />}>
+        <div className="space-y-1">
+          <StepsItem>
+            Cloning repository <strong>odyssey-ui/www</strong>
+          </StepsItem>
+          <StepsItem>
+            Detected <strong>TypeScript</strong> + <strong>Tailwind CSS</strong>
+          </StepsItem>
+          <StepsItem>Found 142 components across 6 packages</StepsItem>
+          <StepsItem>Dependency graph resolved in 280ms</StepsItem>
+        </div>
+      </StepsContent>
+    </Steps>
+  );
+}
+```
+
+## How It Works
+
+- `Steps` wraps a shadcn `Collapsible` and defaults to open via `defaultOpen`.
+- `StepsTrigger` renders a shimmer-animated label via `ShimmerText`.
+- When a `leftIcon` is provided it swaps to a `ChevronDown` on hover (togglable via `swapIconOnHover`).
+- Without a `leftIcon`, a plain `ChevronDown` is appended to the right of the label instead.
+- `StepsContent` lays out a two-column grid: the vertical bar column and the content column.
+- `StepsBar` is a 2px vertical line that highlights blue on hover via the parent `group` class.
+- `StepsItem` highlights its text on hover and styles any `<strong>` children in blue.
+
+---
+
+## API Reference
+
+### Steps
+
+<TypeTable
+  type={{
+    defaultOpen: {
+      description: 'Whether the collapsible is open by default.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+    className: {
+      description: 'Additional class names for the root element.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+### StepsTrigger
+
+<TypeTable
+  type={{
+    leftIcon: {
+      description: 'Optional icon rendered to the left of the label.',
+      type: 'React.ReactNode',
+      required: false,
+    },
+    swapIconOnHover: {
+      description: 'Swaps the leftIcon with a ChevronDown on hover.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+    children: {
+      description: 'Trigger label text — rendered with ShimmerText animation.',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>
+
+### StepsContent
+
+<TypeTable
+  type={{
+    bar: {
+      description: 'Custom bar element. Defaults to a StepsBar.',
+      type: 'React.ReactNode',
+      required: false,
+    },
+    children: {
+      description: 'Content to display inside the collapsible.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+  }}
+/>
+
+### StepsBar
+
+A 2px vertical divider line. Highlights to `blue-500/40` on hover via the parent group context. Accepts all standard `div` props.
+
+### StepsItem
+
+A single content row. Highlights on hover; `<strong>` children are rendered in `blue-500`. Accepts all standard `div` props.

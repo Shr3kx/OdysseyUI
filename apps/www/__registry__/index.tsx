@@ -68,6 +68,92 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/components-ai-prompt-input',
   },
+  'components-ai-steps': {
+    name: 'components-ai-steps',
+    description:
+      'A collapsible AI tool-run steps component with animated shimmer trigger and a vertical progress bar.',
+    type: 'registry:ui',
+    dependencies: ['lucide-react'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'collapsible',
+      'odyssey/components-animate-text-shimmer',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ai/steps/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/steps.tsx',
+        content:
+          "'use client';\n\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\nimport { cn } from '@/lib/utils';\nimport { ChevronDown } from 'lucide-react';\nimport { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\nexport type StepsItemProps = React.ComponentProps<'div'>;\n\nexport const StepsItem = ({\n  children,\n  className,\n  ...props\n}: StepsItemProps) => (\n  <div\n    className={cn(\n      'text-muted-foreground hover:text-foreground text-sm transition-colors duration-200 [&_strong]:text-blue-500',\n      className,\n    )}\n    {...props}\n  >\n    {children}\n  </div>\n);\n\nexport type StepsTriggerProps = React.ComponentProps<\n  typeof CollapsibleTrigger\n> & {\n  leftIcon?: React.ReactNode;\n  swapIconOnHover?: boolean;\n};\n\nexport const StepsTrigger = ({\n  children,\n  className,\n  leftIcon,\n  swapIconOnHover = true,\n  ...props\n}: StepsTriggerProps) => (\n  <CollapsibleTrigger\n    className={cn(\n      'group text-muted-foreground hover:text-blue-500 flex w-full cursor-pointer items-center justify-start gap-1 text-sm transition-colors duration-200',\n      className,\n    )}\n    {...props}\n  >\n    <div className=\"flex items-center gap-2\">\n      {leftIcon ? (\n        <span className=\"relative inline-flex size-4 items-center justify-center\">\n          <span\n            className={cn(\n              'transition-opacity',\n              swapIconOnHover && 'group-hover:opacity-0',\n            )}\n          >\n            {leftIcon}\n          </span>\n          {swapIconOnHover && (\n            <ChevronDown className=\"absolute size-4 opacity-0 transition-opacity group-hover:opacity-100 group-hover:text-blue-500 group-data-[state=open]:rotate-180\" />\n          )}\n        </span>\n      ) : null}\n      <span>\n        <ShimmerText text={children as string} />\n      </span>\n    </div>\n    {!leftIcon && (\n      <ChevronDown className=\"size-4 transition-transform group-hover:text-blue-500 group-data-[state=open]:rotate-180\" />\n    )}\n  </CollapsibleTrigger>\n);\n\nexport type StepsContentProps = React.ComponentProps<\n  typeof CollapsibleContent\n> & {\n  bar?: React.ReactNode;\n};\n\nexport const StepsContent = ({\n  children,\n  className,\n  bar,\n  ...props\n}: StepsContentProps) => {\n  return (\n    <CollapsibleContent\n      className={cn(\n        'text-popover-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden cursor-pointer',\n        className,\n      )}\n      {...props}\n    >\n      <div className=\"group mt-3 grid max-w-full min-w-0 grid-cols-[min-content_minmax(0,1fr)] items-start gap-x-3\">\n        <div className=\"min-w-0 self-stretch\">{bar ?? <StepsBar />}</div>\n        <div className=\"min-w-0 space-y-2\">{children}</div>\n      </div>\n    </CollapsibleContent>\n  );\n};\n\nexport type StepsBarProps = React.HTMLAttributes<HTMLDivElement>;\n\nexport const StepsBar = ({ className, ...props }: StepsBarProps) => (\n  <div\n    className={cn(\n      'bg-muted h-full w-[2px] transition-colors duration-300 group-hover:bg-blue-500/40',\n      className,\n    )}\n    aria-hidden\n    {...props}\n  />\n);\n\nexport type StepsProps = React.ComponentProps<typeof Collapsible>;\n\nexport function Steps({ defaultOpen = true, className, ...props }: StepsProps) {\n  return (\n    <Collapsible\n      className={cn(className)}\n      defaultOpen={defaultOpen}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/components/ai/steps/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ai-steps';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-ai-steps',
+  },
+  'components-ai-thought-chain': {
+    name: 'components-ai-thought-chain',
+    description:
+      'An animated AI reasoning step-by-step thought chain component with collapsible steps and status indicators.',
+    type: 'registry:ui',
+    dependencies: ['motion', 'lucide-react'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'collapsible',
+      'badge',
+      'odyssey/components-animate-text-shimmer',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ai/thought-chain/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/thought-chain.tsx',
+        content:
+          "'use client';\n\nimport React, { createContext, useContext, useState } from 'react';\nimport { motion, AnimatePresence } from 'motion/react';\nimport { Check, Loader2, Circle, ChevronDown } from 'lucide-react';\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\nimport { Badge } from '@/components/ui/badge';\nimport { cn } from '@/lib/utils';\nimport { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\ntype Status = 'done' | 'active' | 'pending';\n\ntype StepContextType = {\n  open: boolean;\n  setOpen: React.Dispatch<React.SetStateAction<boolean>>;\n  status: Status;\n};\n\nconst StepContext = createContext<StepContextType | null>(null);\n\nconst statusStyles: Record<\n  Status,\n  { label: string; line: string; badge: string }\n> = {\n  done: {\n    label: 'text-gray-500',\n    line: 'bg-green-600/30',\n    badge: '',\n  },\n  active: {\n    label: 'text-gray-900 dark:text-gray-100',\n    line: 'bg-blue-500/25',\n    badge: 'bg-blue-50 text-blue-500 dark:bg-blue-900/30',\n  },\n  pending: {\n    label: 'text-gray-400',\n    line: 'bg-gray-200 dark:bg-gray-700',\n    badge: '',\n  },\n};\n\nfunction StatusIcon({ status }: { status: Status }) {\n  if (status === 'done') {\n    return (\n      <span className=\"flex size-5 items-center justify-center rounded-full bg-green-600\">\n        <Check className=\"size-3 text-white\" strokeWidth={3} />\n      </span>\n    );\n  }\n\n  if (status === 'active') {\n    return (\n      <motion.span\n        animate={{ rotate: 360 }}\n        transition={{ repeat: Infinity, duration: 0.75, ease: 'linear' }}\n        className=\"flex size-5 items-center justify-center\"\n      >\n        <Loader2 className=\"size-5 text-blue-500\" />\n      </motion.span>\n    );\n  }\n\n  return <Circle className=\"size-5 text-gray-300 dark:text-gray-600\" />;\n}\n\nexport function ThoughtChain({ children }: { children: React.ReactNode }) {\n  const steps = React.Children.toArray(children);\n  const total = steps.length;\n\n  return (\n    <div>\n      {steps.map((step, index) =>\n        React.isValidElement(step)\n          ? React.cloneElement(\n              step as React.ReactElement<{ _isLast?: boolean }>,\n              {\n                _isLast: index === total - 1,\n              },\n            )\n          : step,\n      )}\n    </div>\n  );\n}\n\nexport function ThoughtChainStep({\n  children,\n  status = 'pending',\n  defaultOpen = true,\n  _isLast = false,\n}: {\n  children: React.ReactNode;\n  status?: Status;\n  defaultOpen?: boolean;\n  _isLast?: boolean;\n}) {\n  const [open, setOpen] = useState(defaultOpen);\n  const styles = statusStyles[status];\n\n  return (\n    <StepContext.Provider value={{ open, setOpen, status }}>\n      <Collapsible open={open} onOpenChange={setOpen}>\n        <div className=\"flex gap-3.5\">\n          <div className=\"flex shrink-0 flex-col items-center\">\n            <span className=\"mt-0.5\">\n              <StatusIcon status={status} />\n            </span>\n\n            <span\n              className={cn(\n                'mt-1.5 min-h-5 w-0.5 flex-1 rounded-sm',\n                styles.line,\n              )}\n            />\n          </div>\n\n          <div className=\"flex-1 pb-2\">{children}</div>\n        </div>\n      </Collapsible>\n    </StepContext.Provider>\n  );\n}\n\nexport function ThoughtChainTrigger({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const { open, status } = useContext(StepContext)!;\n  const styles = statusStyles[status];\n\n  return (\n    <CollapsibleTrigger className=\"flex cursor-pointer select-none items-center gap-1.5 outline-none\">\n      <span\n        className={cn(\n          'text-[13.5px] font-semibold tracking-tight',\n          styles.label,\n        )}\n      >\n        {status === 'active' ? (\n          typeof children === 'string' ? (\n            <ShimmerText text={children} />\n          ) : (\n            children\n          )\n        ) : (\n          children\n        )}\n      </span>\n\n      <motion.span\n        animate={{ rotate: open ? 180 : 0 }}\n        transition={{ duration: 0.2, ease: 'easeInOut' }}\n        className=\"flex items-center text-gray-400\"\n      >\n        <ChevronDown className=\"size-3.5\" />\n      </motion.span>\n\n      {status === 'active' && (\n        <Badge\n          variant=\"outline\"\n          className={cn(styles.badge, 'border-blue-200 dark:border-blue-500')}\n        >\n          In progress\n        </Badge>\n      )}\n    </CollapsibleTrigger>\n  );\n}\n\nexport function ThoughtChainContent({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const { open } = useContext(StepContext)!;\n\n  return (\n    <CollapsibleContent forceMount>\n      <AnimatePresence initial={false}>\n        {open && (\n          <motion.div\n            key=\"content\"\n            initial={{ opacity: 0, height: 0 }}\n            animate={{ opacity: 1, height: 'auto' }}\n            exit={{ opacity: 0, height: 0 }}\n            transition={{ duration: 0.22, ease: 'easeInOut' }}\n            className=\"overflow-hidden\"\n          >\n            <div className=\"mt-1 pl-0.5\">{children}</div>\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </CollapsibleContent>\n  );\n}\n\nexport function ThoughtChainItem({ children }: { children: React.ReactNode }) {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: -4 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      className=\"flex items-start gap-2 py-1.25\"\n    >\n      <span className=\"mt-1.75 size-1 shrink-0 rounded-full bg-gray-300 dark:bg-gray-600\" />\n      <span className=\"text-[13px] leading-[1.55] text-gray-500 dark:text-gray-400\">\n        {children}\n      </span>\n    </motion.div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/ai/thought-chain/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ai-thought-chain';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-ai-thought-chain',
+  },
   'components-animate-avatar-group': {
     name: 'components-animate-avatar-group',
     description:
@@ -436,6 +522,45 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/components-animate-tabs',
+  },
+  'components-animate-text-shimmer': {
+    name: 'components-animate-text-shimmer',
+    description: 'Sleek text shimmer effect.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/animate/text-shimmer/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/text-shimmer.tsx',
+        content:
+          "'use client';\n\nimport React, { useMemo, useRef } from 'react';\nimport { motion, useInView, UseInViewOptions } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\ninterface ShimmerTextProps {\n  text: string;\n  duration?: number;\n  delay?: number;\n  repeat?: boolean;\n  repeatDelay?: number;\n  className?: string;\n  startOnView?: boolean;\n  once?: boolean;\n  inViewMargin?: UseInViewOptions['margin'];\n  spread?: number;\n  color?: string;\n  shimmerColor?: string;\n}\n\nexport function ShimmerText({\n  text,\n  duration = 1,\n  delay = 0,\n  repeat = true,\n  repeatDelay = 0.5,\n  className,\n  startOnView = true,\n  once = false,\n  inViewMargin,\n  spread = 2,\n  color,\n  shimmerColor,\n}: ShimmerTextProps) {\n  const ref = useRef<HTMLSpanElement>(null);\n  const isInView = useInView(ref, { once, margin: inViewMargin });\n\n  const dynamicSpread = useMemo(() => text.length * spread, [text, spread]);\n\n  const shouldAnimate = !startOnView || isInView;\n\n  return (\n    <motion.span\n      ref={ref}\n      className={cn(\n        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent',\n        '[--base-color:var(--muted-foreground)] [--shimmer-color:var(--foreground)]',\n        '[background-repeat:no-repeat,padding-box]',\n        '[--shimmer-bg:linear-gradient(90deg,transparent_calc(50%-var(--spread)),var(--shimmer-color),transparent_calc(50%+var(--spread)))]',\n        'dark:[--base-color:var(--muted-foreground)] dark:[--shimmer-color:var(--foreground)]',\n        className,\n      )}\n      style={\n        {\n          '--spread': `${dynamicSpread}px`,\n          ...(color && { '--base-color': color }),\n          ...(shimmerColor && { '--shimmer-color': shimmerColor }),\n          backgroundImage: `var(--shimmer-bg), linear-gradient(var(--base-color), var(--base-color))`,\n        } as React.CSSProperties\n      }\n      initial={{ backgroundPosition: '100% center', opacity: 0 }}\n      animate={\n        shouldAnimate ? { backgroundPosition: '0% center', opacity: 1 } : {}\n      }\n      transition={{\n        backgroundPosition: {\n          repeat: repeat ? Infinity : 0,\n          duration,\n          delay,\n          repeatDelay,\n          ease: 'linear',\n        },\n        opacity: { duration: 0.3, delay },\n      }}\n    >\n      {text}\n    </motion.span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/animate/text-shimmer/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-animate-text-shimmer';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-animate-text-shimmer',
   },
   'components-buttons-button': {
     name: 'components-buttons-button',
@@ -979,6 +1104,84 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/demo-components-ai-prompt-input',
   },
+  'demo-components-ai-steps': {
+    name: 'demo-components-ai-steps',
+    description: 'Demo of the AI steps tool-run component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-ai-steps'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ai/steps/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ai/steps.tsx',
+        content:
+          'import { FileSearch } from \'lucide-react\';\nimport {\n  Steps,\n  StepsTrigger,\n  StepsContent,\n  StepsBar,\n  StepsItem,\n} from \'@/components/odyssey/components/ai/steps\';\n\nexport const StepsDemo = () => {\n  return (\n    <div className="w-full max-w-sm p-4">\n      <Steps defaultOpen>\n        <StepsTrigger leftIcon={<FileSearch className="size-4" />}>\n          Tool run: analyze repo\n        </StepsTrigger>\n        <StepsContent bar={<StepsBar className="mr-2 ml-1.5" />}>\n          <div className="space-y-1">\n            <StepsItem>\n              Cloning repository <strong>odyssey-ui/www</strong>\n            </StepsItem>\n            <StepsItem>\n              Detected <strong>TypeScript</strong> +{\' \'}\n              <strong>Tailwind CSS</strong>\n            </StepsItem>\n            <StepsItem>Found 142 components across 6 packages</StepsItem>\n            <StepsItem>Dependency graph resolved in 280ms</StepsItem>\n          </div>\n        </StepsContent>\n      </Steps>\n    </div>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ai/steps/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ai-steps';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-ai-steps',
+  },
+  'demo-components-ai-thought-chain': {
+    name: 'demo-components-ai-thought-chain',
+    description: 'Demo of the AI thought chain reasoning component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-ai-thought-chain'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ai/thought-chain/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ai/thought-chain.tsx',
+        content:
+          'import {\n  ThoughtChain,\n  ThoughtChainStep,\n  ThoughtChainTrigger,\n  ThoughtChainContent,\n  ThoughtChainItem,\n} from \'@/components/odyssey/components/ai/thought-chain\';\n\nexport const ThoughtChainDemo = () => {\n  return (\n    <ThoughtChain>\n      <ThoughtChainStep status="done">\n        <ThoughtChainTrigger>Understanding the codebase</ThoughtChainTrigger>\n\n        <ThoughtChainContent>\n          <ThoughtChainItem>\n            Scanned 47 files across src/ and packages/\n          </ThoughtChainItem>\n\n          <ThoughtChainItem>\n            Identified React 18 with TypeScript and Tailwind CSS\n          </ThoughtChainItem>\n\n          <ThoughtChainItem>No existing auth layer detected</ThoughtChainItem>\n        </ThoughtChainContent>\n      </ThoughtChainStep>\n\n      <ThoughtChainStep status="active">\n        <ThoughtChainTrigger>Planning the implementation</ThoughtChainTrigger>\n\n        <ThoughtChainContent>\n          <ThoughtChainItem>\n            Choosing NextAuth.js for session management\n          </ThoughtChainItem>\n\n          <ThoughtChainItem>\n            Designing protected route middleware\n          </ThoughtChainItem>\n        </ThoughtChainContent>\n      </ThoughtChainStep>\n\n      <ThoughtChainStep status="pending">\n        <ThoughtChainTrigger>Writing the code</ThoughtChainTrigger>\n\n        <ThoughtChainContent>\n          <ThoughtChainItem>auth.ts — provider config</ThoughtChainItem>\n\n          <ThoughtChainItem>middleware.ts — route protection</ThoughtChainItem>\n\n          <ThoughtChainItem>SessionProvider wrapper</ThoughtChainItem>\n        </ThoughtChainContent>\n      </ThoughtChainStep>\n    </ThoughtChain>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ai/thought-chain/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ai-thought-chain';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-ai-thought-chain',
+  },
   'demo-components-animate-avatar-group': {
     name: 'demo-components-animate-avatar-group',
     description: 'Demo showing a avatar group.',
@@ -1419,6 +1622,45 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-animate-tabs',
+  },
+  'demo-components-animate-text-shimmer': {
+    name: 'demo-components-animate-text-shimmer',
+    description: 'Demo of text shimmer.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-animate-text-shimmer'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/animate/text-shimmer/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/animate/text-shimmer.tsx',
+        content:
+          'import { ShimmerText } from \'@/components/odyssey/components/animate/text-shimmer\';\n\nexport const TextShimmerDemo = () => {\n  return <ShimmerText text="Odyssey UI" />;\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/animate/text-shimmer/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-animate-text-shimmer';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-animate-text-shimmer',
   },
   'demo-components-buttons-button': {
     name: 'demo-components-buttons-button',

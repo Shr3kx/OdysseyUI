@@ -1,0 +1,127 @@
+---
+title: Thought Chain
+description: An animated AI reasoning step-by-step thought chain component with collapsible steps and status indicators.
+---
+
+<ComponentPreview name="demo-components-ai-thought-chain" />
+
+## Installation
+
+<ComponentInstallation name="components-ai-thought-chain" />
+
+## Usage
+
+```tsx
+import {
+  ThoughtChain,
+  ThoughtChainStep,
+  ThoughtChainTrigger,
+  ThoughtChainContent,
+  ThoughtChainItem,
+} from '@/components/odysseyui/thought-chain';
+
+export default function Page() {
+  return (
+    <ThoughtChain>
+      <ThoughtChainStep status="done">
+        <ThoughtChainTrigger>Understanding the codebase</ThoughtChainTrigger>
+        <ThoughtChainContent>
+          <ThoughtChainItem>
+            Scanned 47 files across src/ and packages/
+          </ThoughtChainItem>
+          <ThoughtChainItem>
+            Identified React 18 with TypeScript and Tailwind CSS
+          </ThoughtChainItem>
+          <ThoughtChainItem>No existing auth layer detected</ThoughtChainItem>
+        </ThoughtChainContent>
+      </ThoughtChainStep>
+
+      <ThoughtChainStep status="active">
+        <ThoughtChainTrigger>Planning the implementation</ThoughtChainTrigger>
+        <ThoughtChainContent>
+          <ThoughtChainItem>
+            Choosing NextAuth.js for session management
+          </ThoughtChainItem>
+          <ThoughtChainItem>
+            Designing protected route middleware
+          </ThoughtChainItem>
+        </ThoughtChainContent>
+      </ThoughtChainStep>
+
+      <ThoughtChainStep status="pending">
+        <ThoughtChainTrigger>Writing the code</ThoughtChainTrigger>
+        <ThoughtChainContent>
+          <ThoughtChainItem>auth.ts — provider config</ThoughtChainItem>
+          <ThoughtChainItem>middleware.ts — route protection</ThoughtChainItem>
+          <ThoughtChainItem>SessionProvider wrapper</ThoughtChainItem>
+        </ThoughtChainContent>
+      </ThoughtChainStep>
+    </ThoughtChain>
+  );
+}
+```
+
+## How It Works
+
+- Each `ThoughtChainStep` accepts a **`status`** prop: `"done"`, `"active"`, or `"pending"`.
+- Steps are collapsible — clicking the trigger toggles the content open/closed.
+- The **active** step renders its trigger label with a **shimmer animation** via `ShimmerText` and shows an **"In progress"** badge.
+- The **done** step shows a green checkmark icon; **active** shows a spinning loader; **pending** shows a muted circle.
+- `ThoughtChainContent` uses `AnimatePresence` for smooth height-animated expand/collapse transitions.
+- `ThoughtChainItem` entries animate in with a fade + slide from above.
+- `ThoughtChain` automatically injects `_isLast` into the last child step to allow conditional styling.
+
+---
+
+## API Reference
+
+### ThoughtChain
+
+Wrapper component that clones children and injects the `_isLast` prop into the final step.
+
+<TypeTable
+  type={{
+    children: {
+      description: 'One or more ThoughtChainStep elements.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+  }}
+/>
+
+### ThoughtChainStep
+
+<TypeTable
+  type={{
+    status: {
+      description: 'Visual and behavioral state of the step.',
+      type: '"done" | "active" | "pending"',
+      required: false,
+      default: '"pending"',
+    },
+    defaultOpen: {
+      description: 'Whether the step content is expanded by default.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+    children: {
+      description:
+        'Should contain ThoughtChainTrigger and ThoughtChainContent.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+  }}
+/>
+
+### ThoughtChainTrigger
+
+Clickable header that toggles the step's collapsible content. When the step is `active` and the children is a plain string, it renders with a shimmer animation.
+
+### ThoughtChainContent
+
+Animated collapsible body. Uses `AnimatePresence` with height and opacity transitions.
+
+### ThoughtChainItem
+
+Individual bullet item inside `ThoughtChainContent`. Animates in with a fade + upward slide.

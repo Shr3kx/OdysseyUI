@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-thought-chain",
+  "type": "registry:ui",
+  "title": "Thought Chain Demo",
+  "description": "Demo of the AI thought chain reasoning component.",
+  "registryDependencies": ["odyssey/components-ai-thought-chain"],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/thought-chain/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/thought-chain.tsx"
+    }
+  ]
+}
