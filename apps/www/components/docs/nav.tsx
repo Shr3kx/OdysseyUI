@@ -151,7 +151,7 @@ export const Nav = () => {
                       <GithubStarsIcon
                         icon={StarIcon}
                         className="size-4!"
-                        activeClassName="group-hover:text-yellow-600 text-yellow-500 transition-all duration-300"
+                        activeClassName="group-hover:text-yellow-600 text-yellow-500 transition-all duration-300 "
                       />
                     </GithubStarsParticles>
                   </span>

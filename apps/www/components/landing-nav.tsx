@@ -72,7 +72,7 @@ export const LandingNav = ({ className }: { className?: string }) => {
                   <GithubStarsIcon
                     icon={StarIcon}
                     className="size-3!"
-                    activeClassName="text-neutral-400 group-hover:text-yellow-500 dark:group-hover:text-yellow-400"
+                    activeClassName="text-yellow-400 "
                   />
                 </GithubStarsParticles>
               </span>
