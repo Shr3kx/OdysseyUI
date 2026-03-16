@@ -3,12 +3,10 @@
   "name": "components-ai-steps",
   "title": "Steps",
   "description": "A collapsible AI tool-run steps component with animated shimmer trigger and a vertical progress bar.",
-  "dependencies": [
-    "lucide-react"
-  ],
+  "dependencies": ["lucide-react"],
   "registryDependencies": [
     "collapsible",
-    "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
+    "https://odysseyui.com/r/components-animate-text-shimmer.json"
   ],
   "files": [
     {

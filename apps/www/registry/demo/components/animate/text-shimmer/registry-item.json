@@ -5,7 +5,7 @@
   "title": "Text Shimmer Demo",
   "description": "Demo of text shimmer.",
   "registryDependencies": [
-    "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
+    "https://odysseyui.com/r/components-animate-text-shimmer.json"
   ],
   "files": [
     {

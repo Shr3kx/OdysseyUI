@@ -34,7 +34,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'dialog',
       'tooltip',
-      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
+      'https://odysseyui.com/r/components-animate-text-shimmer.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -121,7 +121,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'collapsible',
-      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
+      'https://odysseyui.com/r/components-animate-text-shimmer.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -164,7 +164,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'collapsible',
       'badge',
-      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
+      'https://odysseyui.com/r/components-animate-text-shimmer.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -329,7 +329,7 @@ export const index: Record<string, any> = {
     dependencies: ['shiki'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://odysseyui.vercel.app/r/components-buttons-copy.json',
+      'https://odysseyui.com/r/components-buttons-copy.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -370,8 +370,8 @@ export const index: Record<string, any> = {
     dependencies: ['shiki'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://odysseyui.vercel.app/r/primitives-animate-tabs.json',
-      'https://odysseyui.vercel.app/r/components-buttons-copy.json',
+      'https://odysseyui.com/r/primitives-animate-tabs.json',
+      'https://odysseyui.com/r/components-buttons-copy.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -653,8 +653,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion', 'lucide-react', 'class-variance-authority'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://odysseyui.vercel.app/r/primitives-buttons-button.json',
-      'https://odysseyui.vercel.app/r/hooks-use-controlled-state.json',
+      'https://odysseyui.com/r/primitives-buttons-button.json',
+      'https://odysseyui.com/r/hooks-use-controlled-state.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -1752,7 +1752,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
+      'https://odysseyui.com/r/components-animate-text-shimmer.json',
     ],
     cssVars: undefined,
     css: undefined,

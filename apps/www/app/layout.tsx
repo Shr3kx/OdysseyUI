@@ -17,7 +17,7 @@ import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 export const metadata: Metadata = {
-  metadataBase: new URL('https://odysseyui.vercel.app'),
+  metadataBase: new URL('https://odysseyui.com'),
   title: {
     template: '%s - Odyssey UI',
     default: 'Odyssey UI - Animated React Components',
@@ -64,11 +64,11 @@ export const metadata: Metadata = {
     title: 'Odyssey UI',
     description:
       'Fully animated, open-source component distribution built with React, TypeScript, Tailwind CSS, Motion and Shadcn CLI. Browse a list of components you can install, modify, and use in your projects.',
-    url: 'https://odysseyui.vercel.app',
+    url: 'https://odysseyui.com',
     siteName: 'Odyssey UI',
     images: [
       {
-        url: 'https://odysseyui.vercel.app/og-image.png',
+        url: 'https://odysseyui.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Odyssey UI',
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
       'Fully animated, open-source component distribution built with React, TypeScript, Tailwind CSS, Motion and Shadcn CLI. Browse a list of components you can install, modify, and use in your projects.',
     images: [
       {
-        url: 'https://odysseyui.vercel.app/og-image.png',
+        url: 'https://odysseyui.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Odyssey UI',

@@ -6,8 +6,8 @@
   "description": "A tabs component that displays code for different languages.",
   "dependencies": ["shiki"],
   "registryDependencies": [
-    "https://odysseyui.vercel.app/r/primitives-animate-tabs.json",
-    "https://odysseyui.vercel.app/r/components-buttons-copy.json"
+    "https://odysseyui.com/r/primitives-animate-tabs.json",
+    "https://odysseyui.com/r/components-buttons-copy.json"
   ],
   "files": [
     {
