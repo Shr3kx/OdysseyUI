@@ -14,11 +14,10 @@ import {
   X,
   ChevronDown,
   Eye,
-  Wrench,
+  Brain,
   Globe,
   Star,
   LayoutGrid,
-  Zap,
   ArrowRight,
 } from 'lucide-react';
 import {
@@ -28,7 +27,12 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { ShimmerText } from '@/registry/components/animate/text-shimmer';
 
 export type Cap = 'vision' | 'tools' | 'search';
@@ -75,10 +79,13 @@ const useModelSelector = () => {
   return ctx;
 };
 
-const CAP_ICONS: Record<Cap, { icon: React.ElementType; label: string }> = {
-  vision: { icon: Eye, label: 'Vision' },
-  tools: { icon: Wrench, label: 'Tools' },
-  search: { icon: Globe, label: 'Search' },
+const CAP_ICONS: Record<
+  Cap,
+  { icon: React.ElementType; label: string; color: string }
+> = {
+  vision: { icon: Eye, label: 'Vision', color: 'text-violet-400' },
+  tools: { icon: Brain, label: 'Reasoning', color: 'text-orange-400' },
+  search: { icon: Globe, label: 'Search', color: 'text-emerald-400' },
 };
 
 const COST_CLASS = 'text-muted-foreground/50 font-mono text-xs';
@@ -364,22 +371,27 @@ function ModelSelectorModelRow({
         </div>
 
         <div className="flex items-center gap-1 shrink-0">
-          <span className={COST_CLASS}>{model.cost}</span>
-          {model.caps.map((c) => {
-            const entry = CAP_ICONS[c as Cap];
-            if (!entry) return null;
-            const Icon = entry.icon;
-            return (
-              <Badge
-                key={c}
-                variant="outline"
-                title={entry.label}
-                className="text-muted-foreground/50 hover:text-muted-foreground transition-colors"
-              >
-                <Icon className="w-3 h-3" />
-              </Badge>
-            );
-          })}
+          {model.caps.length > 0 && (
+            <div className="flex items-center gap-1 px-1.5 py-1 rounded-lg bg-secondary border border-border/60">
+              <TooltipProvider>
+                {model.caps.map((c) => {
+                  const entry = CAP_ICONS[c as Cap];
+                  if (!entry) return null;
+                  const Icon = entry.icon;
+                  return (
+                    <Tooltip key={c}>
+                      <TooltipTrigger asChild>
+                        <span className={entry.color}>
+                          <Icon className="w-3 h-3" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top">{entry.label}</TooltipContent>
+                    </Tooltip>
+                  );
+                })}
+              </TooltipProvider>
+            </div>
+          )}
 
           <motion.div
             role="button"
@@ -406,6 +418,7 @@ function ModelSelectorModelRow({
                   ? 'fill-yellow-400 text-yellow-400'
                   : 'text-muted-foreground/30 hover:text-muted-foreground'
               }`}
+              stroke={isStarred ? '#FF8904' : '#6A7282'}
             />
           </motion.div>
         </div>
@@ -419,7 +432,6 @@ function ModelSelectorFooter() {
   return (
     <div className="px-4 py-3 border-t border-border flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <Zap className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
         <span className="text-xs text-muted-foreground font-mono">
           {selected.name}
         </span>

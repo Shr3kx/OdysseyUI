@@ -28,7 +28,7 @@
       ],
       "registryDependencies": [
         "dialog",
-        "badge",
+        "tooltip",
         "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
       ],
       "files": [
