@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ui-badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "description": "A badge component with semantic and color variants built on Base UI.",
+  "dependencies": ["@base-ui-components/react", "class-variance-authority"],
+  "files": [
+    {
+      "path": "registry/components/ui/badge/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/badge.tsx"
+    }
+  ]
+}

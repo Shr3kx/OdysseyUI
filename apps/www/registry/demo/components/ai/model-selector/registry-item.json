@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-model-selector",
+  "type": "registry:ui",
+  "title": "Model Selector Demo",
+  "description": "Demo of the AI model selector modal component.",
+  "registryDependencies": ["odyssey/components-ai-model-selector"],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/model-selector/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/model-selector.tsx"
+    }
+  ]
+}

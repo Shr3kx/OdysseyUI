@@ -11,16 +11,22 @@
     "animate/footer",
     "animate/card-stroke",
     "animate/text-shimmer",
+    "---Primitives---",
+    "primitives/badge",
+
     "---Buttons---",
+    "primitives/button",
     "buttons/github-stars",
     "buttons/theme-toggler",
     "buttons/smart-upload",
+
     "---Preloaders---",
     "preloaders/greetings",
     "---AI Elements---",
     "ai/prompt-input",
     "ai/thought-chain",
     "ai/steps",
+    "ai/model-selector",
     "---Community---",
     "community/notification-list",
     "community/playful-todolist"

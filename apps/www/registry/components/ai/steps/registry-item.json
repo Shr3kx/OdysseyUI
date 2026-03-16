@@ -7,7 +7,7 @@
   "dependencies": ["lucide-react"],
   "registryDependencies": [
     "collapsible",
-    "odyssey/components-animate-text-shimmer"
+    "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
   ],
   "files": [
     {

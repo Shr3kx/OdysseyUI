@@ -4,7 +4,12 @@ import CommunityIcon from '@workspace/ui/components/icons/community-icon';
 import ImageIcon from '@workspace/ui/components/icons/image-icon';
 import HeadlessUIIcon from '@workspace/ui/components/icons/headlessui-icon';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ArtificialIntelligence04Icon } from '@hugeicons/core-free-icons';
+import {
+  ArtificialIntelligence04Icon,
+  ArrowAllDirectionIcon,
+  HouseIcon,
+  AudioWave01FreeIcons,
+} from '@hugeicons/core-free-icons';
 import RadixIcon from '@workspace/ui/components/icons/radix-icon';
 import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
@@ -48,10 +53,15 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
   node,
 ) => {
   switch (node.name) {
+    case 'Primitives':
+      node.name = (
+        <Separator icon={<Cuboid strokeWidth={2.5} />} name="Primitives" />
+      );
+      break;
     case 'Odyssey UI':
       node.name = (
         <Separator
-          icon={<AnimateUIIcon className="size-3!" />}
+          icon={<HugeiconsIcon icon={HouseIcon} />}
           name="Odyssey UI"
         />
       );
@@ -69,6 +79,14 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
         <Separator
           icon={<HugeiconsIcon icon={ArtificialIntelligence04Icon} />}
           name="AI Elements"
+        />
+      );
+      break;
+    case 'Preloaders':
+      node.name = (
+        <Separator
+          icon={<HugeiconsIcon icon={AudioWave01FreeIcons} />}
+          name="Preloaders"
         />
       );
       break;

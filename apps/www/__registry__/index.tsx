@@ -24,6 +24,50 @@ export const index: Record<string, any> = {
     component: null,
     command: '@odyssey/index',
   },
+  'components-ai-model-selector': {
+    name: 'components-ai-model-selector',
+    description:
+      'A modal-based AI model picker with provider filtering, search, starred models, and capability badges.',
+    type: 'registry:ui',
+    dependencies: ['motion', 'lucide-react'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'dialog',
+      'badge',
+      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ai/model-selector/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/model-selector.tsx',
+        content:
+          '\'use client\';\n\nimport {\n  useState,\n  useContext,\n  createContext,\n  type ReactNode,\n  type Dispatch,\n  type SetStateAction,\n} from \'react\';\nimport { motion, AnimatePresence } from \'motion/react\';\nimport {\n  Search,\n  X,\n  ChevronDown,\n  Eye,\n  Wrench,\n  Globe,\n  Star,\n  LayoutGrid,\n  Zap,\n  ArrowRight,\n} from \'lucide-react\';\nimport {\n  Dialog,\n  DialogContent,\n  DialogTitle,\n  DialogClose,\n} from \'@/components/ui/dialog\';\nimport { cn } from \'@/lib/utils\';\nimport { Badge } from \'@/components/ui/badge\';\nimport { ShimmerText } from \'@/components/odyssey/components/animate/text-shimmer\';\n\nexport type Cap = \'vision\' | \'tools\' | \'search\';\nexport type Cost = string;\n\nexport interface Provider {\n  id: string;\n  icon: ReactNode;\n  label: string;\n}\n\nexport interface Model {\n  id: string;\n  provider: string;\n  name: string;\n  desc: string;\n  cost: Cost;\n  tag: string | null;\n  caps: string[];\n  starred: boolean;\n}\n\ninterface ModelSelectorCtxValue {\n  providers: Provider[];\n  models: Model[];\n  open: boolean;\n  setOpen: Dispatch<SetStateAction<boolean>>;\n  selected: Model;\n  setSelected: Dispatch<SetStateAction<Model>>;\n  search: string;\n  setSearch: Dispatch<SetStateAction<string>>;\n  activeProvider: string | null;\n  setActiveProvider: Dispatch<SetStateAction<string | null>>;\n  filtered: Model[];\n  starred: Set<string>;\n  toggleStar: (id: string) => void;\n}\n\nconst ModelSelectorCtx = createContext<ModelSelectorCtxValue | null>(null);\n\nconst useModelSelector = () => {\n  const ctx = useContext(ModelSelectorCtx);\n  if (!ctx) throw new Error(\'Must be used inside <ModelSelector>\');\n  return ctx;\n};\n\nconst CAP_ICONS: Record<Cap, { icon: React.ElementType; label: string }> = {\n  vision: { icon: Eye, label: \'Vision\' },\n  tools: { icon: Wrench, label: \'Tools\' },\n  search: { icon: Globe, label: \'Search\' },\n};\n\nconst COST_CLASS = \'text-muted-foreground/50 font-mono text-xs\';\n\nexport function ModelSelector({\n  children,\n  providers,\n  models,\n  defaultModel,\n}: {\n  children: ReactNode;\n  providers: Provider[];\n  models: Model[];\n  defaultModel?: Model;\n}) {\n  const initialModel = defaultModel ?? models[0];\n  const [open, setOpen] = useState(false);\n  const [selected, setSelected] = useState<Model>(initialModel);\n  const [search, setSearch] = useState(\'\');\n  const [activeProvider, setActiveProvider] = useState<string | null>(null);\n  const [starred, setStarred] = useState(\n    () => new Set(models.filter((m) => m.starred).map((m) => m.id)),\n  );\n\n  const toggleStar = (id: string) =>\n    setStarred((prev) => {\n      const n = new Set(prev);\n      if (n.has(id)) {\n        n.delete(id);\n      } else {\n        n.add(id);\n      }\n      return n;\n    });\n\n  const filtered = models.filter((m) => {\n    const matchProvider = !activeProvider || m.provider === activeProvider;\n    const q = search.toLowerCase();\n    const matchSearch =\n      !q ||\n      m.name.toLowerCase().includes(q) ||\n      m.desc.toLowerCase().includes(q);\n    return matchProvider && matchSearch;\n  });\n\n  return (\n    <ModelSelectorCtx.Provider\n      value={{\n        providers,\n        models,\n        open,\n        setOpen,\n        selected,\n        setSelected,\n        search,\n        setSearch,\n        activeProvider,\n        setActiveProvider,\n        filtered,\n        starred,\n        toggleStar,\n      }}\n    >\n      {children}\n    </ModelSelectorCtx.Provider>\n  );\n}\n\nexport function ModelSelectorTrigger({\n  className = \'\',\n}: {\n  className?: string;\n}) {\n  const { setOpen, selected } = useModelSelector();\n  return (\n    <motion.button\n      onClick={() => setOpen(true)}\n      whileHover={{ scale: 1.02 }}\n      whileTap={{ scale: 0.97 }}\n      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary border border-border text-sm font-medium text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${className}`}\n    >\n      <span className="text-xs text-muted-foreground font-mono">\n        <ShimmerText text={selected.name} />\n      </span>\n      <span className={COST_CLASS}>{selected.cost}</span>\n      <ChevronDown className="w-3 h-3 text-muted-foreground/60" />\n    </motion.button>\n  );\n}\n\nexport function ModelSelectorModal() {\n  const { open, setOpen } = useModelSelector();\n\n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogContent\n        showCloseButton={false}\n        aria-describedby={undefined}\n        className={cn(\n          \'flex flex-col gap-0 p-0 ring-0 border border-border shadow-2xl overflow-hidden duration-200\',\n          \'top-auto bottom-0 inset-x-0 translate-x-0 translate-y-0 max-w-full rounded-t-3xl rounded-b-none max-h-[85vh]\',\n          \'sm:top-1/2 sm:left-1/2 sm:right-auto sm:bottom-auto sm:w-130 sm:max-w-130 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:max-h-150\',\n        )}\n      >\n        <DialogTitle className="sr-only">Select a model</DialogTitle>\n        <ModelSelectorHeader />\n        <div className="flex flex-1 min-h-0">\n          <ModelSelectorProviderSidebar />\n          <ModelSelectorModelList />\n        </div>\n        <ModelSelectorFooter />\n      </DialogContent>\n    </Dialog>\n  );\n}\n\nfunction ModelSelectorHeader() {\n  const { search, setSearch } = useModelSelector();\n  return (\n    <div className="flex items-center gap-3 px-4 pt-4 pb-3 border-b border-border">\n      <Search className="w-4 h-4 text-muted-foreground shrink-0" />\n      <input\n        autoFocus\n        value={search}\n        onChange={(e) => setSearch(e.target.value)}\n        placeholder="Search models…"\n        className="flex-1 bg-transparent text-sm text-popover-foreground placeholder:text-muted-foreground/50 outline-none font-light tracking-wide font-mono"\n      />\n      <AnimatePresence>\n        {search && (\n          <motion.button\n            initial={{ scale: 0, opacity: 0 }}\n            animate={{ scale: 1, opacity: 1 }}\n            exit={{ scale: 0, opacity: 0 }}\n            transition={{ duration: 0.15 }}\n            onClick={() => setSearch(\'\')}\n            className="text-muted-foreground hover:text-foreground transition-colors"\n          >\n            <X className="w-3.5 h-3.5" />\n          </motion.button>\n        )}\n      </AnimatePresence>\n      <DialogClose asChild>\n        <button className="ml-1 w-6 h-6 rounded-lg flex items-center justify-center bg-secondary hover:bg-accent text-muted-foreground hover:text-accent-foreground transition-colors">\n          <X className="w-3.5 h-3.5" />\n        </button>\n      </DialogClose>\n    </div>\n  );\n}\n\nfunction ModelSelectorProviderSidebar() {\n  const { providers, activeProvider, setActiveProvider } = useModelSelector();\n  return (\n    <div className="flex flex-col gap-0.5 py-3 px-2 border-r border-border w-14 shrink-0">\n      <SidebarBtn\n        active={!activeProvider}\n        onClick={() => setActiveProvider(null)}\n        title="All"\n      >\n        <LayoutGrid className="w-4 h-4" />\n      </SidebarBtn>\n      {providers.map((p) => (\n        <SidebarBtn\n          key={p.id}\n          active={activeProvider === p.id}\n          onClick={() =>\n            setActiveProvider(activeProvider === p.id ? null : p.id)\n          }\n          title={p.label}\n        >\n          <span className="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">\n            {p.icon}\n          </span>\n        </SidebarBtn>\n      ))}\n    </div>\n  );\n}\n\nfunction SidebarBtn({\n  active,\n  onClick,\n  title,\n  children,\n}: {\n  active: boolean;\n  onClick: () => void;\n  title: string;\n  children: ReactNode;\n}) {\n  return (\n    <motion.button\n      onClick={onClick}\n      whileHover={{ scale: 1.08 }}\n      whileTap={{ scale: 0.92 }}\n      title={title}\n      className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-colors mx-auto ${\n        active\n          ? \'bg-accent text-accent-foreground\'\n          : \'text-muted-foreground hover:text-foreground hover:bg-accent/50\'\n      }`}\n    >\n      {active && (\n        <motion.div\n          layoutId="provider-indicator"\n          className="absolute inset-0 rounded-xl bg-accent border border-border"\n          transition={{ type: \'spring\', stiffness: 350, damping: 30 }}\n        />\n      )}\n      <span className="relative z-10">{children}</span>\n    </motion.button>\n  );\n}\n\nfunction ModelSelectorModelList() {\n  const { filtered } = useModelSelector();\n  return (\n    <div\n      className="flex-1 overflow-y-auto py-2 px-1 space-y-0.5"\n      style={{ scrollbarWidth: \'none\' }}\n    >\n      {filtered.length === 0 && (\n        <div className="py-12 text-center text-muted-foreground/60 text-sm font-mono">\n          No models found\n        </div>\n      )}\n      {filtered.map((model, i) => (\n        <ModelSelectorModelRow key={model.id} model={model} index={i} />\n      ))}\n    </div>\n  );\n}\n\nfunction ModelSelectorModelRow({\n  model,\n  index,\n}: {\n  model: Model;\n  index: number;\n}) {\n  const { providers, selected, setSelected, setOpen, starred, toggleStar } =\n    useModelSelector();\n  const isSelected = selected.id === model.id;\n  const isStarred = starred.has(model.id);\n\n  return (\n    <motion.div\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n      transition={{ delay: index * 0.025, duration: 0.2 }}\n    >\n      <button\n        onClick={() => {\n          setSelected(model);\n          setOpen(false);\n        }}\n        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors group border hover:bg-accent ${\n          isSelected ? \'bg-accent border-border\' : \'border-transparent\'\n        }`}\n      >\n        <div className="w-8 h-8 rounded-lg shrink-0 flex items-center justify-center text-sm font-bold bg-secondary border border-border">\n          <span className="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">\n            {providers.find((p) => p.id === model.provider)?.icon ?? \'◈\'}\n          </span>\n        </div>\n\n        <div className="flex-1 min-w-0">\n          <div className="flex items-center gap-2">\n            <span className="text-sm font-semibold text-foreground truncate font-mono tracking-tight">\n              {model.name}\n            </span>\n            {model.tag && (\n              <span className="px-1.5 py-0.5 rounded-md text-[10px] font-bold tracking-wide bg-primary/10 text-primary border border-primary/20">\n                {model.tag}\n              </span>\n            )}\n          </div>\n          <p className="text-xs text-muted-foreground truncate mt-0.5 leading-snug">\n            {model.desc}\n          </p>\n        </div>\n\n        <div className="flex items-center gap-1 shrink-0">\n          <span className={COST_CLASS}>{model.cost}</span>\n          {model.caps.map((c) => {\n            const entry = CAP_ICONS[c as Cap];\n            if (!entry) return null;\n            const Icon = entry.icon;\n            return (\n              <Badge\n                key={c}\n                variant="outline"\n                title={entry.label}\n                className="text-muted-foreground/50 hover:text-muted-foreground transition-colors"\n              >\n                <Icon className="w-3 h-3" />\n              </Badge>\n            );\n          })}\n\n          <motion.div\n            role="button"\n            tabIndex={0}\n            aria-label={isStarred ? \'Unstar model\' : \'Star model\'}\n            onClick={(e) => {\n              e.stopPropagation();\n              toggleStar(model.id);\n            }}\n            onKeyDown={(e) => {\n              if (e.key === \'Enter\' || e.key === \' \') {\n                e.preventDefault();\n                e.stopPropagation();\n                toggleStar(model.id);\n              }\n            }}\n            whileHover={{ scale: 1.2 }}\n            whileTap={{ scale: 0.85 }}\n            className="ml-1 w-5 h-5 flex items-center justify-center cursor-pointer"\n          >\n            <Star\n              className={`w-3.5 h-3.5 transition-colors ${\n                isStarred\n                  ? \'fill-yellow-400 text-yellow-400\'\n                  : \'text-muted-foreground/30 hover:text-muted-foreground\'\n              }`}\n            />\n          </motion.div>\n        </div>\n      </button>\n    </motion.div>\n  );\n}\n\nfunction ModelSelectorFooter() {\n  const { selected } = useModelSelector();\n  return (\n    <div className="px-4 py-3 border-t border-border flex items-center justify-between">\n      <div className="flex items-center gap-2">\n        <Zap className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />\n        <span className="text-xs text-muted-foreground font-mono">\n          {selected.name}\n        </span>\n      </div>\n      <a\n        href="#"\n        className="flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors font-mono"\n      >\n        Upgrade for more\n        <ArrowRight className="w-3 h-3" />\n      </a>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/ai/model-selector/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ai-model-selector';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-ai-model-selector',
+  },
   'components-ai-prompt-input': {
     name: 'components-ai-prompt-input',
     description: 'Simple Prompt Interface input design.',
@@ -77,7 +121,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'collapsible',
-      'odyssey/components-animate-text-shimmer',
+      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -120,7 +164,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'collapsible',
       'badge',
-      'odyssey/components-animate-text-shimmer',
+      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
     ],
     cssVars: undefined,
     css: undefined,
@@ -577,7 +621,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odysseyui/components/buttons/button.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport {\n  Button as ButtonPrimitive,\n  type ButtonProps as ButtonPrimitiveProps,\n} from '@/components/odyssey/primitives/buttons/button';\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[box-shadow,_color,_background-color,_border-color,_outline-color,_text-decoration-color,_fill,_stroke] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        accent: 'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n      },\n      size: {\n        default: 'h-9 px-4 py-2 has-[>svg]:px-3',\n        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',\n        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',\n        icon: 'size-9',\n        'icon-sm': 'size-8 rounded-md',\n        'icon-md': 'size-7 rounded-md',\n        'icon-lg': 'size-10 rounded-md',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\ntype ButtonProps = ButtonPrimitiveProps & VariantProps<typeof buttonVariants>;\n\nfunction Button({ className, variant, size, ...props }: ButtonProps) {\n  return (\n    <ButtonPrimitive\n      className={cn(buttonVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Button, buttonVariants, type ButtonProps };",
+          "'use client';\n\nimport * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport {\n  Button as ButtonPrimitive,\n  type ButtonProps as ButtonPrimitiveProps,\n} from '@/components/odyssey/primitives/buttons/button';\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[box-shadow,_color,_background-color,_border-color,_outline-color,_text-decoration-color,_fill,_stroke] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        accent: 'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n        odysseyui:\n          'from-primary to-primary/85 text-primary-foreground dark:inset-shadow-2xs dark:inset-shadow-white/10 bg-linear-to-t border border-b-2 border-zinc-950/40 shadow-md shadow-zinc-950/20 ring-1 ring-inset ring-white/25 transition-[filter] duration-200 hover:brightness-120 active:brightness-90 dark:border-x-0 dark:border-t-0 dark:border-zinc-950/50 dark:ring-white/5 hover:cursor-pointer',\n      },\n      size: {\n        default: 'h-9 px-4 py-2 has-[>svg]:px-3',\n        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',\n        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',\n        icon: 'size-9',\n        'icon-sm': 'size-8 rounded-md',\n        'icon-md': 'size-7 rounded-md',\n        'icon-lg': 'size-10 rounded-md',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\ntype ButtonProps = ButtonPrimitiveProps & VariantProps<typeof buttonVariants>;\n\nfunction Button({ className, variant, size, ...props }: ButtonProps) {\n  return (\n    <ButtonPrimitive\n      className={cn(buttonVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Button, buttonVariants, type ButtonProps };",
       },
     ],
     keywords: [],
@@ -1064,6 +1108,84 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/components-radix-hover-card',
+  },
+  'components-ui-badge': {
+    name: 'components-ui-badge',
+    description:
+      'A badge component with semantic and color variants built on Base UI.',
+    type: 'registry:ui',
+    dependencies: ['@base-ui-components/react', 'class-variance-authority'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ui/badge/index.tsx',
+        type: 'registry:ui',
+        target: 'components/ui/badge.tsx',
+        content:
+          "import { mergeProps } from '@base-ui/react/merge-props';\nimport { useRender } from '@base-ui/react/use-render';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst badgeVariants = cva(\n  'h-5 gap-1 rounded-4xl border border-transparent px-2 py-0.5 text-xs font-medium transition-all has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&>svg]:size-3! inline-flex items-center justify-center w-fit whitespace-nowrap shrink-0 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden group/badge',\n  {\n    variants: {\n      variant: {\n        default: 'bg-primary text-primary-foreground [a]:hover:bg-primary/80',\n        secondary:\n          'bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80',\n        destructive:\n          'bg-destructive/10 [a]:hover:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 text-destructive dark:bg-destructive/20',\n        outline:\n          'border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',\n        ghost:\n          'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n        red: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',\n        blue: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',\n        green:\n          'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',\n        yellow:\n          'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',\n        purple:\n          'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400',\n        pink: 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-400',\n        orange:\n          'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400',\n        cyan: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400',\n        indigo:\n          'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400',\n        violet:\n          'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400',\n        rose: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400',\n        amber:\n          'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',\n        lime: 'bg-lime-100 text-lime-700 dark:bg-lime-900/30 dark:text-lime-400',\n        emerald:\n          'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',\n        sky: 'bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-400',\n        slate:\n          'bg-slate-100 text-slate-700 dark:bg-slate-900/30 dark:text-slate-400',\n        fuchsia:\n          'bg-fuchsia-100 text-fuchsia-700 dark:bg-fuchsia-900/30 dark:text-fuchsia-400',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nfunction Badge({\n  className,\n  variant = 'default',\n  render,\n  ...props\n}: useRender.ComponentProps<'span'> & VariantProps<typeof badgeVariants>) {\n  return useRender({\n    defaultTagName: 'span',\n    props: mergeProps<'span'>(\n      {\n        className: cn(badgeVariants({ variant }), className),\n      },\n      props,\n    ),\n    render,\n    state: {\n      slot: 'badge',\n      variant,\n    },\n  });\n}\n\nexport { Badge, badgeVariants };",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/components/ui/badge/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ui-badge';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-ui-badge',
+  },
+  'demo-components-ai-model-selector': {
+    name: 'demo-components-ai-model-selector',
+    description: 'Demo of the AI model selector modal component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-ai-model-selector'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ai/model-selector/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ai/model-selector.tsx',
+        content:
+          "import {\n  ModelSelector,\n  ModelSelectorTrigger,\n  ModelSelectorModal,\n  type Provider,\n  type Model,\n} from '@/components/odyssey/components/ai/model-selector';\n\nconst PROVIDERS: Provider[] = [\n  {\n    id: 'openai',\n    icon: (\n      <svg preserveAspectRatio=\"xMidYMid\" viewBox=\"0 0 256 260\">\n        <path\n          fill=\"currentColor\"\n          d=\"M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z\"\n        />\n      </svg>\n    ),\n    label: 'OpenAI',\n  },\n  {\n    id: 'anthropic',\n    icon: (\n      <svg fillRule=\"evenodd\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n        <title>Anthropic</title>\n        <path d=\"M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0h3.767L16.906 20h-3.674l-1.343-3.461H5.017l-1.344 3.46H0L6.57 3.522zm4.132 9.959L8.453 7.687 6.205 13.48H10.7z\" />\n      </svg>\n    ),\n    label: 'Anthropic',\n  },\n  {\n    id: 'google',\n    icon: (\n      <svg viewBox=\"0 0 24 24\" fill=\"none\">\n        <path\n          d=\"M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z\"\n          fill=\"#4285F4\"\n        />\n        <path\n          d=\"M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z\"\n          fill=\"#34A853\"\n        />\n        <path\n          d=\"M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z\"\n          fill=\"#FBBC05\"\n        />\n        <path\n          d=\"M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z\"\n          fill=\"#EA4335\"\n        />\n      </svg>\n    ),\n    label: 'Google',\n  },\n];\n\nconst MODELS: Model[] = [\n  {\n    id: 'gpt-5.4',\n    provider: 'openai',\n    name: 'GPT-5.4',\n    desc: \"OpenAI's latest fast model for everyday chat\",\n    cost: '2x',\n    tag: 'NEW',\n    caps: ['vision', 'tools', 'search'],\n    starred: true,\n  },\n  {\n    id: 'claude-s-4.6',\n    provider: 'anthropic',\n    name: 'Claude Sonnet 4.6',\n    desc: \"Anthropic's latest Sonnet for real-world work\",\n    cost: '2x',\n    tag: null,\n    caps: ['vision', 'tools', 'search'],\n    starred: true,\n  },\n  {\n    id: 'gemini-3-flash',\n    provider: 'google',\n    name: 'Gemini 3 Flash',\n    desc: 'Lightning-fast with surprising capability',\n    cost: '0.5x',\n    tag: null,\n    caps: ['vision', 'tools', 'search'],\n    starred: false,\n  },\n  {\n    id: 'gemini-ultra',\n    provider: 'google',\n    name: 'Gemini Ultra 2',\n    desc: \"Google's most capable reasoning model\",\n    cost: '4x',\n    tag: null,\n    caps: ['vision', 'tools'],\n    starred: false,\n  },\n  {\n    id: 'gpt-5-mini',\n    provider: 'openai',\n    name: 'GPT-5 mini',\n    desc: 'Affordable and intelligent small model for fast tasks',\n    cost: '0.5x',\n    tag: null,\n    caps: ['vision', 'tools'],\n    starred: false,\n  },\n  {\n    id: 'nano-banana',\n    provider: 'google',\n    name: 'Nano Banana Pro',\n    desc: 'Higher fidelity image generation built on Gemini',\n    cost: '3x',\n    tag: null,\n    caps: ['vision'],\n    starred: true,\n  },\n];\n\nexport const ModelSelectorDemo = () => {\n  return (\n    <div className=\"flex items-center justify-center p-8\">\n      <ModelSelector\n        providers={PROVIDERS}\n        models={MODELS}\n        defaultModel={MODELS[1]}\n      >\n        <ModelSelectorTrigger />\n        <ModelSelectorModal />\n      </ModelSelector>\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ai/model-selector/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ai-model-selector';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-ai-model-selector',
   },
   'demo-components-ai-prompt-input': {
     name: 'demo-components-ai-prompt-input',
@@ -1629,7 +1751,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['odyssey/components-animate-text-shimmer'],
+    registryDependencies: [
+      'https://odysseyui.vercel.app/r/components-animate-text-shimmer.json',
+    ],
     cssVars: undefined,
     css: undefined,
     files: [
@@ -1638,7 +1762,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odyssey/demo/animate/text-shimmer.tsx',
         content:
-          'import { ShimmerText } from \'@/components/odyssey/components/animate/text-shimmer\';\n\nexport const TextShimmerDemo = () => {\n  return <ShimmerText text="Odyssey UI" />;\n};',
+          "import { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\ninterface TextShimmerDemoProps {\n  text: string;\n  duration: number;\n  spread: number;\n}\n\nexport const TextShimmerDemo = ({\n  text = 'Odyssey UI',\n  duration = 1,\n  spread = 2,\n}: TextShimmerDemoProps) => {\n  return (\n    <ShimmerText\n      key={`${text}-${duration}-${spread}`}\n      text={text}\n      duration={duration}\n      spread={spread}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};",
       },
     ],
     keywords: [],
@@ -1657,7 +1781,13 @@ export const index: Record<string, any> = {
         }
         return { default: Comp };
       });
-      LazyComp.demoProps = {};
+      LazyComp.demoProps = {
+        ShimmerText: {
+          text: { value: 'Odyssey UI' },
+          duration: { value: 1, min: 0.1, max: 5, step: 0.1 },
+          spread: { value: 2, min: 1, max: 10, step: 1 },
+        },
+      };
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-animate-text-shimmer',
@@ -2174,6 +2304,85 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-radix-hover-card',
+  },
+  'demo-components-ui-badge': {
+    name: 'demo-components-ui-badge',
+    description: 'Demo showcasing all badge variants.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-ui-badge'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ui/badge/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ui/badge.tsx',
+        content:
+          "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst VARIANTS = [\n  'default',\n  'secondary',\n  'destructive',\n  'outline',\n  'ghost',\n  'red',\n  'blue',\n  'green',\n  'yellow',\n  'purple',\n  'pink',\n  'orange',\n  'cyan',\n  'indigo',\n  'violet',\n  'rose',\n  'amber',\n  'lime',\n  'emerald',\n  'sky',\n  'slate',\n  'fuchsia',\n] as const;\n\nexport const BadgeDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ui/badge/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ui-badge';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-ui-badge',
+  },
+  'demo-components-ui-button': {
+    name: 'demo-components-ui-button',
+    description:
+      'Demo showcasing all button variants including the odysseyui variant.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-buttons-button'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ui/button/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ui/button.tsx',
+        content:
+          "import { Button } from '@/components/odyssey/components/buttons/button';\n\nconst VARIANTS = [\n  'default',\n  'accent',\n  'outline',\n  'secondary',\n  'ghost',\n  'destructive',\n  'link',\n  'odysseyui',\n] as const;\n\nexport const ButtonDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-3 p-4 justify-center items-center\">\n      {VARIANTS.map((variant) => (\n        <Button key={variant} variant={variant} size=\"default\">\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Button>\n      ))}\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ui/button/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ui-button';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-ui-button',
   },
   'demo-primitives-animate-avatar-group': {
     name: 'demo-primitives-animate-avatar-group',

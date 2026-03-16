@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ui-button",
+  "type": "registry:ui",
+  "title": "Button Demo",
+  "description": "Demo showcasing all button variants including the odysseyui variant.",
+  "registryDependencies": ["odyssey/components-buttons-button"],
+  "files": [
+    {
+      "path": "registry/demo/components/ui/button/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ui/button.tsx"
+    }
+  ]
+}

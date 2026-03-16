@@ -1,0 +1,193 @@
+---
+title: Model Selector
+description: A modal-based AI model picker with provider filtering, search, starred models, and capability badges.
+---
+
+<ComponentPreview name="demo-components-ai-model-selector" />
+
+## Installation
+
+<ComponentInstallation name="components-ai-model-selector" />
+
+## Usage
+
+<Callout type="info">
+  For provider icons, you can use [svgl](https://svgl.app/) — a beautiful
+  library of SVG logos for popular brands and services.
+</Callout>
+
+```tsx
+import {
+  ModelSelector,
+  ModelSelectorTrigger,
+  ModelSelectorModal,
+  type Provider,
+  type Model,
+} from '@/components/odysseyui/model-selector';
+
+const PROVIDERS: Provider[] = [
+  { id: 'openai', icon: <OpenAIIcon />, label: 'OpenAI' },
+  { id: 'anthropic', icon: <AnthropicIcon />, label: 'Anthropic' },
+];
+
+const MODELS: Model[] = [
+  {
+    id: 'gpt-5.4',
+    provider: 'openai',
+    name: 'GPT-5.4',
+    desc: "OpenAI's latest fast model for everyday chat",
+    cost: '2x',
+    tag: 'NEW',
+    caps: ['vision', 'tools', 'search'],
+    starred: true,
+  },
+  {
+    id: 'claude-s-4.6',
+    provider: 'anthropic',
+    name: 'Claude Sonnet 4.6',
+    desc: "Anthropic's latest Sonnet for real-world work",
+    cost: '2x',
+    tag: null,
+    caps: ['vision', 'tools', 'search'],
+    starred: false,
+  },
+];
+
+export default function Page() {
+  return (
+    <ModelSelector
+      providers={PROVIDERS}
+      models={MODELS}
+      defaultModel={MODELS[0]}
+    >
+      <ModelSelectorTrigger />
+      <ModelSelectorModal />
+    </ModelSelector>
+  );
+}
+```
+
+## How It Works
+
+- `ModelSelector` is the root context provider — pass your `providers`, `models`, and an optional `defaultModel`.
+- `ModelSelectorTrigger` renders a pill button showing the active model name (with shimmer animation) and its cost multiplier.
+- `ModelSelectorModal` opens as a bottom sheet on mobile and a centered dialog on `sm+` screens.
+- The **header** contains a live search input that filters models by name and description.
+- The **sidebar** lists provider icons for filtering by provider; clicking the active provider deselects it (shows all).
+- Each **model row** displays the provider icon, model name, optional tag badge, description, cost, capability badges, and a star toggle.
+- Starring is local state — starred models persist for the session via a `Set<string>`.
+- Selecting a model closes the modal and updates the trigger label.
+
+---
+
+## API Reference
+
+### ModelSelector
+
+<TypeTable
+  type={{
+    providers: {
+      description: 'Array of provider objects shown in the sidebar.',
+      type: 'Provider[]',
+      required: true,
+    },
+    models: {
+      description: 'Full list of models to display and filter.',
+      type: 'Model[]',
+      required: true,
+    },
+    defaultModel: {
+      description: 'Model pre-selected on first render. Defaults to models[0].',
+      type: 'Model',
+      required: false,
+    },
+    children: {
+      description:
+        'Should contain ModelSelectorTrigger and ModelSelectorModal.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+  }}
+/>
+
+### ModelSelectorTrigger
+
+<TypeTable
+  type={{
+    className: {
+      description: 'Additional class names for the trigger button.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+### Provider
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier matching the model provider field.',
+      type: 'string',
+      required: true,
+    },
+    icon: {
+      description: 'SVG or React node displayed in the sidebar and model rows.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+    label: {
+      description: 'Accessible label used as the button title attribute.',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>
+
+### Model
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique model identifier.',
+      type: 'string',
+      required: true,
+    },
+    provider: {
+      description: 'Must match a Provider id.',
+      type: 'string',
+      required: true,
+    },
+    name: {
+      description: 'Display name shown in the row and trigger.',
+      type: 'string',
+      required: true,
+    },
+    desc: {
+      description: 'Short description shown beneath the name.',
+      type: 'string',
+      required: true,
+    },
+    cost: {
+      description: 'Cost multiplier label (e.g. "2x", "0.5x").',
+      type: 'string',
+      required: true,
+    },
+    tag: {
+      description: 'Optional badge label (e.g. "NEW"). Pass null to hide.',
+      type: 'string | null',
+      required: true,
+    },
+    caps: {
+      description:
+        'Capability keys to render as icon badges: "vision", "tools", "search".',
+      type: 'string[]',
+      required: true,
+    },
+    starred: {
+      description: 'Whether the model is starred by default.',
+      type: 'boolean',
+      required: true,
+    },
+  }}
+/>

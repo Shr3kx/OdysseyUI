@@ -18,6 +18,28 @@
       "files": []
     },
     {
+      "name": "components-ai-model-selector",
+      "type": "registry:ui",
+      "title": "Model Selector",
+      "description": "A modal-based AI model picker with provider filtering, search, starred models, and capability badges.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "badge",
+        "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ai/model-selector/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/model-selector.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-ai-prompt-input",
       "type": "registry:ui",
       "title": "Prompt Input",
@@ -54,7 +76,7 @@
       ],
       "registryDependencies": [
         "collapsible",
-        "odyssey/components-animate-text-shimmer"
+        "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
       ],
       "files": [
         {
@@ -76,7 +98,7 @@
       "registryDependencies": [
         "collapsible",
         "badge",
-        "odyssey/components-animate-text-shimmer"
+        "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
       ],
       "files": [
         {
@@ -504,6 +526,39 @@
       ]
     },
     {
+      "name": "components-ui-badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A badge component with semantic and color variants built on Base UI.",
+      "dependencies": [
+        "@base-ui-components/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ui/badge/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ai-model-selector",
+      "type": "registry:ui",
+      "title": "Model Selector Demo",
+      "description": "Demo of the AI model selector modal component.",
+      "registryDependencies": [
+        "odyssey/components-ai-model-selector"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ai/model-selector/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ai/model-selector.tsx"
+        }
+      ]
+    },
+    {
       "name": "demo-components-ai-prompt-input",
       "type": "registry:ui",
       "title": "Prompt Input Demo",
@@ -873,7 +928,7 @@
       "title": "Text Shimmer Demo",
       "description": "Demo of text shimmer.",
       "registryDependencies": [
-        "odyssey/components-animate-text-shimmer"
+        "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
       ],
       "files": [
         {
@@ -881,7 +936,28 @@
           "type": "registry:ui",
           "target": "components/odyssey/demo/animate/text-shimmer.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "demoProps": {
+          "ShimmerText": {
+            "text": {
+              "value": "Odyssey UI"
+            },
+            "duration": {
+              "value": 1,
+              "min": 0.1,
+              "max": 5,
+              "step": 0.1
+            },
+            "spread": {
+              "value": 2,
+              "min": 1,
+              "max": 10,
+              "step": 1
+            }
+          }
+        }
+      }
     },
     {
       "name": "demo-components-buttons-button",
@@ -1221,6 +1297,38 @@
           }
         }
       }
+    },
+    {
+      "name": "demo-components-ui-badge",
+      "type": "registry:ui",
+      "title": "Badge Demo",
+      "description": "Demo showcasing all badge variants.",
+      "registryDependencies": [
+        "odyssey/components-ui-badge"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ui/badge/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ui-button",
+      "type": "registry:ui",
+      "title": "Button Demo",
+      "description": "Demo showcasing all button variants including the odysseyui variant.",
+      "registryDependencies": [
+        "odyssey/components-buttons-button"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ui/button/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ui/button.tsx"
+        }
+      ]
     },
     {
       "name": "demo-primitives-animate-avatar-group",

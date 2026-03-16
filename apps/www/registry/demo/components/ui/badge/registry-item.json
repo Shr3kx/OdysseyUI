@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ui-badge",
+  "type": "registry:ui",
+  "title": "Badge Demo",
+  "description": "Demo showcasing all badge variants.",
+  "registryDependencies": ["odyssey/components-ui-badge"],
+  "files": [
+    {
+      "path": "registry/demo/components/ui/badge/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ui/badge.tsx"
+    }
+  ]
+}

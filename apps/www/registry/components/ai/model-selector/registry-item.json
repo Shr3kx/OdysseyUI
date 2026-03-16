@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-model-selector",
+  "type": "registry:ui",
+  "title": "Model Selector",
+  "description": "A modal-based AI model picker with provider filtering, search, starred models, and capability badges.",
+  "dependencies": ["motion", "lucide-react"],
+  "registryDependencies": [
+    "dialog",
+    "badge",
+    "https://odysseyui.vercel.app/r/components-animate-text-shimmer.json"
+  ],
+  "files": [
+    {
+      "path": "registry/components/ai/model-selector/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/model-selector.tsx"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+---
+title: Button
+description: An animated button component with multiple variants including the signature OdysseyUI glossy style.
+---
+
+<ComponentPreview name="demo-components-ui-button" />
+
+## Installation
+
+<ComponentInstallation name="components-buttons-button" />
+
+## Usage
+
+```tsx
+import { Button } from '@/components/odysseyui/components/buttons/button';
+
+export default function Page() {
+  return <Button variant="odysseyui">Get Started</Button>;
+}
+```
+
+## Variants
+
+```tsx
+<Button variant="default">Default</Button>
+<Button variant="accent">Accent</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="link">Link</Button>
+<Button variant="odysseyui">OdysseyUI</Button>
+```
+
+## Sizes
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon"><SearchIcon /></Button>
+```
+
+---
+
+## API Reference
+
+### Button
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'Visual style of the button.',
+      type: '"default" | "accent" | "outline" | "secondary" | "ghost" | "destructive" | "link" | "odysseyui"',
+      required: false,
+      default: '"default"',
+    },
+    size: {
+      description: 'Size preset for the button.',
+      type: '"default" | "sm" | "lg" | "icon" | "icon-sm" | "icon-md" | "icon-lg"',
+      required: false,
+      default: '"default"',
+    },
+    hoverScale: {
+      description: 'Scale factor applied on hover via Framer Motion.',
+      type: 'number',
+      required: false,
+      default: '1.05',
+    },
+    tapScale: {
+      description: 'Scale factor applied on tap/click via Framer Motion.',
+      type: 'number',
+      required: false,
+      default: '0.95',
+    },
+    asChild: {
+      description: 'Renders as the child element using a Slot pattern.',
+      type: 'boolean',
+      required: false,
+      default: 'false',
+    },
+  }}
+/>

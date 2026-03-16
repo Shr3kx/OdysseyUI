@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ui-button",
+  "title": "Button Demo",
+  "description": "Demo showcasing all button variants including the odysseyui variant.",
+  "registryDependencies": [
+    "odyssey/components-buttons-button"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ui/button/index.tsx",
+      "content": "import { Button } from '@/components/odyssey/components/buttons/button';\n\nconst VARIANTS = [\n  'default',\n  'accent',\n  'outline',\n  'secondary',\n  'ghost',\n  'destructive',\n  'link',\n  'odysseyui',\n] as const;\n\nexport const ButtonDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-3 p-4 justify-center items-center\">\n      {VARIANTS.map((variant) => (\n        <Button key={variant} variant={variant} size=\"default\">\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Button>\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ui/button.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
