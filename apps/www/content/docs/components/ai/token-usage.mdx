@@ -1,0 +1,27 @@
+---
+title: Token Usage
+description: A token usage card showing input/output counts, costs, a proportion bar, and an interactive token breakdown with type-based color badges.
+---
+
+<ComponentPreview name="demo-components-ai-token-usage" />
+
+## Installation
+
+<ComponentInstallation name="components-ai-token-usage" />
+
+## Usage
+
+```tsx
+import { TokenUsage } from '@/components/odysseyui/token-usage';
+
+export default function Page() {
+  return <TokenUsage />;
+}
+```
+
+## How It Works
+
+- Displays **input** and **output** token counts with their individual costs side-by-side.
+- A **proportion bar** visualises the input/output split using violet and sky segments.
+- The **token breakdown** section renders each token as a `Badge` colored by type — secondary for regular text, orange for control characters, and purple for system tokens.
+- Hovering any token badge shows a `Tooltip` describing the token type.

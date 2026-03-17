@@ -1,4 +1,3 @@
-import AnimateUIIcon from '@workspace/ui/components/icons/animateui-icon';
 import BaseUIIcon from '@workspace/ui/components/icons/baseui-icon';
 import CommunityIcon from '@workspace/ui/components/icons/community-icon';
 import ImageIcon from '@workspace/ui/components/icons/image-icon';
@@ -6,15 +5,12 @@ import HeadlessUIIcon from '@workspace/ui/components/icons/headlessui-icon';
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
   ArtificialIntelligence04Icon,
-  ArrowAllDirectionIcon,
-  HouseIcon,
   AudioWave01FreeIcons,
+  HouseIcon,
+  TextIcon,
 } from '@hugeicons/core-free-icons';
-import RadixIcon from '@workspace/ui/components/icons/radix-icon';
 import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
-  Bot,
-  Brain,
   Code,
   Cuboid,
   RectangleHorizontalIcon,
@@ -78,6 +74,14 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
       node.name = (
         <Separator
           icon={<HugeiconsIcon icon={ArtificialIntelligence04Icon} />}
+          name="AI Elements"
+        />
+      );
+      break;
+    case 'Text Effects':
+      node.name = (
+        <Separator
+          icon={<HugeiconsIcon icon={TextIcon} />}
           name="AI Elements"
         />
       );

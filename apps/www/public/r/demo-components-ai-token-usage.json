@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-token-usage",
+  "title": "Token Usage Demo",
+  "description": "Demo of the Token Usage component.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-ai-token-usage.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/token-usage/index.tsx",
+      "content": "import { TokenUsage } from '@/components/odyssey/components/ai/token-usage';\n\nexport const TokenUsageDemo = () => {\n  return (\n    <div className=\"flex items-center justify-center p-8\">\n      <TokenUsage />\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/token-usage.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-animate-text-highlighter",
+  "title": "Text Highlighter",
+  "description": "Rough-notation powered text annotations — highlight, underline, box, circle, and more.",
+  "dependencies": [
+    "motion",
+    "rough-notation"
+  ],
+  "files": [
+    {
+      "path": "registry/components/animate/text-highlighter/index.tsx",
+      "content": "'use client';\n\nimport { useEffect, useRef } from 'react';\nimport type { ReactNode } from 'react';\nimport { useInView } from 'motion/react';\nimport { annotate } from 'rough-notation';\nimport type { RoughAnnotation } from 'rough-notation/lib/model';\n\ntype AnnotationAction =\n  | 'highlight'\n  | 'underline'\n  | 'box'\n  | 'circle'\n  | 'strike-through'\n  | 'crossed-off'\n  | 'bracket';\n\ninterface HighlighterProps {\n  children: ReactNode;\n  action?: AnnotationAction;\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n  isView?: boolean;\n  active?: boolean;\n}\n\nexport function TextHighlighter({\n  children,\n  action = 'highlight',\n  color = '#ffd1dc',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n  isView = false,\n  active = true,\n}: HighlighterProps) {\n  const elementRef = useRef<HTMLSpanElement>(null);\n  const annotationRef = useRef<RoughAnnotation | null>(null);\n\n  const isInView = useInView(elementRef, { once: true, margin: '-10%' });\n  const shouldShow = (!isView || isInView) && active;\n\n  useEffect(() => {\n    const element = elementRef.current;\n    if (!shouldShow || !element) return;\n\n    const annotation = annotate(element, {\n      type: action,\n      color,\n      strokeWidth,\n      animationDuration,\n      iterations,\n      padding,\n      multiline,\n    });\n\n    annotationRef.current = annotation;\n    annotation.show();\n\n    const observer = new ResizeObserver(() => {\n      annotation.hide();\n      annotation.show();\n    });\n\n    observer.observe(element);\n\n    return () => {\n      observer.disconnect();\n      annotationRef.current?.remove();\n      annotationRef.current = null;\n    };\n  }, [\n    shouldShow,\n    action,\n    color,\n    strokeWidth,\n    animationDuration,\n    iterations,\n    padding,\n    multiline,\n  ]);\n\n  return (\n    <span\n      ref={elementRef}\n      className=\"relative inline-block bg-transparent font-heading\"\n    >\n      {children}\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/odysseyui/text-highlighter.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

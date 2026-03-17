@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-typewriter",
+  "title": "Typewriter Demo",
+  "description": "Demo of the Typewriter component with multi-sequence type and delete animation.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-animate-typewriter.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/typewriter/index.tsx",
+      "content": "import { Typewriter } from '@/components/odyssey/components/animate/typewriter';\n\ntype TypewriterDemoProps = {\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n};\n\nexport const TypewriterDemo = ({\n  typingSpeed = 100,\n  deleteSpeed = 40,\n  pauseBeforeDelete = 1600,\n  loopDelay = 1200,\n  autoLoop = true,\n  naturalVariance = true,\n}: TypewriterDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <Typewriter\n        key={`${typingSpeed}-${deleteSpeed}-${pauseBeforeDelete}-${loopDelay}-${autoLoop}-${naturalVariance}`}\n        sequences={[\n          { text: 'Full-Stack Developer', deleteAfter: true },\n          { text: 'UI/UX Enthusiast', deleteAfter: true },\n          { text: 'Open to remote work', deleteAfter: false },\n        ]}\n        typingSpeed={typingSpeed}\n        deleteSpeed={deleteSpeed}\n        pauseBeforeDelete={pauseBeforeDelete}\n        loopDelay={loopDelay}\n        autoLoop={autoLoop}\n        naturalVariance={naturalVariance}\n        className=\"font-mono text-3xl tracking-tight text-foreground md:text-5xl\"\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/animate/typewriter.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "Typewriter": {
+        "typingSpeed": {
+          "value": 100,
+          "min": 20,
+          "max": 300,
+          "step": 10
+        },
+        "deleteSpeed": {
+          "value": 40,
+          "min": 10,
+          "max": 200,
+          "step": 5
+        },
+        "pauseBeforeDelete": {
+          "value": 1600,
+          "min": 200,
+          "max": 4000,
+          "step": 100
+        },
+        "loopDelay": {
+          "value": 1200,
+          "min": 200,
+          "max": 4000,
+          "step": 100
+        },
+        "autoLoop": {
+          "value": true
+        },
+        "naturalVariance": {
+          "value": true
+        }
+      }
+    }
+  },
+  "type": "registry:ui"
+}

@@ -198,6 +198,50 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/components-ai-thought-chain',
   },
+  'components-ai-token-usage': {
+    name: 'components-ai-token-usage',
+    description:
+      'A token usage card showing input/output counts, costs, proportion bar, and an interactive token breakdown with tooltips.',
+    type: 'registry:ui',
+    dependencies: ['lucide-react', 'class-variance-authority'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'card',
+      'tooltip',
+      'https://odysseyui.com/r/components-ui-badge.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ai/token-usage/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/token-usage.tsx',
+        content:
+          '\'use client\';\n\nimport { ArrowUp, ArrowDown } from \'lucide-react\';\nimport { Card, CardContent, CardHeader } from \'@/components/ui/card\';\nimport { Badge, badgeVariants } from \'@/components/odyssey/components/ui/badge\';\nimport type { VariantProps } from \'class-variance-authority\';\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \'@/components/ui/tooltip\';\n\ntype BadgeVariant = VariantProps<typeof badgeVariants>[\'variant\'];\n\ntype TokenType = \'default\' | \'control\' | \'system\';\n\ninterface Token {\n  text: string;\n  type: TokenType;\n}\n\nconst tokens: Token[] = [\n  { text: \'Analyze\', type: \'default\' },\n  { text: \'the\', type: \'default\' },\n  { text: \'following\', type: \'default\' },\n  { text: \'dataset\', type: \'default\' },\n  { text: \'and\', type: \'default\' },\n  { text: \'return\', type: \'default\' },\n  { text: \'\\\\n\\\\n\', type: \'control\' },\n  { text: \'⊲system▷\', type: \'system\' },\n  { text: \'a\', type: \'default\' },\n  { text: \'structured\', type: \'default\' },\n  { text: \'JSON\', type: \'default\' },\n  { text: \'```\', type: \'control\' },\n  { text: \'summary\', type: \'default\' },\n  { text: \'with\', type: \'default\' },\n  { text: \'insights\', type: \'default\' },\n  { text: \'.\', type: \'default\' },\n];\n\nconst tokenVariants: Record<TokenType, BadgeVariant> = {\n  default: \'secondary\',\n  control: \'orange\',\n  system: \'purple\',\n};\n\nconst tokenTooltips: Record<TokenType, string> = {\n  default: \'Regular text token\',\n  control: \'Control character or code delimiter\',\n  system: \'System prompt injection token\',\n};\n\nconst fmt = (n: number) => n.toLocaleString();\nconst fmtCost = (n: number) => `$${n.toFixed(4)}`;\n\nconst inputTokens = 4391;\nconst outputTokens = 8456;\nconst inputCost = 0.0132;\nconst outputCost = 0.1267;\nconst model = \'claude-sonnet-4.6\';\nconst totalTokens = inputTokens + outputTokens;\nconst totalCost = inputCost + outputCost;\n\nconst inputPct = Math.round((inputTokens / totalTokens) * 100);\nconst outputPct = 100 - inputPct;\n\nexport const TokenUsage = () => {\n  return (\n    <Card className="w-full max-w-lg overflow-hidden rounded-xl border border-border bg-card">\n      {/* Header */}\n      <CardHeader className="flex flex-row items-center justify-between px-4 border-b border-border">\n        <div className="flex items-center gap-2">\n          <div className="flex items-center justify-center w-6 h-6 rounded-md bg-muted shrink-0">\n            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">\n              <path\n                d="M1 2h10M1 6h10M1 10h6"\n                stroke="currentColor"\n                strokeWidth="1.5"\n                strokeLinecap="round"\n                className="text-muted-foreground"\n              />\n            </svg>\n          </div>\n          <span className="text-sm font-medium text-card-foreground">\n            Token usage\n          </span>\n        </div>\n        <span className="text-[11px] text-muted-foreground bg-muted px-2.5 py-0.5 rounded-full border border-border">\n          {model}\n        </span>\n      </CardHeader>\n\n      {/* Input / Output stats */}\n      <div className="grid grid-cols-2 border-b border-border">\n        <div className="px-5 py-4 border-r border-border">\n          <div className="flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase text-muted-foreground mb-1.5">\n            <ArrowUp size={9} /> Input\n          </div>\n          <div className="text-[22px] font-medium text-foreground leading-none mb-1">\n            {fmt(inputTokens)}\n          </div>\n          <div className="text-[11px] text-muted-foreground">\n            {fmtCost(inputCost)}\n          </div>\n        </div>\n\n        <div className="px-5 py-4">\n          <div className="flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase text-muted-foreground mb-1.5">\n            <ArrowDown size={9} /> Output\n          </div>\n          <div className="text-[22px] font-medium text-foreground leading-none mb-1">\n            {fmt(outputTokens)}\n          </div>\n          <div className="text-[11px] text-muted-foreground">\n            {fmtCost(outputCost)}\n          </div>\n        </div>\n      </div>\n\n      {/* Total + proportion bar */}\n      <div className="px-5 py-4 border-b border-border">\n        <div className="flex items-baseline justify-between mb-2.5">\n          <div className="flex items-baseline gap-2.5">\n            <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground">\n              Total tokens\n            </span>\n            <span className="text-xl font-medium text-foreground">\n              {fmt(totalTokens)}\n            </span>\n          </div>\n          <span className="text-[13px] font-medium text-emerald-500">\n            {fmtCost(totalCost)}\n          </span>\n        </div>\n\n        {/* Bar */}\n        <div className="h-1.5 rounded-full overflow-hidden flex gap-px">\n          <div\n            className="bg-violet-600 rounded-full"\n            style={{ width: `${inputPct}%` }}\n          />\n          <div\n            className="bg-sky-500 rounded-full"\n            style={{ width: `${outputPct}%` }}\n          />\n        </div>\n\n        {/* Legend */}\n        <div className="flex gap-3.5 mt-2">\n          <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">\n            <span className="w-2 h-2 rounded-sm bg-violet-600 inline-block" />\n            Input {inputPct}%\n          </span>\n          <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">\n            <span className="w-2 h-2 rounded-sm bg-sky-500 inline-block" />\n            Output {outputPct}%\n          </span>\n        </div>\n      </div>\n\n      {/* Token breakdown */}\n      <div className="px-5 pt-4 pb-5">\n        <div className="flex items-center justify-between mb-2.5">\n          <p className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground">\n            Token breakdown\n          </p>\n          <div className="flex gap-3">\n            <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">\n              <span className="w-1.5 h-1.5 rounded-sm bg-orange-500 inline-block" />\n              Special\n            </span>\n            <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">\n              <span className="w-1.5 h-1.5 rounded-sm bg-purple-500 inline-block" />\n              System\n            </span>\n          </div>\n        </div>\n\n        <TooltipProvider>\n          <div className="flex flex-wrap gap-1.5">\n            {tokens.map((token, i) => (\n              <Tooltip key={i}>\n                <TooltipTrigger asChild>\n                  <Badge\n                    variant={tokenVariants[token.type]}\n                    className="cursor-pointer"\n                  >\n                    {token.text}\n                  </Badge>\n                </TooltipTrigger>\n                <TooltipContent side="top">\n                  {tokenTooltips[token.type]}\n                </TooltipContent>\n              </Tooltip>\n            ))}\n          </div>\n        </TooltipProvider>\n      </div>\n    </Card>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/ai/token-usage/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ai-token-usage';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-ai-token-usage',
+  },
   'components-animate-avatar-group': {
     name: 'components-animate-avatar-group',
     description:
@@ -567,6 +611,46 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/components-animate-tabs',
   },
+  'components-animate-text-highlighter': {
+    name: 'components-animate-text-highlighter',
+    description:
+      'Rough-notation powered text annotations — highlight, underline, box, circle, and more.',
+    type: 'registry:ui',
+    dependencies: ['motion', 'rough-notation'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/animate/text-highlighter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/text-highlighter.tsx',
+        content:
+          "'use client';\n\nimport { useEffect, useRef } from 'react';\nimport type { ReactNode } from 'react';\nimport { useInView } from 'motion/react';\nimport { annotate } from 'rough-notation';\nimport type { RoughAnnotation } from 'rough-notation/lib/model';\n\ntype AnnotationAction =\n  | 'highlight'\n  | 'underline'\n  | 'box'\n  | 'circle'\n  | 'strike-through'\n  | 'crossed-off'\n  | 'bracket';\n\ninterface HighlighterProps {\n  children: ReactNode;\n  action?: AnnotationAction;\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n  isView?: boolean;\n  active?: boolean;\n}\n\nexport function TextHighlighter({\n  children,\n  action = 'highlight',\n  color = '#ffd1dc',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n  isView = false,\n  active = true,\n}: HighlighterProps) {\n  const elementRef = useRef<HTMLSpanElement>(null);\n  const annotationRef = useRef<RoughAnnotation | null>(null);\n\n  const isInView = useInView(elementRef, { once: true, margin: '-10%' });\n  const shouldShow = (!isView || isInView) && active;\n\n  useEffect(() => {\n    const element = elementRef.current;\n    if (!shouldShow || !element) return;\n\n    const annotation = annotate(element, {\n      type: action,\n      color,\n      strokeWidth,\n      animationDuration,\n      iterations,\n      padding,\n      multiline,\n    });\n\n    annotationRef.current = annotation;\n    annotation.show();\n\n    const observer = new ResizeObserver(() => {\n      annotation.hide();\n      annotation.show();\n    });\n\n    observer.observe(element);\n\n    return () => {\n      observer.disconnect();\n      annotationRef.current?.remove();\n      annotationRef.current = null;\n    };\n  }, [\n    shouldShow,\n    action,\n    color,\n    strokeWidth,\n    animationDuration,\n    iterations,\n    padding,\n    multiline,\n  ]);\n\n  return (\n    <span\n      ref={elementRef}\n      className=\"relative inline-block bg-transparent font-heading\"\n    >\n      {children}\n    </span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/animate/text-highlighter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-animate-text-highlighter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-animate-text-highlighter',
+  },
   'components-animate-text-shimmer': {
     name: 'components-animate-text-shimmer',
     description: 'Sleek text shimmer effect.',
@@ -605,6 +689,46 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/components-animate-text-shimmer',
+  },
+  'components-animate-typewriter': {
+    name: 'components-animate-typewriter',
+    description:
+      'Animated typewriter effect with multi-sequence support, natural variance, delete animation, and auto-loop.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/animate/typewriter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/typewriter.tsx',
+        content:
+          "'use client';\n\nimport { motion } from 'motion/react';\nimport {\n  useEffect,\n  useLayoutEffect,\n  useRef,\n  useState,\n  useCallback,\n} from 'react';\n\ntype TypewriterSequence = {\n  text: string;\n  deleteAfter?: boolean;\n  pauseAfter?: number;\n};\n\ninterface TypewriterProps {\n  sequences?: TypewriterSequence[];\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  startDelay?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n  className?: string;\n}\n\nconst DEFAULT_SEQUENCES: TypewriterSequence[] = [\n  { text: 'Typewriter', deleteAfter: true },\n  { text: 'Multiple Words', deleteAfter: true },\n  { text: 'Auto Loop', deleteAfter: false },\n];\n\nconst getRandomTypingDelay = (baseSpeed: number): number => {\n  if (Math.random() < 0.1) return baseSpeed * 2;\n  if (Math.random() > 0.9) return baseSpeed * 0.5;\n  const variance = 0.4;\n  const min = baseSpeed * (1 - variance);\n  const max = baseSpeed * (1 + variance);\n  return Math.random() * (max - min) + min;\n};\n\nexport function Typewriter({\n  sequences = DEFAULT_SEQUENCES,\n  typingSpeed = 50,\n  deleteSpeed = 30,\n  startDelay = 200,\n  pauseBeforeDelete = 1000,\n  loopDelay = 1000,\n  autoLoop = true,\n  naturalVariance = true,\n  className,\n}: TypewriterProps) {\n  const [displayText, setDisplayText] = useState('');\n\n  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);\n  const sequenceIndexRef = useRef(0);\n  const charIndexRef = useRef(0);\n  const sequencesRef = useRef(sequences);\n  const typeNextCharRef = useRef<() => void>(() => {});\n  const deleteCharRef = useRef<() => void>(() => {});\n\n  useLayoutEffect(() => {\n    sequencesRef.current = sequences;\n  });\n\n  const schedule = useCallback((fn: () => void, delay: number) => {\n    if (timeoutRef.current) clearTimeout(timeoutRef.current);\n    timeoutRef.current = setTimeout(fn, delay);\n  }, []);\n\n  const typeNextChar = useCallback(() => {\n    const seq = sequencesRef.current[sequenceIndexRef.current];\n    if (!seq) return;\n\n    if (charIndexRef.current < seq.text.length) {\n      charIndexRef.current += 1;\n      setDisplayText(seq.text.slice(0, charIndexRef.current));\n\n      const delay = naturalVariance\n        ? getRandomTypingDelay(typingSpeed)\n        : typingSpeed;\n\n      schedule(typeNextCharRef.current, delay);\n    } else {\n      const pause = seq.pauseAfter ?? pauseBeforeDelete;\n\n      if (seq.deleteAfter !== false) {\n        schedule(() => deleteCharRef.current(), pause);\n      } else {\n        schedule(() => {\n          const isLast =\n            sequenceIndexRef.current === sequencesRef.current.length - 1;\n\n          if (isLast && autoLoop) {\n            sequenceIndexRef.current = 0;\n            charIndexRef.current = 0;\n            setDisplayText('');\n            typeNextCharRef.current();\n          } else if (!isLast) {\n            sequenceIndexRef.current += 1;\n            charIndexRef.current = 0;\n            setDisplayText('');\n            typeNextCharRef.current();\n          }\n        }, loopDelay);\n      }\n    }\n  }, [\n    typingSpeed,\n    naturalVariance,\n    pauseBeforeDelete,\n    autoLoop,\n    loopDelay,\n    schedule,\n  ]);\n\n  const deleteChar = useCallback(() => {\n    if (charIndexRef.current > 0) {\n      charIndexRef.current -= 1;\n      const text = sequencesRef.current[sequenceIndexRef.current]?.text ?? '';\n      setDisplayText(text.slice(0, charIndexRef.current));\n      schedule(deleteCharRef.current, deleteSpeed);\n    } else {\n      const isLast =\n        sequenceIndexRef.current === sequencesRef.current.length - 1;\n\n      if (isLast && autoLoop) {\n        schedule(() => {\n          sequenceIndexRef.current = 0;\n          typeNextCharRef.current();\n        }, loopDelay);\n      } else if (!isLast) {\n        schedule(() => {\n          sequenceIndexRef.current += 1;\n          typeNextCharRef.current();\n        }, 80);\n      }\n    }\n  }, [deleteSpeed, autoLoop, loopDelay, schedule]);\n\n  useLayoutEffect(() => {\n    typeNextCharRef.current = typeNextChar;\n    deleteCharRef.current = deleteChar;\n  });\n\n  const startAnimation = useCallback(() => {\n    sequenceIndexRef.current = 0;\n    charIndexRef.current = 0;\n    schedule(() => {\n      setDisplayText('');\n      typeNextCharRef.current();\n    }, startDelay);\n  }, [startDelay, schedule]);\n\n  useEffect(() => {\n    startAnimation();\n    return () => {\n      if (timeoutRef.current) clearTimeout(timeoutRef.current);\n    };\n  }, [sequences, typingSpeed, deleteSpeed, naturalVariance, startAnimation]);\n\n  return (\n    <motion.span\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      transition={{ duration: 0.5 }}\n      className={className}\n    >\n      <span className=\"inline-block min-h-[1.2em] min-w-[0.5em]\">\n        {displayText}\n      </span>\n    </motion.span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/animate/typewriter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-animate-typewriter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-animate-typewriter',
   },
   'components-buttons-button': {
     name: 'components-buttons-button',
@@ -1304,6 +1428,47 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/demo-components-ai-thought-chain',
   },
+  'demo-components-ai-token-usage': {
+    name: 'demo-components-ai-token-usage',
+    description: 'Demo of the Token Usage component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-ai-token-usage.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ai/token-usage/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ai/token-usage.tsx',
+        content:
+          'import { TokenUsage } from \'@/components/odyssey/components/ai/token-usage\';\n\nexport const TokenUsageDemo = () => {\n  return (\n    <div className="flex items-center justify-center p-8">\n      <TokenUsage />\n    </div>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ai/token-usage/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ai-token-usage';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-ai-token-usage',
+  },
   'demo-components-animate-avatar-group': {
     name: 'demo-components-animate-avatar-group',
     description: 'Demo showing a avatar group.',
@@ -1745,6 +1910,69 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/demo-components-animate-tabs',
   },
+  'demo-components-animate-text-highlighter': {
+    name: 'demo-components-animate-text-highlighter',
+    description:
+      'Demo of the TextHighlighter component showcasing all annotation types.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-animate-text-highlighter.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/animate/text-highlighter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/animate/text-highlighter.tsx',
+        content:
+          "import { TextHighlighter } from '@/components/odyssey/components/animate/text-highlighter';\n\ninterface TextHighlighterDemoProps {\n  action?:\n    | 'highlight'\n    | 'underline'\n    | 'box'\n    | 'circle'\n    | 'strike-through'\n    | 'crossed-off'\n    | 'bracket';\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n}\n\nexport const TextHighlighterDemo = ({\n  action = 'highlight',\n  color = '#51A2FF',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n}: TextHighlighterDemoProps) => {\n  return (\n    <p className=\"text-2xl font-heading font-semibold leading-snug text-center p-10\">\n      <TextHighlighter\n        key={`${action}-${color}-${strokeWidth}-${animationDuration}-${iterations}-${padding}-${multiline}`}\n        action={action}\n        color={color}\n        strokeWidth={strokeWidth}\n        animationDuration={animationDuration}\n        iterations={iterations}\n        padding={padding}\n        multiline={multiline}\n      >\n        Good Design Whispers.\n      </TextHighlighter>\n    </p>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/animate/text-highlighter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-animate-text-highlighter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        TextHighlighter: {
+          action: {
+            value: 'highlight',
+            options: {
+              highlight: 'highlight',
+              underline: 'underline',
+              box: 'box',
+              circle: 'circle',
+              'strike-through': 'strike-through',
+              'crossed-off': 'crossed-off',
+              bracket: 'bracket',
+            },
+          },
+          color: { value: '#51A2FF' },
+          strokeWidth: { value: 1.5, min: 0.5, max: 5, step: 0.5 },
+          animationDuration: { value: 600, min: 100, max: 2000, step: 100 },
+          iterations: { value: 2, min: 1, max: 5, step: 1 },
+          padding: { value: 2, min: 0, max: 20, step: 1 },
+          multiline: { value: true },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-animate-text-highlighter',
+  },
   'demo-components-animate-text-shimmer': {
     name: 'demo-components-animate-text-shimmer',
     description: 'Demo of text shimmer.',
@@ -1798,6 +2026,57 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-animate-text-shimmer',
+  },
+  'demo-components-animate-typewriter': {
+    name: 'demo-components-animate-typewriter',
+    description:
+      'Demo of the Typewriter component with multi-sequence type and delete animation.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-animate-typewriter.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/animate/typewriter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/animate/typewriter.tsx',
+        content:
+          "import { Typewriter } from '@/components/odyssey/components/animate/typewriter';\n\ntype TypewriterDemoProps = {\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n};\n\nexport const TypewriterDemo = ({\n  typingSpeed = 100,\n  deleteSpeed = 40,\n  pauseBeforeDelete = 1600,\n  loopDelay = 1200,\n  autoLoop = true,\n  naturalVariance = true,\n}: TypewriterDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <Typewriter\n        key={`${typingSpeed}-${deleteSpeed}-${pauseBeforeDelete}-${loopDelay}-${autoLoop}-${naturalVariance}`}\n        sequences={[\n          { text: 'Full-Stack Developer', deleteAfter: true },\n          { text: 'UI/UX Enthusiast', deleteAfter: true },\n          { text: 'Open to remote work', deleteAfter: false },\n        ]}\n        typingSpeed={typingSpeed}\n        deleteSpeed={deleteSpeed}\n        pauseBeforeDelete={pauseBeforeDelete}\n        loopDelay={loopDelay}\n        autoLoop={autoLoop}\n        naturalVariance={naturalVariance}\n        className=\"font-mono text-3xl tracking-tight text-foreground md:text-5xl\"\n      />\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/animate/typewriter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-animate-typewriter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        Typewriter: {
+          typingSpeed: { value: 100, min: 20, max: 300, step: 10 },
+          deleteSpeed: { value: 40, min: 10, max: 200, step: 5 },
+          pauseBeforeDelete: { value: 1600, min: 200, max: 4000, step: 100 },
+          loopDelay: { value: 1200, min: 200, max: 4000, step: 100 },
+          autoLoop: { value: true },
+          naturalVariance: { value: true },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-animate-typewriter',
   },
   'demo-components-buttons-button': {
     name: 'demo-components-buttons-button',
@@ -1937,7 +2216,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odysseyui/demo/components/buttons/github-stars.tsx',
         content:
-          "import {\n  GitHubStarsButton,\n  type GitHubStarsButtonProps,\n} from '@/components/odyssey/components/buttons/github-stars';\n\ninterface GitHubStarsButtonDemoProps {\n  variant: GitHubStarsButtonProps['variant'];\n  size: GitHubStarsButtonProps['size'];\n}\n\nexport default function GitHubStarsButtonDemo({\n  variant,\n  size,\n}: GitHubStarsButtonDemoProps) {\n  return (\n    <GitHubStarsButton\n      variant={variant}\n      size={size}\n      username=\"imskyleen\"\n      repo=\"odysseyui\"\n    />\n  );\n}",
+          "import {\n  GitHubStarsButton,\n  type GitHubStarsButtonProps,\n} from '@/components/odyssey/components/buttons/github-stars';\n\ninterface GitHubStarsButtonDemoProps {\n  variant: GitHubStarsButtonProps['variant'];\n  size: GitHubStarsButtonProps['size'];\n}\n\nexport default function GitHubStarsButtonDemo({\n  variant,\n  size,\n}: GitHubStarsButtonDemoProps) {\n  return (\n    <GitHubStarsButton\n      variant={variant}\n      size={size}\n      username=\"shr3kx\"\n      repo=\"odysseyui\"\n    />\n  );\n}",
       },
     ],
     keywords: [],

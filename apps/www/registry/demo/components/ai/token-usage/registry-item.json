@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-token-usage",
+  "type": "registry:ui",
+  "title": "Token Usage Demo",
+  "description": "Demo of the Token Usage component.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-ai-token-usage.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/token-usage/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/token-usage.tsx"
+    }
+  ]
+}

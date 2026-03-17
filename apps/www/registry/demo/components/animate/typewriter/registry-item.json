@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-animate-typewriter",
+  "type": "registry:ui",
+  "title": "Typewriter Demo",
+  "description": "Demo of the Typewriter component with multi-sequence type and delete animation.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-animate-typewriter.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/animate/typewriter/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/animate/typewriter.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "Typewriter": {
+        "typingSpeed": {
+          "value": 100,
+          "min": 20,
+          "max": 300,
+          "step": 10
+        },
+        "deleteSpeed": {
+          "value": 40,
+          "min": 10,
+          "max": 200,
+          "step": 5
+        },
+        "pauseBeforeDelete": {
+          "value": 1600,
+          "min": 200,
+          "max": 4000,
+          "step": 100
+        },
+        "loopDelay": {
+          "value": 1200,
+          "min": 200,
+          "max": 4000,
+          "step": 100
+        },
+        "autoLoop": {
+          "value": true
+        },
+        "naturalVariance": {
+          "value": true
+        }
+      }
+    }
+  }
+}

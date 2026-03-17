@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-token-usage",
+  "type": "registry:ui",
+  "title": "Token Usage",
+  "description": "A token usage card showing input/output counts, costs, proportion bar, and an interactive token breakdown with tooltips.",
+  "dependencies": ["lucide-react", "class-variance-authority"],
+  "registryDependencies": [
+    "card",
+    "tooltip",
+    "https://odysseyui.com/r/components-ui-badge.json"
+  ],
+  "files": [
+    {
+      "path": "registry/components/ai/token-usage/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/token-usage.tsx"
+    }
+  ]
+}

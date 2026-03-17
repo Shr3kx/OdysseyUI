@@ -10,7 +10,6 @@
     "animate/code-block",
     "animate/footer",
     "animate/card-stroke",
-    "animate/text-shimmer",
     "---Primitives---",
     "primitives/badge",
 
@@ -20,6 +19,11 @@
     "buttons/theme-toggler",
     "buttons/smart-upload",
 
+    "---Text Effects---",
+    "animate/text-shimmer",
+    "animate/text-highlighter",
+    "animate/typewriter",
+
     "---Preloaders---",
     "preloaders/greetings",
     "---AI Elements---",
@@ -27,6 +31,7 @@
     "ai/thought-chain",
     "ai/steps",
     "ai/model-selector",
+    "ai/token-usage",
     "---Community---",
     "community/notification-list",
     "community/playful-todolist"
