@@ -16,7 +16,7 @@ export default function GitHubStarsButtonDemo({
     <GitHubStarsButton
       variant={variant}
       size={size}
-      username="imskyleen"
+      username="shr3kx"
       repo="odysseyui"
     />
   );
