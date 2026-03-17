@@ -1762,7 +1762,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odyssey/demo/animate/text-shimmer.tsx',
         content:
-          "import { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\ninterface TextShimmerDemoProps {\n  text: string;\n  duration: number;\n  spread: number;\n}\n\nexport const TextShimmerDemo = ({\n  text = 'Odyssey UI',\n  duration = 1,\n  spread = 2,\n}: TextShimmerDemoProps) => {\n  return (\n    <ShimmerText\n      key={`${text}-${duration}-${spread}`}\n      text={text}\n      duration={duration}\n      spread={spread}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};",
+          "import { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\ninterface TextShimmerDemoProps {\n  text?: string;\n  duration?: number;\n  delay?: number;\n  spread?: number;\n  repeat?: boolean;\n  repeatDelay?: number;\n  startOnView?: boolean;\n  once?: boolean;\n  color?: string;\n  shimmerColor?: string;\n}\n\nexport const TextShimmerDemo = ({\n  text = 'Odyssey UI',\n  duration = 1,\n  delay = 0,\n  spread = 2,\n  repeat = true,\n  repeatDelay = 0.5,\n  startOnView = true,\n  once = false,\n  color,\n  shimmerColor,\n}: TextShimmerDemoProps) => {\n  return (\n    <ShimmerText\n      key={`${text}-${duration}-${delay}-${spread}-${repeat}-${repeatDelay}-${startOnView}-${once}-${color}-${shimmerColor}`}\n      text={text}\n      duration={duration}\n      delay={delay}\n      spread={spread}\n      repeat={repeat}\n      repeatDelay={repeatDelay}\n      startOnView={startOnView}\n      once={once}\n      color={color}\n      shimmerColor={shimmerColor}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};",
       },
     ],
     keywords: [],
@@ -1785,7 +1785,14 @@ export const index: Record<string, any> = {
         ShimmerText: {
           text: { value: 'Odyssey UI' },
           duration: { value: 1, min: 0.1, max: 5, step: 0.1 },
+          delay: { value: 0, min: 0, max: 3, step: 0.1 },
           spread: { value: 2, min: 1, max: 10, step: 1 },
+          repeat: { value: true },
+          repeatDelay: { value: 0.5, min: 0, max: 5, step: 0.1 },
+          startOnView: { value: true },
+          once: { value: false },
+          color: { value: '#888888' },
+          shimmerColor: { value: '#ffffff' },
         },
       };
       return LazyComp;

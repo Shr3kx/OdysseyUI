@@ -3,7 +3,10 @@
   "name": "components-ai-model-selector",
   "title": "Model Selector",
   "description": "A modal-based AI model picker with provider filtering, search, starred models, and capability badges.",
-  "dependencies": ["motion", "lucide-react"],
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "dialog",
     "tooltip",

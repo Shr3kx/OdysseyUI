@@ -3,7 +3,9 @@
   "name": "components-animate-code-tabs",
   "title": "Code Tabs",
   "description": "A tabs component that displays code for different languages.",
-  "dependencies": ["shiki"],
+  "dependencies": [
+    "shiki"
+  ],
   "registryDependencies": [
     "https://odysseyui.com/r/primitives-animate-tabs.json",
     "https://odysseyui.com/r/components-buttons-copy.json"
