@@ -8,6 +8,7 @@ import {
   AudioWave01FreeIcons,
   HouseIcon,
   TextIcon,
+  Cloud,
 } from '@hugeicons/core-free-icons';
 import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
@@ -76,6 +77,11 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
           icon={<HugeiconsIcon icon={ArtificialIntelligence04Icon} />}
           name="AI Elements"
         />
+      );
+      break;
+    case 'Logo Cloud':
+      node.name = (
+        <Separator icon={<HugeiconsIcon icon={Cloud} />} name="Logo Cloud" />
       );
       break;
     case 'Text Effects':

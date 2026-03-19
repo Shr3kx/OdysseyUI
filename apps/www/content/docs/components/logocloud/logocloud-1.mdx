@@ -1,0 +1,91 @@
+---
+title: Logo Cloud 1
+description: Animated logo cloud with staggered fade-in and group cycling.
+---
+
+<ComponentPreview name="demo-components-logocloud-logocloud-1" />
+
+## Installation
+
+<ComponentInstallation name="components-logocloud-logocloud-1" />
+
+## Usage
+
+<Callout type="info">
+  For provider icons, you can use [svgl](https://svgl.app/) — a beautiful
+  library of SVG logos for popular brands and services.
+</Callout>
+
+```tsx
+import {
+  LogoCloud,
+  LogoCloudGroup,
+  LogoCloudItem,
+} from '@/components/odysseyui/logocloud-1';
+
+export default function Page() {
+  return (
+    <LogoCloud label="Trusted by">
+      <LogoCloudGroup>
+        <LogoCloudItem icon={<YourLogo />} name="Brand" />
+      </LogoCloudGroup>
+    </LogoCloud>
+  );
+}
+```
+
+## How It Works
+
+- `LogoCloud` cycles through `LogoCloudGroup` children on a timer.
+- Each group fades out with a staggered blur effect before the next group fades in.
+- `LogoCloudItem` receives its stagger index automatically via `React.cloneElement`.
+
+## API Reference
+
+### LogoCloud
+
+<TypeTable
+  type={{
+    label: {
+      description: 'Optional heading displayed above the logo row.',
+      type: 'string',
+      default: '""',
+    },
+    displayDuration: {
+      description: 'How long (ms) a group stays fully visible before cycling.',
+      type: 'number',
+      default: '2000',
+    },
+    fadeDuration: {
+      description: 'Fade transition duration in seconds.',
+      type: 'number',
+      default: '0.6',
+    },
+    staggerDelay: {
+      description: 'Per-item stagger delay in seconds.',
+      type: 'number',
+      default: '0.08',
+    },
+    className: {
+      description: 'Extra classes applied to the outer section element.',
+      type: 'string',
+    },
+  }}
+/>
+
+### LogoCloudItem
+
+<TypeTable
+  type={{
+    icon: {
+      description: 'The logo SVG or image node.',
+      type: 'ReactNode',
+      required: true,
+    },
+    name: {
+      description: 'Brand name displayed beside the icon.',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>

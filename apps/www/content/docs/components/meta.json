@@ -10,6 +10,17 @@
     "animate/code-block",
     "animate/footer",
     "animate/card-stroke",
+
+    "---AI Elements---",
+    "ai/prompt-input",
+    "ai/thought-chain",
+    "ai/steps",
+    "ai/model-selector",
+    "ai/token-usage",
+
+    "---Logo Cloud---",
+    "logocloud/logocloud-1",
+
     "---Primitives---",
     "primitives/badge",
 
@@ -28,12 +39,7 @@
 
     "---Preloaders---",
     "preloaders/greetings",
-    "---AI Elements---",
-    "ai/prompt-input",
-    "ai/thought-chain",
-    "ai/steps",
-    "ai/model-selector",
-    "ai/token-usage",
+
     "---Community---",
     "community/notification-list",
     "community/playful-todolist"

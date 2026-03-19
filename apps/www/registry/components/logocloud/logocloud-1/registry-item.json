@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-logocloud-logocloud-1",
+  "type": "registry:ui",
+  "title": "Logo Cloud 1",
+  "description": "Animated logo cloud with staggered fade-in and group cycling.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/components/logocloud/logocloud-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/logocloud.tsx"
+    }
+  ]
+}

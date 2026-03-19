@@ -954,6 +954,46 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/components-community-playful-todolist',
   },
+  'components-logocloud-logocloud-1': {
+    name: 'components-logocloud-logocloud-1',
+    description:
+      'Animated logo cloud with staggered fade-in and group cycling.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/logocloud/logocloud-1/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/logocloud.tsx',
+        content:
+          "'use client';\n\nimport React, { createContext, useContext, useEffect, useState } from 'react';\nimport { motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\ntype LogoCloudContextType = {\n  visible: boolean;\n  fadeDuration: number;\n  staggerDelay: number;\n};\n\nconst LogoCloudCtx = createContext<LogoCloudContextType>({\n  visible: true,\n  fadeDuration: 0.6,\n  staggerDelay: 0.08,\n});\n\ninterface LogoItemProps {\n  icon: React.ReactNode;\n  name: string;\n  _index?: number;\n}\n\nexport function LogoCloudItem({ icon, name, _index = 0 }: LogoItemProps) {\n  const { visible, fadeDuration, staggerDelay } = useContext(LogoCloudCtx);\n\n  return (\n    <motion.div\n      initial={{ opacity: 0, filter: 'blur(8px)' }}\n      animate={{\n        opacity: visible ? 1 : 0,\n        filter: visible ? 'blur(0px)' : 'blur(8px)',\n      }}\n      transition={{\n        delay: _index * staggerDelay,\n        duration: fadeDuration,\n        ease: 'easeInOut',\n      }}\n      className=\"flex flex-row items-center gap-2 cursor-default\"\n    >\n      {icon}\n      <span className=\"text-lg font-semibold text-foreground tracking-tight whitespace-nowrap\">\n        {name}\n      </span>\n    </motion.div>\n  );\n}\n\ninterface LogoGroupProps {\n  children: React.ReactNode;\n  _active?: boolean;\n}\n\nexport function LogoCloudGroup({ children, _active = false }: LogoGroupProps) {\n  if (!_active) return null;\n\n  const items = React.Children.toArray(children);\n  return (\n    <>\n      {items.map((item, i) =>\n        React.isValidElement(item)\n          ? React.cloneElement(\n              item as React.ReactElement<{ _index?: number }>,\n              {\n                _index: i,\n              },\n            )\n          : null,\n      )}\n    </>\n  );\n}\n\ninterface LogoCloudRootProps {\n  children: React.ReactNode;\n  label?: string;\n  displayDuration?: number | boolean;\n  fadeDuration?: number | boolean;\n  staggerDelay?: number | boolean;\n  className?: string;\n}\n\nexport function LogoCloud({\n  children,\n  label = '',\n  displayDuration,\n  fadeDuration,\n  staggerDelay,\n  className,\n}: LogoCloudRootProps) {\n  const resolvedDisplayDuration =\n    typeof displayDuration === 'number' ? displayDuration : 2000;\n  const resolvedFadeDuration =\n    typeof fadeDuration === 'number' ? fadeDuration : 0.6;\n  const resolvedStaggerDelay =\n    typeof staggerDelay === 'number' ? staggerDelay : 0.08;\n  const [groupIndex, setGroupIndex] = useState(0);\n  const [visible, setVisible] = useState(true);\n\n  const groups = React.Children.toArray(children).filter(React.isValidElement);\n  const totalGroups = groups.length;\n\n  const currentGroup = groups[groupIndex];\n  const itemCount = React.isValidElement(currentGroup)\n    ? React.Children.count(\n        (currentGroup as React.ReactElement<{ children: React.ReactNode }>)\n          .props.children,\n      )\n    : 0;\n  const totalExitMs =\n    ((itemCount - 1) * resolvedStaggerDelay + resolvedFadeDuration) * 1000 +\n    150;\n  const cycleMs = resolvedDisplayDuration + totalExitMs;\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      setVisible(false);\n      setTimeout(() => {\n        setGroupIndex((prev) => (prev + 1) % totalGroups);\n        setVisible(true);\n      }, totalExitMs);\n    }, cycleMs);\n\n    return () => clearInterval(interval);\n  }, [totalGroups, totalExitMs, cycleMs]);\n\n  return (\n    <LogoCloudCtx.Provider\n      value={{\n        visible,\n        fadeDuration: resolvedFadeDuration,\n        staggerDelay: resolvedStaggerDelay,\n      }}\n    >\n      <section className={cn('w-full py-16 px-6', className)}>\n        <div className=\"max-w-4xl mx-auto flex flex-col items-center gap-10\">\n          {label && (\n            <p className=\"text-muted-foreground text-sm tracking-widest uppercase font-light\">\n              {label}\n            </p>\n          )}\n          <div className=\"flex items-center justify-center gap-8 md:gap-12 flex-wrap\">\n            {groups.map((group, i) =>\n              React.isValidElement(group)\n                ? React.cloneElement(\n                    group as React.ReactElement<{ _active?: boolean }>,\n                    {\n                      _active: i === groupIndex,\n                    },\n                  )\n                : null,\n            )}\n          </div>\n        </div>\n      </section>\n    </LogoCloudCtx.Provider>\n  );\n}\n\nexport default LogoCloud;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/logocloud/logocloud-1/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-logocloud-logocloud-1';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-logocloud-logocloud-1',
+  },
   'components-preloaders-greetings': {
     name: 'components-preloaders-greetings',
     description:
@@ -2347,6 +2387,45 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-community-playful-todolist',
+  },
+  'demo-components-logocloud-logocloud-1': {
+    name: 'demo-components-logocloud-logocloud-1',
+    description: 'Demo of the animated logo cloud with group cycling.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-logocloud-logocloud-1'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/logocloud/logocloud-1/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/logocloud/logocloud-1.tsx',
+        content:
+          'import {\n  LogoCloud,\n  LogoCloudGroup,\n  LogoCloudItem,\n} from \'@/components/odyssey/components/logocloud/logocloud-1\';\n\nconst ClaudeLogo = () => (\n  <svg preserveAspectRatio="xMidYMid" viewBox="0 0 256 257" className="h-8 w-8">\n    <path\n      fill="#D97757"\n      d="m50.228 170.321 50.357-28.257.843-2.463-.843-1.361h-2.462l-8.426-.518-28.775-.778-24.952-1.037-24.175-1.296-6.092-1.297L0 125.796l.583-3.759 5.12-3.434 7.324.648 16.202 1.101 24.304 1.685 17.629 1.037 26.118 2.722h4.148l.583-1.685-1.426-1.037-1.101-1.037-25.147-17.045-27.22-18.017-14.258-10.37-7.713-5.25-3.888-4.925-1.685-10.758 7-7.713 9.397.649 2.398.648 9.527 7.323 20.35 15.75L94.817 91.9l3.889 3.24 1.555-1.102.195-.777-1.75-2.917-14.453-26.118-15.425-26.572-6.87-11.018-1.814-6.61c-.648-2.723-1.102-4.991-1.102-7.778l7.972-10.823L71.42 0 82.05 1.426l4.472 3.888 6.61 15.101 10.694 23.786 16.591 32.34 4.861 9.592 2.592 8.879.973 2.722h1.685v-1.556l1.36-18.211 2.528-22.36 2.463-28.776.843-8.1 4.018-9.722 7.971-5.25 6.222 2.981 5.12 7.324-.713 4.73-3.046 19.768-5.962 30.98-3.889 20.739h2.268l2.593-2.593 10.499-13.934 17.628-22.036 7.778-8.749 9.073-9.657 5.833-4.601h11.018l8.1 12.055-3.628 12.443-11.342 14.388-9.398 12.184-13.48 18.147-8.426 14.518.778 1.166 2.01-.194 30.46-6.481 16.462-2.982 19.637-3.37 8.88 4.148.971 4.213-3.5 8.62-20.998 5.184-24.628 4.926-36.682 8.685-.454.324.519.648 16.526 1.555 7.065.389h17.304l32.21 2.398 8.426 5.574 5.055 6.805-.843 5.184-12.962 6.611-17.498-4.148-40.83-9.721-14-3.5h-1.944v1.167l11.666 11.406 21.387 19.314 26.767 24.887 1.36 6.157-3.434 4.86-3.63-.518-23.526-17.693-9.073-7.972-20.545-17.304h-1.36v1.814l4.73 6.935 25.017 37.59 1.296 11.536-1.814 3.76-6.481 2.268-7.13-1.297-14.647-20.544-15.1-23.138-12.185-20.739-1.49.843-7.194 77.448-3.37 3.953-7.778 2.981-6.48-4.925-3.436-7.972 3.435-15.749 4.148-20.544 3.37-16.333 3.046-20.285 1.815-6.74-.13-.454-1.49.194-15.295 20.999-23.267 31.433-18.406 19.702-4.407 1.75-7.648-3.954.713-7.064 4.277-6.286 25.47-32.405 15.36-20.092 9.917-11.6-.065-1.686h-.583L44.07 198.125l-12.055 1.555-5.185-4.86.648-7.972 2.463-2.593 20.35-13.999-.064.065Z"\n    />\n  </svg>\n);\n\nconst NvidiaLogo = () => (\n  <svg\n    xmlSpace="preserve"\n    viewBox="35.188 31.512 351.46 258.785"\n    fill="currentColor"\n    className="h-6 w-auto"\n  >\n    <path d="M384.195 282.109c0 3.771-2.769 6.302-6.047 6.302v-.023c-3.371.023-6.089-2.508-6.089-6.278 0-3.769 2.718-6.293 6.089-6.293 3.279-.001 6.047 2.523 6.047 6.292zm2.453 0c0-5.175-4.02-8.179-8.5-8.179-4.511 0-8.531 3.004-8.531 8.179 0 5.172 4.021 8.188 8.531 8.188 4.481 0 8.5-3.016 8.5-8.188m-9.91.692h.91l2.109 3.703h2.316l-2.336-3.859c1.207-.086 2.2-.661 2.2-2.286 0-2.019-1.392-2.668-3.75-2.668h-3.411v8.813h1.961v-3.703m.001-1.492v-2.122h1.364c.742 0 1.753.06 1.753.965 0 .985-.523 1.157-1.398 1.157h-1.719M329.406 237.027l10.598 28.993H318.48l10.926-28.993zm-11.35-11.289-24.423 61.88h17.246l3.863-10.934h28.903l3.656 10.934h18.722l-24.605-61.888-23.362.008zm-49.033 61.903h17.497v-61.922l-17.5-.004.003 61.926zm-121.467-61.926-14.598 49.078-13.984-49.074-18.879-.004 19.972 61.926h25.207l20.133-61.926h-17.851zm70.725 13.484h7.52c10.91 0 17.966 4.898 17.966 17.609 0 12.714-7.056 17.613-17.966 17.613h-7.52v-35.222zm-17.35-13.484v61.926h28.366c15.113 0 20.048-2.512 25.384-8.148 3.769-3.957 6.207-12.641 6.207-22.134 0-8.707-2.063-16.468-5.66-21.304-6.481-8.649-15.817-10.34-29.75-10.34h-24.547zm-165.743-.086v62.012h17.645v-47.086l13.672.004c4.527 0 7.754 1.128 9.934 3.457 2.765 2.945 3.894 7.699 3.894 16.395v27.23h17.098v-34.262c0-24.453-15.586-27.75-30.836-27.75H35.188zm137.583.086.007 61.926h17.489v-61.926h-17.496z" />\n    <path\n      fill="#77B900"\n      d="M82.211 102.414s22.504-33.203 67.437-36.638V53.73c-49.769 3.997-92.867 46.149-92.867 46.149s24.41 70.565 92.867 77.026v-12.804c-50.237-6.32-67.437-61.687-67.437-61.687zm67.437 36.223v11.726c-37.968-6.769-48.507-46.237-48.507-46.237s18.23-20.195 48.507-23.47v12.867c-.023 0-.039-.007-.058-.007-15.891-1.907-28.305 12.938-28.305 12.938s6.958 24.991 28.363 32.183m0-107.125V53.73c1.461-.112 2.922-.207 4.391-.257 56.582-1.907 93.449 46.406 93.449 46.406s-42.343 51.488-86.457 51.488c-4.043 0-7.828-.375-11.383-1.005v13.739c3.04.386 6.192.613 9.481.613 41.051 0 70.738-20.965 99.484-45.778 4.766 3.817 24.278 13.103 28.289 17.168-27.332 22.883-91.031 41.329-127.144 41.329-3.481 0-6.824-.211-10.11-.528v19.306H305.68V31.512H149.648zm0 49.144V65.777c1.446-.101 2.903-.179 4.391-.226 40.688-1.278 67.382 34.965 67.382 34.965s-28.832 40.043-59.746 40.043c-4.449 0-8.438-.715-12.028-1.922V93.523c15.84 1.914 19.028 8.911 28.551 24.786l21.18-17.859s-15.461-20.277-41.524-20.277c-2.833-.001-5.544.198-8.206.483"\n    />\n  </svg>\n);\n\nconst ClerkLogo = () => (\n  <svg fill="none" viewBox="0 0 128 128" className="h-8 w-8">\n    <circle cx="64" cy="64" r="20" fill="#6C47FF" />\n    <path\n      fill="#BAB1FF"\n      d="M99.572 10.788c1.999 1.34 2.17 4.156.468 5.858L85.424 31.262c-1.32 1.32-3.37 1.53-5.033.678A35.846 35.846 0 0 0 64 28c-19.882 0-36 16.118-36 36a35.846 35.846 0 0 0 3.94 16.391c.851 1.663.643 3.712-.678 5.033L16.646 100.04c-1.702 1.702-4.519 1.531-5.858-.468C3.974 89.399 0 77.163 0 64 0 28.654 28.654 0 64 0c13.163 0 25.399 3.974 35.572 10.788Z"\n    />\n    <path\n      fill="#6C47FF"\n      d="M100.04 111.354c1.702 1.702 1.531 4.519-.468 5.858C89.399 124.026 77.164 128 64 128c-13.164 0-25.399-3.974-35.572-10.788-2-1.339-2.17-4.156-.468-5.858l14.615-14.616c1.322-1.32 3.37-1.53 5.033-.678A35.847 35.847 0 0 0 64 100a35.846 35.846 0 0 0 16.392-3.94c1.662-.852 3.712-.643 5.032.678l14.616 14.616Z"\n    />\n  </svg>\n);\n\nconst BoltLogo = () => (\n  <svg viewBox="0 45.65 160 68.7" fill="currentColor" className="h-6 w-auto">\n    <path d="M75.61 106.195c-14.747 0-21.962-8.468-21.962-19.136s10.04-24.157 24.782-24.157c14.746 0 21.96 8.47 21.96 19.137 0 10.668-10.038 24.156-24.78 24.156Zm.624-13.488c5.02 0 8.473-4.707 8.473-9.727 0-5.02-2.512-6.273-6.902-6.273-4.395 0-8.473 4.703-8.473 9.723 0 5.02 2.512 6.277 6.902 6.277Zm39.844 12.547h-15.371l12.547-57.098h15.375l-12.55 56.785Zm0 0" />\n    <path\n      fillRule="evenodd"\n      d="M30.117 106.195c-4.707 0-9.41-1.566-11.922-5.332l-.941 4.39L0 114.353l1.883-9.098L14.43 48.156h15.375L25.41 68.234c3.453-3.765 6.902-5.332 11.297-5.332 9.41 0 15.371 5.961 15.371 17.254 0 11.293-7.215 26.04-21.96 26.04Zm5.961-22.902c0 5.336-3.766 9.414-8.785 9.414-5.02 0-5.332-.941-6.902-2.824l2.511-10.352c1.883-1.883 3.766-2.824 6.274-2.824 3.765 0 6.902 2.824 6.902 6.902Zm0 0"\n    />\n    <path d="M144.629 106.195c-8.785 0-15.375-3.136-15.375-10.351 0-7.215 0-2.196.316-3.137l3.45-15.375h-6.903l3.137-13.176h6.902l2.512-11.293 17.254-7.215-1.883 7.215-2.508 11.293H160l-3.137 13.176h-8.472l-2.196 10.04v1.882c0 1.883 1.254 3.453 3.766 3.453 2.508 0 1.883 0 2.195-.316v12.238c-1.566 1.254-4.39 1.566-7.215 1.566Zm0 0" />\n  </svg>\n);\n\nconst StripeLogo = () => (\n  <svg fill="none" viewBox="100 100 312 312" className="h-8 w-8">\n    <path\n      fill="#533afd"\n      fillRule="evenodd"\n      d="m120 392 272-57.683V120l-272 58.357z"\n      clipRule="evenodd"\n    />\n  </svg>\n);\n\nconst VercelLogo = () => (\n  <svg\n    viewBox="0 0 256 222"\n    preserveAspectRatio="xMidYMid"\n    fill="currentColor"\n    className="h-7 w-auto"\n  >\n    <path d="m128 0 128 221.705H0z" />\n  </svg>\n);\n\nconst LinearLogo = () => (\n  <svg fill="none" viewBox="0 0 100 100" className="h-7 w-7">\n    <path\n      fill="#5E6AD2"\n      d="M1.225 61.523c-.222-.949.908-1.546 1.597-.857l36.512 36.512c.69.69.092 1.82-.857 1.597-18.425-4.323-32.93-18.827-37.252-37.252ZM.002 46.889a.99.99 0 0 0 .29.76L52.35 99.71c.201.2.478.307.76.29 2.37-.149 4.695-.46 6.963-.927.765-.157 1.03-1.096.478-1.648L2.576 39.448c-.552-.551-1.491-.286-1.648.479a50.067 50.067 0 0 0-.926 6.962ZM4.21 29.705a.988.988 0 0 0 .208 1.1l64.776 64.776c.289.29.726.375 1.1.208a49.908 49.908 0 0 0 5.185-2.684.981.981 0 0 0 .183-1.54L8.436 24.336a.981.981 0 0 0-1.541.183 49.896 49.896 0 0 0-2.684 5.185Zm8.448-11.631a.986.986 0 0 1-.045-1.354C21.78 6.46 35.111 0 49.952 0 77.592 0 100 22.407 100 50.048c0 14.84-6.46 28.172-16.72 37.338a.986.986 0 0 1-1.354-.045L12.659 18.074Z"\n    />\n  </svg>\n);\n\nexport const LogoCloud1Demo = () => {\n  return (\n    <LogoCloud label="logo cloud 1">\n      <LogoCloudGroup>\n        <LogoCloudItem icon={<ClaudeLogo />} name="Claude" />\n        <LogoCloudItem icon={<NvidiaLogo />} name="Nvidia" />\n        <LogoCloudItem icon={<ClerkLogo />} name="Clerk" />\n        <LogoCloudItem icon={<BoltLogo />} name="Bolt" />\n        <LogoCloudItem icon={<StripeLogo />} name="Stripe" />\n      </LogoCloudGroup>\n      <LogoCloudGroup>\n        <LogoCloudItem icon={<VercelLogo />} name="Vercel" />\n        <LogoCloudItem icon={<ClaudeLogo />} name="Claude" />\n        <LogoCloudItem icon={<LinearLogo />} name="Linear" />\n        <LogoCloudItem icon={<BoltLogo />} name="Bolt" />\n        <LogoCloudItem icon={<ClerkLogo />} name="Clerk" />\n      </LogoCloudGroup>\n    </LogoCloud>\n  );\n};\n\nexport default LogoCloud1Demo;',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/logocloud/logocloud-1/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-logocloud-logocloud-1';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-logocloud-logocloud-1',
   },
   'demo-components-preloaders-greetings': {
     name: 'demo-components-preloaders-greetings',

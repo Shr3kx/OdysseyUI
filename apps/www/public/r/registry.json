@@ -461,6 +461,22 @@
       ]
     },
     {
+      "name": "components-logocloud-logocloud-1",
+      "type": "registry:ui",
+      "title": "Logo Cloud 1",
+      "description": "Animated logo cloud with staggered fade-in and group cycling.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/logocloud/logocloud-1/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/logocloud.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-preloaders-greetings",
       "type": "registry:ui",
       "title": "Greeting Preloader",
@@ -1254,6 +1270,22 @@
           "path": "registry/demo/components/community/playful-todolist/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/demo/components/community/playful-todolist.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-logocloud-logocloud-1",
+      "type": "registry:ui",
+      "title": "Logo Cloud 1 Demo",
+      "description": "Demo of the animated logo cloud with group cycling.",
+      "registryDependencies": [
+        "odyssey/components-logocloud-logocloud-1"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/logocloud/logocloud-1/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/logocloud/logocloud-1.tsx"
         }
       ]
     },
