@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-texts-text-highlighter",
+  "type": "registry:ui",
+  "title": "Text Highlighter",
+  "description": "Rough-notation powered text annotations — highlight, underline, box, circle, and more.",
+  "dependencies": ["motion", "rough-notation"],
+  "files": [
+    {
+      "path": "registry/components/texts/text-highlighter/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/text-highlighter.tsx"
+    }
+  ]
+}

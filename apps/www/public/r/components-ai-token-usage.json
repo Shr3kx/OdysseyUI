@@ -3,7 +3,10 @@
   "name": "components-ai-token-usage",
   "title": "Token Usage",
   "description": "A token usage card showing input/output counts, costs, proportion bar, and an interactive token breakdown with tooltips.",
-  "dependencies": ["lucide-react", "class-variance-authority"],
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "card",
     "tooltip",

@@ -44,7 +44,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odysseyui/model-selector.tsx',
         content:
-          '\'use client\';\n\nimport {\n  useState,\n  useContext,\n  createContext,\n  type ReactNode,\n  type Dispatch,\n  type SetStateAction,\n} from \'react\';\nimport { motion, AnimatePresence } from \'motion/react\';\nimport {\n  Search,\n  X,\n  ChevronDown,\n  Eye,\n  Brain,\n  Globe,\n  Star,\n  LayoutGrid,\n  ArrowRight,\n} from \'lucide-react\';\nimport {\n  Dialog,\n  DialogContent,\n  DialogTitle,\n  DialogClose,\n} from \'@/components/ui/dialog\';\nimport { cn } from \'@/lib/utils\';\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \'@/components/ui/tooltip\';\nimport { ShimmerText } from \'@/components/odyssey/components/animate/text-shimmer\';\n\nexport type Cap = \'vision\' | \'tools\' | \'search\';\nexport type Cost = string;\n\nexport interface Provider {\n  id: string;\n  icon: ReactNode;\n  label: string;\n}\n\nexport interface Model {\n  id: string;\n  provider: string;\n  name: string;\n  desc: string;\n  cost: Cost;\n  tag: string | null;\n  caps: string[];\n  starred: boolean;\n}\n\ninterface ModelSelectorCtxValue {\n  providers: Provider[];\n  models: Model[];\n  open: boolean;\n  setOpen: Dispatch<SetStateAction<boolean>>;\n  selected: Model;\n  setSelected: Dispatch<SetStateAction<Model>>;\n  search: string;\n  setSearch: Dispatch<SetStateAction<string>>;\n  activeProvider: string | null;\n  setActiveProvider: Dispatch<SetStateAction<string | null>>;\n  filtered: Model[];\n  starred: Set<string>;\n  toggleStar: (id: string) => void;\n}\n\nconst ModelSelectorCtx = createContext<ModelSelectorCtxValue | null>(null);\n\nconst useModelSelector = () => {\n  const ctx = useContext(ModelSelectorCtx);\n  if (!ctx) throw new Error(\'Must be used inside <ModelSelector>\');\n  return ctx;\n};\n\nconst CAP_ICONS: Record<\n  Cap,\n  { icon: React.ElementType; label: string; color: string }\n> = {\n  vision: { icon: Eye, label: \'Vision\', color: \'text-violet-400\' },\n  tools: { icon: Brain, label: \'Reasoning\', color: \'text-orange-400\' },\n  search: { icon: Globe, label: \'Search\', color: \'text-emerald-400\' },\n};\n\nconst COST_CLASS = \'text-muted-foreground/50 font-mono text-xs\';\n\nexport function ModelSelector({\n  children,\n  providers,\n  models,\n  defaultModel,\n}: {\n  children: ReactNode;\n  providers: Provider[];\n  models: Model[];\n  defaultModel?: Model;\n}) {\n  const initialModel = defaultModel ?? models[0];\n  const [open, setOpen] = useState(false);\n  const [selected, setSelected] = useState<Model>(initialModel);\n  const [search, setSearch] = useState(\'\');\n  const [activeProvider, setActiveProvider] = useState<string | null>(null);\n  const [starred, setStarred] = useState(\n    () => new Set(models.filter((m) => m.starred).map((m) => m.id)),\n  );\n\n  const toggleStar = (id: string) =>\n    setStarred((prev) => {\n      const n = new Set(prev);\n      if (n.has(id)) {\n        n.delete(id);\n      } else {\n        n.add(id);\n      }\n      return n;\n    });\n\n  const filtered = models.filter((m) => {\n    const matchProvider = !activeProvider || m.provider === activeProvider;\n    const q = search.toLowerCase();\n    const matchSearch =\n      !q ||\n      m.name.toLowerCase().includes(q) ||\n      m.desc.toLowerCase().includes(q);\n    return matchProvider && matchSearch;\n  });\n\n  return (\n    <ModelSelectorCtx.Provider\n      value={{\n        providers,\n        models,\n        open,\n        setOpen,\n        selected,\n        setSelected,\n        search,\n        setSearch,\n        activeProvider,\n        setActiveProvider,\n        filtered,\n        starred,\n        toggleStar,\n      }}\n    >\n      {children}\n    </ModelSelectorCtx.Provider>\n  );\n}\n\nexport function ModelSelectorTrigger({\n  className = \'\',\n}: {\n  className?: string;\n}) {\n  const { setOpen, selected } = useModelSelector();\n  return (\n    <motion.button\n      onClick={() => setOpen(true)}\n      whileHover={{ scale: 1.02 }}\n      whileTap={{ scale: 0.97 }}\n      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary border border-border text-sm font-medium text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${className}`}\n    >\n      <span className="text-xs text-muted-foreground font-mono">\n        <ShimmerText text={selected.name} />\n      </span>\n      <span className={COST_CLASS}>{selected.cost}</span>\n      <ChevronDown className="w-3 h-3 text-muted-foreground/60" />\n    </motion.button>\n  );\n}\n\nexport function ModelSelectorModal() {\n  const { open, setOpen } = useModelSelector();\n\n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogContent\n        showCloseButton={false}\n        aria-describedby={undefined}\n        className={cn(\n          \'flex flex-col gap-0 p-0 ring-0 border border-border shadow-2xl overflow-hidden duration-200\',\n          \'top-auto bottom-0 inset-x-0 translate-x-0 translate-y-0 max-w-full rounded-t-3xl rounded-b-none max-h-[85vh]\',\n          \'sm:top-1/2 sm:left-1/2 sm:right-auto sm:bottom-auto sm:w-130 sm:max-w-130 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:max-h-150\',\n        )}\n      >\n        <DialogTitle className="sr-only">Select a model</DialogTitle>\n        <ModelSelectorHeader />\n        <div className="flex flex-1 min-h-0">\n          <ModelSelectorProviderSidebar />\n          <ModelSelectorModelList />\n        </div>\n        <ModelSelectorFooter />\n      </DialogContent>\n    </Dialog>\n  );\n}\n\nfunction ModelSelectorHeader() {\n  const { search, setSearch } = useModelSelector();\n  return (\n    <div className="flex items-center gap-3 px-4 pt-4 pb-3 border-b border-border">\n      <Search className="w-4 h-4 text-muted-foreground shrink-0" />\n      <input\n        autoFocus\n        value={search}\n        onChange={(e) => setSearch(e.target.value)}\n        placeholder="Search models…"\n        className="flex-1 bg-transparent text-sm text-popover-foreground placeholder:text-muted-foreground/50 outline-none font-light tracking-wide font-mono"\n      />\n      <AnimatePresence>\n        {search && (\n          <motion.button\n            initial={{ scale: 0, opacity: 0 }}\n            animate={{ scale: 1, opacity: 1 }}\n            exit={{ scale: 0, opacity: 0 }}\n            transition={{ duration: 0.15 }}\n            onClick={() => setSearch(\'\')}\n            className="text-muted-foreground hover:text-foreground transition-colors"\n          >\n            <X className="w-3.5 h-3.5" />\n          </motion.button>\n        )}\n      </AnimatePresence>\n      <DialogClose asChild>\n        <button className="ml-1 w-6 h-6 rounded-lg flex items-center justify-center bg-secondary hover:bg-accent text-muted-foreground hover:text-accent-foreground transition-colors">\n          <X className="w-3.5 h-3.5" />\n        </button>\n      </DialogClose>\n    </div>\n  );\n}\n\nfunction ModelSelectorProviderSidebar() {\n  const { providers, activeProvider, setActiveProvider } = useModelSelector();\n  return (\n    <div className="flex flex-col gap-0.5 py-3 px-2 border-r border-border w-14 shrink-0">\n      <SidebarBtn\n        active={!activeProvider}\n        onClick={() => setActiveProvider(null)}\n        title="All"\n      >\n        <LayoutGrid className="w-4 h-4" />\n      </SidebarBtn>\n      {providers.map((p) => (\n        <SidebarBtn\n          key={p.id}\n          active={activeProvider === p.id}\n          onClick={() =>\n            setActiveProvider(activeProvider === p.id ? null : p.id)\n          }\n          title={p.label}\n        >\n          <span className="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">\n            {p.icon}\n          </span>\n        </SidebarBtn>\n      ))}\n    </div>\n  );\n}\n\nfunction SidebarBtn({\n  active,\n  onClick,\n  title,\n  children,\n}: {\n  active: boolean;\n  onClick: () => void;\n  title: string;\n  children: ReactNode;\n}) {\n  return (\n    <motion.button\n      onClick={onClick}\n      whileHover={{ scale: 1.08 }}\n      whileTap={{ scale: 0.92 }}\n      title={title}\n      className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-colors mx-auto ${\n        active\n          ? \'bg-accent text-accent-foreground\'\n          : \'text-muted-foreground hover:text-foreground hover:bg-accent/50\'\n      }`}\n    >\n      {active && (\n        <motion.div\n          layoutId="provider-indicator"\n          className="absolute inset-0 rounded-xl bg-accent border border-border"\n          transition={{ type: \'spring\', stiffness: 350, damping: 30 }}\n        />\n      )}\n      <span className="relative z-10">{children}</span>\n    </motion.button>\n  );\n}\n\nfunction ModelSelectorModelList() {\n  const { filtered } = useModelSelector();\n  return (\n    <div\n      className="flex-1 overflow-y-auto py-2 px-1 space-y-0.5"\n      style={{ scrollbarWidth: \'none\' }}\n    >\n      {filtered.length === 0 && (\n        <div className="py-12 text-center text-muted-foreground/60 text-sm font-mono">\n          No models found\n        </div>\n      )}\n      {filtered.map((model, i) => (\n        <ModelSelectorModelRow key={model.id} model={model} index={i} />\n      ))}\n    </div>\n  );\n}\n\nfunction ModelSelectorModelRow({\n  model,\n  index,\n}: {\n  model: Model;\n  index: number;\n}) {\n  const { providers, selected, setSelected, setOpen, starred, toggleStar } =\n    useModelSelector();\n  const isSelected = selected.id === model.id;\n  const isStarred = starred.has(model.id);\n\n  return (\n    <motion.div\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n      transition={{ delay: index * 0.025, duration: 0.2 }}\n    >\n      <button\n        onClick={() => {\n          setSelected(model);\n          setOpen(false);\n        }}\n        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors group border hover:bg-accent ${\n          isSelected ? \'bg-accent border-border\' : \'border-transparent\'\n        }`}\n      >\n        <div className="w-8 h-8 rounded-lg shrink-0 flex items-center justify-center text-sm font-bold bg-secondary border border-border">\n          <span className="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">\n            {providers.find((p) => p.id === model.provider)?.icon ?? \'◈\'}\n          </span>\n        </div>\n\n        <div className="flex-1 min-w-0">\n          <div className="flex items-center gap-2">\n            <span className="text-sm font-semibold text-foreground truncate font-mono tracking-tight">\n              {model.name}\n            </span>\n            {model.tag && (\n              <span className="px-1.5 py-0.5 rounded-md text-[10px] font-bold tracking-wide bg-primary/10 text-primary border border-primary/20">\n                {model.tag}\n              </span>\n            )}\n          </div>\n          <p className="text-xs text-muted-foreground truncate mt-0.5 leading-snug">\n            {model.desc}\n          </p>\n        </div>\n\n        <div className="flex items-center gap-1 shrink-0">\n          {model.caps.length > 0 && (\n            <div className="flex items-center gap-1 px-1.5 py-1 rounded-lg bg-secondary border border-border/60">\n              <TooltipProvider>\n                {model.caps.map((c) => {\n                  const entry = CAP_ICONS[c as Cap];\n                  if (!entry) return null;\n                  const Icon = entry.icon;\n                  return (\n                    <Tooltip key={c}>\n                      <TooltipTrigger asChild>\n                        <span className={entry.color}>\n                          <Icon className="w-3 h-3" />\n                        </span>\n                      </TooltipTrigger>\n                      <TooltipContent side="top">{entry.label}</TooltipContent>\n                    </Tooltip>\n                  );\n                })}\n              </TooltipProvider>\n            </div>\n          )}\n\n          <motion.div\n            role="button"\n            tabIndex={0}\n            aria-label={isStarred ? \'Unstar model\' : \'Star model\'}\n            onClick={(e) => {\n              e.stopPropagation();\n              toggleStar(model.id);\n            }}\n            onKeyDown={(e) => {\n              if (e.key === \'Enter\' || e.key === \' \') {\n                e.preventDefault();\n                e.stopPropagation();\n                toggleStar(model.id);\n              }\n            }}\n            whileHover={{ scale: 1.2 }}\n            whileTap={{ scale: 0.85 }}\n            className="ml-1 w-5 h-5 flex items-center justify-center cursor-pointer"\n          >\n            <Star\n              className={`w-3.5 h-3.5 transition-colors ${\n                isStarred\n                  ? \'fill-yellow-400 text-yellow-400\'\n                  : \'text-muted-foreground/30 hover:text-muted-foreground\'\n              }`}\n              stroke={isStarred ? \'#FF8904\' : \'#6A7282\'}\n            />\n          </motion.div>\n        </div>\n      </button>\n    </motion.div>\n  );\n}\n\nfunction ModelSelectorFooter() {\n  const { selected } = useModelSelector();\n  return (\n    <div className="px-4 py-3 border-t border-border flex items-center justify-between">\n      <div className="flex items-center gap-2">\n        <span className="text-xs text-muted-foreground font-mono">\n          {selected.name}\n        </span>\n      </div>\n      <a\n        href="#"\n        className="flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors font-mono"\n      >\n        Upgrade for more\n        <ArrowRight className="w-3 h-3" />\n      </a>\n    </div>\n  );\n}',
+          '\'use client\';\n\nimport {\n  useState,\n  useContext,\n  createContext,\n  type ReactNode,\n  type Dispatch,\n  type SetStateAction,\n} from \'react\';\nimport { motion, AnimatePresence } from \'motion/react\';\nimport {\n  Search,\n  X,\n  ChevronDown,\n  Eye,\n  Brain,\n  Globe,\n  Star,\n  LayoutGrid,\n  ArrowRight,\n} from \'lucide-react\';\nimport {\n  Dialog,\n  DialogContent,\n  DialogTitle,\n  DialogClose,\n} from \'@/components/ui/dialog\';\nimport { cn } from \'@/lib/utils\';\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \'@/components/ui/tooltip\';\nimport { ShimmerText } from \'@/components/odyssey/components/texts/text-shimmer\';\n\nexport type Cap = \'vision\' | \'tools\' | \'search\';\nexport type Cost = string;\n\nexport interface Provider {\n  id: string;\n  icon: ReactNode;\n  label: string;\n}\n\nexport interface Model {\n  id: string;\n  provider: string;\n  name: string;\n  desc: string;\n  cost: Cost;\n  tag: string | null;\n  caps: string[];\n  starred: boolean;\n}\n\ninterface ModelSelectorCtxValue {\n  providers: Provider[];\n  models: Model[];\n  open: boolean;\n  setOpen: Dispatch<SetStateAction<boolean>>;\n  selected: Model;\n  setSelected: Dispatch<SetStateAction<Model>>;\n  search: string;\n  setSearch: Dispatch<SetStateAction<string>>;\n  activeProvider: string | null;\n  setActiveProvider: Dispatch<SetStateAction<string | null>>;\n  filtered: Model[];\n  starred: Set<string>;\n  toggleStar: (id: string) => void;\n}\n\nconst ModelSelectorCtx = createContext<ModelSelectorCtxValue | null>(null);\n\nconst useModelSelector = () => {\n  const ctx = useContext(ModelSelectorCtx);\n  if (!ctx) throw new Error(\'Must be used inside <ModelSelector>\');\n  return ctx;\n};\n\nconst CAP_ICONS: Record<\n  Cap,\n  { icon: React.ElementType; label: string; color: string }\n> = {\n  vision: { icon: Eye, label: \'Vision\', color: \'text-violet-400\' },\n  tools: { icon: Brain, label: \'Reasoning\', color: \'text-orange-400\' },\n  search: { icon: Globe, label: \'Search\', color: \'text-emerald-400\' },\n};\n\nconst COST_CLASS = \'text-muted-foreground/50 font-mono text-xs\';\n\nexport function ModelSelector({\n  children,\n  providers,\n  models,\n  defaultModel,\n}: {\n  children: ReactNode;\n  providers: Provider[];\n  models: Model[];\n  defaultModel?: Model;\n}) {\n  const initialModel = defaultModel ?? models[0];\n  const [open, setOpen] = useState(false);\n  const [selected, setSelected] = useState<Model>(initialModel);\n  const [search, setSearch] = useState(\'\');\n  const [activeProvider, setActiveProvider] = useState<string | null>(null);\n  const [starred, setStarred] = useState(\n    () => new Set(models.filter((m) => m.starred).map((m) => m.id)),\n  );\n\n  const toggleStar = (id: string) =>\n    setStarred((prev) => {\n      const n = new Set(prev);\n      if (n.has(id)) {\n        n.delete(id);\n      } else {\n        n.add(id);\n      }\n      return n;\n    });\n\n  const filtered = models.filter((m) => {\n    const matchProvider = !activeProvider || m.provider === activeProvider;\n    const q = search.toLowerCase();\n    const matchSearch =\n      !q ||\n      m.name.toLowerCase().includes(q) ||\n      m.desc.toLowerCase().includes(q);\n    return matchProvider && matchSearch;\n  });\n\n  return (\n    <ModelSelectorCtx.Provider\n      value={{\n        providers,\n        models,\n        open,\n        setOpen,\n        selected,\n        setSelected,\n        search,\n        setSearch,\n        activeProvider,\n        setActiveProvider,\n        filtered,\n        starred,\n        toggleStar,\n      }}\n    >\n      {children}\n    </ModelSelectorCtx.Provider>\n  );\n}\n\nexport function ModelSelectorTrigger({\n  className = \'\',\n}: {\n  className?: string;\n}) {\n  const { setOpen, selected } = useModelSelector();\n  return (\n    <motion.button\n      onClick={() => setOpen(true)}\n      whileHover={{ scale: 1.02 }}\n      whileTap={{ scale: 0.97 }}\n      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary border border-border text-sm font-medium text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${className}`}\n    >\n      <span className="text-xs text-muted-foreground font-mono">\n        <ShimmerText text={selected.name} />\n      </span>\n      <span className={COST_CLASS}>{selected.cost}</span>\n      <ChevronDown className="w-3 h-3 text-muted-foreground/60" />\n    </motion.button>\n  );\n}\n\nexport function ModelSelectorModal() {\n  const { open, setOpen } = useModelSelector();\n\n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogContent\n        showCloseButton={false}\n        aria-describedby={undefined}\n        className={cn(\n          \'flex flex-col gap-0 p-0 ring-0 border border-border shadow-2xl overflow-hidden duration-200\',\n          \'top-auto bottom-0 inset-x-0 translate-x-0 translate-y-0 max-w-full rounded-t-3xl rounded-b-none max-h-[85vh]\',\n          \'sm:top-1/2 sm:left-1/2 sm:right-auto sm:bottom-auto sm:w-130 sm:max-w-130 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:max-h-150\',\n        )}\n      >\n        <DialogTitle className="sr-only">Select a model</DialogTitle>\n        <ModelSelectorHeader />\n        <div className="flex flex-1 min-h-0">\n          <ModelSelectorProviderSidebar />\n          <ModelSelectorModelList />\n        </div>\n        <ModelSelectorFooter />\n      </DialogContent>\n    </Dialog>\n  );\n}\n\nfunction ModelSelectorHeader() {\n  const { search, setSearch } = useModelSelector();\n  return (\n    <div className="flex items-center gap-3 px-4 pt-4 pb-3 border-b border-border">\n      <Search className="w-4 h-4 text-muted-foreground shrink-0" />\n      <input\n        autoFocus\n        value={search}\n        onChange={(e) => setSearch(e.target.value)}\n        placeholder="Search models…"\n        className="flex-1 bg-transparent text-sm text-popover-foreground placeholder:text-muted-foreground/50 outline-none font-light tracking-wide font-mono"\n      />\n      <AnimatePresence>\n        {search && (\n          <motion.button\n            initial={{ scale: 0, opacity: 0 }}\n            animate={{ scale: 1, opacity: 1 }}\n            exit={{ scale: 0, opacity: 0 }}\n            transition={{ duration: 0.15 }}\n            onClick={() => setSearch(\'\')}\n            className="text-muted-foreground hover:text-foreground transition-colors"\n          >\n            <X className="w-3.5 h-3.5" />\n          </motion.button>\n        )}\n      </AnimatePresence>\n      <DialogClose asChild>\n        <button className="ml-1 w-6 h-6 rounded-lg flex items-center justify-center bg-secondary hover:bg-accent text-muted-foreground hover:text-accent-foreground transition-colors">\n          <X className="w-3.5 h-3.5" />\n        </button>\n      </DialogClose>\n    </div>\n  );\n}\n\nfunction ModelSelectorProviderSidebar() {\n  const { providers, activeProvider, setActiveProvider } = useModelSelector();\n  return (\n    <div className="flex flex-col gap-0.5 py-3 px-2 border-r border-border w-14 shrink-0">\n      <SidebarBtn\n        active={!activeProvider}\n        onClick={() => setActiveProvider(null)}\n        title="All"\n      >\n        <LayoutGrid className="w-4 h-4" />\n      </SidebarBtn>\n      {providers.map((p) => (\n        <SidebarBtn\n          key={p.id}\n          active={activeProvider === p.id}\n          onClick={() =>\n            setActiveProvider(activeProvider === p.id ? null : p.id)\n          }\n          title={p.label}\n        >\n          <span className="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">\n            {p.icon}\n          </span>\n        </SidebarBtn>\n      ))}\n    </div>\n  );\n}\n\nfunction SidebarBtn({\n  active,\n  onClick,\n  title,\n  children,\n}: {\n  active: boolean;\n  onClick: () => void;\n  title: string;\n  children: ReactNode;\n}) {\n  return (\n    <motion.button\n      onClick={onClick}\n      whileHover={{ scale: 1.08 }}\n      whileTap={{ scale: 0.92 }}\n      title={title}\n      className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-colors mx-auto ${\n        active\n          ? \'bg-accent text-accent-foreground\'\n          : \'text-muted-foreground hover:text-foreground hover:bg-accent/50\'\n      }`}\n    >\n      {active && (\n        <motion.div\n          layoutId="provider-indicator"\n          className="absolute inset-0 rounded-xl bg-accent border border-border"\n          transition={{ type: \'spring\', stiffness: 350, damping: 30 }}\n        />\n      )}\n      <span className="relative z-10">{children}</span>\n    </motion.button>\n  );\n}\n\nfunction ModelSelectorModelList() {\n  const { filtered } = useModelSelector();\n  return (\n    <div\n      className="flex-1 overflow-y-auto py-2 px-1 space-y-0.5"\n      style={{ scrollbarWidth: \'none\' }}\n    >\n      {filtered.length === 0 && (\n        <div className="py-12 text-center text-muted-foreground/60 text-sm font-mono">\n          No models found\n        </div>\n      )}\n      {filtered.map((model, i) => (\n        <ModelSelectorModelRow key={model.id} model={model} index={i} />\n      ))}\n    </div>\n  );\n}\n\nfunction ModelSelectorModelRow({\n  model,\n  index,\n}: {\n  model: Model;\n  index: number;\n}) {\n  const { providers, selected, setSelected, setOpen, starred, toggleStar } =\n    useModelSelector();\n  const isSelected = selected.id === model.id;\n  const isStarred = starred.has(model.id);\n\n  return (\n    <motion.div\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      exit={{ opacity: 0 }}\n      transition={{ delay: index * 0.025, duration: 0.2 }}\n    >\n      <button\n        onClick={() => {\n          setSelected(model);\n          setOpen(false);\n        }}\n        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors group border hover:bg-accent ${\n          isSelected ? \'bg-accent border-border\' : \'border-transparent\'\n        }`}\n      >\n        <div className="w-8 h-8 rounded-lg shrink-0 flex items-center justify-center text-sm font-bold bg-secondary border border-border">\n          <span className="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">\n            {providers.find((p) => p.id === model.provider)?.icon ?? \'◈\'}\n          </span>\n        </div>\n\n        <div className="flex-1 min-w-0">\n          <div className="flex items-center gap-2">\n            <span className="text-sm font-semibold text-foreground truncate font-mono tracking-tight">\n              {model.name}\n            </span>\n            {model.tag && (\n              <span className="px-1.5 py-0.5 rounded-md text-[10px] font-bold tracking-wide bg-primary/10 text-primary border border-primary/20">\n                {model.tag}\n              </span>\n            )}\n          </div>\n          <p className="text-xs text-muted-foreground truncate mt-0.5 leading-snug">\n            {model.desc}\n          </p>\n        </div>\n\n        <div className="flex items-center gap-1 shrink-0">\n          {model.caps.length > 0 && (\n            <div className="flex items-center gap-1 px-1.5 py-1 rounded-lg bg-secondary border border-border/60">\n              <TooltipProvider>\n                {model.caps.map((c) => {\n                  const entry = CAP_ICONS[c as Cap];\n                  if (!entry) return null;\n                  const Icon = entry.icon;\n                  return (\n                    <Tooltip key={c}>\n                      <TooltipTrigger asChild>\n                        <span className={entry.color}>\n                          <Icon className="w-3 h-3" />\n                        </span>\n                      </TooltipTrigger>\n                      <TooltipContent side="top">{entry.label}</TooltipContent>\n                    </Tooltip>\n                  );\n                })}\n              </TooltipProvider>\n            </div>\n          )}\n\n          <motion.div\n            role="button"\n            tabIndex={0}\n            aria-label={isStarred ? \'Unstar model\' : \'Star model\'}\n            onClick={(e) => {\n              e.stopPropagation();\n              toggleStar(model.id);\n            }}\n            onKeyDown={(e) => {\n              if (e.key === \'Enter\' || e.key === \' \') {\n                e.preventDefault();\n                e.stopPropagation();\n                toggleStar(model.id);\n              }\n            }}\n            whileHover={{ scale: 1.2 }}\n            whileTap={{ scale: 0.85 }}\n            className="ml-1 w-5 h-5 flex items-center justify-center cursor-pointer"\n          >\n            <Star\n              className={`w-3.5 h-3.5 transition-colors ${\n                isStarred\n                  ? \'fill-yellow-400 text-yellow-400\'\n                  : \'text-muted-foreground/30 hover:text-muted-foreground\'\n              }`}\n              stroke={isStarred ? \'#FF8904\' : \'#6A7282\'}\n            />\n          </motion.div>\n        </div>\n      </button>\n    </motion.div>\n  );\n}\n\nfunction ModelSelectorFooter() {\n  const { selected } = useModelSelector();\n  return (\n    <div className="px-4 py-3 border-t border-border flex items-center justify-between">\n      <div className="flex items-center gap-2">\n        <span className="text-xs text-muted-foreground font-mono">\n          {selected.name}\n        </span>\n      </div>\n      <a\n        href="#"\n        className="flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors font-mono"\n      >\n        Upgrade for more\n        <ArrowRight className="w-3 h-3" />\n      </a>\n    </div>\n  );\n}',
       },
     ],
     keywords: [],
@@ -131,7 +131,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odysseyui/steps.tsx',
         content:
-          "'use client';\n\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\nimport { cn } from '@/lib/utils';\nimport { ChevronDown } from 'lucide-react';\nimport { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\nexport type StepsItemProps = React.ComponentProps<'div'>;\n\nexport const StepsItem = ({\n  children,\n  className,\n  ...props\n}: StepsItemProps) => (\n  <div\n    className={cn(\n      'text-muted-foreground hover:text-foreground text-sm transition-colors duration-200 [&_strong]:text-blue-500',\n      className,\n    )}\n    {...props}\n  >\n    {children}\n  </div>\n);\n\nexport type StepsTriggerProps = React.ComponentProps<\n  typeof CollapsibleTrigger\n> & {\n  leftIcon?: React.ReactNode;\n  swapIconOnHover?: boolean;\n};\n\nexport const StepsTrigger = ({\n  children,\n  className,\n  leftIcon,\n  swapIconOnHover = true,\n  ...props\n}: StepsTriggerProps) => (\n  <CollapsibleTrigger\n    className={cn(\n      'group text-muted-foreground hover:text-blue-500 flex w-full cursor-pointer items-center justify-start gap-1 text-sm transition-colors duration-200',\n      className,\n    )}\n    {...props}\n  >\n    <div className=\"flex items-center gap-2\">\n      {leftIcon ? (\n        <span className=\"relative inline-flex size-4 items-center justify-center\">\n          <span\n            className={cn(\n              'transition-opacity',\n              swapIconOnHover && 'group-hover:opacity-0',\n            )}\n          >\n            {leftIcon}\n          </span>\n          {swapIconOnHover && (\n            <ChevronDown className=\"absolute size-4 opacity-0 transition-opacity group-hover:opacity-100 group-hover:text-blue-500 group-data-[state=open]:rotate-180\" />\n          )}\n        </span>\n      ) : null}\n      <span>\n        <ShimmerText text={children as string} />\n      </span>\n    </div>\n    {!leftIcon && (\n      <ChevronDown className=\"size-4 transition-transform group-hover:text-blue-500 group-data-[state=open]:rotate-180\" />\n    )}\n  </CollapsibleTrigger>\n);\n\nexport type StepsContentProps = React.ComponentProps<\n  typeof CollapsibleContent\n> & {\n  bar?: React.ReactNode;\n};\n\nexport const StepsContent = ({\n  children,\n  className,\n  bar,\n  ...props\n}: StepsContentProps) => {\n  return (\n    <CollapsibleContent\n      className={cn(\n        'text-popover-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden cursor-pointer',\n        className,\n      )}\n      {...props}\n    >\n      <div className=\"group mt-3 grid max-w-full min-w-0 grid-cols-[min-content_minmax(0,1fr)] items-start gap-x-3\">\n        <div className=\"min-w-0 self-stretch\">{bar ?? <StepsBar />}</div>\n        <div className=\"min-w-0 space-y-2\">{children}</div>\n      </div>\n    </CollapsibleContent>\n  );\n};\n\nexport type StepsBarProps = React.HTMLAttributes<HTMLDivElement>;\n\nexport const StepsBar = ({ className, ...props }: StepsBarProps) => (\n  <div\n    className={cn(\n      'bg-muted h-full w-[2px] transition-colors duration-300 group-hover:bg-blue-500/40',\n      className,\n    )}\n    aria-hidden\n    {...props}\n  />\n);\n\nexport type StepsProps = React.ComponentProps<typeof Collapsible>;\n\nexport function Steps({ defaultOpen = true, className, ...props }: StepsProps) {\n  return (\n    <Collapsible\n      className={cn(className)}\n      defaultOpen={defaultOpen}\n      {...props}\n    />\n  );\n}",
+          "'use client';\n\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\nimport { cn } from '@/lib/utils';\nimport { ChevronDown } from 'lucide-react';\nimport { ShimmerText } from '@/components/odyssey/components/texts/text-shimmer';\n\nexport type StepsItemProps = React.ComponentProps<'div'>;\n\nexport const StepsItem = ({\n  children,\n  className,\n  ...props\n}: StepsItemProps) => (\n  <div\n    className={cn(\n      'text-muted-foreground hover:text-foreground text-sm transition-colors duration-200 [&_strong]:text-blue-500',\n      className,\n    )}\n    {...props}\n  >\n    {children}\n  </div>\n);\n\nexport type StepsTriggerProps = React.ComponentProps<\n  typeof CollapsibleTrigger\n> & {\n  leftIcon?: React.ReactNode;\n  swapIconOnHover?: boolean;\n};\n\nexport const StepsTrigger = ({\n  children,\n  className,\n  leftIcon,\n  swapIconOnHover = true,\n  ...props\n}: StepsTriggerProps) => (\n  <CollapsibleTrigger\n    className={cn(\n      'group text-muted-foreground hover:text-blue-500 flex w-full cursor-pointer items-center justify-start gap-1 text-sm transition-colors duration-200',\n      className,\n    )}\n    {...props}\n  >\n    <div className=\"flex items-center gap-2\">\n      {leftIcon ? (\n        <span className=\"relative inline-flex size-4 items-center justify-center\">\n          <span\n            className={cn(\n              'transition-opacity',\n              swapIconOnHover && 'group-hover:opacity-0',\n            )}\n          >\n            {leftIcon}\n          </span>\n          {swapIconOnHover && (\n            <ChevronDown className=\"absolute size-4 opacity-0 transition-opacity group-hover:opacity-100 group-hover:text-blue-500 group-data-[state=open]:rotate-180\" />\n          )}\n        </span>\n      ) : null}\n      <span>\n        <ShimmerText text={children as string} />\n      </span>\n    </div>\n    {!leftIcon && (\n      <ChevronDown className=\"size-4 transition-transform group-hover:text-blue-500 group-data-[state=open]:rotate-180\" />\n    )}\n  </CollapsibleTrigger>\n);\n\nexport type StepsContentProps = React.ComponentProps<\n  typeof CollapsibleContent\n> & {\n  bar?: React.ReactNode;\n};\n\nexport const StepsContent = ({\n  children,\n  className,\n  bar,\n  ...props\n}: StepsContentProps) => {\n  return (\n    <CollapsibleContent\n      className={cn(\n        'text-popover-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden cursor-pointer',\n        className,\n      )}\n      {...props}\n    >\n      <div className=\"group mt-3 grid max-w-full min-w-0 grid-cols-[min-content_minmax(0,1fr)] items-start gap-x-3\">\n        <div className=\"min-w-0 self-stretch\">{bar ?? <StepsBar />}</div>\n        <div className=\"min-w-0 space-y-2\">{children}</div>\n      </div>\n    </CollapsibleContent>\n  );\n};\n\nexport type StepsBarProps = React.HTMLAttributes<HTMLDivElement>;\n\nexport const StepsBar = ({ className, ...props }: StepsBarProps) => (\n  <div\n    className={cn(\n      'bg-muted h-full w-[2px] transition-colors duration-300 group-hover:bg-blue-500/40',\n      className,\n    )}\n    aria-hidden\n    {...props}\n  />\n);\n\nexport type StepsProps = React.ComponentProps<typeof Collapsible>;\n\nexport function Steps({ defaultOpen = true, className, ...props }: StepsProps) {\n  return (\n    <Collapsible\n      className={cn(className)}\n      defaultOpen={defaultOpen}\n      {...props}\n    />\n  );\n}",
       },
     ],
     keywords: [],
@@ -174,7 +174,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odysseyui/thought-chain.tsx',
         content:
-          "'use client';\n\nimport React, { createContext, useContext, useState } from 'react';\nimport { motion, AnimatePresence } from 'motion/react';\nimport { Check, Loader2, Circle, ChevronDown } from 'lucide-react';\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\nimport { Badge } from '@/components/ui/badge';\nimport { cn } from '@/lib/utils';\nimport { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\ntype Status = 'done' | 'active' | 'pending';\n\ntype StepContextType = {\n  open: boolean;\n  setOpen: React.Dispatch<React.SetStateAction<boolean>>;\n  status: Status;\n};\n\nconst StepContext = createContext<StepContextType | null>(null);\n\nconst statusStyles: Record<\n  Status,\n  { label: string; line: string; badge: string }\n> = {\n  done: {\n    label: 'text-gray-500',\n    line: 'bg-green-600/30',\n    badge: '',\n  },\n  active: {\n    label: 'text-gray-900 dark:text-gray-100',\n    line: 'bg-blue-500/25',\n    badge: 'bg-blue-50 text-blue-500 dark:bg-blue-900/30',\n  },\n  pending: {\n    label: 'text-gray-400',\n    line: 'bg-gray-200 dark:bg-gray-700',\n    badge: '',\n  },\n};\n\nfunction StatusIcon({ status }: { status: Status }) {\n  if (status === 'done') {\n    return (\n      <span className=\"flex size-5 items-center justify-center rounded-full bg-green-600\">\n        <Check className=\"size-3 text-white\" strokeWidth={3} />\n      </span>\n    );\n  }\n\n  if (status === 'active') {\n    return (\n      <motion.span\n        animate={{ rotate: 360 }}\n        transition={{ repeat: Infinity, duration: 0.75, ease: 'linear' }}\n        className=\"flex size-5 items-center justify-center\"\n      >\n        <Loader2 className=\"size-5 text-blue-500\" />\n      </motion.span>\n    );\n  }\n\n  return <Circle className=\"size-5 text-gray-300 dark:text-gray-600\" />;\n}\n\nexport function ThoughtChain({ children }: { children: React.ReactNode }) {\n  const steps = React.Children.toArray(children);\n  const total = steps.length;\n\n  return (\n    <div>\n      {steps.map((step, index) =>\n        React.isValidElement(step)\n          ? React.cloneElement(\n              step as React.ReactElement<{ _isLast?: boolean }>,\n              {\n                _isLast: index === total - 1,\n              },\n            )\n          : step,\n      )}\n    </div>\n  );\n}\n\nexport function ThoughtChainStep({\n  children,\n  status = 'pending',\n  defaultOpen = true,\n  _isLast = false,\n}: {\n  children: React.ReactNode;\n  status?: Status;\n  defaultOpen?: boolean;\n  _isLast?: boolean;\n}) {\n  const [open, setOpen] = useState(defaultOpen);\n  const styles = statusStyles[status];\n\n  return (\n    <StepContext.Provider value={{ open, setOpen, status }}>\n      <Collapsible open={open} onOpenChange={setOpen}>\n        <div className=\"flex gap-3.5\">\n          <div className=\"flex shrink-0 flex-col items-center\">\n            <span className=\"mt-0.5\">\n              <StatusIcon status={status} />\n            </span>\n\n            <span\n              className={cn(\n                'mt-1.5 min-h-5 w-0.5 flex-1 rounded-sm',\n                styles.line,\n              )}\n            />\n          </div>\n\n          <div className=\"flex-1 pb-2\">{children}</div>\n        </div>\n      </Collapsible>\n    </StepContext.Provider>\n  );\n}\n\nexport function ThoughtChainTrigger({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const { open, status } = useContext(StepContext)!;\n  const styles = statusStyles[status];\n\n  return (\n    <CollapsibleTrigger className=\"flex cursor-pointer select-none items-center gap-1.5 outline-none\">\n      <span\n        className={cn(\n          'text-[13.5px] font-semibold tracking-tight',\n          styles.label,\n        )}\n      >\n        {status === 'active' ? (\n          typeof children === 'string' ? (\n            <ShimmerText text={children} />\n          ) : (\n            children\n          )\n        ) : (\n          children\n        )}\n      </span>\n\n      <motion.span\n        animate={{ rotate: open ? 180 : 0 }}\n        transition={{ duration: 0.2, ease: 'easeInOut' }}\n        className=\"flex items-center text-gray-400\"\n      >\n        <ChevronDown className=\"size-3.5\" />\n      </motion.span>\n\n      {status === 'active' && (\n        <Badge\n          variant=\"outline\"\n          className={cn(styles.badge, 'border-blue-200 dark:border-blue-500')}\n        >\n          In progress\n        </Badge>\n      )}\n    </CollapsibleTrigger>\n  );\n}\n\nexport function ThoughtChainContent({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const { open } = useContext(StepContext)!;\n\n  return (\n    <CollapsibleContent forceMount>\n      <AnimatePresence initial={false}>\n        {open && (\n          <motion.div\n            key=\"content\"\n            initial={{ opacity: 0, height: 0 }}\n            animate={{ opacity: 1, height: 'auto' }}\n            exit={{ opacity: 0, height: 0 }}\n            transition={{ duration: 0.22, ease: 'easeInOut' }}\n            className=\"overflow-hidden\"\n          >\n            <div className=\"mt-1 pl-0.5\">{children}</div>\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </CollapsibleContent>\n  );\n}\n\nexport function ThoughtChainItem({ children }: { children: React.ReactNode }) {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: -4 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      className=\"flex items-start gap-2 py-1.25\"\n    >\n      <span className=\"mt-1.75 size-1 shrink-0 rounded-full bg-gray-300 dark:bg-gray-600\" />\n      <span className=\"text-[13px] leading-[1.55] text-gray-500 dark:text-gray-400\">\n        {children}\n      </span>\n    </motion.div>\n  );\n}",
+          "'use client';\n\nimport React, { createContext, useContext, useState } from 'react';\nimport { motion, AnimatePresence } from 'motion/react';\nimport { Check, Loader2, Circle, ChevronDown } from 'lucide-react';\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\nimport { Badge } from '@/components/ui/badge';\nimport { cn } from '@/lib/utils';\nimport { ShimmerText } from '@/components/odyssey/components/texts/text-shimmer';\n\ntype Status = 'done' | 'active' | 'pending';\n\ntype StepContextType = {\n  open: boolean;\n  setOpen: React.Dispatch<React.SetStateAction<boolean>>;\n  status: Status;\n};\n\nconst StepContext = createContext<StepContextType | null>(null);\n\nconst statusStyles: Record<\n  Status,\n  { label: string; line: string; badge: string }\n> = {\n  done: {\n    label: 'text-gray-500',\n    line: 'bg-green-600/30',\n    badge: '',\n  },\n  active: {\n    label: 'text-gray-900 dark:text-gray-100',\n    line: 'bg-blue-500/25',\n    badge: 'bg-blue-50 text-blue-500 dark:bg-blue-900/30',\n  },\n  pending: {\n    label: 'text-gray-400',\n    line: 'bg-gray-200 dark:bg-gray-700',\n    badge: '',\n  },\n};\n\nfunction StatusIcon({ status }: { status: Status }) {\n  if (status === 'done') {\n    return (\n      <span className=\"flex size-5 items-center justify-center rounded-full bg-green-600\">\n        <Check className=\"size-3 text-white\" strokeWidth={3} />\n      </span>\n    );\n  }\n\n  if (status === 'active') {\n    return (\n      <motion.span\n        animate={{ rotate: 360 }}\n        transition={{ repeat: Infinity, duration: 0.75, ease: 'linear' }}\n        className=\"flex size-5 items-center justify-center\"\n      >\n        <Loader2 className=\"size-5 text-blue-500\" />\n      </motion.span>\n    );\n  }\n\n  return <Circle className=\"size-5 text-gray-300 dark:text-gray-600\" />;\n}\n\nexport function ThoughtChain({ children }: { children: React.ReactNode }) {\n  const steps = React.Children.toArray(children);\n  const total = steps.length;\n\n  return (\n    <div>\n      {steps.map((step, index) =>\n        React.isValidElement(step)\n          ? React.cloneElement(\n              step as React.ReactElement<{ _isLast?: boolean }>,\n              {\n                _isLast: index === total - 1,\n              },\n            )\n          : step,\n      )}\n    </div>\n  );\n}\n\nexport function ThoughtChainStep({\n  children,\n  status = 'pending',\n  defaultOpen = true,\n  _isLast = false,\n}: {\n  children: React.ReactNode;\n  status?: Status;\n  defaultOpen?: boolean;\n  _isLast?: boolean;\n}) {\n  const [open, setOpen] = useState(defaultOpen);\n  const styles = statusStyles[status];\n\n  return (\n    <StepContext.Provider value={{ open, setOpen, status }}>\n      <Collapsible open={open} onOpenChange={setOpen}>\n        <div className=\"flex gap-3.5\">\n          <div className=\"flex shrink-0 flex-col items-center\">\n            <span className=\"mt-0.5\">\n              <StatusIcon status={status} />\n            </span>\n\n            <span\n              className={cn(\n                'mt-1.5 min-h-5 w-0.5 flex-1 rounded-sm',\n                styles.line,\n              )}\n            />\n          </div>\n\n          <div className=\"flex-1 pb-2\">{children}</div>\n        </div>\n      </Collapsible>\n    </StepContext.Provider>\n  );\n}\n\nexport function ThoughtChainTrigger({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const { open, status } = useContext(StepContext)!;\n  const styles = statusStyles[status];\n\n  return (\n    <CollapsibleTrigger className=\"flex cursor-pointer select-none items-center gap-1.5 outline-none\">\n      <span\n        className={cn(\n          'text-[13.5px] font-semibold tracking-tight',\n          styles.label,\n        )}\n      >\n        {status === 'active' ? (\n          typeof children === 'string' ? (\n            <ShimmerText text={children} />\n          ) : (\n            children\n          )\n        ) : (\n          children\n        )}\n      </span>\n\n      <motion.span\n        animate={{ rotate: open ? 180 : 0 }}\n        transition={{ duration: 0.2, ease: 'easeInOut' }}\n        className=\"flex items-center text-gray-400\"\n      >\n        <ChevronDown className=\"size-3.5\" />\n      </motion.span>\n\n      {status === 'active' && (\n        <Badge\n          variant=\"outline\"\n          className={cn(styles.badge, 'border-blue-200 dark:border-blue-500')}\n        >\n          In progress\n        </Badge>\n      )}\n    </CollapsibleTrigger>\n  );\n}\n\nexport function ThoughtChainContent({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const { open } = useContext(StepContext)!;\n\n  return (\n    <CollapsibleContent forceMount>\n      <AnimatePresence initial={false}>\n        {open && (\n          <motion.div\n            key=\"content\"\n            initial={{ opacity: 0, height: 0 }}\n            animate={{ opacity: 1, height: 'auto' }}\n            exit={{ opacity: 0, height: 0 }}\n            transition={{ duration: 0.22, ease: 'easeInOut' }}\n            className=\"overflow-hidden\"\n          >\n            <div className=\"mt-1 pl-0.5\">{children}</div>\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </CollapsibleContent>\n  );\n}\n\nexport function ThoughtChainItem({ children }: { children: React.ReactNode }) {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: -4 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      className=\"flex items-start gap-2 py-1.25\"\n    >\n      <span className=\"mt-1.75 size-1 shrink-0 rounded-full bg-gray-300 dark:bg-gray-600\" />\n      <span className=\"text-[13px] leading-[1.55] text-gray-500 dark:text-gray-400\">\n        {children}\n      </span>\n    </motion.div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -610,125 +610,6 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/components-animate-tabs',
-  },
-  'components-animate-text-highlighter': {
-    name: 'components-animate-text-highlighter',
-    description:
-      'Rough-notation powered text annotations — highlight, underline, box, circle, and more.',
-    type: 'registry:ui',
-    dependencies: ['motion', 'rough-notation'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    cssVars: undefined,
-    css: undefined,
-    files: [
-      {
-        path: 'registry/components/animate/text-highlighter/index.tsx',
-        type: 'registry:ui',
-        target: 'components/odysseyui/text-highlighter.tsx',
-        content:
-          "'use client';\n\nimport { useEffect, useRef } from 'react';\nimport type { ReactNode } from 'react';\nimport { useInView } from 'motion/react';\nimport { annotate } from 'rough-notation';\nimport type { RoughAnnotation } from 'rough-notation/lib/model';\n\ntype AnnotationAction =\n  | 'highlight'\n  | 'underline'\n  | 'box'\n  | 'circle'\n  | 'strike-through'\n  | 'crossed-off'\n  | 'bracket';\n\ninterface HighlighterProps {\n  children: ReactNode;\n  action?: AnnotationAction;\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n  isView?: boolean;\n  active?: boolean;\n}\n\nexport function TextHighlighter({\n  children,\n  action = 'highlight',\n  color = '#ffd1dc',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n  isView = false,\n  active = true,\n}: HighlighterProps) {\n  const elementRef = useRef<HTMLSpanElement>(null);\n  const annotationRef = useRef<RoughAnnotation | null>(null);\n\n  const isInView = useInView(elementRef, { once: true, margin: '-10%' });\n  const shouldShow = (!isView || isInView) && active;\n\n  useEffect(() => {\n    const element = elementRef.current;\n    if (!shouldShow || !element) return;\n\n    const annotation = annotate(element, {\n      type: action,\n      color,\n      strokeWidth,\n      animationDuration,\n      iterations,\n      padding,\n      multiline,\n    });\n\n    annotationRef.current = annotation;\n    annotation.show();\n\n    const observer = new ResizeObserver(() => {\n      annotation.hide();\n      annotation.show();\n    });\n\n    observer.observe(element);\n\n    return () => {\n      observer.disconnect();\n      annotationRef.current?.remove();\n      annotationRef.current = null;\n    };\n  }, [\n    shouldShow,\n    action,\n    color,\n    strokeWidth,\n    animationDuration,\n    iterations,\n    padding,\n    multiline,\n  ]);\n\n  return (\n    <span\n      ref={elementRef}\n      className=\"relative inline-block bg-transparent font-heading\"\n    >\n      {children}\n    </span>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod =
-          await import('@/registry/components/animate/text-highlighter/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'components-animate-text-highlighter';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@odyssey/components-animate-text-highlighter',
-  },
-  'components-animate-text-shimmer': {
-    name: 'components-animate-text-shimmer',
-    description: 'Sleek text shimmer effect.',
-    type: 'registry:ui',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    cssVars: undefined,
-    css: undefined,
-    files: [
-      {
-        path: 'registry/components/animate/text-shimmer/index.tsx',
-        type: 'registry:ui',
-        target: 'components/odysseyui/text-shimmer.tsx',
-        content:
-          "'use client';\n\nimport React, { useMemo, useRef } from 'react';\nimport { motion, useInView, UseInViewOptions } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\ninterface ShimmerTextProps {\n  text: string;\n  duration?: number;\n  delay?: number;\n  repeat?: boolean;\n  repeatDelay?: number;\n  className?: string;\n  startOnView?: boolean;\n  once?: boolean;\n  inViewMargin?: UseInViewOptions['margin'];\n  spread?: number;\n  color?: string;\n  shimmerColor?: string;\n}\n\nexport function ShimmerText({\n  text,\n  duration = 1,\n  delay = 0,\n  repeat = true,\n  repeatDelay = 0.5,\n  className,\n  startOnView = true,\n  once = false,\n  inViewMargin,\n  spread = 2,\n  color,\n  shimmerColor,\n}: ShimmerTextProps) {\n  const ref = useRef<HTMLSpanElement>(null);\n  const isInView = useInView(ref, { once, margin: inViewMargin });\n\n  const dynamicSpread = useMemo(() => text.length * spread, [text, spread]);\n\n  const shouldAnimate = !startOnView || isInView;\n\n  return (\n    <motion.span\n      ref={ref}\n      className={cn(\n        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent',\n        '[--base-color:var(--muted-foreground)] [--shimmer-color:var(--foreground)]',\n        '[background-repeat:no-repeat,padding-box]',\n        '[--shimmer-bg:linear-gradient(90deg,transparent_calc(50%-var(--spread)),var(--shimmer-color),transparent_calc(50%+var(--spread)))]',\n        'dark:[--base-color:var(--muted-foreground)] dark:[--shimmer-color:var(--foreground)]',\n        className,\n      )}\n      style={\n        {\n          '--spread': `${dynamicSpread}px`,\n          ...(color && { '--base-color': color }),\n          ...(shimmerColor && { '--shimmer-color': shimmerColor }),\n          backgroundImage: `var(--shimmer-bg), linear-gradient(var(--base-color), var(--base-color))`,\n        } as React.CSSProperties\n      }\n      initial={{ backgroundPosition: '100% center', opacity: 0 }}\n      animate={\n        shouldAnimate ? { backgroundPosition: '0% center', opacity: 1 } : {}\n      }\n      transition={{\n        backgroundPosition: {\n          repeat: repeat ? Infinity : 0,\n          duration,\n          delay,\n          repeatDelay,\n          ease: 'linear',\n        },\n        opacity: { duration: 0.3, delay },\n      }}\n    >\n      {text}\n    </motion.span>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod =
-          await import('@/registry/components/animate/text-shimmer/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'components-animate-text-shimmer';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@odyssey/components-animate-text-shimmer',
-  },
-  'components-animate-typewriter': {
-    name: 'components-animate-typewriter',
-    description:
-      'Animated typewriter effect with multi-sequence support, natural variance, delete animation, and auto-loop.',
-    type: 'registry:ui',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    cssVars: undefined,
-    css: undefined,
-    files: [
-      {
-        path: 'registry/components/animate/typewriter/index.tsx',
-        type: 'registry:ui',
-        target: 'components/odysseyui/typewriter.tsx',
-        content:
-          "'use client';\n\nimport { motion } from 'motion/react';\nimport {\n  useEffect,\n  useLayoutEffect,\n  useRef,\n  useState,\n  useCallback,\n} from 'react';\n\ntype TypewriterSequence = {\n  text: string;\n  deleteAfter?: boolean;\n  pauseAfter?: number;\n};\n\ninterface TypewriterProps {\n  sequences?: TypewriterSequence[];\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  startDelay?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n  className?: string;\n}\n\nconst DEFAULT_SEQUENCES: TypewriterSequence[] = [\n  { text: 'Typewriter', deleteAfter: true },\n  { text: 'Multiple Words', deleteAfter: true },\n  { text: 'Auto Loop', deleteAfter: false },\n];\n\nconst getRandomTypingDelay = (baseSpeed: number): number => {\n  if (Math.random() < 0.1) return baseSpeed * 2;\n  if (Math.random() > 0.9) return baseSpeed * 0.5;\n  const variance = 0.4;\n  const min = baseSpeed * (1 - variance);\n  const max = baseSpeed * (1 + variance);\n  return Math.random() * (max - min) + min;\n};\n\nexport function Typewriter({\n  sequences = DEFAULT_SEQUENCES,\n  typingSpeed = 50,\n  deleteSpeed = 30,\n  startDelay = 200,\n  pauseBeforeDelete = 1000,\n  loopDelay = 1000,\n  autoLoop = true,\n  naturalVariance = true,\n  className,\n}: TypewriterProps) {\n  const [displayText, setDisplayText] = useState('');\n\n  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);\n  const sequenceIndexRef = useRef(0);\n  const charIndexRef = useRef(0);\n  const sequencesRef = useRef(sequences);\n  const typeNextCharRef = useRef<() => void>(() => {});\n  const deleteCharRef = useRef<() => void>(() => {});\n\n  useLayoutEffect(() => {\n    sequencesRef.current = sequences;\n  });\n\n  const schedule = useCallback((fn: () => void, delay: number) => {\n    if (timeoutRef.current) clearTimeout(timeoutRef.current);\n    timeoutRef.current = setTimeout(fn, delay);\n  }, []);\n\n  const typeNextChar = useCallback(() => {\n    const seq = sequencesRef.current[sequenceIndexRef.current];\n    if (!seq) return;\n\n    if (charIndexRef.current < seq.text.length) {\n      charIndexRef.current += 1;\n      setDisplayText(seq.text.slice(0, charIndexRef.current));\n\n      const delay = naturalVariance\n        ? getRandomTypingDelay(typingSpeed)\n        : typingSpeed;\n\n      schedule(typeNextCharRef.current, delay);\n    } else {\n      const pause = seq.pauseAfter ?? pauseBeforeDelete;\n\n      if (seq.deleteAfter !== false) {\n        schedule(() => deleteCharRef.current(), pause);\n      } else {\n        schedule(() => {\n          const isLast =\n            sequenceIndexRef.current === sequencesRef.current.length - 1;\n\n          if (isLast && autoLoop) {\n            sequenceIndexRef.current = 0;\n            charIndexRef.current = 0;\n            setDisplayText('');\n            typeNextCharRef.current();\n          } else if (!isLast) {\n            sequenceIndexRef.current += 1;\n            charIndexRef.current = 0;\n            setDisplayText('');\n            typeNextCharRef.current();\n          }\n        }, loopDelay);\n      }\n    }\n  }, [\n    typingSpeed,\n    naturalVariance,\n    pauseBeforeDelete,\n    autoLoop,\n    loopDelay,\n    schedule,\n  ]);\n\n  const deleteChar = useCallback(() => {\n    if (charIndexRef.current > 0) {\n      charIndexRef.current -= 1;\n      const text = sequencesRef.current[sequenceIndexRef.current]?.text ?? '';\n      setDisplayText(text.slice(0, charIndexRef.current));\n      schedule(deleteCharRef.current, deleteSpeed);\n    } else {\n      const isLast =\n        sequenceIndexRef.current === sequencesRef.current.length - 1;\n\n      if (isLast && autoLoop) {\n        schedule(() => {\n          sequenceIndexRef.current = 0;\n          typeNextCharRef.current();\n        }, loopDelay);\n      } else if (!isLast) {\n        schedule(() => {\n          sequenceIndexRef.current += 1;\n          typeNextCharRef.current();\n        }, 80);\n      }\n    }\n  }, [deleteSpeed, autoLoop, loopDelay, schedule]);\n\n  useLayoutEffect(() => {\n    typeNextCharRef.current = typeNextChar;\n    deleteCharRef.current = deleteChar;\n  });\n\n  const startAnimation = useCallback(() => {\n    sequenceIndexRef.current = 0;\n    charIndexRef.current = 0;\n    schedule(() => {\n      setDisplayText('');\n      typeNextCharRef.current();\n    }, startDelay);\n  }, [startDelay, schedule]);\n\n  useEffect(() => {\n    startAnimation();\n    return () => {\n      if (timeoutRef.current) clearTimeout(timeoutRef.current);\n    };\n  }, [sequences, typingSpeed, deleteSpeed, naturalVariance, startAnimation]);\n\n  return (\n    <motion.span\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      transition={{ duration: 0.5 }}\n      className={className}\n    >\n      <span className=\"inline-block min-h-[1.2em] min-w-[0.5em]\">\n        {displayText}\n      </span>\n    </motion.span>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod =
-          await import('@/registry/components/animate/typewriter/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'components-animate-typewriter';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@odyssey/components-animate-typewriter',
   },
   'components-buttons-button': {
     name: 'components-buttons-button',
@@ -1232,6 +1113,205 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/components-radix-hover-card',
+  },
+  'components-texts-text-highlighter': {
+    name: 'components-texts-text-highlighter',
+    description:
+      'Rough-notation powered text annotations — highlight, underline, box, circle, and more.',
+    type: 'registry:ui',
+    dependencies: ['motion', 'rough-notation'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/texts/text-highlighter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/text-highlighter.tsx',
+        content:
+          "'use client';\n\nimport { useEffect, useRef } from 'react';\nimport type { ReactNode } from 'react';\nimport { useInView } from 'motion/react';\nimport { annotate } from 'rough-notation';\nimport type { RoughAnnotation } from 'rough-notation/lib/model';\n\ntype AnnotationAction =\n  | 'highlight'\n  | 'underline'\n  | 'box'\n  | 'circle'\n  | 'strike-through'\n  | 'crossed-off'\n  | 'bracket';\n\ninterface HighlighterProps {\n  children: ReactNode;\n  action?: AnnotationAction;\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n  isView?: boolean;\n  active?: boolean;\n}\n\nexport function TextHighlighter({\n  children,\n  action = 'highlight',\n  color = '#ffd1dc',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n  isView = false,\n  active = true,\n}: HighlighterProps) {\n  const elementRef = useRef<HTMLSpanElement>(null);\n  const annotationRef = useRef<RoughAnnotation | null>(null);\n\n  const isInView = useInView(elementRef, { once: true, margin: '-10%' });\n  const shouldShow = (!isView || isInView) && active;\n\n  useEffect(() => {\n    const element = elementRef.current;\n    if (!shouldShow || !element) return;\n\n    const annotation = annotate(element, {\n      type: action,\n      color,\n      strokeWidth,\n      animationDuration,\n      iterations,\n      padding,\n      multiline,\n    });\n\n    annotationRef.current = annotation;\n    annotation.show();\n\n    const observer = new ResizeObserver(() => {\n      annotation.hide();\n      annotation.show();\n    });\n\n    observer.observe(element);\n\n    return () => {\n      observer.disconnect();\n      annotationRef.current?.remove();\n      annotationRef.current = null;\n    };\n  }, [\n    shouldShow,\n    action,\n    color,\n    strokeWidth,\n    animationDuration,\n    iterations,\n    padding,\n    multiline,\n  ]);\n\n  return (\n    <span\n      ref={elementRef}\n      className=\"relative inline-block bg-transparent font-heading\"\n    >\n      {children}\n    </span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/texts/text-highlighter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-texts-text-highlighter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-texts-text-highlighter',
+  },
+  'components-texts-text-reveal': {
+    name: 'components-texts-text-reveal',
+    description:
+      'Scramble-reveal animation that decodes characters progressively into the final text.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/texts/text-reveal/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/text-reveal.tsx',
+        content:
+          "'use client';\n\nimport { useEffect, useRef, useState } from 'react';\nimport { useInView } from 'motion/react';\n\nexport type CharacterPreset = 'default' | 'binary' | 'cyberpunk' | 'minimal';\n\nconst PRESETS: Record<CharacterPreset, string> = {\n  default: '#$%&@!?',\n  binary: '01',\n  cyberpunk: '░▒▓█◣◥',\n  minimal: '·+×÷',\n};\n\nexport interface TextRevealProps {\n  children: string;\n  speed?: number;\n  delay?: number;\n  className?: string;\n  triggerOnView?: boolean;\n  once?: boolean;\n  characters?: string;\n  preset?: CharacterPreset;\n}\n\nfunction pickRandom(chars: string, exclude?: string): string {\n  const pool = exclude ? [...chars].filter((c) => c !== exclude) : [...chars];\n  const source = pool.length > 0 ? pool : [...chars];\n  return source[Math.floor(Math.random() * source.length)];\n}\n\nexport function TextReveal({\n  children: text,\n  speed = 20,\n  delay = 0,\n  className = '',\n  triggerOnView = false,\n  once = true,\n  characters,\n  preset = 'default',\n}: TextRevealProps) {\n  const chars = characters ?? PRESETS[preset];\n  const ref = useRef<HTMLSpanElement>(null);\n  const inView = useInView(ref, { once, margin: '-100px' });\n  const active = triggerOnView ? inView : true;\n\n  const [display, setDisplay] = useState('\\u00A0'.repeat(text.length));\n  const phaseRef = useRef<'scramble' | 'reveal'>('scramble');\n  const stepRef = useRef(0);\n  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);\n  const delayRef = useRef<ReturnType<typeof setTimeout> | null>(null);\n\n  useEffect(() => {\n    if (!active) return;\n\n    const clearAll = () => {\n      if (timerRef.current) clearInterval(timerRef.current);\n      if (delayRef.current) clearTimeout(delayRef.current);\n      timerRef.current = null;\n      delayRef.current = null;\n    };\n\n    const start = () => {\n      phaseRef.current = 'scramble';\n      stepRef.current = 0;\n      setDisplay('\\u00A0'.repeat(text.length));\n\n      timerRef.current = setInterval(() => {\n        const step = stepRef.current;\n\n        if (phaseRef.current === 'scramble') {\n          const len = Math.min(step + 1, text.length);\n          const buf: string[] = [];\n          for (let i = 0; i < len; i++) {\n            buf.push(pickRandom(chars, i > 0 ? buf[i - 1] : undefined));\n          }\n          for (let i = len; i < text.length; i++) buf.push('\\u00A0');\n          setDisplay(buf.join(''));\n\n          if (step < text.length * 2 - 1) {\n            stepRef.current++;\n          } else {\n            phaseRef.current = 'reveal';\n            stepRef.current = 0;\n          }\n        } else {\n          const revealed = Math.floor(step / 2);\n          const buf: string[] = text\n            .slice(0, Math.min(revealed, text.length))\n            .split('');\n\n          if (revealed < text.length) {\n            buf.push(step % 2 === 0 ? '_' : pickRandom(chars));\n          }\n          while (buf.length < text.length) buf.push(pickRandom(chars));\n          setDisplay(buf.join(''));\n\n          if (step < text.length * 2 - 1) {\n            stepRef.current++;\n          } else {\n            setDisplay(text);\n            clearAll();\n          }\n        }\n      }, speed);\n    };\n\n    if (delay > 0) {\n      delayRef.current = setTimeout(start, delay * 1000);\n    } else {\n      start();\n    }\n\n    return clearAll;\n  }, [active, text, speed, delay, chars]);\n\n  return (\n    <span\n      ref={ref}\n      className={`inline-flex h-4.5 font-mono leading-5 font-medium ${className}`}\n    >\n      {display}\n    </span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/texts/text-reveal/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-texts-text-reveal';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-texts-text-reveal',
+  },
+  'components-texts-text-shimmer': {
+    name: 'components-texts-text-shimmer',
+    description: 'Sleek text shimmer effect.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/texts/text-shimmer/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/text-shimmer.tsx',
+        content:
+          "'use client';\n\nimport React, { useMemo, useRef } from 'react';\nimport { motion, useInView, UseInViewOptions } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\ninterface ShimmerTextProps {\n  text: string;\n  duration?: number;\n  delay?: number;\n  repeat?: boolean;\n  repeatDelay?: number;\n  className?: string;\n  startOnView?: boolean;\n  once?: boolean;\n  inViewMargin?: UseInViewOptions['margin'];\n  spread?: number;\n  color?: string;\n  shimmerColor?: string;\n}\n\nexport function ShimmerText({\n  text,\n  duration = 1,\n  delay = 0,\n  repeat = true,\n  repeatDelay = 0.5,\n  className,\n  startOnView = true,\n  once = false,\n  inViewMargin,\n  spread = 2,\n  color,\n  shimmerColor,\n}: ShimmerTextProps) {\n  const ref = useRef<HTMLSpanElement>(null);\n  const isInView = useInView(ref, { once, margin: inViewMargin });\n\n  const dynamicSpread = useMemo(() => text.length * spread, [text, spread]);\n\n  const shouldAnimate = !startOnView || isInView;\n\n  return (\n    <motion.span\n      ref={ref}\n      className={cn(\n        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent',\n        '[--base-color:var(--muted-foreground)] [--shimmer-color:var(--foreground)]',\n        '[background-repeat:no-repeat,padding-box]',\n        '[--shimmer-bg:linear-gradient(90deg,transparent_calc(50%-var(--spread)),var(--shimmer-color),transparent_calc(50%+var(--spread)))]',\n        'dark:[--base-color:var(--muted-foreground)] dark:[--shimmer-color:var(--foreground)]',\n        className,\n      )}\n      style={\n        {\n          '--spread': `${dynamicSpread}px`,\n          ...(color && { '--base-color': color }),\n          ...(shimmerColor && { '--shimmer-color': shimmerColor }),\n          backgroundImage: `var(--shimmer-bg), linear-gradient(var(--base-color), var(--base-color))`,\n        } as React.CSSProperties\n      }\n      initial={{ backgroundPosition: '100% center', opacity: 0 }}\n      animate={\n        shouldAnimate ? { backgroundPosition: '0% center', opacity: 1 } : {}\n      }\n      transition={{\n        backgroundPosition: {\n          repeat: repeat ? Infinity : 0,\n          duration,\n          delay,\n          repeatDelay,\n          ease: 'linear',\n        },\n        opacity: { duration: 0.3, delay },\n      }}\n    >\n      {text}\n    </motion.span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/texts/text-shimmer/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-texts-text-shimmer';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-texts-text-shimmer',
+  },
+  'components-texts-text-shimmer-wave': {
+    name: 'components-texts-text-shimmer-wave',
+    description:
+      '3D wave shimmer effect that ripples through each character sequentially.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/texts/text-shimmer-wave/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/text-shimmer-wave.tsx',
+        content:
+          "'use client';\n\nimport { useMemo, type JSX } from 'react';\nimport { motion, type Transition } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nexport type TextShimmerWaveProps = {\n  children: string;\n  as?: React.ElementType;\n  className?: string;\n  color?: string;\n  shimmerColor?: string;\n  duration?: number;\n  zDistance?: number;\n  xDistance?: number;\n  yDistance?: number;\n  spread?: number;\n  scaleDistance?: number;\n  rotateYDistance?: number;\n  transition?: Transition;\n};\n\nexport function TextShimmerWave({\n  children,\n  as: Tag = 'p',\n  className,\n  color = '#a1a1aa',\n  shimmerColor = '#ffffff',\n  duration = 1,\n  zDistance = 10,\n  xDistance = 2,\n  yDistance = -2,\n  spread = 1,\n  scaleDistance = 1.1,\n  rotateYDistance = 10,\n  transition,\n}: TextShimmerWaveProps) {\n  const MotionTag = useMemo(\n    () =>\n      motion.create(Tag as keyof JSX.IntrinsicElements) as React.ComponentType<{\n        className?: string;\n        style?: React.CSSProperties;\n        children?: React.ReactNode;\n      }>,\n    [Tag],\n  );\n\n  const repeatDelay = (children.length * 0.05) / spread;\n\n  return (\n    <MotionTag\n      className={cn('relative inline-block perspective-normal', className)}\n      style={{ color }}\n    >\n      {children.split('').map((char, i) => (\n        <motion.span\n          key={i}\n          className=\"inline-block whitespace-pre transform-3d\"\n          initial={{ translateZ: 0, scale: 1, rotateY: 0, color }}\n          animate={{\n            translateZ: [0, zDistance, 0],\n            translateX: [0, xDistance, 0],\n            translateY: [0, yDistance, 0],\n            scale: [1, scaleDistance, 1],\n            rotateY: [0, rotateYDistance, 0],\n            color: [color, shimmerColor, color],\n          }}\n          transition={{\n            duration,\n            repeat: Infinity,\n            repeatDelay,\n            delay: (i * duration) / (children.length * spread),\n            ease: 'easeInOut',\n            ...transition,\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </MotionTag>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/texts/text-shimmer-wave/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-texts-text-shimmer-wave';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-texts-text-shimmer-wave',
+  },
+  'components-texts-typewriter': {
+    name: 'components-texts-typewriter',
+    description:
+      'Animated typewriter effect with multi-sequence support, natural variance, delete animation, and auto-loop.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/texts/typewriter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/typewriter.tsx',
+        content:
+          "'use client';\n\nimport { motion } from 'motion/react';\nimport {\n  useEffect,\n  useLayoutEffect,\n  useRef,\n  useState,\n  useCallback,\n} from 'react';\n\ntype TypewriterSequence = {\n  text: string;\n  deleteAfter?: boolean;\n  pauseAfter?: number;\n};\n\ninterface TypewriterProps {\n  sequences?: TypewriterSequence[];\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  startDelay?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n  className?: string;\n}\n\nconst DEFAULT_SEQUENCES: TypewriterSequence[] = [\n  { text: 'Typewriter', deleteAfter: true },\n  { text: 'Multiple Words', deleteAfter: true },\n  { text: 'Auto Loop', deleteAfter: false },\n];\n\nconst getRandomTypingDelay = (baseSpeed: number): number => {\n  if (Math.random() < 0.1) return baseSpeed * 2;\n  if (Math.random() > 0.9) return baseSpeed * 0.5;\n  const variance = 0.4;\n  const min = baseSpeed * (1 - variance);\n  const max = baseSpeed * (1 + variance);\n  return Math.random() * (max - min) + min;\n};\n\nexport function Typewriter({\n  sequences = DEFAULT_SEQUENCES,\n  typingSpeed = 50,\n  deleteSpeed = 30,\n  startDelay = 200,\n  pauseBeforeDelete = 1000,\n  loopDelay = 1000,\n  autoLoop = true,\n  naturalVariance = true,\n  className,\n}: TypewriterProps) {\n  const [displayText, setDisplayText] = useState('');\n\n  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);\n  const sequenceIndexRef = useRef(0);\n  const charIndexRef = useRef(0);\n  const sequencesRef = useRef(sequences);\n  const typeNextCharRef = useRef<() => void>(() => {});\n  const deleteCharRef = useRef<() => void>(() => {});\n\n  useLayoutEffect(() => {\n    sequencesRef.current = sequences;\n  });\n\n  const schedule = useCallback((fn: () => void, delay: number) => {\n    if (timeoutRef.current) clearTimeout(timeoutRef.current);\n    timeoutRef.current = setTimeout(fn, delay);\n  }, []);\n\n  const typeNextChar = useCallback(() => {\n    const seq = sequencesRef.current[sequenceIndexRef.current];\n    if (!seq) return;\n\n    if (charIndexRef.current < seq.text.length) {\n      charIndexRef.current += 1;\n      setDisplayText(seq.text.slice(0, charIndexRef.current));\n\n      const delay = naturalVariance\n        ? getRandomTypingDelay(typingSpeed)\n        : typingSpeed;\n\n      schedule(typeNextCharRef.current, delay);\n    } else {\n      const pause = seq.pauseAfter ?? pauseBeforeDelete;\n\n      if (seq.deleteAfter !== false) {\n        schedule(() => deleteCharRef.current(), pause);\n      } else {\n        schedule(() => {\n          const isLast =\n            sequenceIndexRef.current === sequencesRef.current.length - 1;\n\n          if (isLast && autoLoop) {\n            sequenceIndexRef.current = 0;\n            charIndexRef.current = 0;\n            setDisplayText('');\n            typeNextCharRef.current();\n          } else if (!isLast) {\n            sequenceIndexRef.current += 1;\n            charIndexRef.current = 0;\n            setDisplayText('');\n            typeNextCharRef.current();\n          }\n        }, loopDelay);\n      }\n    }\n  }, [\n    typingSpeed,\n    naturalVariance,\n    pauseBeforeDelete,\n    autoLoop,\n    loopDelay,\n    schedule,\n  ]);\n\n  const deleteChar = useCallback(() => {\n    if (charIndexRef.current > 0) {\n      charIndexRef.current -= 1;\n      const text = sequencesRef.current[sequenceIndexRef.current]?.text ?? '';\n      setDisplayText(text.slice(0, charIndexRef.current));\n      schedule(deleteCharRef.current, deleteSpeed);\n    } else {\n      const isLast =\n        sequenceIndexRef.current === sequencesRef.current.length - 1;\n\n      if (isLast && autoLoop) {\n        schedule(() => {\n          sequenceIndexRef.current = 0;\n          typeNextCharRef.current();\n        }, loopDelay);\n      } else if (!isLast) {\n        schedule(() => {\n          sequenceIndexRef.current += 1;\n          typeNextCharRef.current();\n        }, 80);\n      }\n    }\n  }, [deleteSpeed, autoLoop, loopDelay, schedule]);\n\n  useLayoutEffect(() => {\n    typeNextCharRef.current = typeNextChar;\n    deleteCharRef.current = deleteChar;\n  });\n\n  const startAnimation = useCallback(() => {\n    sequenceIndexRef.current = 0;\n    charIndexRef.current = 0;\n    schedule(() => {\n      setDisplayText('');\n      typeNextCharRef.current();\n    }, startDelay);\n  }, [startDelay, schedule]);\n\n  useEffect(() => {\n    startAnimation();\n    return () => {\n      if (timeoutRef.current) clearTimeout(timeoutRef.current);\n    };\n  }, [sequences, typingSpeed, deleteSpeed, naturalVariance, startAnimation]);\n\n  return (\n    <motion.span\n      initial={{ opacity: 0 }}\n      animate={{ opacity: 1 }}\n      transition={{ duration: 0.5 }}\n      className={className}\n    >\n      <span className=\"inline-block min-h-[1.2em] min-w-[0.5em]\">\n        {displayText}\n      </span>\n    </motion.span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/texts/typewriter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-texts-typewriter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odyssey/components-texts-typewriter',
   },
   'components-ui-badge': {
     name: 'components-ui-badge',
@@ -1910,174 +1990,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@odyssey/demo-components-animate-tabs',
   },
-  'demo-components-animate-text-highlighter': {
-    name: 'demo-components-animate-text-highlighter',
-    description:
-      'Demo of the TextHighlighter component showcasing all annotation types.',
-    type: 'registry:ui',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://odysseyui.com/r/components-animate-text-highlighter.json',
-    ],
-    cssVars: undefined,
-    css: undefined,
-    files: [
-      {
-        path: 'registry/demo/components/animate/text-highlighter/index.tsx',
-        type: 'registry:ui',
-        target: 'components/odyssey/demo/animate/text-highlighter.tsx',
-        content:
-          "import { TextHighlighter } from '@/components/odyssey/components/animate/text-highlighter';\n\ninterface TextHighlighterDemoProps {\n  action?:\n    | 'highlight'\n    | 'underline'\n    | 'box'\n    | 'circle'\n    | 'strike-through'\n    | 'crossed-off'\n    | 'bracket';\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n}\n\nexport const TextHighlighterDemo = ({\n  action = 'highlight',\n  color = '#51A2FF',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n}: TextHighlighterDemoProps) => {\n  return (\n    <p className=\"text-2xl font-heading font-semibold leading-snug text-center p-10\">\n      <TextHighlighter\n        key={`${action}-${color}-${strokeWidth}-${animationDuration}-${iterations}-${padding}-${multiline}`}\n        action={action}\n        color={color}\n        strokeWidth={strokeWidth}\n        animationDuration={animationDuration}\n        iterations={iterations}\n        padding={padding}\n        multiline={multiline}\n      >\n        Good Design Whispers.\n      </TextHighlighter>\n    </p>\n  );\n};",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod =
-          await import('@/registry/demo/components/animate/text-highlighter/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'demo-components-animate-text-highlighter';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {
-        TextHighlighter: {
-          action: {
-            value: 'highlight',
-            options: {
-              highlight: 'highlight',
-              underline: 'underline',
-              box: 'box',
-              circle: 'circle',
-              'strike-through': 'strike-through',
-              'crossed-off': 'crossed-off',
-              bracket: 'bracket',
-            },
-          },
-          color: { value: '#51A2FF' },
-          strokeWidth: { value: 1.5, min: 0.5, max: 5, step: 0.5 },
-          animationDuration: { value: 600, min: 100, max: 2000, step: 100 },
-          iterations: { value: 2, min: 1, max: 5, step: 1 },
-          padding: { value: 2, min: 0, max: 20, step: 1 },
-          multiline: { value: true },
-        },
-      };
-      return LazyComp;
-    })(),
-    command: '@odyssey/demo-components-animate-text-highlighter',
-  },
-  'demo-components-animate-text-shimmer': {
-    name: 'demo-components-animate-text-shimmer',
-    description: 'Demo of text shimmer.',
-    type: 'registry:ui',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://odysseyui.com/r/components-animate-text-shimmer.json',
-    ],
-    cssVars: undefined,
-    css: undefined,
-    files: [
-      {
-        path: 'registry/demo/components/animate/text-shimmer/index.tsx',
-        type: 'registry:ui',
-        target: 'components/odyssey/demo/animate/text-shimmer.tsx',
-        content:
-          "import { ShimmerText } from '@/components/odyssey/components/animate/text-shimmer';\n\ninterface TextShimmerDemoProps {\n  text?: string;\n  duration?: number;\n  delay?: number;\n  spread?: number;\n  repeat?: boolean;\n  repeatDelay?: number;\n  startOnView?: boolean;\n  once?: boolean;\n  color?: string;\n  shimmerColor?: string;\n}\n\nexport const TextShimmerDemo = ({\n  text = 'Odyssey UI',\n  duration = 1,\n  delay = 0,\n  spread = 2,\n  repeat = true,\n  repeatDelay = 0.5,\n  startOnView = true,\n  once = false,\n  color,\n  shimmerColor,\n}: TextShimmerDemoProps) => {\n  return (\n    <ShimmerText\n      key={`${text}-${duration}-${delay}-${spread}-${repeat}-${repeatDelay}-${startOnView}-${once}-${color}-${shimmerColor}`}\n      text={text}\n      duration={duration}\n      delay={delay}\n      spread={spread}\n      repeat={repeat}\n      repeatDelay={repeatDelay}\n      startOnView={startOnView}\n      once={once}\n      color={color}\n      shimmerColor={shimmerColor}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod =
-          await import('@/registry/demo/components/animate/text-shimmer/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'demo-components-animate-text-shimmer';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {
-        ShimmerText: {
-          text: { value: 'Odyssey UI' },
-          duration: { value: 1, min: 0.1, max: 5, step: 0.1 },
-          delay: { value: 0, min: 0, max: 3, step: 0.1 },
-          spread: { value: 2, min: 1, max: 10, step: 1 },
-          repeat: { value: true },
-          repeatDelay: { value: 0.5, min: 0, max: 5, step: 0.1 },
-          startOnView: { value: true },
-          once: { value: false },
-          color: { value: '#888888' },
-          shimmerColor: { value: '#ffffff' },
-        },
-      };
-      return LazyComp;
-    })(),
-    command: '@odyssey/demo-components-animate-text-shimmer',
-  },
-  'demo-components-animate-typewriter': {
-    name: 'demo-components-animate-typewriter',
-    description:
-      'Demo of the Typewriter component with multi-sequence type and delete animation.',
-    type: 'registry:ui',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://odysseyui.com/r/components-animate-typewriter.json',
-    ],
-    cssVars: undefined,
-    css: undefined,
-    files: [
-      {
-        path: 'registry/demo/components/animate/typewriter/index.tsx',
-        type: 'registry:ui',
-        target: 'components/odyssey/demo/animate/typewriter.tsx',
-        content:
-          "import { Typewriter } from '@/components/odyssey/components/animate/typewriter';\n\ntype TypewriterDemoProps = {\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n};\n\nexport const TypewriterDemo = ({\n  typingSpeed = 100,\n  deleteSpeed = 40,\n  pauseBeforeDelete = 1600,\n  loopDelay = 1200,\n  autoLoop = true,\n  naturalVariance = true,\n}: TypewriterDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <Typewriter\n        key={`${typingSpeed}-${deleteSpeed}-${pauseBeforeDelete}-${loopDelay}-${autoLoop}-${naturalVariance}`}\n        sequences={[\n          { text: 'Full-Stack Developer', deleteAfter: true },\n          { text: 'UI/UX Enthusiast', deleteAfter: true },\n          { text: 'Open to remote work', deleteAfter: false },\n        ]}\n        typingSpeed={typingSpeed}\n        deleteSpeed={deleteSpeed}\n        pauseBeforeDelete={pauseBeforeDelete}\n        loopDelay={loopDelay}\n        autoLoop={autoLoop}\n        naturalVariance={naturalVariance}\n        className=\"font-mono text-3xl tracking-tight text-foreground md:text-5xl\"\n      />\n    </div>\n  );\n};",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod =
-          await import('@/registry/demo/components/animate/typewriter/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'demo-components-animate-typewriter';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {
-        Typewriter: {
-          typingSpeed: { value: 100, min: 20, max: 300, step: 10 },
-          deleteSpeed: { value: 40, min: 10, max: 200, step: 5 },
-          pauseBeforeDelete: { value: 1600, min: 200, max: 4000, step: 100 },
-          loopDelay: { value: 1200, min: 200, max: 4000, step: 100 },
-          autoLoop: { value: true },
-          naturalVariance: { value: true },
-        },
-      };
-      return LazyComp;
-    })(),
-    command: '@odyssey/demo-components-animate-typewriter',
-  },
   'demo-components-buttons-button': {
     name: 'demo-components-buttons-button',
     description: 'Demo showing a button.',
@@ -2590,6 +2502,278 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odyssey/demo-components-radix-hover-card',
+  },
+  'demo-components-texts-text-highlighter': {
+    name: 'demo-components-texts-text-highlighter',
+    description:
+      'Demo of the TextHighlighter component showcasing all annotation types.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-texts-text-highlighter.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/texts/text-highlighter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/texts/text-highlighter.tsx',
+        content:
+          "import { TextHighlighter } from '@/components/odyssey/components/texts/text-highlighter';\n\ninterface TextHighlighterDemoProps {\n  action?:\n    | 'highlight'\n    | 'underline'\n    | 'box'\n    | 'circle'\n    | 'strike-through'\n    | 'crossed-off'\n    | 'bracket';\n  color?: string;\n  strokeWidth?: number;\n  animationDuration?: number;\n  iterations?: number;\n  padding?: number;\n  multiline?: boolean;\n}\n\nexport const TextHighlighterDemo = ({\n  action = 'highlight',\n  color = '#51A2FF',\n  strokeWidth = 1.5,\n  animationDuration = 600,\n  iterations = 2,\n  padding = 2,\n  multiline = true,\n}: TextHighlighterDemoProps) => {\n  return (\n    <p className=\"text-2xl font-heading font-semibold leading-snug text-center p-10\">\n      <TextHighlighter\n        key={`${action}-${color}-${strokeWidth}-${animationDuration}-${iterations}-${padding}-${multiline}`}\n        action={action}\n        color={color}\n        strokeWidth={strokeWidth}\n        animationDuration={animationDuration}\n        iterations={iterations}\n        padding={padding}\n        multiline={multiline}\n      >\n        Good Design Whispers.\n      </TextHighlighter>\n    </p>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/texts/text-highlighter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-texts-text-highlighter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        TextHighlighter: {
+          action: {
+            value: 'highlight',
+            options: {
+              highlight: 'highlight',
+              underline: 'underline',
+              box: 'box',
+              circle: 'circle',
+              'strike-through': 'strike-through',
+              'crossed-off': 'crossed-off',
+              bracket: 'bracket',
+            },
+          },
+          color: { value: '#51A2FF' },
+          strokeWidth: { value: 1.5, min: 0.5, max: 5, step: 0.5 },
+          animationDuration: { value: 600, min: 100, max: 2000, step: 100 },
+          iterations: { value: 2, min: 1, max: 5, step: 1 },
+          padding: { value: 2, min: 0, max: 20, step: 1 },
+          multiline: { value: true },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-texts-text-highlighter',
+  },
+  'demo-components-texts-text-reveal': {
+    name: 'demo-components-texts-text-reveal',
+    description: 'Demo of the Text Reveal scramble animation component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-texts-text-reveal.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/texts/text-reveal/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/texts/text-reveal.tsx',
+        content:
+          "import { TextReveal } from '@/components/odyssey/components/texts/text-reveal';\n\ninterface TextRevealDemoProps {\n  children?: string;\n  speed?: number;\n  delay?: number;\n  triggerOnView?: boolean;\n  once?: boolean;\n  preset?: 'default' | 'binary' | 'cyberpunk' | 'minimal';\n}\n\nexport const TextRevealDemo = ({\n  children = 'Odyssey UI',\n  speed = 20,\n  delay = 0,\n  triggerOnView = false,\n  once = true,\n  preset = 'default',\n}: TextRevealDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <TextReveal\n        key={`${children}-${speed}-${delay}-${triggerOnView}-${once}-${preset}`}\n        speed={speed}\n        delay={delay}\n        triggerOnView={triggerOnView}\n        once={once}\n        preset={preset}\n        className=\"text-4xl\"\n      >\n        {children}\n      </TextReveal>\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/texts/text-reveal/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-texts-text-reveal';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        TextReveal: {
+          children: { value: 'Odyssey UI' },
+          speed: { value: 20, min: 5, max: 200, step: 5 },
+          delay: { value: 0, min: 0, max: 5, step: 0.1 },
+          triggerOnView: { value: false },
+          once: { value: true },
+          preset: { value: 'default' },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-texts-text-reveal',
+  },
+  'demo-components-texts-text-shimmer': {
+    name: 'demo-components-texts-text-shimmer',
+    description: 'Demo of text shimmer.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-texts-text-shimmer.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/texts/text-shimmer/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/texts/text-shimmer.tsx',
+        content:
+          "import { ShimmerText } from '@/components/odyssey/components/texts/text-shimmer';\n\ninterface TextShimmerDemoProps {\n  text?: string;\n  duration?: number;\n  delay?: number;\n  spread?: number;\n  repeat?: boolean;\n  repeatDelay?: number;\n  startOnView?: boolean;\n  once?: boolean;\n  color?: string;\n  shimmerColor?: string;\n}\n\nexport const TextShimmerDemo = ({\n  text = 'Odyssey UI',\n  duration = 1,\n  delay = 0,\n  spread = 2,\n  repeat = true,\n  repeatDelay = 0.5,\n  startOnView = true,\n  once = false,\n  color,\n  shimmerColor,\n}: TextShimmerDemoProps) => {\n  return (\n    <ShimmerText\n      key={`${text}-${duration}-${delay}-${spread}-${repeat}-${repeatDelay}-${startOnView}-${once}-${color}-${shimmerColor}`}\n      text={text}\n      duration={duration}\n      delay={delay}\n      spread={spread}\n      repeat={repeat}\n      repeatDelay={repeatDelay}\n      startOnView={startOnView}\n      once={once}\n      color={color}\n      shimmerColor={shimmerColor}\n      className=\"text-4xl font-semibold\"\n    />\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/texts/text-shimmer/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-texts-text-shimmer';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        ShimmerText: {
+          text: { value: 'Odyssey UI' },
+          duration: { value: 1, min: 0.1, max: 5, step: 0.1 },
+          delay: { value: 0, min: 0, max: 3, step: 0.1 },
+          spread: { value: 2, min: 1, max: 10, step: 1 },
+          repeat: { value: true },
+          repeatDelay: { value: 0.5, min: 0, max: 5, step: 0.1 },
+          startOnView: { value: true },
+          once: { value: false },
+          color: { value: '#888888' },
+          shimmerColor: { value: '#ffffff' },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-texts-text-shimmer',
+  },
+  'demo-components-texts-text-shimmer-wave': {
+    name: 'demo-components-texts-text-shimmer-wave',
+    description: 'Demo of the Text Shimmer Wave component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-texts-text-shimmer-wave.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/texts/text-shimmer-wave/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/texts/text-shimmer-wave.tsx',
+        content:
+          "import { TextShimmerWave } from '@/components/odyssey/components/texts/text-shimmer-wave';\n\ninterface TextShimmerWaveDemoProps {\n  children?: string;\n  color?: string;\n  shimmerColor?: string;\n  duration?: number;\n  zDistance?: number;\n  xDistance?: number;\n  yDistance?: number;\n  spread?: number;\n  scaleDistance?: number;\n  rotateYDistance?: number;\n}\n\nexport const TextShimmerWaveDemo = ({\n  children = 'Odyssey UI',\n  color = '#a1a1aa',\n  shimmerColor = '#ffffff',\n  duration = 1,\n  zDistance = 10,\n  xDistance = 2,\n  yDistance = -2,\n  spread = 1,\n  scaleDistance = 1.1,\n  rotateYDistance = 10,\n}: TextShimmerWaveDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <TextShimmerWave\n        key={`${children}-${color}-${shimmerColor}-${duration}-${zDistance}-${xDistance}-${yDistance}-${spread}-${scaleDistance}-${rotateYDistance}`}\n        color={color}\n        shimmerColor={shimmerColor}\n        duration={duration}\n        zDistance={zDistance}\n        xDistance={xDistance}\n        yDistance={yDistance}\n        spread={spread}\n        scaleDistance={scaleDistance}\n        rotateYDistance={rotateYDistance}\n        className=\"text-4xl font-semibold tracking-tight\"\n      >\n        {children}\n      </TextShimmerWave>\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/texts/text-shimmer-wave/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-texts-text-shimmer-wave';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        TextShimmerWave: {
+          children: { value: 'Odyssey UI' },
+          duration: { value: 1, min: 0.1, max: 5, step: 0.1 },
+          zDistance: { value: 10, min: 0, max: 50, step: 1 },
+          xDistance: { value: 2, min: -20, max: 20, step: 1 },
+          yDistance: { value: -2, min: -20, max: 20, step: 1 },
+          spread: { value: 1, min: 0.1, max: 3, step: 0.1 },
+          scaleDistance: { value: 1.1, min: 1, max: 2, step: 0.05 },
+          rotateYDistance: { value: 10, min: 0, max: 90, step: 1 },
+          color: { value: '#a1a1aa' },
+          shimmerColor: { value: '#ffffff' },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-texts-text-shimmer-wave',
+  },
+  'demo-components-texts-typewriter': {
+    name: 'demo-components-texts-typewriter',
+    description:
+      'Demo of the Typewriter component with multi-sequence type and delete animation.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://odysseyui.com/r/components-texts-typewriter.json',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/texts/typewriter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/texts/typewriter.tsx',
+        content:
+          "import { Typewriter } from '@/components/odyssey/components/texts/typewriter';\n\ntype TypewriterDemoProps = {\n  typingSpeed?: number;\n  deleteSpeed?: number;\n  pauseBeforeDelete?: number;\n  loopDelay?: number;\n  autoLoop?: boolean;\n  naturalVariance?: boolean;\n};\n\nexport const TypewriterDemo = ({\n  typingSpeed = 100,\n  deleteSpeed = 40,\n  pauseBeforeDelete = 1600,\n  loopDelay = 1200,\n  autoLoop = true,\n  naturalVariance = true,\n}: TypewriterDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <Typewriter\n        key={`${typingSpeed}-${deleteSpeed}-${pauseBeforeDelete}-${loopDelay}-${autoLoop}-${naturalVariance}`}\n        sequences={[\n          { text: 'Full-Stack Developer', deleteAfter: true },\n          { text: 'UI/UX Enthusiast', deleteAfter: true },\n          { text: 'Open to remote work', deleteAfter: false },\n        ]}\n        typingSpeed={typingSpeed}\n        deleteSpeed={deleteSpeed}\n        pauseBeforeDelete={pauseBeforeDelete}\n        loopDelay={loopDelay}\n        autoLoop={autoLoop}\n        naturalVariance={naturalVariance}\n        className=\"font-mono text-3xl tracking-tight text-foreground md:text-5xl\"\n      />\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/texts/typewriter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-texts-typewriter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {
+        Typewriter: {
+          typingSpeed: { value: 100, min: 20, max: 300, step: 10 },
+          deleteSpeed: { value: 40, min: 10, max: 200, step: 5 },
+          pauseBeforeDelete: { value: 1600, min: 200, max: 4000, step: 100 },
+          loopDelay: { value: 1200, min: 200, max: 4000, step: 100 },
+          autoLoop: { value: true },
+          naturalVariance: { value: true },
+        },
+      };
+      return LazyComp;
+    })(),
+    command: '@odyssey/demo-components-texts-typewriter',
   },
   'demo-components-ui-badge': {
     name: 'demo-components-ui-badge',

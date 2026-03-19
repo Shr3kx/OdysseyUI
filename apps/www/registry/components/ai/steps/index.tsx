@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
-import { ShimmerText } from '@/registry/components/animate/text-shimmer';
+import { ShimmerText } from '@/registry/components/texts/text-shimmer';
 
 export type StepsItemProps = React.ComponentProps<'div'>;
 

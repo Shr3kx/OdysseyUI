@@ -1,0 +1,75 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-texts-text-shimmer-wave",
+  "title": "Text Shimmer Wave Demo",
+  "description": "Demo of the Text Shimmer Wave component.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-texts-text-shimmer-wave.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/texts/text-shimmer-wave/index.tsx",
+      "content": "import { TextShimmerWave } from '@/components/odyssey/components/texts/text-shimmer-wave';\n\ninterface TextShimmerWaveDemoProps {\n  children?: string;\n  color?: string;\n  shimmerColor?: string;\n  duration?: number;\n  zDistance?: number;\n  xDistance?: number;\n  yDistance?: number;\n  spread?: number;\n  scaleDistance?: number;\n  rotateYDistance?: number;\n}\n\nexport const TextShimmerWaveDemo = ({\n  children = 'Odyssey UI',\n  color = '#a1a1aa',\n  shimmerColor = '#ffffff',\n  duration = 1,\n  zDistance = 10,\n  xDistance = 2,\n  yDistance = -2,\n  spread = 1,\n  scaleDistance = 1.1,\n  rotateYDistance = 10,\n}: TextShimmerWaveDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <TextShimmerWave\n        key={`${children}-${color}-${shimmerColor}-${duration}-${zDistance}-${xDistance}-${yDistance}-${spread}-${scaleDistance}-${rotateYDistance}`}\n        color={color}\n        shimmerColor={shimmerColor}\n        duration={duration}\n        zDistance={zDistance}\n        xDistance={xDistance}\n        yDistance={yDistance}\n        spread={spread}\n        scaleDistance={scaleDistance}\n        rotateYDistance={rotateYDistance}\n        className=\"text-4xl font-semibold tracking-tight\"\n      >\n        {children}\n      </TextShimmerWave>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/texts/text-shimmer-wave.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "TextShimmerWave": {
+        "children": {
+          "value": "Odyssey UI"
+        },
+        "duration": {
+          "value": 1,
+          "min": 0.1,
+          "max": 5,
+          "step": 0.1
+        },
+        "zDistance": {
+          "value": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        "xDistance": {
+          "value": 2,
+          "min": -20,
+          "max": 20,
+          "step": 1
+        },
+        "yDistance": {
+          "value": -2,
+          "min": -20,
+          "max": 20,
+          "step": 1
+        },
+        "spread": {
+          "value": 1,
+          "min": 0.1,
+          "max": 3,
+          "step": 0.1
+        },
+        "scaleDistance": {
+          "value": 1.1,
+          "min": 1,
+          "max": 2,
+          "step": 0.05
+        },
+        "rotateYDistance": {
+          "value": 10,
+          "min": 0,
+          "max": 90,
+          "step": 1
+        },
+        "color": {
+          "value": "#a1a1aa"
+        },
+        "shimmerColor": {
+          "value": "#ffffff"
+        }
+      }
+    }
+  },
+  "type": "registry:ui"
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-texts-text-highlighter",
+  "type": "registry:ui",
+  "title": "Text Highlighter Demo",
+  "description": "Demo of the TextHighlighter component showcasing all annotation types.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-texts-text-highlighter.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/texts/text-highlighter/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/texts/text-highlighter.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "TextHighlighter": {
+        "action": {
+          "value": "highlight",
+          "options": {
+            "highlight": "highlight",
+            "underline": "underline",
+            "box": "box",
+            "circle": "circle",
+            "strike-through": "strike-through",
+            "crossed-off": "crossed-off",
+            "bracket": "bracket"
+          }
+        },
+        "color": {
+          "value": "#51A2FF"
+        },
+        "strokeWidth": {
+          "value": 1.5,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.5
+        },
+        "animationDuration": {
+          "value": 600,
+          "min": 100,
+          "max": 2000,
+          "step": 100
+        },
+        "iterations": {
+          "value": 2,
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        "padding": {
+          "value": 2,
+          "min": 0,
+          "max": 20,
+          "step": 1
+        },
+        "multiline": {
+          "value": true
+        }
+      }
+    }
+  }
+}

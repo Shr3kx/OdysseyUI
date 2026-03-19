@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-texts-typewriter",
+  "type": "registry:ui",
+  "title": "Typewriter",
+  "description": "Animated typewriter effect with multi-sequence support, natural variance, delete animation, and auto-loop.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/components/texts/typewriter/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/typewriter.tsx"
+    }
+  ]
+}

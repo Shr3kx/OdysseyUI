@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-texts-text-shimmer-wave",
+  "type": "registry:ui",
+  "title": "Text Shimmer Wave",
+  "description": "3D wave shimmer effect that ripples through each character sequentially.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/components/texts/text-shimmer-wave/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/text-shimmer-wave.tsx"
+    }
+  ]
+}

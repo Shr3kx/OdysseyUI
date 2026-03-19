@@ -1,0 +1,112 @@
+---
+title: Text Reveal
+description: Scramble-reveal animation that decodes pseudo-random characters progressively into the final text, with optional in-view trigger and preset character sets.
+---
+
+<ComponentPreview name="demo-components-texts-text-reveal" />
+
+## Installation
+
+<ComponentInstallation name="components-texts-text-reveal" />
+
+## Usage
+
+```tsx
+import { TextReveal } from '@/components/odysseyui/text-reveal';
+
+export default function Page() {
+  return (
+    <TextReveal speed={20} preset="cyberpunk" className="text-4xl font-mono">
+      Odyssey UI
+    </TextReveal>
+  );
+}
+```
+
+## How It Works
+
+- The animation runs in two phases: **scramble** (random characters expand outward) then **reveal** (characters lock in left-to-right).
+- During scramble, each step adds one more random character to the visible range, avoiding consecutive duplicates.
+- During reveal, characters resolve one-by-one with a blinking `_` cursor marking the current position.
+- `speed` controls the interval in milliseconds between each animation step.
+- `delay` defers the start by the given number of seconds.
+- `triggerOnView` uses an Intersection Observer to start the animation only when the element enters the viewport.
+- `once` controls whether the view trigger fires only on first entry or re-fires on every re-entry.
+- `preset` selects a built-in scramble character pool; pass `characters` to use a custom pool instead.
+
+---
+
+## API Reference
+
+### TextReveal
+
+<TypeTable
+  type={{
+    children: {
+      description:
+        'The final text to reveal. Used as the scramble source and end state.',
+      type: 'string',
+      required: true,
+    },
+    speed: {
+      description: 'Milliseconds between each animation frame step.',
+      type: 'number',
+      default: '20',
+    },
+    delay: {
+      description: 'Seconds to wait before starting the animation.',
+      type: 'number',
+      default: '0',
+    },
+    className: {
+      description: 'Class names applied to the outer span element.',
+      type: 'string',
+    },
+    triggerOnView: {
+      description:
+        'When true, the animation starts only when the element scrolls into the viewport.',
+      type: 'boolean',
+      default: 'false',
+    },
+    once: {
+      description:
+        'When true (and triggerOnView is enabled), the animation only fires once on first intersection.',
+      type: 'boolean',
+      default: 'true',
+    },
+    characters: {
+      description:
+        'Custom string of characters to use as the scramble pool. Overrides preset.',
+      type: 'string',
+    },
+    preset: {
+      description:
+        'Built-in scramble character set to use when characters is not provided.',
+      type: '"default" | "binary" | "cyberpunk" | "minimal"',
+      default: '"default"',
+    },
+  }}
+/>
+
+### CharacterPreset
+
+<TypeTable
+  type={{
+    default: {
+      description: 'General-purpose symbols: #$%&@!?',
+      type: 'string',
+    },
+    binary: {
+      description: 'Binary digits only: 01',
+      type: 'string',
+    },
+    cyberpunk: {
+      description: 'Block and line drawing characters: ░▒▓█◣◥',
+      type: 'string',
+    },
+    minimal: {
+      description: 'Subtle punctuation marks: ·+×÷',
+      type: 'string',
+    },
+  }}
+/>

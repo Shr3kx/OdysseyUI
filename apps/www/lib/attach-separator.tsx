@@ -82,7 +82,7 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
       node.name = (
         <Separator
           icon={<HugeiconsIcon icon={TextIcon} />}
-          name="AI Elements"
+          name="Text Effects"
         />
       );
       break;

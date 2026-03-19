@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/collapsible';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { ShimmerText } from '@/registry/components/animate/text-shimmer';
+import { ShimmerText } from '@/registry/components/texts/text-shimmer';
 
 type Status = 'done' | 'active' | 'pending';
 

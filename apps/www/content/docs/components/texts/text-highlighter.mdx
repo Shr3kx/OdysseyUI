@@ -1,0 +1,124 @@
+---
+title: Text Highlighter
+description: Rough-notation powered text annotations — highlight, underline, box, circle, strike-through, and more, with optional scroll-triggered activation.
+---
+
+<ComponentPreview name="demo-components-texts-text-highlighter" />
+
+## Installation
+
+<ComponentInstallation name="components-texts-text-highlighter" />
+
+## Usage
+
+```tsx
+import { TextHighlighter } from '@/components/odysseyui/text-highlighter';
+
+export default function Page() {
+  return (
+    <p className="text-2xl font-semibold">
+      <TextHighlighter action="highlight" color="#51A2FF" iterations={3}>
+        Good Design Shouts.
+      </TextHighlighter>
+    </p>
+  );
+}
+```
+
+## Examples
+
+### Underline
+
+```tsx
+<TextHighlighter action="underline" color="#f97316" strokeWidth={2}>
+  Great Design Whispers.
+</TextHighlighter>
+```
+
+### Box
+
+```tsx
+<TextHighlighter action="box" color="#a855f7" strokeWidth={1.5}>
+  Timeless Design Endures.
+</TextHighlighter>
+```
+
+### Circle
+
+```tsx
+<TextHighlighter action="circle" color="#10b981" strokeWidth={1.5}>
+  Details Make the Difference.
+</TextHighlighter>
+```
+
+### Scroll-triggered
+
+Pass `isView` to delay the annotation until the element scrolls into view.
+
+```tsx
+<TextHighlighter action="highlight" color="#ffd1dc" isView>
+  Appears when scrolled into view.
+</TextHighlighter>
+```
+
+---
+
+## API Reference
+
+### TextHighlighter
+
+<TypeTable
+  type={{
+    children: {
+      description: 'Text or elements to annotate.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+    action: {
+      description: 'Annotation type to apply.',
+      type: '"highlight" | "underline" | "box" | "circle" | "strike-through" | "crossed-off" | "bracket"',
+      default: '"highlight"',
+    },
+    color: {
+      description: 'Color of the annotation stroke.',
+      type: 'string',
+      default: '"#ffd1dc"',
+    },
+    strokeWidth: {
+      description: 'Width of the annotation stroke in pixels.',
+      type: 'number',
+      default: '1.5',
+    },
+    animationDuration: {
+      description: 'Duration of the draw animation in milliseconds.',
+      type: 'number',
+      default: '600',
+    },
+    iterations: {
+      description:
+        'Number of times the annotation is redrawn for a rougher look.',
+      type: 'number',
+      default: '2',
+    },
+    padding: {
+      description: 'Padding around the annotated element in pixels.',
+      type: 'number',
+      default: '2',
+    },
+    multiline: {
+      description: 'Whether the annotation supports multi-line text.',
+      type: 'boolean',
+      default: 'true',
+    },
+    isView: {
+      description: 'Delay annotation until the element scrolls into viewport.',
+      type: 'boolean',
+      default: 'false',
+    },
+    active: {
+      description: 'Toggle the annotation on or off.',
+      type: 'boolean',
+      default: 'true',
+    },
+  }}
+/>

@@ -1,0 +1,118 @@
+---
+title: Text Shimmer Wave
+description: 3D wave shimmer effect that ripples a color flash through each character sequentially with perspective transforms.
+---
+
+<ComponentPreview name="demo-components-texts-text-shimmer-wave" />
+
+## Installation
+
+<ComponentInstallation name="components-texts-text-shimmer-wave" />
+
+## Usage
+
+```tsx
+import { TextShimmerWave } from '@/components/odysseyui/text-shimmer-wave';
+
+export default function Page() {
+  return (
+    <TextShimmerWave
+      color="#a1a1aa"
+      shimmerColor="#ffffff"
+      duration={1}
+      spread={1}
+      className="text-4xl font-semibold"
+    >
+      Odyssey UI
+    </TextShimmerWave>
+  );
+}
+```
+
+## How It Works
+
+- Each character is wrapped in an individual `motion.span` that animates on its own staggered delay.
+- The wave is created by offsetting each character's animation start by `(i * duration) / (text.length * spread)`.
+- `spread` controls how many wave cycles fit across the full text at once — higher values compress the wave.
+- `zDistance`, `xDistance`, and `yDistance` define the 3D translation peak at the top of each character's wave.
+- `scaleDistance` briefly scales up the character at the shimmer peak.
+- `rotateYDistance` tilts the character on its Y axis for a 3D flip feel.
+- The `color` and `shimmerColor` animate between base and highlight at the same cadence.
+
+---
+
+## API Reference
+
+### TextShimmerWave
+
+<TypeTable
+  type={{
+    children: {
+      description:
+        'The text to animate. Each character is animated individually.',
+      type: 'string',
+      required: true,
+    },
+    as: {
+      description: 'HTML element to render as the outer wrapper.',
+      type: 'React.ElementType',
+      default: '"p"',
+    },
+    className: {
+      description: 'Class names applied to the outer wrapper element.',
+      type: 'string',
+    },
+    color: {
+      description: 'Base text color applied between shimmer peaks.',
+      type: 'string',
+      default: '"#a1a1aa"',
+    },
+    shimmerColor: {
+      description: 'Text color at the peak of the shimmer wave.',
+      type: 'string',
+      default: '"#ffffff"',
+    },
+    duration: {
+      description: 'Duration of one full wave cycle per character, in seconds.',
+      type: 'number',
+      default: '1',
+    },
+    zDistance: {
+      description: 'Peak Z-axis translation in pixels for the 3D lift effect.',
+      type: 'number',
+      default: '10',
+    },
+    xDistance: {
+      description: 'Peak X-axis translation in pixels at the shimmer peak.',
+      type: 'number',
+      default: '2',
+    },
+    yDistance: {
+      description: 'Peak Y-axis translation in pixels at the shimmer peak.',
+      type: 'number',
+      default: '-2',
+    },
+    spread: {
+      description:
+        'Controls how many wave cycles are distributed across the text simultaneously.',
+      type: 'number',
+      default: '1',
+    },
+    scaleDistance: {
+      description: 'Peak scale multiplier applied at the shimmer apex.',
+      type: 'number',
+      default: '1.1',
+    },
+    rotateYDistance: {
+      description:
+        'Peak Y-axis rotation in degrees for the 3D flip at the shimmer apex.',
+      type: 'number',
+      default: '10',
+    },
+    transition: {
+      description:
+        'Framer Motion transition override applied to every character animation.',
+      type: 'Transition',
+    },
+  }}
+/>

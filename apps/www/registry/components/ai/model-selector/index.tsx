@@ -33,7 +33,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { ShimmerText } from '@/registry/components/animate/text-shimmer';
+import { ShimmerText } from '@/registry/components/texts/text-shimmer';
 
 export type Cap = 'vision' | 'tools' | 'search';
 export type Cost = string;

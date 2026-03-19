@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-texts-text-shimmer-wave",
+  "title": "Text Shimmer Wave",
+  "description": "3D wave shimmer effect that ripples through each character sequentially.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/components/texts/text-shimmer-wave/index.tsx",
+      "content": "'use client';\n\nimport { useMemo, type JSX } from 'react';\nimport { motion, type Transition } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nexport type TextShimmerWaveProps = {\n  children: string;\n  as?: React.ElementType;\n  className?: string;\n  color?: string;\n  shimmerColor?: string;\n  duration?: number;\n  zDistance?: number;\n  xDistance?: number;\n  yDistance?: number;\n  spread?: number;\n  scaleDistance?: number;\n  rotateYDistance?: number;\n  transition?: Transition;\n};\n\nexport function TextShimmerWave({\n  children,\n  as: Tag = 'p',\n  className,\n  color = '#a1a1aa',\n  shimmerColor = '#ffffff',\n  duration = 1,\n  zDistance = 10,\n  xDistance = 2,\n  yDistance = -2,\n  spread = 1,\n  scaleDistance = 1.1,\n  rotateYDistance = 10,\n  transition,\n}: TextShimmerWaveProps) {\n  const MotionTag = useMemo(\n    () =>\n      motion.create(Tag as keyof JSX.IntrinsicElements) as React.ComponentType<{\n        className?: string;\n        style?: React.CSSProperties;\n        children?: React.ReactNode;\n      }>,\n    [Tag],\n  );\n\n  const repeatDelay = (children.length * 0.05) / spread;\n\n  return (\n    <MotionTag\n      className={cn('relative inline-block perspective-normal', className)}\n      style={{ color }}\n    >\n      {children.split('').map((char, i) => (\n        <motion.span\n          key={i}\n          className=\"inline-block whitespace-pre transform-3d\"\n          initial={{ translateZ: 0, scale: 1, rotateY: 0, color }}\n          animate={{\n            translateZ: [0, zDistance, 0],\n            translateX: [0, xDistance, 0],\n            translateY: [0, yDistance, 0],\n            scale: [1, scaleDistance, 1],\n            rotateY: [0, rotateYDistance, 0],\n            color: [color, shimmerColor, color],\n          }}\n          transition={{\n            duration,\n            repeat: Infinity,\n            repeatDelay,\n            delay: (i * duration) / (children.length * spread),\n            ease: 'easeInOut',\n            ...transition,\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </MotionTag>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/odysseyui/text-shimmer-wave.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-texts-text-reveal",
+  "title": "Text Reveal Demo",
+  "description": "Demo of the Text Reveal scramble animation component.",
+  "registryDependencies": [
+    "https://odysseyui.com/r/components-texts-text-reveal.json"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/texts/text-reveal/index.tsx",
+      "content": "import { TextReveal } from '@/components/odyssey/components/texts/text-reveal';\n\ninterface TextRevealDemoProps {\n  children?: string;\n  speed?: number;\n  delay?: number;\n  triggerOnView?: boolean;\n  once?: boolean;\n  preset?: 'default' | 'binary' | 'cyberpunk' | 'minimal';\n}\n\nexport const TextRevealDemo = ({\n  children = 'Odyssey UI',\n  speed = 20,\n  delay = 0,\n  triggerOnView = false,\n  once = true,\n  preset = 'default',\n}: TextRevealDemoProps) => {\n  return (\n    <div className=\"flex items-center justify-center p-10\">\n      <TextReveal\n        key={`${children}-${speed}-${delay}-${triggerOnView}-${once}-${preset}`}\n        speed={speed}\n        delay={delay}\n        triggerOnView={triggerOnView}\n        once={once}\n        preset={preset}\n        className=\"text-4xl\"\n      >\n        {children}\n      </TextReveal>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/texts/text-reveal.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "TextReveal": {
+        "children": {
+          "value": "Odyssey UI"
+        },
+        "speed": {
+          "value": 20,
+          "min": 5,
+          "max": 200,
+          "step": 5
+        },
+        "delay": {
+          "value": 0,
+          "min": 0,
+          "max": 5,
+          "step": 0.1
+        },
+        "triggerOnView": {
+          "value": false
+        },
+        "once": {
+          "value": true
+        },
+        "preset": {
+          "value": "default"
+        }
+      }
+    }
+  },
+  "type": "registry:ui"
+}

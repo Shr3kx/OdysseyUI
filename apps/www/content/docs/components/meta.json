@@ -20,9 +20,11 @@
     "buttons/smart-upload",
 
     "---Text Effects---",
-    "animate/text-shimmer",
-    "animate/text-highlighter",
-    "animate/typewriter",
+    "texts/text-shimmer",
+    "texts/text-highlighter",
+    "texts/typewriter",
+    "texts/text-shimmer-wave",
+    "texts/text-reveal",
 
     "---Preloaders---",
     "preloaders/greetings",
