@@ -34,7 +34,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'dialog',
       'tooltip',
-      'https://odysseyui.com/r/components-animate-text-shimmer.json',
+      '@odysseyui/components-texts-text-shimmer',
     ],
     cssVars: undefined,
     css: undefined,
@@ -121,7 +121,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'collapsible',
-      'https://odysseyui.com/r/components-animate-text-shimmer.json',
+      '@odysseyui/components-texts-text-shimmer',
     ],
     cssVars: undefined,
     css: undefined,
@@ -164,7 +164,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'collapsible',
       'badge',
-      'https://odysseyui.com/r/components-animate-text-shimmer.json',
+      '@odysseyui/components-texts-text-shimmer',
     ],
     cssVars: undefined,
     css: undefined,
