@@ -230,7 +230,7 @@ export function ComponentSearch({ open, onOpenChange }: ComponentSearchProps) {
                   const documentationPath = `/docs/components/${rest}`;
                   const category = rest.split('/')[0] || 'components';
                   const shortName = item.name.replace(/^components-[^-]+-/, '');
-                  const installCommand = `npx shadcn add @odyssey/${shortName}`;
+                  const installCommand = `npx shadcn add @odysseyui/${shortName}`;
 
                   components.push({
                     name: item.name,

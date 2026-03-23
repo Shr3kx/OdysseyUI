@@ -71,7 +71,7 @@ const getRegistryDepsCommands = (dependencies?: string[]) => {
   const quotedDependencies = dependencies
     .map((dep) => {
       if (dep.startsWith('https://odysseyui.com/r/')) {
-        return dep.replace('https://odysseyui.com/r/', '@odyssey/');
+        return dep.replace('https://odysseyui.com/r/', '@odysseyui/');
       }
       if (dep.startsWith('https://')) {
         return `"${dep}"`;

@@ -59,7 +59,7 @@ export function GlobalContextMenu({ children }: { children: React.ReactNode }) {
             const rest = pathMatch[1];
             const docsPath = `/docs/components/${rest}`;
             map[normalizePath(docsPath)] =
-              `npx shadcn@latest add @odyssey/${item.name}`;
+              `npx shadcn@latest add @odysseyui/${item.name}`;
           });
         }
 

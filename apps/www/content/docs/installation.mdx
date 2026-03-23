@@ -6,12 +6,6 @@ description: How to install dependencies and structure your app.
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { CodeTabs } from '@/components/docs/code-tabs';
 
-<Callout>
-  **Note:** We are currently figuring out the installation via shadcn. Until
-  then you can add   <b className="text-foreground">"@odyssey": "https://odysseyui.com/r/{name}.json"</b> to your components.json for clean installation.
-
-</Callout>
-
 <Steps>
 <Step>
 
@@ -33,18 +27,15 @@ Run the `init` command to create a new project with shadcn/ui or setup an existi
 
 ### Add Components
 
-<Callout>
-  **Note** Currently installation can be done like this **npx shadcn@latest
-  add** https://odysseyui.com/r/components-animate-code-block.json
-</Callout>
+
 Run the `add` command to add a component to your project.
 
 <CodeTabs
   codes={{
-    pnpm: `pnpm dlx shadcn@latest add @odyssey/components-animate-code-block`,
-    npm: `npx shadcn@latest add @odyssey/components-animate-code-block`,
-    yarn: `npx shadcn@latest add @odyssey/components-animate-code-block`,
-    bun: `bunx --bun shadcn@latest add @odyssey/components-animate-code-block`,
+    pnpm: `pnpm dlx shadcn@latest add @odysseyui/components-animate-code-block`,
+    npm: `npx shadcn@latest add @odysseyui/components-animate-code-block`,
+    yarn: `npx shadcn@latest add @odysseyui/components-animate-code-block`,
+    bun: `bunx --bun shadcn@latest add @odysseyui/components-animate-code-block`,
   }}
 />
 

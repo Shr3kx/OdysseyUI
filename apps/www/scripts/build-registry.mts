@@ -199,7 +199,7 @@ export const index: Record<string, any> = {`;
     })()`
         : 'null'
     },
-    command: '@odyssey/${item.name}',
+    command: '@odysseyui/${item.name}',
   },`;
   }
 
