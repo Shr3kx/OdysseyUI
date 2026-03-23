@@ -3,7 +3,9 @@
   "name": "components-ai-steps",
   "title": "Steps",
   "description": "A collapsible AI tool-run steps component with animated shimmer trigger and a vertical progress bar.",
-  "dependencies": ["lucide-react"],
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "collapsible",
     "@odysseyui/components-texts-text-shimmer"

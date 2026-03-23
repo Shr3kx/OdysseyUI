@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-primitives-tree-filter",
+  "title": "Tree Filter Demo",
+  "description": "Demo of the animated tree filter with nested checkboxes and search.",
+  "registryDependencies": [
+    "odyssey/components-primitives-tree-filter"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/primitives/tree-filter/index.tsx",
+      "content": "import {\n  TreeFilter,\n  TreeFilterSearch,\n  TreeFilterGroup,\n  TreeFilterList,\n} from '@/components/odyssey/components/primitives/tree-filter';\n\nconst treeData = [\n  {\n    id: 'rpg',\n    label: 'RPG',\n    count: 14,\n    children: [\n      { id: 'elden-ring', label: 'Elden Ring', count: 6 },\n      { id: 'witcher3', label: 'The Witcher 3', count: 5 },\n      { id: 'bg3', label: \"Baldur's Gate 3\", count: 3 },\n    ],\n  },\n  {\n    id: 'fps',\n    label: 'FPS',\n    count: 11,\n    children: [\n      { id: 'valorant', label: 'Valorant', count: 4 },\n      { id: 'csgo', label: 'CS2', count: 4 },\n      {\n        id: 'halo',\n        label: 'Halo',\n        count: 3,\n        children: [\n          { id: 'halo-infinite', label: 'Halo Infinite', count: 2 },\n          { id: 'halo-mcc', label: 'MCC', count: 1 },\n        ],\n      },\n    ],\n  },\n  {\n    id: 'strategy',\n    label: 'Strategy',\n    count: 8,\n    children: [\n      { id: 'civ6', label: 'Civilization VI', count: 3 },\n      { id: 'aoe4', label: 'Age of Empires IV', count: 3 },\n      { id: 'sc2', label: 'StarCraft II', count: 2 },\n    ],\n  },\n  { id: 'indie', label: 'Indie', count: 5 },\n];\n\nexport const TreeFilterDemo = () => {\n  return (\n    <TreeFilter defaultChecked={['elden-ring', 'valorant']}>\n      <TreeFilterSearch placeholder=\"Search Games\" />\n      <TreeFilterGroup label=\"Games\">\n        <TreeFilterList items={treeData} />\n      </TreeFilterGroup>\n    </TreeFilter>\n  );\n};\n\nexport default TreeFilterDemo;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/primitives/tree-filter.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

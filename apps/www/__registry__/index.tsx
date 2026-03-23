@@ -22,7 +22,7 @@ export const index: Record<string, any> = {
     files: [],
     keywords: [],
     component: null,
-    command: '@odyssey/index',
+    command: '@odysseyui/index',
   },
   'components-ai-model-selector': {
     name: 'components-ai-model-selector',
@@ -66,7 +66,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-ai-model-selector',
+    command: '@odysseyui/components-ai-model-selector',
   },
   'components-ai-prompt-input': {
     name: 'components-ai-prompt-input',
@@ -110,7 +110,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-ai-prompt-input',
+    command: '@odysseyui/components-ai-prompt-input',
   },
   'components-ai-steps': {
     name: 'components-ai-steps',
@@ -152,7 +152,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-ai-steps',
+    command: '@odysseyui/components-ai-steps',
   },
   'components-ai-thought-chain': {
     name: 'components-ai-thought-chain',
@@ -196,7 +196,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-ai-thought-chain',
+    command: '@odysseyui/components-ai-thought-chain',
   },
   'components-ai-token-usage': {
     name: 'components-ai-token-usage',
@@ -240,7 +240,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-ai-token-usage',
+    command: '@odysseyui/components-ai-token-usage',
   },
   'components-animate-avatar-group': {
     name: 'components-animate-avatar-group',
@@ -280,7 +280,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-avatar-group',
+    command: '@odysseyui/components-animate-avatar-group',
   },
   'components-animate-card-stroke': {
     name: 'components-animate-card-stroke',
@@ -320,7 +320,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-card-stroke',
+    command: '@odysseyui/components-animate-card-stroke',
   },
   'components-animate-code': {
     name: 'components-animate-code',
@@ -363,7 +363,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-code',
+    command: '@odysseyui/components-animate-code',
   },
   'components-animate-code-block': {
     name: 'components-animate-code-block',
@@ -405,7 +405,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-code-block',
+    command: '@odysseyui/components-animate-code-block',
   },
   'components-animate-code-tabs': {
     name: 'components-animate-code-tabs',
@@ -447,7 +447,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-code-tabs',
+    command: '@odysseyui/components-animate-code-tabs',
   },
   'components-animate-cursor': {
     name: 'components-animate-cursor',
@@ -487,7 +487,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-cursor',
+    command: '@odysseyui/components-animate-cursor',
   },
   'components-animate-footer': {
     name: 'components-animate-footer',
@@ -526,7 +526,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-footer',
+    command: '@odysseyui/components-animate-footer',
   },
   'components-animate-github-stars-wheel': {
     name: 'components-animate-github-stars-wheel',
@@ -569,7 +569,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-github-stars-wheel',
+    command: '@odysseyui/components-animate-github-stars-wheel',
   },
   'components-animate-tabs': {
     name: 'components-animate-tabs',
@@ -609,7 +609,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-animate-tabs',
+    command: '@odysseyui/components-animate-tabs',
   },
   'components-buttons-button': {
     name: 'components-buttons-button',
@@ -648,7 +648,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-buttons-button',
+    command: '@odysseyui/components-buttons-button',
   },
   'components-buttons-copy': {
     name: 'components-buttons-copy',
@@ -691,7 +691,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-buttons-copy',
+    command: '@odysseyui/components-buttons-copy',
   },
   'components-buttons-github-stars': {
     name: 'components-buttons-github-stars',
@@ -734,7 +734,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-buttons-github-stars',
+    command: '@odysseyui/components-buttons-github-stars',
   },
   'components-buttons-icon': {
     name: 'components-buttons-icon',
@@ -777,7 +777,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-buttons-icon',
+    command: '@odysseyui/components-buttons-icon',
   },
   'components-buttons-smart-upload': {
     name: 'components-buttons-smart-upload',
@@ -828,7 +828,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-buttons-smart-upload',
+    command: '@odysseyui/components-buttons-smart-upload',
   },
   'components-buttons-theme-toggler': {
     name: 'components-buttons-theme-toggler',
@@ -870,7 +870,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-buttons-theme-toggler',
+    command: '@odysseyui/components-buttons-theme-toggler',
   },
   'components-community-notification-list': {
     name: 'components-community-notification-list',
@@ -911,7 +911,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-community-notification-list',
+    command: '@odysseyui/components-community-notification-list',
   },
   'components-community-playful-todolist': {
     name: 'components-community-playful-todolist',
@@ -952,7 +952,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-community-playful-todolist',
+    command: '@odysseyui/components-community-playful-todolist',
   },
   'components-logocloud-logocloud-1': {
     name: 'components-logocloud-logocloud-1',
@@ -992,7 +992,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-logocloud-logocloud-1',
+    command: '@odysseyui/components-logocloud-logocloud-1',
   },
   'components-preloaders-greetings': {
     name: 'components-preloaders-greetings',
@@ -1032,7 +1032,47 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-preloaders-greetings',
+    command: '@odysseyui/components-preloaders-greetings',
+  },
+  'components-primitives-tree-filter': {
+    name: 'components-primitives-tree-filter',
+    description:
+      'Animated tree-structured filter with nested checkboxes, search, and group cycling.',
+    type: 'registry:ui',
+    dependencies: ['motion', '@hugeicons/react', '@hugeicons/core-free-icons'],
+    devDependencies: undefined,
+    registryDependencies: ['collapsible'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/primitives/tree-filter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/tree-filter.tsx',
+        content:
+          '\'use client\';\n\nimport {\n  useState,\n  useContext,\n  createContext,\n  ReactNode,\n  Dispatch,\n  SetStateAction,\n} from \'react\';\nimport { motion, AnimatePresence } from \'motion/react\';\nimport { HugeiconsIcon } from \'@hugeicons/react\';\nimport {\n  Search01Icon,\n  ArrowRight01Icon,\n  Cancel01Icon,\n} from \'@hugeicons/core-free-icons\';\nimport { Collapsible, CollapsibleTrigger } from \'@/components/ui/collapsible\';\n\ninterface TreeNode {\n  id: string;\n  label: string;\n  count?: number;\n  children?: TreeNode[];\n}\n\ntype CheckedState = \'checked\' | \'unchecked\' | \'indeterminate\';\n\ninterface TreeFilterContextValue {\n  checked: Set<string>;\n  toggle: (ids: string[], value: boolean) => void;\n  search: string;\n  setSearch: Dispatch<SetStateAction<string>>;\n}\n\nconst TreeFilterContext = createContext<TreeFilterContextValue | null>(null);\n\nfunction useTreeFilter(): TreeFilterContextValue {\n  const ctx = useContext(TreeFilterContext);\n  if (!ctx) throw new Error(\'Must be used within <TreeFilter>\');\n  return ctx;\n}\n\nfunction getAllLeafIds(node: TreeNode): string[] {\n  if (!node.children || node.children.length === 0) return [node.id];\n  return node.children.flatMap(getAllLeafIds);\n}\n\nfunction getCheckedState(node: TreeNode, checked: Set<string>): CheckedState {\n  const leaves = getAllLeafIds(node);\n  if (leaves.length === 0)\n    return checked.has(node.id) ? \'checked\' : \'unchecked\';\n  const count = leaves.filter((id: string) => checked.has(id)).length;\n  if (count === 0) return \'unchecked\';\n  if (count === leaves.length) return \'checked\';\n  return \'indeterminate\';\n}\n\nfunction filterTree(nodes: TreeNode[], query: string): TreeNode[] {\n  if (!query) return nodes;\n  const result: TreeNode[] = [];\n  for (const node of nodes) {\n    const match = node.label.toLowerCase().includes(query.toLowerCase());\n    const filteredChildren = node.children\n      ? filterTree(node.children, query)\n      : [];\n    if (match || filteredChildren.length > 0)\n      result.push({ ...node, children: filteredChildren });\n  }\n  return result;\n}\n\nfunction TreeFilter({\n  children,\n  defaultChecked = [],\n}: {\n  children: ReactNode;\n  defaultChecked?: string[];\n}) {\n  const [checked, setChecked] = useState<Set<string>>(new Set(defaultChecked));\n  const [search, setSearch] = useState(\'\');\n\n  const toggle = (ids: string[], value: boolean) => {\n    setChecked((prev) => {\n      const next = new Set(prev);\n      ids.forEach((id: string) => (value ? next.add(id) : next.delete(id)));\n      return next;\n    });\n  };\n\n  return (\n    <TreeFilterContext.Provider value={{ checked, toggle, search, setSearch }}>\n      <div className="w-72 h-[420px] bg-card border border-border rounded-xl shadow-lg text-sm flex flex-col overflow-hidden">\n        {children}\n      </div>\n    </TreeFilterContext.Provider>\n  );\n}\n\nfunction TreeFilterSearch({\n  placeholder = \'Search...\',\n}: {\n  placeholder?: string;\n}) {\n  const { search, setSearch } = useTreeFilter();\n  return (\n    <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border sticky top-0 bg-card z-10 shrink-0">\n      <HugeiconsIcon\n        icon={Search01Icon}\n        size={14}\n        className="shrink-0 text-muted-foreground"\n      />\n      <input\n        value={search}\n        onChange={(e) => setSearch(e.target.value)}\n        placeholder={placeholder}\n        className="flex-1 bg-transparent border-none outline-none text-[13px] text-foreground placeholder:text-muted-foreground tracking-tight"\n      />\n      <div className="flex items-center gap-1.5">\n        <AnimatePresence>\n          {search && (\n            <motion.button\n              initial={{ opacity: 0, scale: 0.7 }}\n              animate={{ opacity: 1, scale: 1 }}\n              exit={{ opacity: 0, scale: 0.7 }}\n              transition={{ duration: 0.12 }}\n              onClick={() => setSearch(\'\')}\n              className="bg-transparent border-none text-muted-foreground hover:text-foreground cursor-pointer p-0 leading-none flex items-center"\n            >\n              <HugeiconsIcon icon={Cancel01Icon} size={12} />\n            </motion.button>\n          )}\n        </AnimatePresence>\n        <span className="text-[11px] text-muted-foreground/40 font-medium">\n          ESC\n        </span>\n      </div>\n    </div>\n  );\n}\n\nfunction TreeFilterGroup({\n  label,\n  children,\n}: {\n  label?: string;\n  children: ReactNode;\n}) {\n  return (\n    <div className="flex-1 overflow-y-auto py-2">\n      {label && (\n        <div className="px-3 pt-0.5 pb-2 text-[10px] font-semibold text-muted-foreground/50 uppercase tracking-widest">\n          {label}\n        </div>\n      )}\n      {children}\n    </div>\n  );\n}\n\nfunction TreeFilterList({ items }: { items: TreeNode[] }) {\n  const { search } = useTreeFilter();\n  const visible = filterTree(items, search);\n\n  if (visible.length === 0) {\n    return (\n      <div className="py-4 px-3 text-[13px] text-muted-foreground text-center">\n        No results\n      </div>\n    );\n  }\n\n  return (\n    <>\n      {visible.map((node: TreeNode) => (\n        <TreeFilterNode key={node.id} node={node} depth={0} />\n      ))}\n    </>\n  );\n}\n\nfunction Checkbox({\n  state,\n  onChange,\n}: {\n  state: CheckedState;\n  onChange: () => void;\n}) {\n  const isChecked = state === \'checked\';\n  const isIndet = state === \'indeterminate\';\n\n  return (\n    <button\n      onClick={onChange}\n      className={`w-4.5 h-4.5 rounded-[5px] flex items-center justify-center shrink-0 cursor-pointer transition-colors duration-150 ${\n        isChecked || isIndet\n          ? \'bg-primary border-0\'\n          : \'border border-border bg-transparent\'\n      }`}\n    >\n      <AnimatePresence mode="wait">\n        {isChecked && (\n          <motion.svg\n            key="check"\n            width="10"\n            height="8"\n            viewBox="0 0 10 8"\n            fill="none"\n            initial={{ opacity: 0 }}\n            animate={{ opacity: 1 }}\n            exit={{ opacity: 0 }}\n            transition={{ duration: 0.1 }}\n          >\n            <motion.path\n              d="M1 4L3.8 7L9 1"\n              stroke="currentColor"\n              className="text-primary-foreground"\n              strokeWidth="1.8"\n              strokeLinecap="round"\n              strokeLinejoin="round"\n              initial={{ pathLength: 0 }}\n              animate={{ pathLength: 1 }}\n              transition={{ duration: 0.2, ease: \'easeOut\' }}\n            />\n          </motion.svg>\n        )}\n\n        {isIndet && (\n          <motion.div\n            key="indet"\n            className="h-0.5 rounded-sm bg-primary-foreground"\n            style={{ width: 8 }}\n            initial={{ scaleX: 0 }}\n            animate={{ scaleX: 1 }}\n            exit={{ scaleX: 0 }}\n            transition={{ duration: 0.15 }}\n          />\n        )}\n      </AnimatePresence>\n    </button>\n  );\n}\n\nfunction TreeFilterNode({\n  node,\n  depth = 0,\n}: {\n  node: TreeNode;\n  depth?: number;\n}) {\n  const { checked, toggle } = useTreeFilter();\n  const [expanded, setExpanded] = useState(depth < 1);\n\n  const hasChildren = node.children && node.children.length > 0;\n  const checkedState = getCheckedState(node, checked);\n\n  const handleCheck = () => {\n    const leaves = getAllLeafIds(node);\n    toggle(leaves.length ? leaves : [node.id], checkedState !== \'checked\');\n  };\n\n  return (\n    <Collapsible open={expanded} onOpenChange={setExpanded}>\n      <div\n        className="flex items-center gap-1.5 pr-2.5 py-1.25 mx-1 rounded-md cursor-pointer hover:bg-accent transition-colors duration-100"\n        style={{ paddingLeft: `${8 + depth * 10}px` }}\n      >\n        {hasChildren ? (\n          <CollapsibleTrigger asChild>\n            <button className="bg-transparent border-none p-0 cursor-pointer flex items-center w-4 shrink-0 text-muted-foreground">\n              <motion.span\n                animate={{ rotate: expanded ? 90 : 0 }}\n                transition={{ duration: 0.2, ease: \'easeInOut\' }}\n                className="flex items-center"\n              >\n                <HugeiconsIcon icon={ArrowRight01Icon} size={14} />\n              </motion.span>\n            </button>\n          </CollapsibleTrigger>\n        ) : (\n          <div className="w-4 shrink-0" />\n        )}\n\n        <Checkbox state={checkedState} onChange={handleCheck} />\n\n        <span\n          onClick={handleCheck}\n          className={`flex-1 text-[13px] cursor-pointer select-none transition-colors duration-150 tracking-tight ${\n            checkedState === \'checked\'\n              ? \'font-semibold text-foreground\'\n              : \'font-normal text-muted-foreground\'\n          }`}\n        >\n          {node.label}\n        </span>\n\n        {node.count != null && (\n          <span className="text-[11.5px] text-muted-foreground/50 tabular-nums">\n            {node.count}\n          </span>\n        )}\n      </div>\n\n      <AnimatePresence initial={false}>\n        {expanded && hasChildren && (\n          <motion.div\n            initial={{ height: 0, opacity: 0 }}\n            animate={{ height: \'auto\', opacity: 1 }}\n            exit={{ height: 0, opacity: 0 }}\n            transition={{ duration: 0.2, ease: \'easeInOut\' }}\n            className="overflow-hidden"\n          >\n            {node.children!.map((child: TreeNode) => (\n              <TreeFilterNode key={child.id} node={child} depth={depth + 1} />\n            ))}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </Collapsible>\n  );\n}\n\nexport {\n  TreeFilter,\n  TreeFilterSearch,\n  TreeFilterGroup,\n  TreeFilterList,\n  TreeFilterNode,\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/primitives/tree-filter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-primitives-tree-filter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-primitives-tree-filter',
   },
   'components-radix-checkbox': {
     name: 'components-radix-checkbox',
@@ -1072,7 +1112,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-radix-checkbox',
+    command: '@odysseyui/components-radix-checkbox',
   },
   'components-radix-dropdown-menu': {
     name: 'components-radix-dropdown-menu',
@@ -1112,7 +1152,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-radix-dropdown-menu',
+    command: '@odysseyui/components-radix-dropdown-menu',
   },
   'components-radix-hover-card': {
     name: 'components-radix-hover-card',
@@ -1152,7 +1192,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-radix-hover-card',
+    command: '@odysseyui/components-radix-hover-card',
   },
   'components-texts-text-highlighter': {
     name: 'components-texts-text-highlighter',
@@ -1192,7 +1232,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-texts-text-highlighter',
+    command: '@odysseyui/components-texts-text-highlighter',
   },
   'components-texts-text-reveal': {
     name: 'components-texts-text-reveal',
@@ -1232,7 +1272,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-texts-text-reveal',
+    command: '@odysseyui/components-texts-text-reveal',
   },
   'components-texts-text-shimmer': {
     name: 'components-texts-text-shimmer',
@@ -1271,7 +1311,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-texts-text-shimmer',
+    command: '@odysseyui/components-texts-text-shimmer',
   },
   'components-texts-text-shimmer-wave': {
     name: 'components-texts-text-shimmer-wave',
@@ -1311,7 +1351,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-texts-text-shimmer-wave',
+    command: '@odysseyui/components-texts-text-shimmer-wave',
   },
   'components-texts-typewriter': {
     name: 'components-texts-typewriter',
@@ -1351,7 +1391,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-texts-typewriter',
+    command: '@odysseyui/components-texts-typewriter',
   },
   'components-ui-badge': {
     name: 'components-ui-badge',
@@ -1390,7 +1430,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/components-ui-badge',
+    command: '@odysseyui/components-ui-badge',
   },
   'demo-components-ai-model-selector': {
     name: 'demo-components-ai-model-selector',
@@ -1429,7 +1469,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ai-model-selector',
+    command: '@odysseyui/demo-components-ai-model-selector',
   },
   'demo-components-ai-prompt-input': {
     name: 'demo-components-ai-prompt-input',
@@ -1468,7 +1508,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ai-prompt-input',
+    command: '@odysseyui/demo-components-ai-prompt-input',
   },
   'demo-components-ai-steps': {
     name: 'demo-components-ai-steps',
@@ -1507,7 +1547,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ai-steps',
+    command: '@odysseyui/demo-components-ai-steps',
   },
   'demo-components-ai-thought-chain': {
     name: 'demo-components-ai-thought-chain',
@@ -1546,7 +1586,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ai-thought-chain',
+    command: '@odysseyui/demo-components-ai-thought-chain',
   },
   'demo-components-ai-token-usage': {
     name: 'demo-components-ai-token-usage',
@@ -1587,7 +1627,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ai-token-usage',
+    command: '@odysseyui/demo-components-ai-token-usage',
   },
   'demo-components-animate-avatar-group': {
     name: 'demo-components-animate-avatar-group',
@@ -1626,7 +1666,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-avatar-group',
+    command: '@odysseyui/demo-components-animate-avatar-group',
   },
   'demo-components-animate-card-stroke': {
     name: 'demo-components-animate-card-stroke',
@@ -1673,7 +1713,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-card-stroke',
+    command: '@odysseyui/demo-components-animate-card-stroke',
   },
   'demo-components-animate-code': {
     name: 'demo-components-animate-code',
@@ -1719,7 +1759,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-code',
+    command: '@odysseyui/demo-components-animate-code',
   },
   'demo-components-animate-code-block': {
     name: 'demo-components-animate-code-block',
@@ -1786,7 +1826,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-code-block',
+    command: '@odysseyui/demo-components-animate-code-block',
   },
   'demo-components-animate-code-tabs': {
     name: 'demo-components-animate-code-tabs',
@@ -1825,7 +1865,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-code-tabs',
+    command: '@odysseyui/demo-components-animate-code-tabs',
   },
   'demo-components-animate-cursor': {
     name: 'demo-components-animate-cursor',
@@ -1887,7 +1927,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-cursor',
+    command: '@odysseyui/demo-components-animate-cursor',
   },
   'demo-components-animate-footer': {
     name: 'demo-components-animate-footer',
@@ -1940,7 +1980,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-footer',
+    command: '@odysseyui/demo-components-animate-footer',
   },
   'demo-components-animate-github-stars-wheel': {
     name: 'demo-components-animate-github-stars-wheel',
@@ -1989,7 +2029,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-github-stars-wheel',
+    command: '@odysseyui/demo-components-animate-github-stars-wheel',
   },
   'demo-components-animate-tabs': {
     name: 'demo-components-animate-tabs',
@@ -2028,7 +2068,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-animate-tabs',
+    command: '@odysseyui/demo-components-animate-tabs',
   },
   'demo-components-buttons-button': {
     name: 'demo-components-buttons-button',
@@ -2093,7 +2133,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-buttons-button',
+    command: '@odysseyui/demo-components-buttons-button',
   },
   'demo-components-buttons-copy': {
     name: 'demo-components-buttons-copy',
@@ -2151,7 +2191,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-buttons-copy',
+    command: '@odysseyui/demo-components-buttons-copy',
   },
   'demo-components-buttons-github-stars': {
     name: 'demo-components-buttons-github-stars',
@@ -2206,7 +2246,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-buttons-github-stars',
+    command: '@odysseyui/demo-components-buttons-github-stars',
   },
   'demo-components-buttons-smart-upload': {
     name: 'demo-components-buttons-smart-upload',
@@ -2245,7 +2285,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-buttons-smart-upload',
+    command: '@odysseyui/demo-components-buttons-smart-upload',
   },
   'demo-components-buttons-theme-toggler': {
     name: 'demo-components-buttons-theme-toggler',
@@ -2306,7 +2346,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-buttons-theme-toggler',
+    command: '@odysseyui/demo-components-buttons-theme-toggler',
   },
   'demo-components-community-notification-list': {
     name: 'demo-components-community-notification-list',
@@ -2346,7 +2386,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-community-notification-list',
+    command: '@odysseyui/demo-components-community-notification-list',
   },
   'demo-components-community-playful-todolist': {
     name: 'demo-components-community-playful-todolist',
@@ -2386,7 +2426,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-community-playful-todolist',
+    command: '@odysseyui/demo-components-community-playful-todolist',
   },
   'demo-components-logocloud-logocloud-1': {
     name: 'demo-components-logocloud-logocloud-1',
@@ -2425,7 +2465,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-logocloud-logocloud-1',
+    command: '@odysseyui/demo-components-logocloud-logocloud-1',
   },
   'demo-components-preloaders-greetings': {
     name: 'demo-components-preloaders-greetings',
@@ -2465,7 +2505,47 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-preloaders-greetings',
+    command: '@odysseyui/demo-components-preloaders-greetings',
+  },
+  'demo-components-primitives-tree-filter': {
+    name: 'demo-components-primitives-tree-filter',
+    description:
+      'Demo of the animated tree filter with nested checkboxes and search.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-primitives-tree-filter'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/primitives/tree-filter/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/primitives/tree-filter.tsx',
+        content:
+          "import {\n  TreeFilter,\n  TreeFilterSearch,\n  TreeFilterGroup,\n  TreeFilterList,\n} from '@/components/odyssey/components/primitives/tree-filter';\n\nconst treeData = [\n  {\n    id: 'rpg',\n    label: 'RPG',\n    count: 14,\n    children: [\n      { id: 'elden-ring', label: 'Elden Ring', count: 6 },\n      { id: 'witcher3', label: 'The Witcher 3', count: 5 },\n      { id: 'bg3', label: \"Baldur's Gate 3\", count: 3 },\n    ],\n  },\n  {\n    id: 'fps',\n    label: 'FPS',\n    count: 11,\n    children: [\n      { id: 'valorant', label: 'Valorant', count: 4 },\n      { id: 'csgo', label: 'CS2', count: 4 },\n      {\n        id: 'halo',\n        label: 'Halo',\n        count: 3,\n        children: [\n          { id: 'halo-infinite', label: 'Halo Infinite', count: 2 },\n          { id: 'halo-mcc', label: 'MCC', count: 1 },\n        ],\n      },\n    ],\n  },\n  {\n    id: 'strategy',\n    label: 'Strategy',\n    count: 8,\n    children: [\n      { id: 'civ6', label: 'Civilization VI', count: 3 },\n      { id: 'aoe4', label: 'Age of Empires IV', count: 3 },\n      { id: 'sc2', label: 'StarCraft II', count: 2 },\n    ],\n  },\n  { id: 'indie', label: 'Indie', count: 5 },\n];\n\nexport const TreeFilterDemo = () => {\n  return (\n    <TreeFilter defaultChecked={['elden-ring', 'valorant']}>\n      <TreeFilterSearch placeholder=\"Search Games\" />\n      <TreeFilterGroup label=\"Games\">\n        <TreeFilterList items={treeData} />\n      </TreeFilterGroup>\n    </TreeFilter>\n  );\n};\n\nexport default TreeFilterDemo;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/primitives/tree-filter/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-primitives-tree-filter';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-primitives-tree-filter',
   },
   'demo-components-radix-checkbox': {
     name: 'demo-components-radix-checkbox',
@@ -2523,7 +2603,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-radix-checkbox',
+    command: '@odysseyui/demo-components-radix-checkbox',
   },
   'demo-components-radix-hover-card': {
     name: 'demo-components-radix-hover-card',
@@ -2580,7 +2660,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-radix-hover-card',
+    command: '@odysseyui/demo-components-radix-hover-card',
   },
   'demo-components-texts-text-highlighter': {
     name: 'demo-components-texts-text-highlighter',
@@ -2643,7 +2723,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-texts-text-highlighter',
+    command: '@odysseyui/demo-components-texts-text-highlighter',
   },
   'demo-components-texts-text-reveal': {
     name: 'demo-components-texts-text-reveal',
@@ -2693,7 +2773,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-texts-text-reveal',
+    command: '@odysseyui/demo-components-texts-text-reveal',
   },
   'demo-components-texts-text-shimmer': {
     name: 'demo-components-texts-text-shimmer',
@@ -2747,7 +2827,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-texts-text-shimmer',
+    command: '@odysseyui/demo-components-texts-text-shimmer',
   },
   'demo-components-texts-text-shimmer-wave': {
     name: 'demo-components-texts-text-shimmer-wave',
@@ -2801,7 +2881,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-texts-text-shimmer-wave',
+    command: '@odysseyui/demo-components-texts-text-shimmer-wave',
   },
   'demo-components-texts-typewriter': {
     name: 'demo-components-texts-typewriter',
@@ -2852,7 +2932,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-texts-typewriter',
+    command: '@odysseyui/demo-components-texts-typewriter',
   },
   'demo-components-ui-badge': {
     name: 'demo-components-ui-badge',
@@ -2891,7 +2971,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ui-badge',
+    command: '@odysseyui/demo-components-ui-badge',
   },
   'demo-components-ui-button': {
     name: 'demo-components-ui-button',
@@ -2931,7 +3011,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-components-ui-button',
+    command: '@odysseyui/demo-components-ui-button',
   },
   'demo-primitives-animate-avatar-group': {
     name: 'demo-primitives-animate-avatar-group',
@@ -2970,7 +3050,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-avatar-group',
+    command: '@odysseyui/demo-primitives-animate-avatar-group',
   },
   'demo-primitives-animate-code-block': {
     name: 'demo-primitives-animate-code-block',
@@ -3016,7 +3096,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-code-block',
+    command: '@odysseyui/demo-primitives-animate-code-block',
   },
   'demo-primitives-animate-cursor': {
     name: 'demo-primitives-animate-cursor',
@@ -3078,7 +3158,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-cursor',
+    command: '@odysseyui/demo-primitives-animate-cursor',
   },
   'demo-primitives-animate-github-stars': {
     name: 'demo-primitives-animate-github-stars',
@@ -3117,7 +3197,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-github-stars',
+    command: '@odysseyui/demo-primitives-animate-github-stars',
   },
   'demo-primitives-animate-pinned-list': {
     name: 'demo-primitives-animate-pinned-list',
@@ -3156,7 +3236,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-pinned-list',
+    command: '@odysseyui/demo-primitives-animate-pinned-list',
   },
   'demo-primitives-animate-scroll-progress': {
     name: 'demo-primitives-animate-scroll-progress',
@@ -3204,7 +3284,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-scroll-progress',
+    command: '@odysseyui/demo-primitives-animate-scroll-progress',
   },
   'demo-primitives-animate-spring': {
     name: 'demo-primitives-animate-spring',
@@ -3243,7 +3323,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-spring',
+    command: '@odysseyui/demo-primitives-animate-spring',
   },
   'demo-primitives-animate-tabs': {
     name: 'demo-primitives-animate-tabs',
@@ -3282,7 +3362,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-tabs',
+    command: '@odysseyui/demo-primitives-animate-tabs',
   },
   'demo-primitives-animate-tooltip': {
     name: 'demo-primitives-animate-tooltip',
@@ -3344,7 +3424,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-animate-tooltip',
+    command: '@odysseyui/demo-primitives-animate-tooltip',
   },
   'demo-primitives-base-accordion': {
     name: 'demo-primitives-base-accordion',
@@ -3386,7 +3466,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-accordion',
+    command: '@odysseyui/demo-primitives-base-accordion',
   },
   'demo-primitives-base-alert-dialog': {
     name: 'demo-primitives-base-alert-dialog',
@@ -3437,7 +3517,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-alert-dialog',
+    command: '@odysseyui/demo-primitives-base-alert-dialog',
   },
   'demo-primitives-base-checkbox': {
     name: 'demo-primitives-base-checkbox',
@@ -3476,7 +3556,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = { Checkbox: { indeterminate: { value: false } } };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-checkbox',
+    command: '@odysseyui/demo-primitives-base-checkbox',
   },
   'demo-primitives-base-collapsible': {
     name: 'demo-primitives-base-collapsible',
@@ -3517,7 +3597,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-collapsible',
+    command: '@odysseyui/demo-primitives-base-collapsible',
   },
   'demo-primitives-base-dialog': {
     name: 'demo-primitives-base-dialog',
@@ -3568,7 +3648,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-dialog',
+    command: '@odysseyui/demo-primitives-base-dialog',
   },
   'demo-primitives-base-files': {
     name: 'demo-primitives-base-files',
@@ -3607,7 +3687,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-files',
+    command: '@odysseyui/demo-primitives-base-files',
   },
   'demo-primitives-base-menu': {
     name: 'demo-primitives-base-menu',
@@ -3666,7 +3746,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-menu',
+    command: '@odysseyui/demo-primitives-base-menu',
   },
   'demo-primitives-base-popover': {
     name: 'demo-primitives-base-popover',
@@ -3725,7 +3805,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-popover',
+    command: '@odysseyui/demo-primitives-base-popover',
   },
   'demo-primitives-base-preview-card': {
     name: 'demo-primitives-base-preview-card',
@@ -3784,7 +3864,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-preview-card',
+    command: '@odysseyui/demo-primitives-base-preview-card',
   },
   'demo-primitives-base-progress': {
     name: 'demo-primitives-base-progress',
@@ -3823,7 +3903,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-progress',
+    command: '@odysseyui/demo-primitives-base-progress',
   },
   'demo-primitives-base-radio': {
     name: 'demo-primitives-base-radio',
@@ -3862,7 +3942,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-radio',
+    command: '@odysseyui/demo-primitives-base-radio',
   },
   'demo-primitives-base-switch': {
     name: 'demo-primitives-base-switch',
@@ -3901,7 +3981,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-switch',
+    command: '@odysseyui/demo-primitives-base-switch',
   },
   'demo-primitives-base-tabs': {
     name: 'demo-primitives-base-tabs',
@@ -3947,7 +4027,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-tabs',
+    command: '@odysseyui/demo-primitives-base-tabs',
   },
   'demo-primitives-base-toggle': {
     name: 'demo-primitives-base-toggle',
@@ -3986,7 +4066,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-toggle',
+    command: '@odysseyui/demo-primitives-base-toggle',
   },
   'demo-primitives-base-toggle-group': {
     name: 'demo-primitives-base-toggle-group',
@@ -4027,7 +4107,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-toggle-group',
+    command: '@odysseyui/demo-primitives-base-toggle-group',
   },
   'demo-primitives-base-tooltip': {
     name: 'demo-primitives-base-tooltip',
@@ -4086,7 +4166,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-base-tooltip',
+    command: '@odysseyui/demo-primitives-base-tooltip',
   },
   'demo-primitives-buttons-button': {
     name: 'demo-primitives-buttons-button',
@@ -4130,7 +4210,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-buttons-button',
+    command: '@odysseyui/demo-primitives-buttons-button',
   },
   'demo-primitives-buttons-flip': {
     name: 'demo-primitives-buttons-flip',
@@ -4182,7 +4262,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-buttons-flip',
+    command: '@odysseyui/demo-primitives-buttons-flip',
   },
   'demo-primitives-buttons-liquid': {
     name: 'demo-primitives-buttons-liquid',
@@ -4228,7 +4308,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-buttons-liquid',
+    command: '@odysseyui/demo-primitives-buttons-liquid',
   },
   'demo-primitives-buttons-ripple': {
     name: 'demo-primitives-buttons-ripple',
@@ -4272,7 +4352,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-buttons-ripple',
+    command: '@odysseyui/demo-primitives-buttons-ripple',
   },
   'demo-primitives-effects-auto-height': {
     name: 'demo-primitives-effects-auto-height',
@@ -4311,7 +4391,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-auto-height',
+    command: '@odysseyui/demo-primitives-effects-auto-height',
   },
   'demo-primitives-effects-blur': {
     name: 'demo-primitives-effects-blur',
@@ -4356,7 +4436,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-blur',
+    command: '@odysseyui/demo-primitives-effects-blur',
   },
   'demo-primitives-effects-click': {
     name: 'demo-primitives-effects-click',
@@ -4411,7 +4491,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-click',
+    command: '@odysseyui/demo-primitives-effects-click',
   },
   'demo-primitives-effects-effect': {
     name: 'demo-primitives-effects-effect',
@@ -4458,7 +4538,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-effect',
+    command: '@odysseyui/demo-primitives-effects-effect',
   },
   'demo-primitives-effects-fade': {
     name: 'demo-primitives-effects-fade',
@@ -4503,7 +4583,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-fade',
+    command: '@odysseyui/demo-primitives-effects-fade',
   },
   'demo-primitives-effects-highlight': {
     name: 'demo-primitives-effects-highlight',
@@ -4551,7 +4631,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-highlight',
+    command: '@odysseyui/demo-primitives-effects-highlight',
   },
   'demo-primitives-effects-image-zoom': {
     name: 'demo-primitives-effects-image-zoom',
@@ -4590,7 +4670,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-image-zoom',
+    command: '@odysseyui/demo-primitives-effects-image-zoom',
   },
   'demo-primitives-effects-magnetic': {
     name: 'demo-primitives-effects-magnetic',
@@ -4635,7 +4715,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-magnetic',
+    command: '@odysseyui/demo-primitives-effects-magnetic',
   },
   'demo-primitives-effects-particles': {
     name: 'demo-primitives-effects-particles',
@@ -4698,7 +4778,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-particles',
+    command: '@odysseyui/demo-primitives-effects-particles',
   },
   'demo-primitives-effects-shine': {
     name: 'demo-primitives-effects-shine',
@@ -4748,7 +4828,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-shine',
+    command: '@odysseyui/demo-primitives-effects-shine',
   },
   'demo-primitives-effects-slide': {
     name: 'demo-primitives-effects-slide',
@@ -4796,7 +4876,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-slide',
+    command: '@odysseyui/demo-primitives-effects-slide',
   },
   'demo-primitives-effects-theme-toggler': {
     name: 'demo-primitives-effects-theme-toggler',
@@ -4843,7 +4923,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-theme-toggler',
+    command: '@odysseyui/demo-primitives-effects-theme-toggler',
   },
   'demo-primitives-effects-tilt': {
     name: 'demo-primitives-effects-tilt',
@@ -4887,7 +4967,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-tilt',
+    command: '@odysseyui/demo-primitives-effects-tilt',
   },
   'demo-primitives-effects-zoom': {
     name: 'demo-primitives-effects-zoom',
@@ -4932,7 +5012,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-effects-zoom',
+    command: '@odysseyui/demo-primitives-effects-zoom',
   },
   'demo-primitives-headless-checkbox': {
     name: 'demo-primitives-headless-checkbox',
@@ -4971,7 +5051,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = { Checkbox: { indeterminate: { value: false } } };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-headless-checkbox',
+    command: '@odysseyui/demo-primitives-headless-checkbox',
   },
   'demo-primitives-headless-dialog': {
     name: 'demo-primitives-headless-dialog',
@@ -5022,7 +5102,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-headless-dialog',
+    command: '@odysseyui/demo-primitives-headless-dialog',
   },
   'demo-primitives-headless-disclosure': {
     name: 'demo-primitives-headless-disclosure',
@@ -5063,7 +5143,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-headless-disclosure',
+    command: '@odysseyui/demo-primitives-headless-disclosure',
   },
   'demo-primitives-headless-popover': {
     name: 'demo-primitives-headless-popover',
@@ -5123,7 +5203,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-headless-popover',
+    command: '@odysseyui/demo-primitives-headless-popover',
   },
   'demo-primitives-headless-switch': {
     name: 'demo-primitives-headless-switch',
@@ -5162,7 +5242,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-headless-switch',
+    command: '@odysseyui/demo-primitives-headless-switch',
   },
   'demo-primitives-headless-tabs': {
     name: 'demo-primitives-headless-tabs',
@@ -5208,7 +5288,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-headless-tabs',
+    command: '@odysseyui/demo-primitives-headless-tabs',
   },
   'demo-primitives-radix-accordion': {
     name: 'demo-primitives-radix-accordion',
@@ -5250,7 +5330,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-accordion',
+    command: '@odysseyui/demo-primitives-radix-accordion',
   },
   'demo-primitives-radix-alert-dialog': {
     name: 'demo-primitives-radix-alert-dialog',
@@ -5301,7 +5381,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-alert-dialog',
+    command: '@odysseyui/demo-primitives-radix-alert-dialog',
   },
   'demo-primitives-radix-checkbox': {
     name: 'demo-primitives-radix-checkbox',
@@ -5351,7 +5431,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-checkbox',
+    command: '@odysseyui/demo-primitives-radix-checkbox',
   },
   'demo-primitives-radix-collapsible': {
     name: 'demo-primitives-radix-collapsible',
@@ -5392,7 +5472,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-collapsible',
+    command: '@odysseyui/demo-primitives-radix-collapsible',
   },
   'demo-primitives-radix-dialog': {
     name: 'demo-primitives-radix-dialog',
@@ -5443,7 +5523,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-dialog',
+    command: '@odysseyui/demo-primitives-radix-dialog',
   },
   'demo-primitives-radix-dropdown-menu': {
     name: 'demo-primitives-radix-dropdown-menu',
@@ -5500,7 +5580,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-dropdown-menu',
+    command: '@odysseyui/demo-primitives-radix-dropdown-menu',
   },
   'demo-primitives-radix-files': {
     name: 'demo-primitives-radix-files',
@@ -5539,7 +5619,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-files',
+    command: '@odysseyui/demo-primitives-radix-files',
   },
   'demo-primitives-radix-hover-card': {
     name: 'demo-primitives-radix-hover-card',
@@ -5596,7 +5676,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-hover-card',
+    command: '@odysseyui/demo-primitives-radix-hover-card',
   },
   'demo-primitives-radix-popover': {
     name: 'demo-primitives-radix-popover',
@@ -5653,7 +5733,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-popover',
+    command: '@odysseyui/demo-primitives-radix-popover',
   },
   'demo-primitives-radix-progress': {
     name: 'demo-primitives-radix-progress',
@@ -5692,7 +5772,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-progress',
+    command: '@odysseyui/demo-primitives-radix-progress',
   },
   'demo-primitives-radix-radio-group': {
     name: 'demo-primitives-radix-radio-group',
@@ -5731,7 +5811,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-radio-group',
+    command: '@odysseyui/demo-primitives-radix-radio-group',
   },
   'demo-primitives-radix-sheet': {
     name: 'demo-primitives-radix-sheet',
@@ -5782,7 +5862,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-sheet',
+    command: '@odysseyui/demo-primitives-radix-sheet',
   },
   'demo-primitives-radix-switch': {
     name: 'demo-primitives-radix-switch',
@@ -5821,7 +5901,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-switch',
+    command: '@odysseyui/demo-primitives-radix-switch',
   },
   'demo-primitives-radix-tabs': {
     name: 'demo-primitives-radix-tabs',
@@ -5867,7 +5947,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-tabs',
+    command: '@odysseyui/demo-primitives-radix-tabs',
   },
   'demo-primitives-radix-toggle': {
     name: 'demo-primitives-radix-toggle',
@@ -5906,7 +5986,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-toggle',
+    command: '@odysseyui/demo-primitives-radix-toggle',
   },
   'demo-primitives-radix-toggle-group': {
     name: 'demo-primitives-radix-toggle-group',
@@ -5952,7 +6032,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-toggle-group',
+    command: '@odysseyui/demo-primitives-radix-toggle-group',
   },
   'demo-primitives-radix-tooltip': {
     name: 'demo-primitives-radix-tooltip',
@@ -6009,7 +6089,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-radix-tooltip',
+    command: '@odysseyui/demo-primitives-radix-tooltip',
   },
   'demo-primitives-texts-counting-number': {
     name: 'demo-primitives-texts-counting-number',
@@ -6058,7 +6138,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-counting-number',
+    command: '@odysseyui/demo-primitives-texts-counting-number',
   },
   'demo-primitives-texts-gradient': {
     name: 'demo-primitives-texts-gradient',
@@ -6097,7 +6177,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = { GradientText: { neon: { value: false } } };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-gradient',
+    command: '@odysseyui/demo-primitives-texts-gradient',
   },
   'demo-primitives-texts-highlight': {
     name: 'demo-primitives-texts-highlight',
@@ -6138,7 +6218,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-highlight',
+    command: '@odysseyui/demo-primitives-texts-highlight',
   },
   'demo-primitives-texts-morphing': {
     name: 'demo-primitives-texts-morphing',
@@ -6182,7 +6262,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-morphing',
+    command: '@odysseyui/demo-primitives-texts-morphing',
   },
   'demo-primitives-texts-rolling': {
     name: 'demo-primitives-texts-rolling',
@@ -6223,7 +6303,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-rolling',
+    command: '@odysseyui/demo-primitives-texts-rolling',
   },
   'demo-primitives-texts-rotating': {
     name: 'demo-primitives-texts-rotating',
@@ -6268,7 +6348,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-rotating',
+    command: '@odysseyui/demo-primitives-texts-rotating',
   },
   'demo-primitives-texts-scrolling-number': {
     name: 'demo-primitives-texts-scrolling-number',
@@ -6318,7 +6398,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-scrolling-number',
+    command: '@odysseyui/demo-primitives-texts-scrolling-number',
   },
   'demo-primitives-texts-shimmering': {
     name: 'demo-primitives-texts-shimmering',
@@ -6362,7 +6442,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-shimmering',
+    command: '@odysseyui/demo-primitives-texts-shimmering',
   },
   'demo-primitives-texts-sliding-number': {
     name: 'demo-primitives-texts-sliding-number',
@@ -6411,7 +6491,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-sliding-number',
+    command: '@odysseyui/demo-primitives-texts-sliding-number',
   },
   'demo-primitives-texts-splitting': {
     name: 'demo-primitives-texts-splitting',
@@ -6462,7 +6542,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-splitting',
+    command: '@odysseyui/demo-primitives-texts-splitting',
   },
   'demo-primitives-texts-splitting-example': {
     name: 'demo-primitives-texts-splitting-example',
@@ -6502,7 +6582,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-splitting-example',
+    command: '@odysseyui/demo-primitives-texts-splitting-example',
   },
   'demo-primitives-texts-typing': {
     name: 'demo-primitives-texts-typing',
@@ -6548,7 +6628,7 @@ export const index: Record<string, any> = {
       };
       return LazyComp;
     })(),
-    command: '@odyssey/demo-primitives-texts-typing',
+    command: '@odysseyui/demo-primitives-texts-typing',
   },
   'hooks-use-auto-height': {
     name: 'hooks-use-auto-height',
@@ -6587,7 +6667,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/hooks-use-auto-height',
+    command: '@odysseyui/hooks-use-auto-height',
   },
   'hooks-use-controlled-state': {
     name: 'hooks-use-controlled-state',
@@ -6626,7 +6706,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/hooks-use-controlled-state',
+    command: '@odysseyui/hooks-use-controlled-state',
   },
   'hooks-use-data-state': {
     name: 'hooks-use-data-state',
@@ -6664,7 +6744,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/hooks-use-data-state',
+    command: '@odysseyui/hooks-use-data-state',
   },
   'hooks-use-is-in-view': {
     name: 'hooks-use-is-in-view',
@@ -6702,7 +6782,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/hooks-use-is-in-view',
+    command: '@odysseyui/hooks-use-is-in-view',
   },
   'hooks-use-motion-value-state': {
     name: 'hooks-use-motion-value-state',
@@ -6741,7 +6821,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/hooks-use-motion-value-state',
+    command: '@odysseyui/hooks-use-motion-value-state',
   },
   'icons-alarm-clock': {
     name: 'icons-alarm-clock',
@@ -6779,7 +6859,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-alarm-clock',
+    command: '@odysseyui/icons-alarm-clock',
   },
   'icons-arrow-right': {
     name: 'icons-arrow-right',
@@ -6817,7 +6897,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-arrow-right',
+    command: '@odysseyui/icons-arrow-right',
   },
   'icons-audio-lines': {
     name: 'icons-audio-lines',
@@ -6879,7 +6959,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-audio-lines',
+    command: '@odysseyui/icons-audio-lines',
   },
   'icons-battery-full': {
     name: 'icons-battery-full',
@@ -6917,7 +6997,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-battery-full',
+    command: '@odysseyui/icons-battery-full',
   },
   'icons-bell-ring': {
     name: 'icons-bell-ring',
@@ -6955,7 +7035,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-bell-ring',
+    command: '@odysseyui/icons-bell-ring',
   },
   'icons-clock': {
     name: 'icons-clock',
@@ -6993,7 +7073,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-clock',
+    command: '@odysseyui/icons-clock',
   },
   'icons-disc-3': {
     name: 'icons-disc-3',
@@ -7042,7 +7122,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-disc-3',
+    command: '@odysseyui/icons-disc-3',
   },
   'icons-icon': {
     name: 'icons-icon',
@@ -7083,7 +7163,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-icon',
+    command: '@odysseyui/icons-icon',
   },
   'icons-loader': {
     name: 'icons-loader',
@@ -7129,7 +7209,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-loader',
+    command: '@odysseyui/icons-loader',
   },
   'icons-menu': {
     name: 'icons-menu',
@@ -7167,7 +7247,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-menu',
+    command: '@odysseyui/icons-menu',
   },
   'icons-party-popper': {
     name: 'icons-party-popper',
@@ -7217,7 +7297,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-party-popper',
+    command: '@odysseyui/icons-party-popper',
   },
   'icons-settings': {
     name: 'icons-settings',
@@ -7255,7 +7335,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-settings',
+    command: '@odysseyui/icons-settings',
   },
   'icons-trash-2': {
     name: 'icons-trash-2',
@@ -7293,7 +7373,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-trash-2',
+    command: '@odysseyui/icons-trash-2',
   },
   'icons-user': {
     name: 'icons-user',
@@ -7331,7 +7411,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-user',
+    command: '@odysseyui/icons-user',
   },
   'icons-wifi': {
     name: 'icons-wifi',
@@ -7369,7 +7449,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/icons-wifi',
+    command: '@odysseyui/icons-wifi',
   },
   'lib-get-strict-context': {
     name: 'lib-get-strict-context',
@@ -7407,7 +7487,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/lib-get-strict-context',
+    command: '@odysseyui/lib-get-strict-context',
   },
   'primitives-animate-avatar-group': {
     name: 'primitives-animate-avatar-group',
@@ -7447,7 +7527,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-avatar-group',
+    command: '@odysseyui/primitives-animate-avatar-group',
   },
   'primitives-animate-code-block': {
     name: 'primitives-animate-code-block',
@@ -7487,7 +7567,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-code-block',
+    command: '@odysseyui/primitives-animate-code-block',
   },
   'primitives-animate-cursor': {
     name: 'primitives-animate-cursor',
@@ -7530,7 +7610,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-cursor',
+    command: '@odysseyui/primitives-animate-cursor',
   },
   'primitives-animate-github-stars': {
     name: 'primitives-animate-github-stars',
@@ -7576,7 +7656,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-github-stars',
+    command: '@odysseyui/primitives-animate-github-stars',
   },
   'primitives-animate-pinned-list': {
     name: 'primitives-animate-pinned-list',
@@ -7616,7 +7696,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-pinned-list',
+    command: '@odysseyui/primitives-animate-pinned-list',
   },
   'primitives-animate-scroll-progress': {
     name: 'primitives-animate-scroll-progress',
@@ -7660,7 +7740,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-scroll-progress',
+    command: '@odysseyui/primitives-animate-scroll-progress',
   },
   'primitives-animate-slot': {
     name: 'primitives-animate-slot',
@@ -7700,7 +7780,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-slot',
+    command: '@odysseyui/primitives-animate-slot',
   },
   'primitives-animate-spring': {
     name: 'primitives-animate-spring',
@@ -7744,7 +7824,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-spring',
+    command: '@odysseyui/primitives-animate-spring',
   },
   'primitives-animate-tabs': {
     name: 'primitives-animate-tabs',
@@ -7788,7 +7868,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-tabs',
+    command: '@odysseyui/primitives-animate-tabs',
   },
   'primitives-animate-tooltip': {
     name: 'primitives-animate-tooltip',
@@ -7831,7 +7911,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-animate-tooltip',
+    command: '@odysseyui/primitives-animate-tooltip',
   },
   'primitives-base-accordion': {
     name: 'primitives-base-accordion',
@@ -7873,7 +7953,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-accordion',
+    command: '@odysseyui/primitives-base-accordion',
   },
   'primitives-base-alert-dialog': {
     name: 'primitives-base-alert-dialog',
@@ -7915,7 +7995,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-alert-dialog',
+    command: '@odysseyui/primitives-base-alert-dialog',
   },
   'primitives-base-checkbox': {
     name: 'primitives-base-checkbox',
@@ -7957,7 +8037,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-checkbox',
+    command: '@odysseyui/primitives-base-checkbox',
   },
   'primitives-base-collapsible': {
     name: 'primitives-base-collapsible',
@@ -7999,7 +8079,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-collapsible',
+    command: '@odysseyui/primitives-base-collapsible',
   },
   'primitives-base-dialog': {
     name: 'primitives-base-dialog',
@@ -8040,7 +8120,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-dialog',
+    command: '@odysseyui/primitives-base-dialog',
   },
   'primitives-base-files': {
     name: 'primitives-base-files',
@@ -8084,7 +8164,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-files',
+    command: '@odysseyui/primitives-base-files',
   },
   'primitives-base-menu': {
     name: 'primitives-base-menu',
@@ -8128,7 +8208,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-menu',
+    command: '@odysseyui/primitives-base-menu',
   },
   'primitives-base-popover': {
     name: 'primitives-base-popover',
@@ -8170,7 +8250,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-popover',
+    command: '@odysseyui/primitives-base-popover',
   },
   'primitives-base-preview-card': {
     name: 'primitives-base-preview-card',
@@ -8213,7 +8293,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-preview-card',
+    command: '@odysseyui/primitives-base-preview-card',
   },
   'primitives-base-progress': {
     name: 'primitives-base-progress',
@@ -8255,7 +8335,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-progress',
+    command: '@odysseyui/primitives-base-progress',
   },
   'primitives-base-radio': {
     name: 'primitives-base-radio',
@@ -8296,7 +8376,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-radio',
+    command: '@odysseyui/primitives-base-radio',
   },
   'primitives-base-switch': {
     name: 'primitives-base-switch',
@@ -8337,7 +8417,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-switch',
+    command: '@odysseyui/primitives-base-switch',
   },
   'primitives-base-tabs': {
     name: 'primitives-base-tabs',
@@ -8381,7 +8461,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-tabs',
+    command: '@odysseyui/primitives-base-tabs',
   },
   'primitives-base-toggle': {
     name: 'primitives-base-toggle',
@@ -8422,7 +8502,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-toggle',
+    command: '@odysseyui/primitives-base-toggle',
   },
   'primitives-base-toggle-group': {
     name: 'primitives-base-toggle-group',
@@ -8465,7 +8545,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-toggle-group',
+    command: '@odysseyui/primitives-base-toggle-group',
   },
   'primitives-base-tooltip': {
     name: 'primitives-base-tooltip',
@@ -8508,7 +8588,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-base-tooltip',
+    command: '@odysseyui/primitives-base-tooltip',
   },
   'primitives-buttons-button': {
     name: 'primitives-buttons-button',
@@ -8547,7 +8627,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-buttons-button',
+    command: '@odysseyui/primitives-buttons-button',
   },
   'primitives-buttons-flip': {
     name: 'primitives-buttons-flip',
@@ -8589,7 +8669,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-buttons-flip',
+    command: '@odysseyui/primitives-buttons-flip',
   },
   'primitives-buttons-liquid': {
     name: 'primitives-buttons-liquid',
@@ -8631,7 +8711,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-buttons-liquid',
+    command: '@odysseyui/primitives-buttons-liquid',
   },
   'primitives-buttons-ripple': {
     name: 'primitives-buttons-ripple',
@@ -8673,7 +8753,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-buttons-ripple',
+    command: '@odysseyui/primitives-buttons-ripple',
   },
   'primitives-effects-auto-height': {
     name: 'primitives-effects-auto-height',
@@ -8716,7 +8796,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-auto-height',
+    command: '@odysseyui/primitives-effects-auto-height',
   },
   'primitives-effects-blur': {
     name: 'primitives-effects-blur',
@@ -8759,7 +8839,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-blur',
+    command: '@odysseyui/primitives-effects-blur',
   },
   'primitives-effects-click': {
     name: 'primitives-effects-click',
@@ -8799,7 +8879,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-click',
+    command: '@odysseyui/primitives-effects-click',
   },
   'primitives-effects-effect': {
     name: 'primitives-effects-effect',
@@ -8842,7 +8922,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-effect',
+    command: '@odysseyui/primitives-effects-effect',
   },
   'primitives-effects-fade': {
     name: 'primitives-effects-fade',
@@ -8885,7 +8965,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-fade',
+    command: '@odysseyui/primitives-effects-fade',
   },
   'primitives-effects-highlight': {
     name: 'primitives-effects-highlight',
@@ -8925,7 +9005,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-highlight',
+    command: '@odysseyui/primitives-effects-highlight',
   },
   'primitives-effects-image-zoom': {
     name: 'primitives-effects-image-zoom',
@@ -8964,7 +9044,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-image-zoom',
+    command: '@odysseyui/primitives-effects-image-zoom',
   },
   'primitives-effects-magnetic': {
     name: 'primitives-effects-magnetic',
@@ -9004,7 +9084,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-magnetic',
+    command: '@odysseyui/primitives-effects-magnetic',
   },
   'primitives-effects-particles': {
     name: 'primitives-effects-particles',
@@ -9046,7 +9126,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-particles',
+    command: '@odysseyui/primitives-effects-particles',
   },
   'primitives-effects-shine': {
     name: 'primitives-effects-shine',
@@ -9086,7 +9166,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-shine',
+    command: '@odysseyui/primitives-effects-shine',
   },
   'primitives-effects-slide': {
     name: 'primitives-effects-slide',
@@ -9129,7 +9209,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-slide',
+    command: '@odysseyui/primitives-effects-slide',
   },
   'primitives-effects-theme-toggler': {
     name: 'primitives-effects-theme-toggler',
@@ -9168,7 +9248,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-theme-toggler',
+    command: '@odysseyui/primitives-effects-theme-toggler',
   },
   'primitives-effects-tilt': {
     name: 'primitives-effects-tilt',
@@ -9211,7 +9291,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-tilt',
+    command: '@odysseyui/primitives-effects-tilt',
   },
   'primitives-effects-zoom': {
     name: 'primitives-effects-zoom',
@@ -9254,7 +9334,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-effects-zoom',
+    command: '@odysseyui/primitives-effects-zoom',
   },
   'primitives-headless-checkbox': {
     name: 'primitives-headless-checkbox',
@@ -9294,7 +9374,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-headless-checkbox',
+    command: '@odysseyui/primitives-headless-checkbox',
   },
   'primitives-headless-dialog': {
     name: 'primitives-headless-dialog',
@@ -9334,7 +9414,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-headless-dialog',
+    command: '@odysseyui/primitives-headless-dialog',
   },
   'primitives-headless-disclosure': {
     name: 'primitives-headless-disclosure',
@@ -9374,7 +9454,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-headless-disclosure',
+    command: '@odysseyui/primitives-headless-disclosure',
   },
   'primitives-headless-popover': {
     name: 'primitives-headless-popover',
@@ -9414,7 +9494,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-headless-popover',
+    command: '@odysseyui/primitives-headless-popover',
   },
   'primitives-headless-switch': {
     name: 'primitives-headless-switch',
@@ -9454,7 +9534,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-headless-switch',
+    command: '@odysseyui/primitives-headless-switch',
   },
   'primitives-headless-tabs': {
     name: 'primitives-headless-tabs',
@@ -9498,7 +9578,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-headless-tabs',
+    command: '@odysseyui/primitives-headless-tabs',
   },
   'primitives-radix-accordion': {
     name: 'primitives-radix-accordion',
@@ -9541,7 +9621,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-accordion',
+    command: '@odysseyui/primitives-radix-accordion',
   },
   'primitives-radix-alert-dialog': {
     name: 'primitives-radix-alert-dialog',
@@ -9584,7 +9664,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-alert-dialog',
+    command: '@odysseyui/primitives-radix-alert-dialog',
   },
   'primitives-radix-checkbox': {
     name: 'primitives-radix-checkbox',
@@ -9627,7 +9707,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-checkbox',
+    command: '@odysseyui/primitives-radix-checkbox',
   },
   'primitives-radix-collapsible': {
     name: 'primitives-radix-collapsible',
@@ -9669,7 +9749,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-collapsible',
+    command: '@odysseyui/primitives-radix-collapsible',
   },
   'primitives-radix-dialog': {
     name: 'primitives-radix-dialog',
@@ -9712,7 +9792,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-dialog',
+    command: '@odysseyui/primitives-radix-dialog',
   },
   'primitives-radix-dropdown-menu': {
     name: 'primitives-radix-dropdown-menu',
@@ -9757,7 +9837,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-dropdown-menu',
+    command: '@odysseyui/primitives-radix-dropdown-menu',
   },
   'primitives-radix-files': {
     name: 'primitives-radix-files',
@@ -9801,7 +9881,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-files',
+    command: '@odysseyui/primitives-radix-files',
   },
   'primitives-radix-hover-card': {
     name: 'primitives-radix-hover-card',
@@ -9844,7 +9924,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-hover-card',
+    command: '@odysseyui/primitives-radix-hover-card',
   },
   'primitives-radix-popover': {
     name: 'primitives-radix-popover',
@@ -9886,7 +9966,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-popover',
+    command: '@odysseyui/primitives-radix-popover',
   },
   'primitives-radix-progress': {
     name: 'primitives-radix-progress',
@@ -9926,7 +10006,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-progress',
+    command: '@odysseyui/primitives-radix-progress',
   },
   'primitives-radix-radio-group': {
     name: 'primitives-radix-radio-group',
@@ -9969,7 +10049,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-radio-group',
+    command: '@odysseyui/primitives-radix-radio-group',
   },
   'primitives-radix-sheet': {
     name: 'primitives-radix-sheet',
@@ -10011,7 +10091,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-sheet',
+    command: '@odysseyui/primitives-radix-sheet',
   },
   'primitives-radix-switch': {
     name: 'primitives-radix-switch',
@@ -10054,7 +10134,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-switch',
+    command: '@odysseyui/primitives-radix-switch',
   },
   'primitives-radix-tabs': {
     name: 'primitives-radix-tabs',
@@ -10098,7 +10178,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-tabs',
+    command: '@odysseyui/primitives-radix-tabs',
   },
   'primitives-radix-toggle': {
     name: 'primitives-radix-toggle',
@@ -10140,7 +10220,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-toggle',
+    command: '@odysseyui/primitives-radix-toggle',
   },
   'primitives-radix-toggle-group': {
     name: 'primitives-radix-toggle-group',
@@ -10183,7 +10263,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-toggle-group',
+    command: '@odysseyui/primitives-radix-toggle-group',
   },
   'primitives-radix-tooltip': {
     name: 'primitives-radix-tooltip',
@@ -10226,7 +10306,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-radix-tooltip',
+    command: '@odysseyui/primitives-radix-tooltip',
   },
   'primitives-texts-counting-number': {
     name: 'primitives-texts-counting-number',
@@ -10265,7 +10345,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-counting-number',
+    command: '@odysseyui/primitives-texts-counting-number',
   },
   'primitives-texts-gradient': {
     name: 'primitives-texts-gradient',
@@ -10304,7 +10384,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-gradient',
+    command: '@odysseyui/primitives-texts-gradient',
   },
   'primitives-texts-highlight': {
     name: 'primitives-texts-highlight',
@@ -10343,7 +10423,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-highlight',
+    command: '@odysseyui/primitives-texts-highlight',
   },
   'primitives-texts-morphing': {
     name: 'primitives-texts-morphing',
@@ -10383,7 +10463,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-morphing',
+    command: '@odysseyui/primitives-texts-morphing',
   },
   'primitives-texts-rolling': {
     name: 'primitives-texts-rolling',
@@ -10422,7 +10502,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-rolling',
+    command: '@odysseyui/primitives-texts-rolling',
   },
   'primitives-texts-rotating': {
     name: 'primitives-texts-rotating',
@@ -10464,7 +10544,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-rotating',
+    command: '@odysseyui/primitives-texts-rotating',
   },
   'primitives-texts-scrolling-number': {
     name: 'primitives-texts-scrolling-number',
@@ -10506,7 +10586,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-scrolling-number',
+    command: '@odysseyui/primitives-texts-scrolling-number',
   },
   'primitives-texts-shimmering': {
     name: 'primitives-texts-shimmering',
@@ -10545,7 +10625,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-shimmering',
+    command: '@odysseyui/primitives-texts-shimmering',
   },
   'primitives-texts-sliding-number': {
     name: 'primitives-texts-sliding-number',
@@ -10584,7 +10664,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-sliding-number',
+    command: '@odysseyui/primitives-texts-sliding-number',
   },
   'primitives-texts-splitting': {
     name: 'primitives-texts-splitting',
@@ -10623,7 +10703,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-splitting',
+    command: '@odysseyui/primitives-texts-splitting',
   },
   'primitives-texts-typing': {
     name: 'primitives-texts-typing',
@@ -10665,6 +10745,6 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@odyssey/primitives-texts-typing',
+    command: '@odysseyui/primitives-texts-typing',
   },
 };

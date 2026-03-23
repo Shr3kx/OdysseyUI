@@ -3,7 +3,10 @@
   "name": "components-ai-thought-chain",
   "title": "Thought Chain",
   "description": "An animated AI reasoning step-by-step thought chain component with collapsible steps and status indicators.",
-  "dependencies": ["motion", "lucide-react"],
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "collapsible",
     "badge",

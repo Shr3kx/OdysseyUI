@@ -23,6 +23,7 @@
 
     "---Primitives---",
     "primitives/badge",
+    "primitives/tree-filter",
 
     "---Buttons---",
     "primitives/button",

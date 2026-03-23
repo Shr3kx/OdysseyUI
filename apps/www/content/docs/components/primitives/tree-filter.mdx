@@ -1,0 +1,112 @@
+---
+title: Tree Filter
+description: Animated tree-structured filter with nested checkboxes, live search, and indeterminate states.
+---
+
+<ComponentPreview name="demo-components-primitives-tree-filter" />
+
+## Installation
+
+<ComponentInstallation name="components-primitives-tree-filter" />
+
+## Usage
+
+```tsx
+import {
+  TreeFilter,
+  TreeFilterSearch,
+  TreeFilterGroup,
+  TreeFilterList,
+} from '@/components/odysseyui/tree-filter';
+
+const items = [
+  {
+    id: 'fruits',
+    label: 'Fruits',
+    count: 3,
+    children: [
+      { id: 'apple', label: 'Apple', count: 1 },
+      { id: 'banana', label: 'Banana', count: 2 },
+    ],
+  },
+];
+
+export default function Page() {
+  return (
+    <TreeFilter defaultChecked={['apple']}>
+      <TreeFilterSearch placeholder="Search..." />
+      <TreeFilterGroup label="Category">
+        <TreeFilterList items={items} />
+      </TreeFilterGroup>
+    </TreeFilter>
+  );
+}
+```
+
+## How It Works
+
+- `TreeFilter` owns the checked state and exposes it via context.
+- Parent nodes show an **indeterminate** state when only some children are checked.
+- Checking a parent toggles all its leaf descendants at once.
+- `TreeFilterSearch` filters the visible tree in real time — branches with any matching descendant stay visible.
+- Expand/collapse uses Radix `Collapsible` with a smooth animated chevron and height transition.
+
+## API Reference
+
+### TreeFilter
+
+<TypeTable
+  type={{
+    defaultChecked: {
+      description: 'Array of leaf node IDs to check on mount.',
+      type: 'string[]',
+      default: '[]',
+    },
+  }}
+/>
+
+### TreeFilterSearch
+
+<TypeTable
+  type={{
+    placeholder: {
+      description: 'Input placeholder text.',
+      type: 'string',
+      default: '"Search..."',
+    },
+  }}
+/>
+
+### TreeFilterGroup
+
+<TypeTable
+  type={{
+    label: {
+      description: 'Optional section heading rendered above the list.',
+      type: 'string',
+    },
+  }}
+/>
+
+### TreeFilterList
+
+<TypeTable
+  type={{
+    items: {
+      description: 'Array of TreeNode objects to render.',
+      type: 'TreeNode[]',
+      required: true,
+    },
+  }}
+/>
+
+### TreeNode shape
+
+```ts
+interface TreeNode {
+  id: string;
+  label: string;
+  count?: number;
+  children?: TreeNode[];
+}
+```

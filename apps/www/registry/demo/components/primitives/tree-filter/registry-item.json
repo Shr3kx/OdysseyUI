@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-primitives-tree-filter",
+  "type": "registry:ui",
+  "title": "Tree Filter Demo",
+  "description": "Demo of the animated tree filter with nested checkboxes and search.",
+  "registryDependencies": ["odyssey/components-primitives-tree-filter"],
+  "files": [
+    {
+      "path": "registry/demo/components/primitives/tree-filter/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/primitives/tree-filter.tsx"
+    }
+  ]
+}

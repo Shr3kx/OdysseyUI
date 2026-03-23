@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-primitives-tree-filter",
+  "type": "registry:ui",
+  "title": "Tree Filter",
+  "description": "Animated tree-structured filter with nested checkboxes, search, and group cycling.",
+  "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+  "registryDependencies": ["collapsible"],
+  "files": [
+    {
+      "path": "registry/components/primitives/tree-filter/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/tree-filter.tsx"
+    }
+  ]
+}
