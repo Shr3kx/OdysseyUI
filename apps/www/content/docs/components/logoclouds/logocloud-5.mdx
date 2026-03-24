@@ -1,0 +1,153 @@
+---
+title: Logo Cloud 5
+description: CSS marquee logo cloud with configurable direction, speed, gap, and gradient fade edges.
+---
+
+<ComponentPreview name="demo-components-logoclouds-logocloud-5" />
+
+## Installation
+
+<ComponentInstallation name="components-logoclouds-logocloud-5" />
+
+## Usage
+
+<Callout type="info">
+  For provider icons, you can use [svgl](https://svgl.app/) — a beautiful
+  library of SVG logos for popular brands and services.
+</Callout>
+
+```tsx
+import LogoMarquee from '@/components/odysseyui/logocloud-5';
+
+const logos = [
+  { name: 'Vercel', svg: <VercelLogo /> },
+  { name: 'Stripe', svg: <StripeLogo /> },
+  { name: 'Clerk', svg: <ClerkLogo /> },
+];
+
+export default function Page() {
+  return (
+    <LogoMarquee
+      logos={logos}
+      label="Used by modern companies"
+      duration={40}
+      gap={200}
+    />
+  );
+}
+```
+
+## How It Works
+
+- The `Marquee` primitive renders each logo twice side-by-side so the CSS `translateX(-50%)` loop is seamless.
+- Four directional keyframes (`marquee-x`, `marquee-x-reverse`, `marquee-y`, `marquee-y-reverse`) support horizontal and vertical scrolling.
+- A `mask-image` linear gradient on the wrapper fades the leading and trailing edges.
+- Hover pauses the CSS animation via `animation-play-state: paused`.
+- No external animation library — pure CSS `@keyframes`.
+
+## API Reference
+
+### LogoMarquee
+
+<TypeTable
+  type={{
+    logos: {
+      description: 'Array of logo items to display.',
+      type: 'LogoItem[]',
+      required: true,
+    },
+    label: {
+      description: 'Optional heading displayed above the marquee.',
+      type: 'string',
+    },
+    duration: {
+      description: 'Duration of one full scroll cycle in seconds.',
+      type: 'number',
+      default: '20',
+    },
+    gap: {
+      description: 'Pixel gap between each logo.',
+      type: 'number',
+      default: '80',
+    },
+    reverse: {
+      description: 'Scroll right instead of left.',
+      type: 'boolean',
+      default: 'false',
+    },
+    pauseOnHover: {
+      description: 'Pause the marquee when the user hovers over it.',
+      type: 'boolean',
+      default: 'true',
+    },
+    fade: {
+      description:
+        'Apply gradient fade masks on the leading and trailing edges.',
+      type: 'boolean',
+      default: 'true',
+    },
+    fadeAmount: {
+      description:
+        'Percentage of the container width/height used for each fade edge.',
+      type: 'number',
+      default: '10',
+    },
+  }}
+/>
+
+### Marquee (primitive)
+
+The `Marquee` component is also exported directly for custom usage:
+
+```tsx
+import { Marquee } from '@/components/odysseyui/logocloud-5';
+
+<Marquee direction="left" duration={30} gap={64} pauseOnHover fade>
+  <img src="/logo-a.svg" alt="Brand A" />
+  <img src="/logo-b.svg" alt="Brand B" />
+</Marquee>;
+```
+
+<TypeTable
+  type={{
+    direction: {
+      description: 'Scroll direction.',
+      type: '"left" | "right" | "up" | "down"',
+      default: '"left"',
+    },
+    duration: {
+      description: 'Duration of one full scroll cycle in seconds.',
+      type: 'number',
+      default: '20',
+    },
+    gap: {
+      description: 'Pixel gap between items.',
+      type: 'number',
+      default: '32',
+    },
+    pauseOnHover: {
+      description: 'Pause the animation on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+    fade: {
+      description: 'Apply gradient fade masks on the edges.',
+      type: 'boolean',
+      default: 'true',
+    },
+    fadeAmount: {
+      description: 'Percentage of the container used for each fade edge.',
+      type: 'number',
+      default: '10',
+    },
+  }}
+/>
+
+### LogoItem shape
+
+```ts
+interface LogoItem {
+  name: string;
+  svg: React.ReactNode;
+}
+```

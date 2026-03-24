@@ -1,0 +1,100 @@
+---
+title: Logo Cloud 4
+description: CSS-animated logo carousel that cycles groups with vertical blur and slide transitions.
+---
+
+<ComponentPreview name="demo-components-logoclouds-logocloud-4" />
+
+## Installation
+
+<ComponentInstallation name="components-logoclouds-logocloud-4" />
+
+## Usage
+
+<Callout type="info">
+  For provider icons, you can use [svgl](https://svgl.app/) — a beautiful
+  library of SVG logos for popular brands and services.
+</Callout>
+
+```tsx
+import LogosCarousel from '@/components/odysseyui/logocloud-4';
+
+const logos = [
+  { name: 'Vercel', svg: <VercelLogo /> },
+  { name: 'Stripe', svg: <StripeLogo /> },
+  { name: 'Clerk', svg: <ClerkLogo /> },
+  { name: 'Linear', svg: <LinearLogo /> },
+];
+
+export default function Page() {
+  return (
+    <LogosCarousel
+      logos={logos}
+      label="Trusted by leading teams"
+      count={3}
+      interval={2500}
+    />
+  );
+}
+```
+
+## How It Works
+
+- Logos are split into groups of `count` automatically.
+- After `initialDelay` ms the carousel activates and begins cycling every `interval` ms.
+- The outgoing group animates up with a blur exit (`logos-exit`) while the incoming group slides in from below (`logos-enter`).
+- Each item within a group staggers by `stagger` seconds for a cascading effect.
+- Pure CSS `@keyframes` — no external animation library required.
+
+## API Reference
+
+### LogosCarousel
+
+<TypeTable
+  type={{
+    logos: {
+      description: 'Array of logo items to display.',
+      type: 'LogoItem[]',
+      required: true,
+    },
+    label: {
+      description: 'Optional heading displayed above the carousel.',
+      type: 'string',
+    },
+    count: {
+      description: 'Number of logos to show per group.',
+      type: 'number',
+      default: '4',
+    },
+    stagger: {
+      description: 'Per-item animation stagger delay in seconds.',
+      type: 'number',
+      default: '0.1',
+    },
+    duration: {
+      description: 'Duration of each enter/exit animation in milliseconds.',
+      type: 'number',
+      default: '500',
+    },
+    interval: {
+      description: 'Time in milliseconds between group cycles.',
+      type: 'number',
+      default: '2500',
+    },
+    initialDelay: {
+      description:
+        'Delay in milliseconds before the carousel starts animating.',
+      type: 'number',
+      default: '800',
+    },
+  }}
+/>
+
+### LogoItem shape
+
+```ts
+interface LogoItem {
+  name: string;
+  svg: React.ReactNode;
+}
+```

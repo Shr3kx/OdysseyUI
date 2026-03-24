@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-logoclouds-logocloud-3",
+  "type": "registry:ui",
+  "title": "Logo Cloud 3",
+  "description": "Infinite scrolling logo marquee with progressive blur edges and motion-powered animation.",
+  "dependencies": ["motion", "react-use-measure"],
+  "files": [
+    {
+      "path": "registry/components/logoclouds/logocloud-3/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/logocloud-3.tsx"
+    }
+  ]
+}

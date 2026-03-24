@@ -1,0 +1,88 @@
+---
+title: Logo Cloud 3
+description: Infinite scrolling logo marquee with progressive blur edges and motion-powered animation.
+---
+
+<ComponentPreview name="demo-components-logoclouds-logocloud-3" />
+
+## Installation
+
+<ComponentInstallation name="components-logoclouds-logocloud-3" />
+
+## Usage
+
+<Callout type="info">
+  For provider icons, you can use [svgl](https://svgl.app/) — a beautiful
+  library of SVG logos for popular brands and services.
+</Callout>
+
+```tsx
+import LogoCloud from '@/components/odysseyui/logocloud-3';
+
+const logos = [
+  { name: 'Vercel', svg: <VercelLogo /> },
+  { name: 'Stripe', svg: <StripeLogo /> },
+  { name: 'Clerk', svg: <ClerkLogo /> },
+];
+
+export default function Page() {
+  return (
+    <LogoCloud
+      logos={logos}
+      label="Powering the best teams"
+      speed={40}
+      gap={112}
+    />
+  );
+}
+```
+
+## How It Works
+
+- `InfiniteSlider` uses `motion/react`'s `animate` to drive a continuous translation on the logo strip.
+- The strip is duplicated so the loop is seamless — the animation resets from the midpoint.
+- `ProgressiveBlur` overlays layered `backdrop-filter: blur` divisions masked by a linear gradient, creating soft edge feathering without cropping.
+- Hover pauses the animation via `animationRef.current?.pause()`.
+
+## API Reference
+
+### LogoCloud
+
+<TypeTable
+  type={{
+    logos: {
+      description: 'Array of logo items to display.',
+      type: 'LogoItem[]',
+      required: true,
+    },
+    label: {
+      description:
+        'Optional text label displayed to the left of the slider on medium+ screens.',
+      type: 'string',
+    },
+    speed: {
+      description: 'Scroll speed in pixels per second.',
+      type: 'number',
+      default: '40',
+    },
+    gap: {
+      description: 'Pixel gap between each logo.',
+      type: 'number',
+      default: '112',
+    },
+    reverse: {
+      description: 'Reverse the scroll direction.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+### LogoItem shape
+
+```ts
+interface LogoItem {
+  name: string;
+  svg: React.ReactNode;
+}
+```

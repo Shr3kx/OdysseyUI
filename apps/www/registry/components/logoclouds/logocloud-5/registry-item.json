@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-logoclouds-logocloud-5",
+  "type": "registry:ui",
+  "title": "Logo Cloud 5",
+  "description": "CSS marquee logo cloud with configurable direction, speed, gap, and fade edges.",
+  "files": [
+    {
+      "path": "registry/components/logoclouds/logocloud-5/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/logocloud-5.tsx"
+    }
+  ]
+}

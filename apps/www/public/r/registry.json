@@ -493,6 +493,49 @@
       ]
     },
     {
+      "name": "components-logoclouds-logocloud-3",
+      "type": "registry:ui",
+      "title": "Logo Cloud 3",
+      "description": "Infinite scrolling logo marquee with progressive blur edges and motion-powered animation.",
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ],
+      "files": [
+        {
+          "path": "registry/components/logoclouds/logocloud-3/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/logocloud-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-logoclouds-logocloud-4",
+      "type": "registry:ui",
+      "title": "Logo Cloud 4",
+      "description": "CSS-animated logo carousel that cycles groups with blur and slide transitions.",
+      "files": [
+        {
+          "path": "registry/components/logoclouds/logocloud-4/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/logocloud-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-logoclouds-logocloud-5",
+      "type": "registry:ui",
+      "title": "Logo Cloud 5",
+      "description": "CSS marquee logo cloud with configurable direction, speed, gap, and fade edges.",
+      "files": [
+        {
+          "path": "registry/components/logoclouds/logocloud-5/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/logocloud-5.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-preloaders-greetings",
       "type": "registry:ui",
       "title": "Greeting Preloader",
@@ -1339,6 +1382,54 @@
           "path": "registry/demo/components/logoclouds/logocloud-2/index.tsx",
           "type": "registry:ui",
           "target": "components/odyssey/demo/logoclouds/logocloud-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-logoclouds-logocloud-3",
+      "type": "registry:ui",
+      "title": "Logo Cloud 3 Demo",
+      "description": "Demo of the infinite scrolling logo marquee with progressive blur edges.",
+      "registryDependencies": [
+        "odyssey/components-logoclouds-logocloud-3"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/logoclouds/logocloud-3/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/logoclouds/logocloud-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-logoclouds-logocloud-4",
+      "type": "registry:ui",
+      "title": "Logo Cloud 4 Demo",
+      "description": "Demo of the CSS-animated logo carousel with blur and slide transitions.",
+      "registryDependencies": [
+        "odyssey/components-logoclouds-logocloud-4"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/logoclouds/logocloud-4/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/logoclouds/logocloud-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-logoclouds-logocloud-5",
+      "type": "registry:ui",
+      "title": "Logo Cloud 5 Demo",
+      "description": "Demo of the CSS marquee logo cloud with direction, speed, gap, and fade controls.",
+      "registryDependencies": [
+        "odyssey/components-logoclouds-logocloud-5"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/logoclouds/logocloud-5/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/logoclouds/logocloud-5.tsx"
         }
       ]
     },
