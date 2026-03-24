@@ -79,9 +79,9 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
         />
       );
       break;
-    case 'Logo Cloud':
+    case 'Logo Clouds':
       node.name = (
-        <Separator icon={<HugeiconsIcon icon={Cloud} />} name="Logo Cloud" />
+        <Separator icon={<HugeiconsIcon icon={Cloud} />} name="Logo Clouds" />
       );
       break;
     case 'Text Effects':

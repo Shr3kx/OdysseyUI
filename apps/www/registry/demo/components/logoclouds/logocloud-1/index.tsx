@@ -2,7 +2,7 @@ import {
   LogoCloud,
   LogoCloudGroup,
   LogoCloudItem,
-} from '@/registry/components/logocloud/logocloud-1';
+} from '@/registry/components/logoclouds/logocloud-1';
 
 const ClaudeLogo = () => (
   <svg preserveAspectRatio="xMidYMid" viewBox="0 0 256 257" className="h-8 w-8">

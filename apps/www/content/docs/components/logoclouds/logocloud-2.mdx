@@ -1,0 +1,64 @@
+---
+title: Logo Cloud 2
+description: Animated logo cloud that cycles groups of 3 logos with spring blur transitions.
+---
+
+<ComponentPreview name="demo-components-logoclouds-logocloud-2" />
+
+## Installation
+
+<ComponentInstallation name="components-logoclouds-logocloud-2" />
+
+## Usage
+
+```tsx
+import LogoCloud from '@/components/odysseyui/logocloud-2';
+
+const logos = [
+  { name: 'Vercel', svg: <VercelLogo /> },
+  { name: 'Stripe', svg: <StripeLogo /> },
+  { name: 'Clerk', svg: <ClerkLogo /> },
+];
+
+export default function Page() {
+  return <LogoCloud logos={logos} label="Trusted by teams using" />;
+}
+```
+
+## How It Works
+
+- Logos are split into groups of 3 automatically.
+- Each group cycles on a timer, animating out with a spring blur/scale exit and in with a staggered blur entrance.
+- Uses `AnimatePresence mode="popLayout"` for smooth cross-fade between groups.
+
+## API Reference
+
+### LogoCloud
+
+<TypeTable
+  type={{
+    logos: {
+      description: 'Array of logo items to display.',
+      type: 'LogoItem[]',
+      required: true,
+    },
+    label: {
+      description: 'Optional heading rendered above the logo row.',
+      type: 'string',
+    },
+    duration: {
+      description: 'Seconds each group of logos stays visible before cycling.',
+      type: 'number',
+      default: '2.5',
+    },
+  }}
+/>
+
+### LogoItem shape
+
+```ts
+interface LogoItem {
+  name: string;
+  svg: React.ReactNode;
+}
+```

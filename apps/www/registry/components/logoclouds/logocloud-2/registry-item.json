@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-logoclouds-logocloud-2",
+  "type": "registry:ui",
+  "title": "Logo Cloud 2",
+  "description": "Animated logo cloud that cycles groups of 3 logos with spring blur transitions.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/components/logoclouds/logocloud-2/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/logocloud-2.tsx"
+    }
+  ]
+}

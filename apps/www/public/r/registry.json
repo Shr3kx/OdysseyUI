@@ -461,7 +461,7 @@
       ]
     },
     {
-      "name": "components-logocloud-logocloud-1",
+      "name": "components-logoclouds-logocloud-1",
       "type": "registry:ui",
       "title": "Logo Cloud 1",
       "description": "Animated logo cloud with staggered fade-in and group cycling.",
@@ -470,9 +470,25 @@
       ],
       "files": [
         {
-          "path": "registry/components/logocloud/logocloud-1/index.tsx",
+          "path": "registry/components/logoclouds/logocloud-1/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/logocloud.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-logoclouds-logocloud-2",
+      "type": "registry:ui",
+      "title": "Logo Cloud 2",
+      "description": "Animated logo cloud that cycles groups of 3 logos with spring blur transitions.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/logoclouds/logocloud-2/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/logocloud-2.tsx"
         }
       ]
     },
@@ -1295,18 +1311,34 @@
       ]
     },
     {
-      "name": "demo-components-logocloud-logocloud-1",
+      "name": "demo-components-logoclouds-logocloud-1",
       "type": "registry:ui",
       "title": "Logo Cloud 1 Demo",
       "description": "Demo of the animated logo cloud with group cycling.",
       "registryDependencies": [
-        "odyssey/components-logocloud-logocloud-1"
+        "odyssey/components-logoclouds-logocloud-1"
       ],
       "files": [
         {
-          "path": "registry/demo/components/logocloud/logocloud-1/index.tsx",
+          "path": "registry/demo/components/logoclouds/logocloud-1/index.tsx",
           "type": "registry:ui",
-          "target": "components/odyssey/demo/logocloud/logocloud-1.tsx"
+          "target": "components/odyssey/demo/logoclouds/logocloud-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-logoclouds-logocloud-2",
+      "type": "registry:ui",
+      "title": "Logo Cloud 2 Demo",
+      "description": "Demo of the logo cloud that cycles groups of 3 with spring blur transitions.",
+      "registryDependencies": [
+        "odyssey/components-logoclouds-logocloud-2"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/logoclouds/logocloud-2/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/logoclouds/logocloud-2.tsx"
         }
       ]
     },

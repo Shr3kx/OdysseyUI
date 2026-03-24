@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-logoclouds-logocloud-1",
+  "type": "registry:ui",
+  "title": "Logo Cloud 1 Demo",
+  "description": "Demo of the animated logo cloud with group cycling.",
+  "registryDependencies": ["odyssey/components-logoclouds-logocloud-1"],
+  "files": [
+    {
+      "path": "registry/demo/components/logoclouds/logocloud-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/logoclouds/logocloud-1.tsx"
+    }
+  ]
+}

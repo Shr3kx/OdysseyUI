@@ -18,8 +18,9 @@
     "ai/model-selector",
     "ai/token-usage",
 
-    "---Logo Cloud---",
-    "logocloud/logocloud-1",
+    "---Logo Clouds---",
+    "logoclouds/logocloud-1",
+    "logoclouds/logocloud-2",
 
     "---Primitives---",
     "primitives/badge",
