@@ -45,6 +45,9 @@
     "---Preloaders---",
     "preloaders/greetings",
 
+    "---FAQs---",
+    "faqs/faq-1",
+
     "---Community---",
     "community/notification-list",
     "community/playful-todolist"

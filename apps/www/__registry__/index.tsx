@@ -954,6 +954,45 @@ export const index: Record<string, any> = {
     })(),
     command: '@odysseyui/components-community-playful-todolist',
   },
+  'components-faqs-faq-1': {
+    name: 'components-faqs-faq-1',
+    description:
+      'Accordion-based FAQ section with a serif heading and divider separators.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['accordion'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/faqs/faq-1/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/faq-1.tsx',
+        content:
+          "'use client';\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion';\nimport Link from 'next/link';\n\nconst faqItems = [\n  {\n    id: 'item-1',\n    question: 'How do I get started with my first project?',\n    answer:\n      'Sign up for a free account, choose a template or start from scratch, and follow the guided onboarding flow. Most users have their first project live within minutes. Our interactive walkthrough covers everything from setup to first deployment.',\n  },\n  {\n    id: 'item-2',\n    question: 'Can I collaborate with my team in real time?',\n    answer:\n      'Yes. Invite teammates via email or shareable link. Everyone on the project sees live updates, can leave inline comments, and can edit simultaneously. Role-based permissions let you control who can view, edit, or publish.',\n  },\n  {\n    id: 'item-3',\n    question: 'What integrations are available?',\n    answer:\n      'We natively integrate with GitHub, GitLab, Figma, Slack, Linear, and Notion. You can also connect any tool via our webhook system or Zapier integration. Custom integrations are available on the Enterprise plan.',\n  },\n  {\n    id: 'item-4',\n    question: 'How are deployments handled?',\n    answer:\n      'Every push to your main branch triggers an automatic deployment with zero downtime. Preview deployments are created for every pull request so you can review changes before they go live. Rollbacks are one click away from the dashboard.',\n  },\n  {\n    id: 'item-5',\n    question: 'Is my content backed up automatically?',\n    answer:\n      'All content is versioned and backed up continuously. You can restore any file or entire project to any point in time from the last 90 days. Enterprise plans extend version history to 12 months.',\n  },\n  {\n    id: 'item-6',\n    question: 'How do I cancel or pause my subscription?',\n    answer:\n      'You can cancel or pause your subscription at any time from your account settings — no need to contact support. If you cancel, you keep access until the end of your billing period. Pausing freezes your data and billing for up to 3 months.',\n  },\n];\n\nexport default function FAQ1() {\n  return (\n    <section className=\"w-full\">\n      <div className=\"mx-auto max-w-2xl px-6\">\n        <h2 className=\"text-center font-serif text-4xl font-medium\">\n          Everything You Need to Know\n        </h2>\n        <Accordion type=\"single\" collapsible className=\"mt-12\">\n          {faqItems.map((item) => (\n            <div className=\"group\" key={item.id}>\n              <AccordionItem\n                value={item.id}\n                className=\"data-[state=open]:bg-muted/50 peer rounded-xl border-none px-5 py-1 transition-colors\"\n              >\n                <AccordionTrigger className=\"cursor-pointer py-4 text-sm font-medium hover:no-underline\">\n                  {item.question}\n                </AccordionTrigger>\n                <AccordionContent>\n                  <p className=\"text-muted-foreground pb-2 text-sm\">\n                    {item.answer}\n                  </p>\n                </AccordionContent>\n              </AccordionItem>\n              <hr className=\"mx-5 group-last:hidden peer-data-[state=open]:opacity-0\" />\n            </div>\n          ))}\n        </Accordion>\n        <p className=\"text-muted-foreground mt-8 text-center text-sm\">\n          Still have questions?{' '}\n          <Link href=\"#\" className=\"text-primary font-medium hover:underline\">\n            Talk to our team\n          </Link>\n        </p>\n      </div>\n    </section>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/components/faqs/faq-1/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-faqs-faq-1';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-faqs-faq-1',
+  },
   'components-logoclouds-logocloud-1': {
     name: 'components-logoclouds-logocloud-1',
     description:
@@ -1130,7 +1169,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odysseyui/logocloud-5.tsx',
         content:
-          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport React from 'react';\n\nconst KEYFRAMES = `\n  @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }\n  @keyframes marquee-x-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }\n  @keyframes marquee-y { from { transform: translateY(0); } to { transform: translateY(-50%); } }\n  @keyframes marquee-y-reverse { from { transform: translateY(-50%); } to { transform: translateY(0); } }\n`;\n\nconst ANIMATION_NAME: Record<string, string> = {\n  left: 'marquee-x',\n  right: 'marquee-x-reverse',\n  up: 'marquee-y',\n  down: 'marquee-y-reverse',\n};\n\ntype LogoItem = {\n  name: string;\n  svg: React.ReactNode;\n};\n\ntype MarqueeProps = {\n  children: React.ReactNode;\n  duration?: number;\n  pauseOnHover?: boolean;\n  direction?: 'left' | 'right' | 'up' | 'down';\n  gap?: number;\n  fade?: boolean;\n  fadeAmount?: number;\n  className?: string;\n} & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;\n\nexport function Marquee({\n  children,\n  className,\n  duration = 20,\n  pauseOnHover = false,\n  direction = 'left',\n  gap = 32,\n  fade = true,\n  fadeAmount = 10,\n  ...props\n}: MarqueeProps) {\n  const [isPaused, setIsPaused] = React.useState(false);\n  const isVertical = direction === 'up' || direction === 'down';\n  const items = React.Children.toArray(children);\n\n  const maskImage = fade\n    ? isVertical\n      ? `linear-gradient(to bottom, transparent 0%, black ${fadeAmount}%, black ${100 - fadeAmount}%, transparent 100%)`\n      : `linear-gradient(to right, transparent 0%, black ${fadeAmount}%, black ${100 - fadeAmount}%, transparent 100%)`\n    : undefined;\n\n  return (\n    <>\n      <style>{KEYFRAMES}</style>\n      <div\n        className={cn(\n          'flex w-full overflow-hidden',\n          isVertical && 'flex-col',\n          className,\n        )}\n        style={\n          maskImage ? { maskImage, WebkitMaskImage: maskImage } : undefined\n        }\n        onMouseEnter={() => pauseOnHover && setIsPaused(true)}\n        onMouseLeave={() => pauseOnHover && setIsPaused(false)}\n        {...props}\n      >\n        <div\n          className={cn('flex shrink-0', isVertical && 'flex-col')}\n          style={{\n            gap: `${gap}px`,\n            animationName: ANIMATION_NAME[direction],\n            animationDuration: `${duration}s`,\n            animationTimingFunction: 'linear',\n            animationIterationCount: 'infinite',\n            animationPlayState: isPaused ? 'paused' : 'running',\n          }}\n        >\n          {items.map((item, i) => (\n            <div\n              key={`a-${i}`}\n              className={cn('flex shrink-0', isVertical && 'w-full')}\n            >\n              {item}\n            </div>\n          ))}\n          {items.map((item, i) => (\n            <div\n              key={`b-${i}`}\n              aria-hidden\n              className={cn('flex shrink-0', isVertical && 'w-full')}\n            >\n              {item}\n            </div>\n          ))}\n        </div>\n      </div>\n    </>\n  );\n}\n\ntype LogoMarqueeProps = {\n  logos: LogoItem[];\n  label?: string;\n  duration?: number;\n  gap?: number;\n  reverse?: boolean;\n  pauseOnHover?: boolean;\n  fade?: boolean;\n  fadeAmount?: number;\n};\n\nexport default function LogoMarquee({\n  logos,\n  label,\n  duration = 20,\n  gap = 80,\n  reverse = false,\n  pauseOnHover = true,\n  fade = true,\n  fadeAmount = 10,\n}: LogoMarqueeProps) {\n  return (\n    <section className=\"bg-background py-16\">\n      <div className=\"m-auto max-w-7xl px-6\">\n        {label && (\n          <div className=\"mb-8 flex items-center justify-center\">\n            <p className=\"text-sm text-muted-foreground\">{label}</p>\n          </div>\n        )}\n        <Marquee\n          direction={reverse ? 'right' : 'left'}\n          duration={duration}\n          gap={gap}\n          pauseOnHover={pauseOnHover}\n          fade={fade}\n          fadeAmount={fadeAmount}\n        >\n          {logos.map(({ name, svg }) => (\n            <span key={name} aria-label={name} className=\"flex items-center\">\n              {svg}\n            </span>\n          ))}\n        </Marquee>\n      </div>\n    </section>\n  );\n}",
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport React from 'react';\n\nconst KEYFRAMES = `\n  @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }\n  @keyframes marquee-x-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }\n  @keyframes marquee-y { from { transform: translateY(0); } to { transform: translateY(-50%); } }\n  @keyframes marquee-y-reverse { from { transform: translateY(-50%); } to { transform: translateY(0); } }\n`;\n\nconst ANIMATION_NAME: Record<string, string> = {\n  left: 'marquee-x',\n  right: 'marquee-x-reverse',\n  up: 'marquee-y',\n  down: 'marquee-y-reverse',\n};\n\ntype LogoItem = {\n  name: string;\n  svg: React.ReactNode;\n};\n\ntype MarqueeProps = {\n  children: React.ReactNode;\n  duration?: number;\n  pauseOnHover?: boolean;\n  direction?: 'left' | 'right' | 'up' | 'down';\n  gap?: number;\n  fade?: boolean;\n  fadeAmount?: number;\n  className?: string;\n} & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;\n\nexport function Marquee({\n  children,\n  className,\n  duration = 20,\n  pauseOnHover = false,\n  direction = 'left',\n  gap = 32,\n  fade = true,\n  fadeAmount = 10,\n  ...props\n}: MarqueeProps) {\n  const [isPaused, setIsPaused] = React.useState(false);\n  const isVertical = direction === 'up' || direction === 'down';\n  const items = React.Children.toArray(children);\n\n  const maskImage = fade\n    ? isVertical\n      ? `linear-gradient(to bottom, transparent 0%, black ${fadeAmount}%, black ${100 - fadeAmount}%, transparent 100%)`\n      : `linear-gradient(to right, transparent 0%, black ${fadeAmount}%, black ${100 - fadeAmount}%, transparent 100%)`\n    : undefined;\n\n  return (\n    <>\n      <style>{KEYFRAMES}</style>\n      <div\n        className={cn(\n          'flex w-full overflow-hidden',\n          isVertical && 'flex-col',\n          className,\n        )}\n        style={\n          maskImage ? { maskImage, WebkitMaskImage: maskImage } : undefined\n        }\n        onMouseEnter={() => pauseOnHover && setIsPaused(true)}\n        onMouseLeave={() => pauseOnHover && setIsPaused(false)}\n        {...props}\n      >\n        <div\n          className={cn('flex shrink-0', isVertical && 'flex-col')}\n          style={{\n            gap: `${gap}px`,\n            animationName: ANIMATION_NAME[direction],\n            animationDuration: `${duration}s`,\n            animationTimingFunction: 'linear',\n            animationIterationCount: 'infinite',\n            animationPlayState: isPaused ? 'paused' : 'running',\n          }}\n        >\n          {items.map((item, i) => (\n            <div\n              key={`a-${i}`}\n              className={cn('flex shrink-0', isVertical && 'w-full')}\n            >\n              {item}\n            </div>\n          ))}\n          {items.map((item, i) => (\n            <div\n              key={`b-${i}`}\n              aria-hidden\n              className={cn('flex shrink-0', isVertical && 'w-full')}\n            >\n              {item}\n            </div>\n          ))}\n        </div>\n      </div>\n    </>\n  );\n}\n\ntype LogoMarqueeProps = {\n  logos: LogoItem[];\n  label?: string;\n  duration?: number;\n  gap?: number;\n  reverse?: boolean;\n  pauseOnHover?: boolean;\n  fade?: boolean;\n  fadeAmount?: number;\n};\n\nexport default function LogoMarquee({\n  logos,\n  label,\n  duration = 20,\n  gap = 80,\n  reverse = false,\n  pauseOnHover = true,\n  fade = true,\n  fadeAmount = 10,\n}: LogoMarqueeProps) {\n  return (\n    <section className=\"overflow-hidden bg-background py-16\">\n      <div className=\"m-auto max-w-7xl px-6\">\n        {label && (\n          <div className=\"mb-8 flex items-center justify-center\">\n            <p className=\"text-sm text-muted-foreground\">{label}</p>\n          </div>\n        )}\n        <Marquee\n          direction={reverse ? 'right' : 'left'}\n          duration={duration}\n          gap={gap}\n          pauseOnHover={pauseOnHover}\n          fade={fade}\n          fadeAmount={fadeAmount}\n        >\n          {logos.map(({ name, svg }) => (\n            <span key={name} aria-label={name} className=\"flex items-center\">\n              {svg}\n            </span>\n          ))}\n        </Marquee>\n      </div>\n    </section>\n  );\n}",
       },
     ],
     keywords: [],
@@ -2587,6 +2626,45 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odysseyui/demo-components-community-playful-todolist',
+  },
+  'demo-components-faqs-faq-1': {
+    name: 'demo-components-faqs-faq-1',
+    description: 'Demo of the accordion FAQ section.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-faqs-faq-1'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/faqs/faq-1/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/faqs/faq-1.tsx',
+        content:
+          "import FAQ1 from '@/components/odyssey/components/faqs/faq-1';\n\nexport const FAQ1Demo = () => {\n  return <FAQ1 />;\n};\n\nexport default FAQ1Demo;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/faqs/faq-1/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-faqs-faq-1';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-faqs-faq-1',
   },
   'demo-components-logoclouds-logocloud-1': {
     name: 'demo-components-logoclouds-logocloud-1',

@@ -1,9 +1,11 @@
----
+﻿---
 title: Components
 description: Production-ready animated components for modern React and Next.js interfaces.
 ---
 
-import { RectangleHorizontalIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArtificialIntelligence04Icon, Cloud, TextIcon } from '@hugeicons/core-free-icons';
+import { TagIcon } from 'lucide-react';
 
 # Interfaces that breathe
 
@@ -21,57 +23,34 @@ Start with the collection that matches your current priority, then expand from t
 
 <Cards>
   <Card
-    icon={
-      <svg
-        role="img"
-        fill="currentColor"
-        aria-label="Odyssey UI"
-        viewBox="0 0 40 40"
-      >
-        <path d="M28.38,37.05H11.61c-1.79,0-3.58-.47-5.09-1.41-1.41-.85-2.64-2.07-3.49-3.58s-1.32-3.11-1.32-4.8c0-1.79.47-3.58,1.32-5.09L11.42,7.85c.94-1.51,2.17-2.83,3.77-3.67,1.41-.85,3.11-1.22,4.8-1.22s3.3.38,4.8,1.22c1.51.85,2.83,2.17,3.77,3.67l8.38,14.32c.94,1.6,1.41,3.3,1.32,5.09,0,1.7-.47,3.3-1.32,4.8-.85,1.51-2.07,2.73-3.49,3.58-1.51.94-3.3,1.41-5.09,1.41M18.96,12.28l-8.38,14.32c-.28.47-.19.94,0,1.22s.47.57,1.04.57h16.77c.57,0,.85-.28,1.04-.57s.28-.66,0-1.22l-8.38-14.32c-.28-.47-.75-.57-1.04-.57s-.75.09-1.04.57"></path>
-      </svg>
-    }
-    href="/docs/components/animate/code-tabs"
-    title="Odyssey UI"
+    icon={<HugeiconsIcon icon={Cloud} size={20} />}
+    href="/docs/components/logoclouds/logocloud-1"
+    title="Logo Clouds"
     accent
   />
 
-<Card
-  icon={<RectangleHorizontalIcon fill="currentColor" strokeWidth={1.5} />}
-  href="/docs/components/buttons/github-stars"
-  title="Buttons"
-  accent
-/>
+  <Card
+    icon={<HugeiconsIcon icon={ArtificialIntelligence04Icon} size={20} />}
+    href="/docs/components/ai/prompt-input"
+    title="AI Elements"
+    accent
+  />
 
   <Card
-    icon={
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 35.13 31.92"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="3"
-        fill="none"
-        stroke="currentColor"
-      >
-        <path
-          d="M27.2 30.42c0-7.1-5.75-12.85-12.85-12.85S1.5 23.32 1.5 30.42z"
-          fill="currentColor"
-        ></path>
-        <circle cx="14.35" cy="9.53" r="8.03" fill="currentColor"></circle>
-        <path
-          fill="none"
-          d="M33.63 30.42c0-8.13-4.64-12.85-7.43-14.46 3.55-2.66 4.27-8.82 1.6-12.37a8 8 0 0 0-2.33-2.09"
-        ></path>
-      </svg>
-    }
-    href="/docs/components/community/notification-list"
-    title="Community"
+    icon={<HugeiconsIcon icon={TextIcon} size={20} />}
+    href="/docs/components/texts/text-shimmer"
+    title="Text Effects"
+    accent
+  />
+
+  <Card
+    icon={<TagIcon size={20} />}
+    href="/docs/components/pricing"
+    title="Pricing"
     accent
   />
 </Cards>
 
 ## Recommended path
 
-Start with **Buttons**—instant feedback, immediate impact. Move into **Community** for social and collaborative patterns. Then explore Odyssey for complex, choreographed compositions.
-Fast wins first. Deeper patterns when you're ready.
+Start with **Logo Clouds** for instant brand credibility sections. Explore **AI Elements** for intelligent, interactive prompts. Layer in **Text Effects** for motion-forward typography. Check **Pricing** when you need conversion-ready layouts.

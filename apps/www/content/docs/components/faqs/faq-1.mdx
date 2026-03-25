@@ -1,0 +1,26 @@
+---
+title: FAQ 1
+description: Accordion-based FAQ section with a serif heading and divider separators.
+---
+
+<ComponentPreview name="demo-components-faqs-faq-1" />
+
+## Installation
+
+<ComponentInstallation name="components-faqs-faq-1" />
+
+## Usage
+
+```tsx
+import FAQ1 from '@/components/odysseyui/faq-1';
+
+export default function Page() {
+  return <FAQ1 />;
+}
+```
+
+## How It Works
+
+- Built on the Radix `Accordion` component (`type="single"` + `collapsible`).
+- Each item is wrapped in a `group` div so the `<hr>` separator can hide itself when the item above it is open (`peer-data-[state=open]:opacity-0`) and on the last item (`group-last:hidden`).
+- The open item gets a subtle `bg-muted/50` background via `data-[state=open]`.

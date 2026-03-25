@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-faqs-faq-1",
+  "type": "registry:ui",
+  "title": "FAQ 1 Demo",
+  "description": "Demo of the accordion FAQ section.",
+  "registryDependencies": ["odyssey/components-faqs-faq-1"],
+  "files": [
+    {
+      "path": "registry/demo/components/faqs/faq-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/faqs/faq-1.tsx"
+    }
+  ]
+}

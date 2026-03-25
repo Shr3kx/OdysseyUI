@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-faqs-faq-1",
+  "type": "registry:ui",
+  "title": "FAQ 1",
+  "description": "Accordion-based FAQ section with a serif heading and divider separators.",
+  "registryDependencies": ["accordion"],
+  "files": [
+    {
+      "path": "registry/components/faqs/faq-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/faq-1.tsx"
+    }
+  ]
+}
