@@ -1,0 +1,84 @@
+---
+title: Pricing 1
+description: Modern pricing grid with animated sliding numbers, yearly billing toggle, and featured plan corner decorations.
+---
+
+<ComponentPreview name="demo-components-pricings-pricing-1" />
+
+## Installation
+
+<ComponentInstallation name="components-pricings-pricing-1" />
+
+## Usage
+
+```tsx
+import Pricing1 from '@/components/odysseyui/pricing-1';
+
+export default function Page() {
+  return <Pricing1 />;
+}
+```
+
+## How It Works
+
+- Uses `motion/react` springs and `react-use-measure` to animate individual digit slots in the `SlidingNumber` component, so price transitions feel physical and smooth when toggling billing period.
+- A custom `BillingToggle` switch (`role="switch"`) controls the `yearly` state, which swaps each plan's `monthly` vs `yearly` price.
+- The featured column receives `CornerPlus` SVG decorations at its four corners, rendered via `translate` offsets on the shared border grid.
+- Feature check icons use `@hugeicons/react` (`CheckmarkBadge01Icon`).
+
+## API Reference
+
+### `Pricing1`
+
+<TypeTable
+  type={{
+    plans: {
+      description: 'Array of pricing plans to display.',
+      type: 'Plan[]',
+      default: 'DEFAULT_PLANS',
+    },
+  }}
+/>
+
+### `Plan`
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier for the plan.',
+      type: 'string',
+    },
+    name: {
+      description: 'Display name of the plan.',
+      type: 'string',
+    },
+    desc: {
+      description: 'Short description shown under the plan name.',
+      type: 'string',
+    },
+    credits: {
+      description: 'Credit or usage limit label (e.g. "10,000").',
+      type: 'string',
+    },
+    monthly: {
+      description: 'Monthly price in USD.',
+      type: 'number',
+    },
+    yearly: {
+      description: 'Yearly price in USD (shown when billing toggle is active).',
+      type: 'number',
+    },
+    cta: {
+      description: 'Label for the call-to-action button.',
+      type: 'string',
+    },
+    featured: {
+      description: 'When true, highlights this plan with corner decorations.',
+      type: 'boolean',
+    },
+    features: {
+      description: 'List of feature strings shown in the card body.',
+      type: 'string[]',
+    },
+  }}
+/>

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-pricings-pricing-3",
+  "type": "registry:ui",
+  "title": "Pricing 3",
+  "description": "Asymmetric three-column pricing with elevated featured plan, amber badge, and security footer note.",
+  "registryDependencies": ["button", "badge"],
+  "files": [
+    {
+      "path": "registry/components/pricings/pricing-3/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/pricing-3.tsx"
+    }
+  ]
+}

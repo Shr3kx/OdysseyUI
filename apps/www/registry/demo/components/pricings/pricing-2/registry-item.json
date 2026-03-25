@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-2",
+  "type": "registry:ui",
+  "title": "Pricing 2 Demo",
+  "description": "Demo of the gradient featured card pricing section.",
+  "registryDependencies": ["odyssey/components-pricings-pricing-2"],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-2/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-2.tsx"
+    }
+  ]
+}

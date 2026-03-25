@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-pricings-pricing-2",
+  "type": "registry:ui",
+  "title": "Pricing 2",
+  "description": "Three-column pricing with gradient featured card and illustrated cursor decoration.",
+  "registryDependencies": ["button"],
+  "files": [
+    {
+      "path": "registry/components/pricings/pricing-2/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/pricing-2.tsx"
+    }
+  ]
+}

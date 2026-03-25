@@ -1,0 +1,120 @@
+---
+title: Pricing 4
+description: Pastel card pricing grid with animated billing toggle, tag badges, info rows, and spring-animated sliding prices.
+---
+
+<ComponentPreview name="demo-components-pricings-pricing-4" />
+
+## Installation
+
+<ComponentInstallation name="components-pricings-pricing-4" />
+
+## Usage
+
+```tsx
+import Pricing4 from '@/components/odysseyui/pricing-4';
+
+export default function Page() {
+  return <Pricing4 />;
+}
+```
+
+## Starting with yearly billing
+
+```tsx
+<Pricing4
+  defaultYearly
+  label="Choose a plan"
+  yearlyLabel="Annual billing (save 18%)"
+/>
+```
+
+## How It Works
+
+- Each plan card gets a pastel background (`pastelBg`) and matching `Badge` variant (`pastelBadgeVariant`) derived from the plan's `pastel` color.
+- The price display uses the same `SlidingNumber` / `Digit` / `Slot` spring animation system as Pricing 1 — digits animate individually via `useSpring` and `useTransform` from `motion/react`.
+- `BillingToggle` is a custom accessible switch (`role="switch"`, `aria-checked`) that animates its thumb with a spring.
+- When `monthly`/`yearly` is `"Custom"`, the price row renders the string "Custom" instead of the animated number.
+- When the price is `0`, it renders "Free".
+
+## API Reference
+
+### `Pricing4`
+
+<TypeTable
+  type={{
+    plans: {
+      description: 'Array of pricing plans.',
+      type: 'Plan4[]',
+      default: 'DEFAULT_PLANS',
+    },
+    label: {
+      description: 'Section heading.',
+      type: 'string',
+      default: '"Pricing Plans"',
+    },
+    yearlyLabel: {
+      description: 'Label shown next to the billing toggle.',
+      type: 'string',
+      default: '"Billed yearly (18% OFF)"',
+    },
+    defaultYearly: {
+      description: 'Whether yearly billing is active by default.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+### `Plan4`
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier for the plan.',
+      type: 'string',
+    },
+    name: {
+      description: 'Display name of the plan.',
+      type: 'string',
+    },
+    description: {
+      description: 'Short description of the plan.',
+      type: 'string',
+    },
+    tags: {
+      description:
+        'Feature tags shown as colored badges at the top of the card.',
+      type: 'string[]',
+    },
+    targetedFor: {
+      description: 'Target audience shown in the "Perfect for" info row.',
+      type: 'string',
+    },
+    credits: {
+      description: 'Credit or usage limit shown in the "Credits" info row.',
+      type: 'string',
+    },
+    monthly: {
+      description: 'Monthly price in USD, or "Custom" for enterprise plans.',
+      type: 'number | "Custom"',
+    },
+    yearly: {
+      description: 'Yearly price in USD, or "Custom" for enterprise plans.',
+      type: 'number | "Custom"',
+    },
+    ctaLabel: {
+      description: 'Label for the call-to-action button.',
+      type: 'string',
+    },
+    ctaHref: {
+      description: 'URL for the call-to-action button.',
+      type: 'string',
+    },
+    pastel: {
+      description:
+        'Pastel color theme for the card background and badge variant.',
+      type: '"rose" | "amber" | "sky" | "violet" | "emerald" | "lime"',
+    },
+  }}
+/>

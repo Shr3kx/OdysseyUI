@@ -25,6 +25,12 @@
     "logoclouds/logocloud-4",
     "logoclouds/logocloud-5",
 
+    "---Pricing---",
+    "pricings/pricing-1",
+    "pricings/pricing-2",
+    "pricings/pricing-3",
+    "pricings/pricing-4",
+
     "---Primitives---",
     "primitives/badge",
     "primitives/tree-filter",

@@ -1,0 +1,120 @@
+---
+title: Pricing 3
+description: Asymmetric three-column pricing layout with an elevated featured plan card, amber badge, and a security footer note.
+---
+
+<ComponentPreview name="demo-components-pricings-pricing-3" />
+
+## Installation
+
+<ComponentInstallation name="components-pricings-pricing-3" />
+
+## Usage
+
+```tsx
+import Pricing3 from '@/components/odysseyui/pricing-3';
+
+export default function Page() {
+  return <Pricing3 />;
+}
+```
+
+## Customizing the title
+
+```tsx
+<Pricing3
+  title="Plans for every team"
+  subtitle="Start free and scale as you grow."
+/>
+```
+
+## How It Works
+
+- The component uses `plans.find()` to extract the first non-featured plan (hobby), the featured plan, and the first non-featured plan after index 0 (enterprise) — making plan order flexible.
+- The featured middle column gets `bg-muted/50` background and an inner card with `rounded-xl border bg-card` to create an elevated floating effect.
+- An amber `Badge` with a `MoneyBag01Icon` labels the featured plan's tier.
+- If a plan has a `customPricing` string (instead of `price`), the layout switches to an icon + label presentation.
+- A `footerNote` on the featured plan renders a small security badge row at the bottom of the middle column.
+
+## API Reference
+
+### `Pricing3`
+
+<TypeTable
+  type={{
+    plans: {
+      description: 'Array of pricing plans.',
+      type: 'Plan3[]',
+      default: 'DEFAULT_PLANS',
+    },
+    title: {
+      description: 'Section heading.',
+      type: 'string',
+      default: '"Flexible plans that grow with you"',
+    },
+    subtitle: {
+      description: 'Section subtitle shown opposite the heading.',
+      type: 'string',
+      default: 'DEFAULT_SUBTITLE',
+    },
+  }}
+/>
+
+### `Plan3`
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier for the plan.',
+      type: 'string',
+    },
+    name: {
+      description: 'Display name of the plan.',
+      type: 'string',
+    },
+    price: {
+      description:
+        'Price string (e.g. "Free", "$20"). Omit if using customPricing.',
+      type: 'string',
+    },
+    priceNote: {
+      description: 'Optional note appended after the price (e.g. "per month").',
+      type: 'string',
+    },
+    customPricing: {
+      description:
+        'When set, replaces the price display with an icon + label row.',
+      type: 'string',
+    },
+    description: {
+      description: 'Short description of the plan.',
+      type: 'string',
+    },
+    features: {
+      description: 'List of feature strings.',
+      type: 'string[]',
+    },
+    ctaLabel: {
+      description: 'Label for the call-to-action button.',
+      type: 'string',
+    },
+    ctaHref: {
+      description: 'URL for the call-to-action button.',
+      type: 'string',
+    },
+    featured: {
+      description:
+        'When true, this plan is rendered in the elevated center column.',
+      type: 'boolean',
+    },
+    featuredLabel: {
+      description: 'Label shown in the amber badge (e.g. "Best Value").',
+      type: 'string',
+    },
+    footerNote: {
+      description:
+        'Optional note with a security icon shown below the featured card.',
+      type: 'string',
+    },
+  }}
+/>

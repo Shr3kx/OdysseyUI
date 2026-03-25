@@ -1,0 +1,86 @@
+---
+title: Pricing 2
+description: Three-column pricing section with a gradient-bordered featured card and an illustrated cursor SVG decoration.
+---
+
+<ComponentPreview name="demo-components-pricings-pricing-2" />
+
+## Installation
+
+<ComponentInstallation name="components-pricings-pricing-2" />
+
+## Usage
+
+```tsx
+import Pricing2 from '@/components/odysseyui/pricing-2';
+
+export default function Page() {
+  return <Pricing2 />;
+}
+```
+
+## How It Works
+
+- Featured plan is wrapped in a `bg-linear-to-br` gradient border (`p-0.5` trick) with a `rounded-2xl` outer shell and a `bg-card` inner content area.
+- A "Most Popular" pill is absolutely positioned at the top of the featured card using negative `top` offset.
+- A decorative SVG cursor illustration is pinned to the bottom-right corner of the featured card via `absolute` positioning.
+- Non-featured plans use a subtle `ring-1 ring-foreground/10` border for visual separation.
+- All CTAs use `Button asChild` with `<Link>` for Next.js client-side navigation.
+
+## API Reference
+
+### `Pricing2`
+
+<TypeTable
+  type={{
+    plans: {
+      description: 'Array of pricing plans to display.',
+      type: 'Plan2[]',
+      default: 'DEFAULT_PLANS',
+    },
+  }}
+/>
+
+### `Plan2`
+
+<TypeTable
+  type={{
+    name: {
+      description: 'Display name of the plan.',
+      type: 'string',
+    },
+    price: {
+      description: 'Price string (e.g. "Free Forever", "$99").',
+      type: 'string',
+    },
+    priceNote: {
+      description: 'Optional note appended after the price (e.g. "/ month").',
+      type: 'string',
+    },
+    description: {
+      description: 'Short description of the plan.',
+      type: 'string',
+    },
+    features: {
+      description: 'List of feature strings.',
+      type: 'string[]',
+    },
+    ctaLabel: {
+      description: 'Label for the call-to-action button.',
+      type: 'string',
+    },
+    ctaHref: {
+      description: 'URL for the call-to-action button.',
+      type: 'string',
+    },
+    footnote: {
+      description: 'Optional footnote shown below the feature list.',
+      type: 'string',
+    },
+    featured: {
+      description:
+        'When true, renders this plan with the gradient featured card style.',
+      type: 'boolean',
+    },
+  }}
+/>
