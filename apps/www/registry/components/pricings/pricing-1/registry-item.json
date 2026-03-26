@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-pricings-pricing-1",
+  "type": "registry:ui",
+  "title": "Pricing 1",
+  "description": "Modern pricing grid with animated sliding numbers, billing toggle, and featured plan corner decorations.",
+  "dependencies": ["motion", "react-use-measure"],
+  "registryDependencies": ["button"],
+  "files": [
+    {
+      "path": "registry/components/pricings/pricing-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/pricing-1.tsx"
+    }
+  ]
+}

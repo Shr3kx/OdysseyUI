@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-4",
+  "title": "Pricing 4 Demo",
+  "description": "Demo of the pastel pricing cards with animated billing toggle.",
+  "registryDependencies": [
+    "odyssey/components-pricings-pricing-4"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-4/index.tsx",
+      "content": "import Pricing4 from '@/components/odyssey/components/pricings/pricing-4';\n\nexport const Pricing4Demo = () => {\n  return <Pricing4 />;\n};\n\nexport default Pricing4Demo;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-4.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-pricings-pricing-4",
+  "type": "registry:ui",
+  "title": "Pricing 4",
+  "description": "Pastel pricing cards with animated billing toggle, tag badges, and info rows.",
+  "dependencies": ["motion", "react-use-measure"],
+  "registryDependencies": ["button", "badge"],
+  "files": [
+    {
+      "path": "registry/components/pricings/pricing-4/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/pricing-4.tsx"
+    }
+  ]
+}

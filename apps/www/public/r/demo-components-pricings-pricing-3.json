@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-3",
+  "title": "Pricing 3 Demo",
+  "description": "Demo of the asymmetric three-column pricing layout.",
+  "registryDependencies": [
+    "odyssey/components-pricings-pricing-3"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-3/index.tsx",
+      "content": "import Pricing3 from '@/components/odyssey/components/pricings/pricing-3';\n\nexport const Pricing3Demo = () => {\n  return <Pricing3 />;\n};\n\nexport default Pricing3Demo;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-3.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-1",
+  "type": "registry:ui",
+  "title": "Pricing 1 Demo",
+  "description": "Demo of the animated sliding number pricing grid.",
+  "registryDependencies": ["odyssey/components-pricings-pricing-1"],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-1.tsx"
+    }
+  ]
+}

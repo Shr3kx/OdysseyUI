@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-3",
+  "type": "registry:ui",
+  "title": "Pricing 3 Demo",
+  "description": "Demo of the asymmetric three-column pricing layout.",
+  "registryDependencies": ["odyssey/components-pricings-pricing-3"],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-3/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-3.tsx"
+    }
+  ]
+}

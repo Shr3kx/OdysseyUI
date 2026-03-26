@@ -569,6 +569,80 @@
       ]
     },
     {
+      "name": "components-pricings-pricing-1",
+      "type": "registry:ui",
+      "title": "Pricing 1",
+      "description": "Modern pricing grid with animated sliding numbers, billing toggle, and featured plan corner decorations.",
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pricings/pricing-1/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/pricing-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-pricings-pricing-2",
+      "type": "registry:ui",
+      "title": "Pricing 2",
+      "description": "Three-column pricing with gradient featured card and illustrated cursor decoration.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pricings/pricing-2/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/pricing-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-pricings-pricing-3",
+      "type": "registry:ui",
+      "title": "Pricing 3",
+      "description": "Asymmetric three-column pricing with elevated featured plan, amber badge, and security footer note.",
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pricings/pricing-3/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/pricing-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-pricings-pricing-4",
+      "type": "registry:ui",
+      "title": "Pricing 4",
+      "description": "Pastel pricing cards with animated billing toggle, tag badges, and info rows.",
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pricings/pricing-4/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/pricing-4.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-primitives-tree-filter",
       "type": "registry:ui",
       "title": "Tree Filter",
@@ -1479,6 +1553,70 @@
           "path": "registry/demo/components/preloaders/greetings/index.tsx",
           "type": "registry:ui",
           "target": "components/odyssey/demo/preloaders/greetings-preloader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-pricings-pricing-1",
+      "type": "registry:ui",
+      "title": "Pricing 1 Demo",
+      "description": "Demo of the animated sliding number pricing grid.",
+      "registryDependencies": [
+        "odyssey/components-pricings-pricing-1"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/pricings/pricing-1/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/pricings/pricing-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-pricings-pricing-2",
+      "type": "registry:ui",
+      "title": "Pricing 2 Demo",
+      "description": "Demo of the gradient featured card pricing section.",
+      "registryDependencies": [
+        "odyssey/components-pricings-pricing-2"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/pricings/pricing-2/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/pricings/pricing-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-pricings-pricing-3",
+      "type": "registry:ui",
+      "title": "Pricing 3 Demo",
+      "description": "Demo of the asymmetric three-column pricing layout.",
+      "registryDependencies": [
+        "odyssey/components-pricings-pricing-3"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/pricings/pricing-3/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/pricings/pricing-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-pricings-pricing-4",
+      "type": "registry:ui",
+      "title": "Pricing 4 Demo",
+      "description": "Demo of the pastel pricing cards with animated billing toggle.",
+      "registryDependencies": [
+        "odyssey/components-pricings-pricing-4"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/pricings/pricing-4/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/pricings/pricing-4.tsx"
         }
       ]
     },

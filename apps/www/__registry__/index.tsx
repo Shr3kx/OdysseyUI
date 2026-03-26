@@ -1233,6 +1233,166 @@ export const index: Record<string, any> = {
     })(),
     command: '@odysseyui/components-preloaders-greetings',
   },
+  'components-pricings-pricing-1': {
+    name: 'components-pricings-pricing-1',
+    description:
+      'Modern pricing grid with animated sliding numbers, billing toggle, and featured plan corner decorations.',
+    type: 'registry:ui',
+    dependencies: ['motion', 'react-use-measure'],
+    devDependencies: undefined,
+    registryDependencies: ['button'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/pricings/pricing-1/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/pricing-1.tsx',
+        content:
+          "'use client';\n\nimport { useEffect, useId, useState } from 'react';\nimport {\n  motion,\n  MotionValue,\n  motionValue,\n  useSpring,\n  useTransform,\n} from 'motion/react';\nimport useMeasure from 'react-use-measure';\nimport {\n  ArrowUpRight01Icon,\n  CheckmarkBadge01Icon,\n  CustomerService01Icon,\n} from '@hugeicons/core-free-icons';\nimport { HugeiconsIcon } from '@hugeicons/react';\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\n\nconst SPRING = {\n  type: 'spring' as const,\n  stiffness: 280,\n  damping: 18,\n  mass: 0.3,\n};\n\nfunction Digit({ value, place }: { value: number; place: number }) {\n  const rounded = Math.floor(value / place) % 10;\n  const initial = motionValue(rounded);\n  const anim = useSpring(initial, SPRING);\n\n  useEffect(() => {\n    anim.set(rounded);\n  }, [anim, rounded]);\n\n  return (\n    <div className=\"relative inline-block w-[1ch] overflow-x-visible overflow-y-clip leading-none tabular-nums\">\n      <div className=\"invisible\">0</div>\n      {Array.from({ length: 10 }, (_, i) => (\n        <Slot key={i} mv={anim} number={i} />\n      ))}\n    </div>\n  );\n}\n\nfunction Slot({ mv, number }: { mv: MotionValue<number>; number: number }) {\n  const id = useId();\n  const [ref, bounds] = useMeasure();\n\n  const y = useTransform(mv, (latest) => {\n    if (!bounds.height) return 0;\n    const offset = (10 + number - (latest % 10)) % 10;\n    return offset > 5 ? (offset - 10) * bounds.height : offset * bounds.height;\n  });\n\n  if (!bounds.height) {\n    return (\n      <span ref={ref} className=\"invisible absolute\">\n        {number}\n      </span>\n    );\n  }\n\n  return (\n    <motion.span\n      style={{ y }}\n      layoutId={`${id}-${number}`}\n      className=\"absolute inset-0 flex items-center justify-center\"\n      transition={SPRING}\n      ref={ref}\n    >\n      {number}\n    </motion.span>\n  );\n}\n\nfunction SlidingNumber({ value }: { value: number }) {\n  const digits = Math.abs(value).toString().split('');\n  const intVal = parseInt(digits.join(''), 10);\n  const places = digits.map((_, i) => Math.pow(10, digits.length - i - 1));\n\n  return (\n    <div className=\"flex items-center\">\n      {digits.map((_, i) => (\n        <Digit key={`p${places[i]}`} value={intVal} place={places[i]} />\n      ))}\n    </div>\n  );\n}\n\nfunction CornerPlus({ className }: { className?: string }) {\n  return (\n    <svg\n      aria-hidden=\"true\"\n      className={cn(\n        'pointer-events-none absolute z-10 size-3 shrink-0 stroke-muted-foreground stroke-1',\n        className,\n      )}\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n    >\n      <path d=\"M5 12h14\" />\n      <path d=\"M12 5v14\" />\n    </svg>\n  );\n}\n\nfunction BillingToggle({\n  yearly,\n  onToggle,\n}: {\n  yearly: boolean;\n  onToggle: () => void;\n}) {\n  return (\n    <button\n      type=\"button\"\n      role=\"switch\"\n      aria-checked={yearly}\n      onClick={onToggle}\n      className={cn(\n        'relative inline-flex h-5.5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200',\n        'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',\n        yearly ? 'bg-foreground' : 'bg-input',\n      )}\n    >\n      <motion.span\n        animate={{ x: yearly ? '1.125rem' : '0.125rem' }}\n        transition={{ type: 'spring', stiffness: 500, damping: 32 }}\n        className=\"block size-3.5 rounded-full bg-background shadow-sm\"\n      />\n    </button>\n  );\n}\n\nexport type Plan = {\n  id: string;\n  name: string;\n  desc: string;\n  credits: string;\n  monthly: number;\n  yearly: number;\n  cta: string;\n  featured: boolean;\n  features: string[];\n};\n\nconst DEFAULT_PLANS: Plan[] = [\n  {\n    id: 'free',\n    name: 'Starter',\n    desc: 'Everything you need to explore. No card required, no strings attached.',\n    credits: '1,000',\n    monthly: 0,\n    yearly: 0,\n    cta: 'Get started',\n    featured: false,\n    features: [\n      '1,000 credits / month',\n      '1 concurrent request',\n      'Community support',\n    ],\n  },\n  {\n    id: 'pro',\n    name: 'Pro',\n    desc: 'Built for makers shipping real products. Flexible, fast, and reliable.',\n    credits: '10,000',\n    monthly: 29,\n    yearly: 23,\n    cta: 'Start free trial',\n    featured: true,\n    features: [\n      '10,000 credits / month',\n      '10 concurrent requests',\n      'Email support',\n      '$7 per extra 1k credits',\n    ],\n  },\n  {\n    id: 'enterprise',\n    name: 'Enterprise',\n    desc: 'For teams that need reliability at scale. Custom limits, dedicated support.',\n    credits: '500,000',\n    monthly: 149,\n    yearly: 119,\n    cta: 'Contact sales',\n    featured: false,\n    features: [\n      '500,000 credits / month',\n      'Unlimited concurrent requests',\n      'Dedicated support',\n      'Custom rate limits',\n      'SLA guarantee',\n    ],\n  },\n];\n\nexport function Pricing1({ plans = DEFAULT_PLANS }: { plans?: Plan[] }) {\n  const [yearly, setYearly] = useState(false);\n\n  return (\n    <div className=\"w-full space-y-1.5\">\n      {/* Header */}\n      <div className=\"flex flex-col gap-3 p-2 sm:flex-row sm:items-center sm:justify-between\">\n        <h2 className=\"text-2xl font-semibold tracking-tight\">\n          Simple, transparent pricing\n        </h2>\n        <div className=\"flex items-center gap-2.5\">\n          <BillingToggle\n            yearly={yearly}\n            onToggle={() => setYearly((y) => !y)}\n          />\n          <span\n            className={cn(\n              'text-sm font-medium transition-colors duration-200',\n              yearly ? 'text-foreground' : 'text-muted-foreground',\n            )}\n          >\n            Billed yearly (18% OFF)\n          </span>\n        </div>\n      </div>\n\n      <div className=\"grid grid-cols-1 divide-y divide-border rounded-2xl border border-border lg:grid-cols-3 lg:divide-x lg:divide-y-0\">\n        {plans.map((plan, i) => {\n          const price = yearly ? plan.yearly : plan.monthly;\n          const isFirst = i === 0;\n          const isLast = i === plans.length - 1;\n\n          return (\n            <div\n              key={plan.id}\n              className={cn(\n                'relative flex flex-col',\n                isFirst &&\n                  'overflow-hidden rounded-t-2xl lg:rounded-t-none lg:rounded-l-2xl',\n                isLast &&\n                  'overflow-hidden rounded-b-2xl lg:rounded-r-2xl lg:rounded-b-none',\n                !plan.featured && 'bg-muted/30',\n              )}\n            >\n              {plan.featured && (\n                <>\n                  <CornerPlus className=\"top-0 left-0 hidden -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)] lg:block\" />\n                  <CornerPlus className=\"top-0 right-0 hidden translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)] lg:block\" />\n                </>\n              )}\n\n              <div className=\"relative flex flex-col gap-4 border-b border-border p-6\">\n                {plan.featured && (\n                  <>\n                    <CornerPlus className=\"bottom-0 left-0 hidden -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)] lg:block\" />\n                    <CornerPlus className=\"right-0 bottom-0 hidden translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)] lg:block\" />\n                  </>\n                )}\n                <div className=\"flex items-center justify-between gap-2\">\n                  <span className=\"text-xl font-semibold\">{plan.name}</span>\n                  {plan.featured && (\n                    <span className=\"rounded-full bg-foreground px-2.5 py-0.5 text-xs font-semibold text-background\">\n                      Most popular\n                    </span>\n                  )}\n                </div>\n\n                <p className=\"text-sm leading-relaxed text-muted-foreground\">\n                  {plan.desc}\n                </p>\n\n                <div className=\"mt-1 flex items-end gap-1\">\n                  <div className=\"flex items-end text-3xl leading-none font-bold\">\n                    <span>$</span>\n                    <SlidingNumber value={price} />\n                  </div>\n                  <span className=\"mb-0.5 text-sm text-muted-foreground\">\n                    /month\n                  </span>\n                </div>\n\n                <Button\n                  variant={plan.featured ? 'default' : 'outline'}\n                  className={cn(\n                    'w-full rounded-lg',\n                    plan.featured &&\n                      'bg-foreground text-background hover:bg-foreground/90',\n                  )}\n                >\n                  {plan.cta}\n                </Button>\n              </div>\n\n              <div className=\"flex flex-col gap-2.5 p-6\">\n                {plan.features.map((f) => (\n                  <div\n                    key={f}\n                    className=\"flex items-center gap-2 text-sm text-muted-foreground\"\n                  >\n                    <HugeiconsIcon\n                      icon={CheckmarkBadge01Icon}\n                      strokeWidth={2}\n                      className=\"size-4 shrink-0\"\n                    />\n                    <span>{f}</span>\n                  </div>\n                ))}\n              </div>\n            </div>\n          );\n        })}\n      </div>\n\n      <div className=\"flex flex-col gap-4 rounded-2xl border border-border p-4 sm:flex-row sm:items-center sm:justify-between\">\n        <div className=\"flex items-center gap-3\">\n          <div className=\"flex size-9 shrink-0 items-center justify-center rounded-lg border border-border bg-muted/50\">\n            <HugeiconsIcon\n              icon={CustomerService01Icon}\n              strokeWidth={2}\n              className=\"size-4 shrink-0\"\n            />\n          </div>\n          <div>\n            <p className=\"text-sm font-semibold\">Need help deciding?</p>\n            <p className=\"text-sm text-muted-foreground\">\n              Contact our support team for personalized recommendations and\n              guidance.\n            </p>\n          </div>\n        </div>\n        <Button\n          variant=\"link\"\n          className=\"ml-0 flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:ml-4\"\n        >\n          Learn more\n          <HugeiconsIcon\n            icon={ArrowUpRight01Icon}\n            strokeWidth={2}\n            className=\"size-4 shrink-0\"\n          />\n        </Button>\n      </div>\n    </div>\n  );\n}\n\nexport default Pricing1;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/pricings/pricing-1/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-pricings-pricing-1';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-pricings-pricing-1',
+  },
+  'components-pricings-pricing-2': {
+    name: 'components-pricings-pricing-2',
+    description:
+      'Three-column pricing with gradient featured card and illustrated cursor decoration.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['button'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/pricings/pricing-2/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/pricing-2.tsx',
+        content:
+          '\'use client\';\n\nimport Link from \'next/link\';\nimport { Tick02Icon } from \'@hugeicons/core-free-icons\';\nimport { HugeiconsIcon } from \'@hugeicons/react\';\nimport { Button } from \'@/components/ui/button\';\n\nexport type Plan2 = {\n  name: string;\n  price: string;\n  priceNote?: string;\n  description: string;\n  features: string[];\n  ctaLabel: string;\n  ctaHref: string;\n  footnote?: string;\n  featured?: boolean;\n};\n\nconst DEFAULT_PLANS: Plan2[] = [\n  {\n    name: \'Starter\',\n    price: \'Free Forever\',\n    description:\n      \'Launch your product with essential tools and credits for lean teams.\',\n    features: [\n      \'100 resume analysis credits\',\n      \'3 AI interview credits*\',\n      \'AI scoring and recommendations\',\n      \'Team dashboards and heatmaps\',\n      \'Email support\',\n    ],\n    ctaLabel: \'Get Started\',\n    ctaHref: \'#\',\n    footnote: \'*one-time usage only\',\n  },\n  {\n    name: \'Pro\',\n    price: \'$99\',\n    priceNote: \'/ month\',\n    description:\n      \'Scale automation with deeper analytics, ATS workflows, and compliance reports.\',\n    features: [\n      \'Everything in Starter\',\n      \'200 AI interview credits monthly\',\n      \'Anti-fraud compliance reports\',\n      \'Executive-ready hiring summaries\',\n      \'Increased job posting limits\',\n    ],\n    ctaLabel: \'Get Started\',\n    ctaHref: \'#\',\n    featured: true,\n  },\n  {\n    name: \'Enterprise\',\n    price: \'Custom\',\n    description:\n      \'For global organizations requiring white-label controls, security reviews, and dedicated pods.\',\n    features: [\n      \'Everything in Pro\',\n      \'Billing based AI interview credits\',\n      \'White-label candidate experience\',\n      \'Custom security and compliance reviews\',\n      \'Dedicated support manager\',\n    ],\n    ctaLabel: \'Contact Sales\',\n    ctaHref: \'#\',\n  },\n];\n\nexport default function Pricing2({\n  plans = DEFAULT_PLANS,\n}: {\n  plans?: Plan2[];\n}) {\n  return (\n    <div className="grid gap-6 md:grid-cols-3">\n      {plans.map((plan, index) =>\n        plan.featured ? (\n          <div key={index} className="relative">\n            <span className="absolute inset-x-0 -top-3 z-10 mx-auto flex h-6 w-fit items-center rounded-full bg-linear-to-br/increasing from-purple-400 to-amber-300 px-3 py-1 text-xs font-medium text-amber-950 ring-1 ring-white/20 ring-offset-1 ring-offset-gray-950/5 ring-inset">\n              Most Popular\n            </span>\n            <div className="h-full overflow-hidden rounded-2xl bg-linear-to-br/increasing from-purple-400 to-amber-300 p-0.5">\n              <div className="flex h-full flex-col gap-6 rounded-3xl bg-card py-6 text-sm text-card-foreground">\n                <div className="grid auto-rows-min items-start gap-2 px-6">\n                  <div className="text-base font-medium">{plan.name}</div>\n                  <span className="my-3 block font-mono text-2xl font-semibold">\n                    {plan.price}{\' \'}\n                    {plan.priceNote && (\n                      <span className="text-base font-normal text-muted-foreground">\n                        {plan.priceNote}\n                      </span>\n                    )}\n                  </span>\n                  <div className="text-sm text-muted-foreground">\n                    {plan.description}\n                  </div>\n                </div>\n                <div className="space-y-4 px-6">\n                  <hr className="border-dashed" />\n                  <ul className="list-outside space-y-3 text-sm">\n                    {plan.features.map((item, i) => (\n                      <li key={i} className="flex items-center gap-2">\n                        <HugeiconsIcon\n                          icon={Tick02Icon}\n                          className="size-4 shrink-0"\n                          strokeWidth={2}\n                        />\n                        {item}\n                      </li>\n                    ))}\n                  </ul>\n                  {plan.footnote && (\n                    <span className="text-xs text-muted-foreground">\n                      {plan.footnote}\n                    </span>\n                  )}\n                </div>\n                <div className="mt-auto flex items-center px-6">\n                  <Button asChild className="w-full">\n                    <Link href={plan.ctaHref}>{plan.ctaLabel}</Link>\n                  </Button>\n                </div>\n              </div>\n            </div>\n            <div className="pointer-events-none absolute right-0 bottom-0 z-10">\n              <svg\n                width="68"\n                height="73"\n                viewBox="0 0 100 107"\n                fill="none"\n                xmlns="http://www.w3.org/2000/svg"\n              >\n                <g clipPath="url(#clip0_16289_6901)">\n                  <mask\n                    id="mask0_16289_6901"\n                    maskUnits="userSpaceOnUse"\n                    x="40"\n                    y="50"\n                    width="56"\n                    height="57"\n                  >\n                    <path\n                      d="M39.9998 50.5806H95.6973V107H39.9998V50.5806Z"\n                      fill="white"\n                    />\n                  </mask>\n                  <g mask="url(#mask0_16289_6901)">\n                    <path\n                      d="M69.9252 89.58C73.0704 93.0761 76.0324 96.3914 79.0249 99.6765C80.7043 101.515 82.4449 103.293 84.1549 105.101C84.2465 105.222 84.3687 105.343 84.5213 105.433C86.8726 107.121 87.5749 107.422 89.6819 105.343C90.8728 104.137 92.2164 103.142 93.4684 101.997C94.0485 101.485 94.5676 100.942 95.0257 100.34C95.8196 99.345 95.7891 98.5614 94.9646 97.5969C94.476 97.0243 93.9875 96.4215 93.4684 95.879C89.1933 91.4185 84.9183 86.958 80.6433 82.4975C80.3074 82.1659 80.002 81.8043 79.6967 81.4727C81.8036 79.2425 83.8801 77.1328 85.926 74.9628C87.0253 73.7573 88.094 72.5517 89.1628 71.316C89.8651 70.5023 89.8651 69.779 89.0406 69.0858C88.491 68.6337 87.9108 68.272 87.239 68.0008C82.6586 66.0418 78.0783 63.9923 73.4063 62.2142C65.8639 59.3208 58.2299 56.6084 50.657 53.8055C48.7638 53.0822 46.9316 52.2985 45.0689 51.5752C44.3361 51.2437 43.5421 51.0026 42.7482 50.882C40.7634 50.6711 39.7557 51.9067 40.3969 53.8055C40.8855 55.222 41.4962 56.6084 42.0153 58.0249C45.7713 68.1213 49.4661 78.2479 53.2831 88.3444C54.474 91.4788 55.8176 94.5228 57.1306 97.5969C57.6192 98.7723 58.6574 99.134 59.8178 98.5011C60.459 98.1093 61.0392 97.6271 61.5889 97.0846C64.3676 94.6132 67.1464 92.1117 69.9557 89.58H69.9252Z"\n                      fill="#FC787D"\n                    />\n                  </g>\n                  <path\n                    d="M74.3226 85.7219C77.4678 89.218 80.4298 92.5332 83.4223 95.8183C85.1018 97.6568 86.8424 99.435 88.5524 101.243C88.6745 101.364 88.7661 101.484 88.9188 101.575C91.2701 103.263 91.9724 103.564 94.0794 101.484C95.2703 100.279 96.6138 99.2843 97.8658 98.139C98.446 97.6266 98.9651 97.0842 99.4231 96.4814C100.217 95.4868 100.187 94.7032 99.3621 93.7388C98.8735 93.1661 98.3849 92.5634 97.8658 92.0209C93.5908 87.5603 89.3158 83.0998 85.0407 78.6393C84.7048 78.3078 84.3995 77.9461 84.0941 77.6146C86.2011 75.3843 88.2775 73.2746 90.3234 71.1047C91.4227 69.8991 92.4915 68.6936 93.5603 67.4579C94.2626 66.6441 94.2626 65.9208 93.4381 65.2276C92.8885 64.7755 92.3083 64.4139 91.6365 64.1426C87.0561 62.1836 82.4757 60.1342 77.8037 58.356C70.2614 55.4627 62.6274 52.7502 55.0545 49.9473C53.1612 49.224 51.3291 48.4404 49.4664 47.7171C48.7335 47.3855 47.9396 47.1444 47.1457 47.0239C45.1608 46.8129 44.1532 48.0486 44.7944 49.9473C45.283 51.3638 45.8632 52.7502 46.4128 54.1667C50.1687 64.2632 53.8636 74.3898 57.6806 84.4862C58.8715 87.6206 60.215 90.6646 61.5281 93.7388C62.0167 94.9142 63.0549 95.2758 64.2152 94.6429C64.8565 94.2511 65.4367 93.7689 65.9863 93.2264C68.7651 90.755 71.5439 88.2535 74.3532 85.7219H74.3226ZM90.4151 66.6743C87.0561 69.8388 84.033 72.7623 80.9184 75.6254C79.758 76.6803 79.5748 77.2228 80.4603 78.4886C80.6436 78.7599 80.8573 79.001 81.0711 79.2421C83.8804 82.3162 86.6591 85.4205 89.499 88.4946C91.6365 90.7852 93.8351 93.0154 96.1253 95.3964L91.3922 99.2843C90.1097 97.928 88.8883 96.7225 87.7279 95.4567C84.0636 91.4482 80.4603 87.4097 76.796 83.4314C75.2692 81.7737 74.3837 81.7134 72.5821 83.0998C70.5972 84.6068 68.643 86.1438 66.6887 87.6809C65.8947 88.3138 65.1619 89.007 64.2458 89.7906C59.36 77.042 54.5659 64.5043 49.7107 51.7858C63.3297 56.5175 76.8266 61.1589 90.4151 66.6743Z"\n                    fill="#111827"\n                  />\n                </g>\n                <path\n                  d="M22.3014 47.4174C23.6909 47.8716 26.4496 48.0598 27.0463 49.2452C27.6431 50.4305 26.9813 53.9096 25.7888 54.676C19.6864 58.5783 13.2774 62.054 6.90495 65.42C5.97889 65.8862 4.51603 65.1369 3.2233 65.0407C3.55608 63.8771 3.55221 62.2273 4.31829 61.5926C9.89734 56.966 15.6997 52.6336 22.3047 47.4075L22.3014 47.4174Z"\n                  fill="#FC787D"\n                />\n                <path\n                  d="M1.49353 12.6065C4.64891 13.4167 6.04155 13.3796 6.97132 14.0653C11.7201 17.5428 16.499 21.0966 20.948 24.8081C21.8112 25.5273 21.8784 27.3196 22.2753 28.6055C20.8826 28.6426 19.1837 29.249 18.2273 28.6597C13.1155 25.7716 7.93373 22.761 3.2482 19.2433C2.08517 18.4261 2.28749 15.6764 1.48347 12.4373L1.48353 12.6032L1.49353 12.6065Z"\n                  fill="#FC787D"\n                />\n                <path\n                  d="M41.8549 0.723043C43.3847 2.43467 45.9407 4.04471 45.6712 5.16814C44.6468 10.5645 43.0893 15.8973 41.3253 21.168C41.0924 22.0324 39.3001 22.6027 38.0741 22.8049C37.6077 22.8737 36.4444 21.3925 36.4775 20.7948C37.3019 15.1671 38.3029 9.5418 39.3272 3.97943C39.4603 3.24842 40.253 2.6833 41.7483 0.859704L41.8482 0.726398L41.8549 0.723043Z"\n                  fill="#FC787D"\n                />\n                <path\n                  d="M48.3079 34.5076C49.7003 33.8066 50.6662 32.9053 51.8256 32.7366C57.366 32.0141 62.913 31.2882 68.4535 31.0636C69.6796 31.0273 71.5426 32.7372 72.1394 34.0885C72.4728 34.7507 70.4113 37.4404 69.5185 37.4749C62.9483 37.3131 56.3747 36.6468 49.8644 36.1228C49.5312 36.1246 49.1978 35.4624 48.3013 34.511L48.3079 34.5076Z"\n                  fill="#FC787D"\n                />\n                <defs>\n                  <clipPath id="clip0_16289_6901">\n                    <rect\n                      width="60"\n                      height="60"\n                      fill="white"\n                      transform="matrix(-1 0 0 1 100 47)"\n                    />\n                  </clipPath>\n                </defs>\n              </svg>\n            </div>\n          </div>\n        ) : (\n          <div\n            key={index}\n            className="flex flex-col gap-6 rounded-2xl bg-card py-6 text-sm text-card-foreground ring-1 ring-foreground/10"\n          >\n            <div className="grid auto-rows-min items-start gap-2 px-6">\n              <div className="text-base font-medium">{plan.name}</div>\n              <span className="my-3 block font-mono text-2xl font-semibold">\n                {plan.price}{\' \'}\n                {plan.priceNote && (\n                  <span className="text-base font-normal text-muted-foreground">\n                    {plan.priceNote}\n                  </span>\n                )}\n              </span>\n              <div className="text-sm text-muted-foreground">\n                {plan.description}\n              </div>\n            </div>\n            <div className="space-y-4 px-6">\n              <hr className="border-dashed" />\n              <ul className="list-outside space-y-3 text-sm">\n                {plan.features.map((item, i) => (\n                  <li key={i} className="flex items-center gap-2">\n                    <HugeiconsIcon\n                      icon={Tick02Icon}\n                      className="size-4 shrink-0 text-muted-foreground"\n                      strokeWidth={2}\n                    />\n                    {item}\n                  </li>\n                ))}\n              </ul>\n              {plan.footnote && (\n                <span className="text-xs text-muted-foreground">\n                  {plan.footnote}\n                </span>\n              )}\n            </div>\n            <div className="mt-auto flex items-center px-6">\n              <Button asChild variant="outline" className="w-full">\n                <Link href={plan.ctaHref}>{plan.ctaLabel}</Link>\n              </Button>\n            </div>\n          </div>\n        ),\n      )}\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/pricings/pricing-2/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-pricings-pricing-2';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-pricings-pricing-2',
+  },
+  'components-pricings-pricing-3': {
+    name: 'components-pricings-pricing-3',
+    description:
+      'Asymmetric three-column pricing with elevated featured plan, amber badge, and security footer note.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['button', 'badge'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/pricings/pricing-3/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/pricing-3.tsx',
+        content:
+          "'use client';\n\nimport Link from 'next/link';\nimport {\n  Tick02Icon,\n  SecurityCheckIcon,\n  MoneyBag01Icon,\n  Coins01Icon,\n} from '@hugeicons/core-free-icons';\nimport { HugeiconsIcon } from '@hugeicons/react';\nimport { Button } from '@/components/ui/button';\nimport { Badge } from '@/components/ui/badge';\n\nexport type Plan3 = {\n  id: string;\n  name: string;\n  price?: string;\n  priceNote?: string;\n  customPricing?: string;\n  description: string;\n  features: string[];\n  ctaLabel: string;\n  ctaHref: string;\n  featured?: boolean;\n  featuredLabel?: string;\n  footerNote?: string;\n};\n\nconst DEFAULT_PLANS: Plan3[] = [\n  {\n    id: 'hobby',\n    name: 'Hobby',\n    price: 'Free',\n    description: 'For most individuals',\n    features: [\n      'Up to 3 Blog posts',\n      'Up to 3 Transcriptions',\n      'Up to 3 Posts stored',\n      'Markdown support',\n      'Community support',\n      'AI powered suggestions',\n    ],\n    ctaLabel: 'Start For Free',\n    ctaHref: '#',\n  },\n  {\n    id: 'pro',\n    name: 'Pro',\n    price: '$20',\n    priceNote: 'per month',\n    description: 'For small businesses',\n    features: [\n      'Up to 500 Blog Posts',\n      'Up to 500 Transcriptions',\n      'Up to 500 Posts stored',\n      'Unlimited Markdown support',\n      'SEO optimization tools',\n      'Priority support',\n      'AI powered suggestions',\n    ],\n    ctaLabel: 'Get started',\n    ctaHref: '#',\n    featured: true,\n    featuredLabel: 'Best Value',\n    footerNote: 'Safe and secure',\n  },\n  {\n    id: 'enterprise',\n    name: 'Enterprise',\n    customPricing: 'Tailored pricing terms',\n    description: 'For large organizations',\n    features: [\n      'Unlimited Blog Posts',\n      'Unlimited Transcriptions',\n      'Unlimited Posts stored',\n      'Unlimited Markdown support',\n      'SEO optimization tools',\n      'Priority support',\n      'AI powered suggestions',\n    ],\n    ctaLabel: 'Contact team',\n    ctaHref: '#',\n  },\n];\n\nfunction FeatureList({ features }: { features: string[] }) {\n  return (\n    <ul className=\"space-y-3\">\n      {features.map((feature, i) => (\n        <li key={i} className=\"flex items-center gap-2.5 text-sm\">\n          <HugeiconsIcon\n            icon={Tick02Icon}\n            className=\"size-4 shrink-0 text-foreground/60\"\n            strokeWidth={2}\n          />\n          {feature}\n        </li>\n      ))}\n    </ul>\n  );\n}\n\nexport default function Pricing3({\n  plans = DEFAULT_PLANS,\n  title = 'Flexible plans that grow with you',\n  subtitle = 'Use Inbox individually or upgrade to link more accounts and add seats for your team members.',\n}: {\n  plans?: Plan3[];\n  title?: string;\n  subtitle?: string;\n}) {\n  const hobbyPlan =\n    plans.find((p) => !p.featured && plans.indexOf(p) === 0) ?? plans[0];\n  const featuredPlan = plans.find((p) => p.featured);\n  const enterprisePlan =\n    plans.find((p) => !p.featured && plans.indexOf(p) > 0) ?? plans[2];\n\n  return (\n    <div className=\"w-full space-y-4\">\n      <div className=\"flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-16\">\n        <h2 className=\"text-4xl font-bold tracking-tight md:max-w-xs\">\n          {title}\n        </h2>\n        <p className=\"text-sm leading-relaxed text-muted-foreground md:max-w-xs\">\n          {subtitle}\n        </p>\n      </div>\n\n      <div className=\"overflow-hidden rounded-2xl border border-border md:grid md:grid-cols-3\">\n        {hobbyPlan && (\n          <div className=\"flex flex-col gap-6 border-b border-border p-6 md:border-r md:border-b-0\">\n            <span className=\"text-sm text-muted-foreground\">\n              {hobbyPlan.name}\n            </span>\n            <div>\n              <div className=\"flex items-baseline gap-1.5\">\n                <span className=\"text-2xl font-bold tracking-tight\">\n                  {hobbyPlan.price}\n                </span>\n                {hobbyPlan.priceNote && (\n                  <span className=\"text-sm text-muted-foreground\">\n                    {hobbyPlan.priceNote}\n                  </span>\n                )}\n              </div>\n              <p className=\"mt-1.5 text-sm text-muted-foreground\">\n                {hobbyPlan.description}\n              </p>\n            </div>\n            <Button asChild variant=\"outline\" className=\"w-full\">\n              <Link href={hobbyPlan.ctaHref}>{hobbyPlan.ctaLabel}</Link>\n            </Button>\n            <FeatureList features={hobbyPlan.features} />\n          </div>\n        )}\n\n        {featuredPlan && (\n          <div className=\"flex flex-col items-stretch gap-4 border-b border-border bg-muted/50 p-1.5 md:border-r md:border-b-0\">\n            <div className=\"flex flex-col gap-6 rounded-xl border border-border bg-card p-6 dark:shadow-sm\">\n              <div className=\"flex items-center justify-between gap-2\">\n                <span className=\"text-sm font-medium text-foreground\">\n                  {featuredPlan.name}\n                </span>\n                {featuredPlan.featuredLabel && (\n                  <Badge variant=\"amber\">\n                    <HugeiconsIcon icon={MoneyBag01Icon} strokeWidth={3} />\n                    <span className=\"text-xs font-semibold\">\n                      {featuredPlan.featuredLabel}\n                    </span>\n                  </Badge>\n                )}\n              </div>\n              <div>\n                <div className=\"flex items-baseline gap-1.5\">\n                  <span className=\"text-2xl font-bold tracking-tight\">\n                    {featuredPlan.price}\n                  </span>\n                  {featuredPlan.priceNote && (\n                    <span className=\"text-sm text-muted-foreground\">\n                      {featuredPlan.priceNote}\n                    </span>\n                  )}\n                </div>\n                <p className=\"mt-1.5 text-sm text-muted-foreground\">\n                  {featuredPlan.description}\n                </p>\n              </div>\n              <Button asChild className=\"w-full\">\n                <Link href={featuredPlan.ctaHref}>{featuredPlan.ctaLabel}</Link>\n              </Button>\n              <FeatureList features={featuredPlan.features} />\n            </div>\n            {featuredPlan.footerNote && (\n              <div className=\"flex items-center justify-center gap-1.5 pb-2 text-xs text-muted-foreground\">\n                <HugeiconsIcon\n                  icon={SecurityCheckIcon}\n                  className=\"size-3 shrink-0\"\n                  strokeWidth={3}\n                />\n                {featuredPlan.footerNote}\n              </div>\n            )}\n          </div>\n        )}\n\n        {enterprisePlan && (\n          <div className=\"flex flex-col gap-6 p-6\">\n            <span className=\"text-sm text-muted-foreground\">\n              {enterprisePlan.name}\n            </span>\n            <div>\n              {enterprisePlan.customPricing ? (\n                <>\n                  <div className=\"flex items-center gap-1.5 text-sm font-medium\">\n                    <HugeiconsIcon\n                      icon={Coins01Icon}\n                      className=\"size-4 shrink-0\"\n                      strokeWidth={2}\n                    />\n                    {enterprisePlan.customPricing}\n                  </div>\n                  <p className=\"mt-1.5 text-sm text-muted-foreground\">\n                    {enterprisePlan.description}\n                  </p>\n                </>\n              ) : (\n                <>\n                  <div className=\"flex items-baseline gap-1.5\">\n                    <span className=\"text-3xl font-bold tracking-tight\">\n                      {enterprisePlan.price}\n                    </span>\n                    {enterprisePlan.priceNote && (\n                      <span className=\"text-sm text-muted-foreground\">\n                        {enterprisePlan.priceNote}\n                      </span>\n                    )}\n                  </div>\n                  <p className=\"mt-1.5 text-sm text-muted-foreground\">\n                    {enterprisePlan.description}\n                  </p>\n                </>\n              )}\n            </div>\n            <Button asChild variant=\"outline\" className=\"w-full\">\n              <Link href={enterprisePlan.ctaHref}>\n                {enterprisePlan.ctaLabel}\n              </Link>\n            </Button>\n            <FeatureList features={enterprisePlan.features} />\n          </div>\n        )}\n      </div>\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/pricings/pricing-3/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-pricings-pricing-3';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-pricings-pricing-3',
+  },
+  'components-pricings-pricing-4': {
+    name: 'components-pricings-pricing-4',
+    description:
+      'Pastel pricing cards with animated billing toggle, tag badges, and info rows.',
+    type: 'registry:ui',
+    dependencies: ['motion', 'react-use-measure'],
+    devDependencies: undefined,
+    registryDependencies: ['button', 'badge'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/pricings/pricing-4/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/pricing-4.tsx',
+        content:
+          "'use client';\n\nimport { useEffect, useId, useState } from 'react';\nimport Link from 'next/link';\nimport {\n  motion,\n  MotionValue,\n  motionValue,\n  useSpring,\n  useTransform,\n} from 'motion/react';\nimport useMeasure from 'react-use-measure';\nimport React from 'react';\nimport { Badge } from '@/components/ui/badge';\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\n\nexport type Plan4 = {\n  id: string;\n  name: string;\n  description: string;\n  tags: string[];\n  targetedFor: string;\n  credits: string;\n  monthly: number | 'Custom';\n  yearly: number | 'Custom';\n  ctaLabel: string;\n  ctaHref: string;\n  pastel: 'rose' | 'amber' | 'sky' | 'violet' | 'emerald' | 'lime';\n};\n\nconst DEFAULT_PLANS: Plan4[] = [\n  {\n    id: 'starter',\n    name: 'Starter Plan',\n    description:\n      'Kickstart your workflow with essential tools tailored for lean teams.',\n    tags: ['Resume AI', 'Analytics'],\n    targetedFor: 'Startups, Small Teams',\n    credits: '100 / month',\n    monthly: 0,\n    yearly: 0,\n    ctaLabel: 'Get Started',\n    ctaHref: '#',\n    pastel: 'rose',\n  },\n  {\n    id: 'pro',\n    name: 'Growth Plan',\n    description:\n      'Scale automation with deeper analytics, ATS workflows, and compliance reports.',\n    tags: ['AI Interviews', 'ATS', 'Compliance'],\n    targetedFor: 'Growing Businesses',\n    credits: '200 / month',\n    monthly: 119,\n    yearly: 97,\n    ctaLabel: 'Get Started',\n    ctaHref: '#',\n    pastel: 'amber',\n  },\n  {\n    id: 'enterprise',\n    name: 'Enterprise Plan',\n    description:\n      'White-label controls, custom SLAs, and dedicated pods for global organizations.',\n    tags: ['White-label', 'Custom SLA'],\n    targetedFor: 'Large Enterprises',\n    credits: 'Unlimited',\n    monthly: 'Custom',\n    yearly: 'Custom',\n    ctaLabel: 'Contact Sales',\n    ctaHref: '#',\n    pastel: 'sky',\n  },\n];\n\n// Light mode: true pastels. Dark mode: vibrant mid-opacity tints on dark surfaces.\nconst pastelBg: Record<Plan4['pastel'], string> = {\n  rose: 'bg-rose-200/80 dark:bg-rose-400/[0.22]',\n  amber: 'bg-amber-200/80 dark:bg-amber-400/[0.22]',\n  sky: 'bg-sky-200/80 dark:bg-sky-400/[0.22]',\n  violet: 'bg-violet-200/80 dark:bg-violet-400/[0.22]',\n  emerald: 'bg-emerald-200/80 dark:bg-emerald-400/[0.22]',\n  lime: 'bg-lime-200/80 dark:bg-lime-400/[0.22]',\n};\n\nconst pastelBadgeVariant: Record<\n  Plan4['pastel'],\n  React.ComponentProps<typeof Badge>['variant']\n> = {\n  rose: 'rose',\n  amber: 'amber',\n  sky: 'sky',\n  violet: 'violet',\n  emerald: 'emerald',\n  lime: 'lime',\n};\n\nconst SPRING = {\n  type: 'spring' as const,\n  stiffness: 280,\n  damping: 18,\n  mass: 0.3,\n};\n\nfunction Digit({ value, place }: { value: number; place: number }) {\n  const rounded = Math.floor(value / place) % 10;\n  const initial = motionValue(rounded);\n  const anim = useSpring(initial, SPRING);\n\n  useEffect(() => {\n    anim.set(rounded);\n  }, [anim, rounded]);\n\n  return (\n    <div className=\"relative inline-block w-[1ch] overflow-x-visible overflow-y-clip leading-none tabular-nums\">\n      <div className=\"invisible\">0</div>\n      {Array.from({ length: 10 }, (_, i) => (\n        <Slot key={i} mv={anim} number={i} />\n      ))}\n    </div>\n  );\n}\n\nfunction Slot({ mv, number }: { mv: MotionValue<number>; number: number }) {\n  const id = useId();\n  const [ref, bounds] = useMeasure();\n\n  const y = useTransform(mv, (latest) => {\n    if (!bounds.height) return 0;\n    const offset = (10 + number - (latest % 10)) % 10;\n    return offset > 5 ? (offset - 10) * bounds.height : offset * bounds.height;\n  });\n\n  if (!bounds.height) {\n    return (\n      <span ref={ref} className=\"invisible absolute\">\n        {number}\n      </span>\n    );\n  }\n\n  return (\n    <motion.span\n      style={{ y }}\n      layoutId={`${id}-${number}`}\n      className=\"absolute inset-0 flex items-center justify-center\"\n      transition={SPRING}\n      ref={ref}\n    >\n      {number}\n    </motion.span>\n  );\n}\n\nfunction SlidingNumber({ value }: { value: number }) {\n  const digits = Math.abs(value).toString().split('');\n  const intVal = parseInt(digits.join(''), 10);\n  const places = digits.map((_, i) => Math.pow(10, digits.length - i - 1));\n\n  return (\n    <div className=\"flex items-center\">\n      {digits.map((_, i) => (\n        <Digit key={`p${places[i]}`} value={intVal} place={places[i]} />\n      ))}\n    </div>\n  );\n}\n\nfunction BillingToggle({\n  yearly,\n  onToggle,\n}: {\n  yearly: boolean;\n  onToggle: () => void;\n}) {\n  return (\n    <button\n      type=\"button\"\n      role=\"switch\"\n      aria-checked={yearly}\n      onClick={onToggle}\n      className={cn(\n        'relative inline-flex h-5.5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-200',\n        'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',\n        yearly ? 'bg-foreground' : 'bg-input',\n      )}\n    >\n      <motion.span\n        animate={{ x: yearly ? '1.125rem' : '0.125rem' }}\n        transition={{ type: 'spring', stiffness: 500, damping: 32 }}\n        className=\"block size-3.5 rounded-full bg-background shadow-sm\"\n      />\n    </button>\n  );\n}\n\nfunction InfoRow({ label, value }: { label: string; value: string }) {\n  return (\n    <div className=\"flex items-center justify-between gap-2 border-b border-dashed border-foreground/30 py-3 last:border-0\">\n      <span className=\"text-sm font-medium\">{label}</span>\n      <span className=\"text-sm text-foreground\">{value}</span>\n    </div>\n  );\n}\n\nfunction PricingCard({ plan, yearly }: { plan: Plan4; yearly: boolean }) {\n  const raw = yearly ? plan.yearly : plan.monthly;\n\n  return (\n    <div className={cn('flex flex-col rounded-3xl p-6', pastelBg[plan.pastel])}>\n      {/* Tags */}\n      <div className=\"flex flex-wrap gap-1.5\">\n        {plan.tags.map((tag) => (\n          <Badge\n            key={tag}\n            variant={pastelBadgeVariant[plan.pastel]}\n            className=\"rounded-full text-xs font-medium\"\n          >\n            {tag}\n          </Badge>\n        ))}\n      </div>\n\n      {/* Spacer */}\n      <div className=\"min-h-24 flex-1\" />\n\n      {/* Plan info */}\n      <div className=\"space-y-1\">\n        <h3 className=\"text-2xl font-bold tracking-tight\">{plan.name}</h3>\n        <p className=\"text-sm leading-relaxed text-muted-foreground\">\n          {plan.description}\n        </p>\n      </div>\n\n      {/* Rows */}\n      <div className=\"mt-6\">\n        <InfoRow label=\"Perfect for\" value={plan.targetedFor} />\n        <InfoRow label=\"Credits\" value={plan.credits} />\n        {/* Animated price row */}\n        <div className=\"flex items-center justify-between gap-2 py-3\">\n          <span className=\"text-sm font-semibold\">Price</span>\n          <span className=\"text-sm font-semibold text-foreground\">\n            {raw === 'Custom' ? (\n              'Custom'\n            ) : raw === 0 ? (\n              'Free'\n            ) : (\n              <span className=\"flex items-center gap-px\">\n                <span>$</span>\n                <SlidingNumber value={raw as number} />\n                <span>/mo</span>\n              </span>\n            )}\n          </span>\n        </div>\n      </div>\n\n      {/* CTA */}\n      <div className=\"mt-6\">\n        <Button\n          asChild\n          className=\"w-full rounded-xl bg-foreground text-background hover:bg-foreground/85\"\n        >\n          <Link href={plan.ctaHref}>{plan.ctaLabel}</Link>\n        </Button>\n      </div>\n    </div>\n  );\n}\n\nexport default function Pricing4({\n  plans = DEFAULT_PLANS,\n  label = 'Pricing Plans',\n  yearlyLabel = 'Billed yearly (18% OFF)',\n  defaultYearly = false,\n}: {\n  plans?: Plan4[];\n  label?: string;\n  yearlyLabel?: string;\n  defaultYearly?: boolean;\n}) {\n  const [yearly, setYearly] = useState(defaultYearly);\n\n  return (\n    <div className=\"w-full space-y-5\">\n      <div className=\"flex items-center justify-between gap-4\">\n        <h2 className=\"text-4xl font-bold tracking-tight\">{label}</h2>\n        <div className=\"flex items-center gap-2.5\">\n          <BillingToggle\n            yearly={yearly}\n            onToggle={() => setYearly((y) => !y)}\n          />\n          <span\n            className={cn(\n              'text-sm font-medium transition-colors duration-200',\n              yearly ? 'text-foreground' : 'text-muted-foreground',\n            )}\n          >\n            {yearlyLabel}\n          </span>\n        </div>\n      </div>\n\n      <div className=\"grid gap-4 md:grid-cols-3\">\n        {plans.map((plan) => (\n          <PricingCard key={plan.id} plan={plan} yearly={yearly} />\n        ))}\n      </div>\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/pricings/pricing-4/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-pricings-pricing-4';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-pricings-pricing-4',
+  },
   'components-primitives-tree-filter': {
     name: 'components-primitives-tree-filter',
     description:
@@ -2904,6 +3064,163 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odysseyui/demo-components-preloaders-greetings',
+  },
+  'demo-components-pricings-pricing-1': {
+    name: 'demo-components-pricings-pricing-1',
+    description: 'Demo of the animated sliding number pricing grid.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-pricings-pricing-1'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/pricings/pricing-1/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/pricings/pricing-1.tsx',
+        content:
+          "import Pricing1 from '@/components/odyssey/components/pricings/pricing-1';\n\nexport const Pricing1Demo = () => {\n  return <Pricing1 />;\n};\n\nexport default Pricing1Demo;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/pricings/pricing-1/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-pricings-pricing-1';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-pricings-pricing-1',
+  },
+  'demo-components-pricings-pricing-2': {
+    name: 'demo-components-pricings-pricing-2',
+    description: 'Demo of the gradient featured card pricing section.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-pricings-pricing-2'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/pricings/pricing-2/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/pricings/pricing-2.tsx',
+        content:
+          "import Pricing2 from '@/components/odyssey/components/pricings/pricing-2';\n\nexport const Pricing2Demo = () => {\n  return <Pricing2 />;\n};\n\nexport default Pricing2Demo;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/pricings/pricing-2/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-pricings-pricing-2';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-pricings-pricing-2',
+  },
+  'demo-components-pricings-pricing-3': {
+    name: 'demo-components-pricings-pricing-3',
+    description: 'Demo of the asymmetric three-column pricing layout.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-pricings-pricing-3'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/pricings/pricing-3/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/pricings/pricing-3.tsx',
+        content:
+          "import Pricing3 from '@/components/odyssey/components/pricings/pricing-3';\n\nexport const Pricing3Demo = () => {\n  return <Pricing3 />;\n};\n\nexport default Pricing3Demo;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/pricings/pricing-3/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-pricings-pricing-3';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-pricings-pricing-3',
+  },
+  'demo-components-pricings-pricing-4': {
+    name: 'demo-components-pricings-pricing-4',
+    description:
+      'Demo of the pastel pricing cards with animated billing toggle.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-pricings-pricing-4'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/pricings/pricing-4/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/pricings/pricing-4.tsx',
+        content:
+          "import Pricing4 from '@/components/odyssey/components/pricings/pricing-4';\n\nexport const Pricing4Demo = () => {\n  return <Pricing4 />;\n};\n\nexport default Pricing4Demo;",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/pricings/pricing-4/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-pricings-pricing-4';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-pricings-pricing-4',
   },
   'demo-components-primitives-tree-filter': {
     name: 'demo-components-primitives-tree-filter',
