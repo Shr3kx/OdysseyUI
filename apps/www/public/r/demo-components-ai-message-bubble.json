@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-message-bubble",
+  "title": "Message Bubble Demo",
+  "description": "Demo of the Message Bubble component inside a Chat Container.",
+  "registryDependencies": [
+    "odyssey/components-ai-message-bubble",
+    "odyssey/components-ai-chat-container"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/message-bubble/index.tsx",
+      "content": "import {\n  ChatContainer,\n  ChatContainerContent,\n  ChatContainerMessage,\n  ChatContainerEmptyState,\n  ChatContainerDivider,\n} from '@/components/odyssey/components/ai/chat-container';\nimport {\n  MessageBubble,\n  MessageBubbleAvatar,\n  MessageBubbleContent,\n  MessageBubbleTimestamp,\n} from '@/components/odyssey/components/ai/message-bubble';\n\ntype Role = 'user' | 'assistant';\n\ninterface Message {\n  id: string;\n  role: Role;\n  content: string;\n  timestamp: string;\n}\n\nconst MESSAGES: Message[] = [\n  {\n    id: '1',\n    role: 'user',\n    content: 'Hey! Can you explain how compound components work in React?',\n    timestamp: '10:41 AM',\n  },\n  {\n    id: '2',\n    role: 'assistant',\n    content:\n      'Sure! Compound components is a pattern where a parent component shares implicit state with its children via React Context. You export multiple sub-components that only make sense together — the parent owns the state, and children consume it without requiring you to thread props manually.',\n    timestamp: '10:41 AM',\n  },\n  {\n    id: '3',\n    role: 'user',\n    content: \"That's clean. What's the main benefit over prop drilling?\",\n    timestamp: '10:42 AM',\n  },\n  {\n    id: '4',\n    role: 'assistant',\n    content:\n      \"The API stays flexible without exploding the parent's prop surface. Consumers can reorder, omit, or swap sub-components freely. shadcn/ui is built almost entirely on this pattern.\",\n    timestamp: '10:42 AM',\n  },\n  {\n    id: '5',\n    role: 'user',\n    content: 'This has been super helpful. Any recommended reading?',\n    timestamp: '10:43 AM',\n  },\n  {\n    id: '6',\n    role: 'assistant',\n    content:\n      'Kent C. Dodds wrote the canonical article on his blog. The Radix UI source is also excellent reading — every primitive is a compound component with a clean context boundary.',\n    timestamp: '10:43 AM',\n  },\n];\n\nexport const MessageBubbleDemo = () => {\n  return (\n    <ChatContainer className=\"h-[500px] w-full max-w-2xl\">\n      <ChatContainerContent>\n        <ChatContainerEmptyState title=\"Ask me anything\" />\n        <ChatContainerDivider label=\"Today\" />\n        {MESSAGES.map((message) => (\n          <ChatContainerMessage key={message.id}>\n            <MessageBubble role={message.role}>\n              <MessageBubbleAvatar\n                src={\n                  message.role === 'user'\n                    ? 'https://github.com/shadcn.png'\n                    : undefined\n                }\n              />\n              <MessageBubbleContent>\n                {message.content}\n                <MessageBubbleTimestamp>\n                  {message.timestamp}\n                </MessageBubbleTimestamp>\n              </MessageBubbleContent>\n            </MessageBubble>\n          </ChatContainerMessage>\n        ))}\n      </ChatContainerContent>\n    </ChatContainer>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/message-bubble.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

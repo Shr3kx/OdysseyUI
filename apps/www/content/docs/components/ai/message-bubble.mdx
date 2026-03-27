@@ -1,0 +1,140 @@
+---
+title: Message Bubble
+description: A composable chat message bubble with avatar, content, and timestamp sub-components. Role-aware layout for user and assistant messages.
+---
+
+<ComponentPreview name="demo-components-ai-message-bubble" />
+
+## Installation
+
+<ComponentInstallation name="components-ai-message-bubble" />
+
+## Usage
+
+```tsx
+import {
+  MessageBubble,
+  MessageBubbleAvatar,
+  MessageBubbleContent,
+  MessageBubbleTimestamp,
+} from '@/components/odysseyui/message-bubble';
+
+export default function Page() {
+  return (
+    <MessageBubble role="user">
+      <MessageBubbleAvatar src="https://github.com/shadcn.png" />
+      <MessageBubbleContent>
+        Hey! Can you explain compound components?
+        <MessageBubbleTimestamp>10:41 AM</MessageBubbleTimestamp>
+      </MessageBubbleContent>
+    </MessageBubble>
+  );
+}
+```
+
+## Used with Chat Container
+
+`MessageBubble` is designed to be composed inside `ChatContainerMessage`:
+
+```tsx
+import {
+  ChatContainer,
+  ChatContainerContent,
+  ChatContainerMessage,
+  ChatContainerDivider,
+} from '@/components/odysseyui/chat-container';
+import {
+  MessageBubble,
+  MessageBubbleAvatar,
+  MessageBubbleContent,
+  MessageBubbleTimestamp,
+} from '@/components/odysseyui/message-bubble';
+
+export default function Page() {
+  return (
+    <ChatContainer className="h-[500px] w-full max-w-2xl">
+      <ChatContainerContent>
+        <ChatContainerDivider label="Today" />
+        <ChatContainerMessage>
+          <MessageBubble role="user">
+            <MessageBubbleAvatar src="https://github.com/shadcn.png" />
+            <MessageBubbleContent>
+              Hello!
+              <MessageBubbleTimestamp>10:41 AM</MessageBubbleTimestamp>
+            </MessageBubbleContent>
+          </MessageBubble>
+        </ChatContainerMessage>
+        <ChatContainerMessage>
+          <MessageBubble role="assistant">
+            <MessageBubbleAvatar />
+            <MessageBubbleContent>
+              Hi there! How can I help?
+              <MessageBubbleTimestamp>10:41 AM</MessageBubbleTimestamp>
+            </MessageBubbleContent>
+          </MessageBubble>
+        </ChatContainerMessage>
+      </ChatContainerContent>
+    </ChatContainer>
+  );
+}
+```
+
+## How It Works
+
+- `MessageBubble` accepts a `role` prop (`"user"` or `"assistant"`) and provides it to all children via React Context.
+- `role="user"` reverses the flex row so the avatar appears on the right; `role="assistant"` keeps it on the left.
+- `MessageBubbleAvatar` automatically picks a `UserIcon` or `BotIcon` fallback based on the role. Pass `src` to use a custom image.
+- `MessageBubbleContent` applies different background and text colours per role — `bg-primary` for user, `bg-muted` for assistant — and rounds corners asymmetrically to create a tail effect.
+- `MessageBubbleTimestamp` aligns right and uses a reduced opacity colour matching the bubble's role.
+
+---
+
+## API Reference
+
+### MessageBubble
+
+<TypeTable
+  type={{
+    role: {
+      description:
+        'Determines the layout direction and styling for all child sub-components.',
+      type: '"user" | "assistant"',
+      required: true,
+    },
+  }}
+/>
+
+### MessageBubbleAvatar
+
+<TypeTable
+  type={{
+    src: {
+      description: 'URL for the avatar image.',
+      type: 'string',
+      required: false,
+    },
+    fallback: {
+      description:
+        'Text fallback for the avatar. Defaults to a role-appropriate icon.',
+      type: 'string',
+      required: false,
+    },
+    className: {
+      description: 'Additional class names for the Avatar wrapper.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+### MessageBubbleContent
+
+Accepts all `div` props. Applies role-aware bubble styling automatically.
+
+### MessageBubbleTimestamp
+
+Accepts all `p` props. Renders below the message content with a muted role-aware colour.
+
+### useMessageBubble
+
+Hook that exposes `{ isUser: boolean }` from the bubble context. Must be used inside `<MessageBubble />`.

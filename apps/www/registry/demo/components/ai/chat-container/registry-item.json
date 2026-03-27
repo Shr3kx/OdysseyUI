@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-chat-container",
+  "type": "registry:ui",
+  "title": "Chat Container Demo",
+  "description": "Demo of the Chat Container component.",
+  "registryDependencies": ["odyssey/components-ai-chat-container"],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/chat-container/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/chat-container.tsx"
+    }
+  ]
+}

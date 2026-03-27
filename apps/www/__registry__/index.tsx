@@ -24,6 +24,86 @@ export const index: Record<string, any> = {
     component: null,
     command: '@odysseyui/index',
   },
+  'components-ai-chat-container': {
+    name: 'components-ai-chat-container',
+    description:
+      'A composable chat container with auto-scroll, empty state, animated messages, scroll-to-bottom button, and divider support.',
+    type: 'registry:ui',
+    dependencies: ['motion', '@hugeicons/react', '@hugeicons/core-free-icons'],
+    devDependencies: undefined,
+    registryDependencies: ['scroll-area', 'button'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ai/chat-container/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/chat-container.tsx',
+        content:
+          "'use client';\n\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\nimport { AnimatePresence, motion } from 'motion/react';\nimport { HTMLMotionProps } from 'motion/react';\nimport { HugeiconsIcon } from '@hugeicons/react';\nimport { ArrowDown01Icon, BubbleChatIcon } from '@hugeicons/core-free-icons';\nimport React, {\n  createContext,\n  useCallback,\n  useContext,\n  useEffect,\n  useRef,\n  useState,\n} from 'react';\n\ntype ChatContainerContextValue = {\n  scrollToBottom: (behavior?: ScrollBehavior) => void;\n  isAtBottom: boolean;\n  isEmpty: boolean;\n  messageCount: number;\n  registerMessage: () => () => void;\n};\n\nconst ChatContainerContext = createContext<ChatContainerContextValue | null>(\n  null,\n);\n\nconst useChatContainer = () => {\n  const ctx = useContext(ChatContainerContext);\n  if (!ctx)\n    throw new Error('useChatContainer must be used inside <ChatContainer />');\n  return ctx;\n};\n\nexport type ChatContainerProps = React.ComponentProps<'div'> & {\n  bottomThreshold?: number;\n  autoScroll?: boolean;\n};\n\nexport function ChatContainer({\n  children,\n  className,\n  bottomThreshold = 64,\n  autoScroll = true,\n  ...props\n}: ChatContainerProps) {\n  const viewportRef = useRef<HTMLDivElement>(null);\n  const [isAtBottom, setIsAtBottom] = useState(true);\n  const [messageCount, setMessageCount] = useState(0);\n\n  const scrollToBottom = useCallback((behavior: ScrollBehavior = 'smooth') => {\n    const viewport = viewportRef.current;\n    if (!viewport) return;\n    viewport.scrollTo({ top: viewport.scrollHeight, behavior });\n  }, []);\n\n  useEffect(() => {\n    const viewport = viewportRef.current;\n    if (!viewport) return;\n    const onScroll = () => {\n      const distFromBottom =\n        viewport.scrollHeight - viewport.scrollTop - viewport.clientHeight;\n      setIsAtBottom(distFromBottom <= bottomThreshold);\n    };\n    viewport.addEventListener('scroll', onScroll, { passive: true });\n    return () => viewport.removeEventListener('scroll', onScroll);\n  }, [bottomThreshold]);\n\n  useEffect(() => {\n    if (autoScroll && isAtBottom) scrollToBottom('smooth');\n  }, [messageCount, autoScroll, isAtBottom, scrollToBottom]);\n\n  const registerMessage = useCallback(() => {\n    setMessageCount((c) => c + 1);\n    return () => setMessageCount((c) => c - 1);\n  }, []);\n\n  const isEmpty = messageCount === 0;\n\n  return (\n    <ChatContainerContext.Provider\n      value={{\n        scrollToBottom,\n        isAtBottom,\n        isEmpty,\n        messageCount,\n        registerMessage,\n      }}\n    >\n      <div\n        className={cn(\n          'p-2 ring-1 ring-ring/30 rounded-4xl backdrop-blur-lg',\n          className,\n        )}\n        {...props}\n      >\n        <div\n          className={cn(\n            'relative flex h-full w-full flex-col',\n            'bg-background ring-1 ring-ring/20 rounded-3xl shadow-lg overflow-hidden',\n          )}\n        >\n          <div\n            ref={viewportRef}\n            className=\"min-h-0 flex-1 w-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]\"\n          >\n            {children}\n          </div>\n          <ChatContainerScrollButton />\n        </div>\n      </div>\n    </ChatContainerContext.Provider>\n  );\n}\n\nexport type ChatContainerContentProps = React.ComponentProps<'div'>;\n\nexport const ChatContainerContent = ({\n  children,\n  className,\n  ...props\n}: ChatContainerContentProps) => (\n  <div\n    className={cn(\n      'mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6',\n      className,\n    )}\n    {...props}\n  >\n    {children}\n  </div>\n);\n\nexport type ChatContainerEmptyStateProps = Omit<\n  HTMLMotionProps<'div'>,\n  'children'\n> & {\n  children?: React.ReactNode;\n  icon?: React.ReactNode;\n  title?: string;\n  description?: string;\n};\n\nexport const ChatContainerEmptyState = ({\n  className,\n  icon,\n  title = 'No messages yet',\n  description = 'Start a conversation to see messages here.',\n  children,\n  ...props\n}: ChatContainerEmptyStateProps) => {\n  const { isEmpty } = useChatContainer();\n  if (!isEmpty) return null;\n\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: 8 }}\n      animate={{ opacity: 1, y: 0 }}\n      exit={{ opacity: 0, y: -8 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      className={cn(\n        'flex flex-col items-center justify-center gap-3 py-20 text-center',\n        className,\n      )}\n      {...props}\n    >\n      <div className=\"text-muted-foreground/40\">\n        {icon ?? (\n          <HugeiconsIcon\n            icon={BubbleChatIcon}\n            className=\"size-10\"\n            strokeWidth={1.25}\n          />\n        )}\n      </div>\n      <div className=\"space-y-1\">\n        <p className=\"text-foreground/80 text-sm font-medium\">{title}</p>\n        <p className=\"text-muted-foreground max-w-xs text-xs leading-relaxed\">\n          {description}\n        </p>\n      </div>\n      {children}\n    </motion.div>\n  );\n};\n\nexport type ChatContainerScrollButtonProps = React.ComponentProps<\n  typeof Button\n> & {\n  icon?: React.ReactNode;\n};\n\nexport const ChatContainerScrollButton = ({\n  className,\n  icon,\n  onClick,\n  ...props\n}: ChatContainerScrollButtonProps) => {\n  const { isAtBottom, scrollToBottom } = useChatContainer();\n\n  return (\n    <AnimatePresence>\n      {!isAtBottom && (\n        <motion.div\n          key=\"scroll-btn\"\n          initial={{ opacity: 0, scale: 0.85, y: 8 }}\n          animate={{ opacity: 1, scale: 1, y: 0 }}\n          exit={{ opacity: 0, scale: 0.85, y: 8 }}\n          transition={{ duration: 0.18, ease: 'easeOut' }}\n          className=\"absolute bottom-4 left-1/2 z-10 -translate-x-1/2\"\n        >\n          <Button\n            size=\"icon\"\n            variant=\"outline\"\n            className={cn(\n              'bg-background/80 hover:bg-background size-8 rounded-full border shadow-md backdrop-blur-sm',\n              className,\n            )}\n            onClick={(e) => {\n              scrollToBottom('smooth');\n              onClick?.(e);\n            }}\n            aria-label=\"Scroll to bottom\"\n            {...props}\n          >\n            {icon ?? (\n              <HugeiconsIcon\n                icon={ArrowDown01Icon}\n                className=\"size-4\"\n                strokeWidth={2}\n              />\n            )}\n          </Button>\n        </motion.div>\n      )}\n    </AnimatePresence>\n  );\n};\n\nexport type ChatContainerMessageProps = Omit<\n  HTMLMotionProps<'div'>,\n  'children'\n> & { children?: React.ReactNode };\n\nexport const ChatContainerMessage = ({\n  children,\n  className,\n  ...props\n}: ChatContainerMessageProps) => {\n  const { registerMessage } = useChatContainer();\n\n  useEffect(() => {\n    return registerMessage();\n  }, [registerMessage]);\n\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: 6 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.22, ease: 'easeOut' }}\n      className={cn('w-full', className)}\n      {...props}\n    >\n      {children}\n    </motion.div>\n  );\n};\n\nexport type ChatContainerDividerProps = React.ComponentProps<'div'> & {\n  label?: string;\n};\n\nexport const ChatContainerDivider = ({\n  className,\n  label,\n  children,\n  ...props\n}: ChatContainerDividerProps) => (\n  <div\n    className={cn('relative flex items-center gap-3 py-2', className)}\n    role=\"separator\"\n    aria-label={label}\n    {...props}\n  >\n    <div className=\"bg-border h-px flex-1\" />\n    {(label ?? children) && (\n      <span className=\"text-muted-foreground shrink-0 text-xs\">\n        {label ?? children}\n      </span>\n    )}\n    <div className=\"bg-border h-px flex-1\" />\n  </div>\n);\n\nexport { useChatContainer };",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/ai/chat-container/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ai-chat-container';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-ai-chat-container',
+  },
+  'components-ai-message-bubble': {
+    name: 'components-ai-message-bubble',
+    description:
+      'A composable chat message bubble with avatar, content, and timestamp sub-components. Role-aware layout for user and assistant messages.',
+    type: 'registry:ui',
+    dependencies: ['@hugeicons/react', '@hugeicons/core-free-icons'],
+    devDependencies: undefined,
+    registryDependencies: ['avatar'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/components/ai/message-bubble/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odysseyui/message-bubble.tsx',
+        content:
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { HugeiconsIcon } from '@hugeicons/react';\nimport { BotIcon, UserIcon } from '@hugeicons/core-free-icons';\nimport { createContext, useContext } from 'react';\n\ntype Role = 'user' | 'assistant';\n\ntype MessageBubbleContextValue = { isUser: boolean };\n\nconst MessageBubbleContext = createContext<MessageBubbleContextValue | null>(\n  null,\n);\n\nfunction useMessageBubble() {\n  const ctx = useContext(MessageBubbleContext);\n  if (!ctx)\n    throw new Error('useMessageBubble must be used inside <MessageBubble />');\n  return ctx;\n}\n\nexport type MessageBubbleProps = React.ComponentProps<'div'> & { role: Role };\n\nexport function MessageBubble({\n  role,\n  children,\n  className,\n  ...props\n}: MessageBubbleProps) {\n  const isUser = role === 'user';\n  return (\n    <MessageBubbleContext.Provider value={{ isUser }}>\n      <div\n        className={cn(\n          'flex w-full items-end gap-2',\n          isUser ? 'flex-row-reverse' : 'flex-row',\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </div>\n    </MessageBubbleContext.Provider>\n  );\n}\n\nexport type MessageBubbleAvatarProps = {\n  src?: string;\n  fallback?: string;\n  className?: string;\n};\n\nexport function MessageBubbleAvatar({\n  src,\n  fallback,\n  className,\n}: MessageBubbleAvatarProps) {\n  const { isUser } = useMessageBubble();\n  return (\n    <Avatar className={cn('size-7 shrink-0', className)}>\n      {isUser ? (\n        <>\n          {src && <AvatarImage src={src} />}\n          <AvatarFallback className=\"bg-primary/10 text-primary\">\n            {fallback ?? (\n              <HugeiconsIcon\n                icon={UserIcon}\n                className=\"size-4\"\n                strokeWidth={2}\n              />\n            )}\n          </AvatarFallback>\n        </>\n      ) : (\n        <>\n          {src && <AvatarImage src={src} />}\n          <AvatarFallback className=\"bg-primary/10 text-primary\">\n            {fallback ?? (\n              <HugeiconsIcon\n                icon={BotIcon}\n                className=\"size-4\"\n                strokeWidth={2}\n              />\n            )}\n          </AvatarFallback>\n        </>\n      )}\n    </Avatar>\n  );\n}\n\nexport type MessageBubbleContentProps = React.ComponentProps<'div'>;\n\nexport function MessageBubbleContent({\n  children,\n  className,\n  ...props\n}: MessageBubbleContentProps) {\n  const { isUser } = useMessageBubble();\n  return (\n    <div\n      className={cn(\n        'max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed',\n        isUser\n          ? 'bg-primary text-primary-foreground rounded-br-sm'\n          : 'bg-muted text-foreground rounded-bl-sm',\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </div>\n  );\n}\n\nexport type MessageBubbleTimestampProps = React.ComponentProps<'p'>;\n\nexport function MessageBubbleTimestamp({\n  children,\n  className,\n  ...props\n}: MessageBubbleTimestampProps) {\n  const { isUser } = useMessageBubble();\n  return (\n    <p\n      className={cn(\n        'mt-1 text-right text-[10px]',\n        isUser ? 'text-primary-foreground/60' : 'text-muted-foreground',\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </p>\n  );\n}\n\nexport { useMessageBubble };",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/components/ai/message-bubble/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'components-ai-message-bubble';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/components-ai-message-bubble',
+  },
   'components-ai-model-selector': {
     name: 'components-ai-model-selector',
     description:
@@ -1790,6 +1870,88 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odysseyui/components-ui-badge',
+  },
+  'demo-components-ai-chat-container': {
+    name: 'demo-components-ai-chat-container',
+    description: 'Demo of the Chat Container component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-ai-chat-container'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ai/chat-container/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ai/chat-container.tsx',
+        content:
+          "'use client';\n\nimport { useState } from 'react';\nimport {\n  ChatContainer,\n  ChatContainerContent,\n  ChatContainerMessage,\n  ChatContainerEmptyState,\n  ChatContainerDivider,\n} from '@/components/odyssey/components/ai/chat-container';\nimport { Button } from '@/components/ui/button';\nimport PromptInput from '@/components/odyssey/components/ai/prompt-input';\n\ntype Message = {\n  id: number;\n  text: string;\n  role: 'user' | 'ai';\n};\n\nconst SAMPLE_MESSAGES: Omit<Message, 'id'>[] = [\n  { role: 'user', text: 'Can you help me refactor this component?' },\n  {\n    role: 'ai',\n    text: \"Of course! Please share the component and I'll suggest improvements.\",\n  },\n  { role: 'user', text: 'Here it is — it feels too verbose.' },\n  {\n    role: 'ai',\n    text: 'I see a few places we can simplify. Let me walk you through them.',\n  },\n];\n\nexport const ChatContainerDemo = () => {\n  const [messages, setMessages] = useState<Message[]>([]);\n  const [index, setIndex] = useState(0);\n\n  const addMessage = () => {\n    if (index >= SAMPLE_MESSAGES.length) return;\n    setMessages((prev) => [\n      ...prev,\n      { id: Date.now(), ...SAMPLE_MESSAGES[index] },\n    ]);\n    setIndex((i) => i + 1);\n  };\n\n  const reset = () => {\n    setMessages([]);\n    setIndex(0);\n  };\n\n  return (\n    <div className=\"flex w-full flex-col items-center gap-4\">\n      <ChatContainer className=\"h-96 w-full max-w-2xl\">\n        <ChatContainerContent>\n          <ChatContainerEmptyState\n            title=\"Ask me anything\"\n            description=\"Click the button below to simulate a conversation.\"\n          />\n          {messages.length > 0 && <ChatContainerDivider label=\"Today\" />}\n          {messages.map((msg) => (\n            <ChatContainerMessage key={msg.id}>\n              <div\n                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}\n              >\n                <div\n                  className={`max-w-xs rounded-2xl px-4 py-2 text-sm ${\n                    msg.role === 'user'\n                      ? 'bg-primary text-primary-foreground'\n                      : 'bg-muted text-foreground'\n                  }`}\n                >\n                  {msg.text}\n                </div>\n              </div>\n            </ChatContainerMessage>\n          ))}\n        </ChatContainerContent>\n      </ChatContainer>\n\n      <div className=\"flex gap-2\">\n        <Button\n          onClick={addMessage}\n          disabled={index >= SAMPLE_MESSAGES.length}\n          size=\"sm\"\n        >\n          Add Message\n        </Button>\n        <Button onClick={reset} variant=\"outline\" size=\"sm\">\n          Reset\n        </Button>\n      </div>\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ai/chat-container/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ai-chat-container';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-ai-chat-container',
+  },
+  'demo-components-ai-message-bubble': {
+    name: 'demo-components-ai-message-bubble',
+    description:
+      'Demo of the Message Bubble component inside a Chat Container.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'odyssey/components-ai-message-bubble',
+      'odyssey/components-ai-chat-container',
+    ],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ai/message-bubble/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ai/message-bubble.tsx',
+        content:
+          "import {\n  ChatContainer,\n  ChatContainerContent,\n  ChatContainerMessage,\n  ChatContainerEmptyState,\n  ChatContainerDivider,\n} from '@/components/odyssey/components/ai/chat-container';\nimport {\n  MessageBubble,\n  MessageBubbleAvatar,\n  MessageBubbleContent,\n  MessageBubbleTimestamp,\n} from '@/components/odyssey/components/ai/message-bubble';\n\ntype Role = 'user' | 'assistant';\n\ninterface Message {\n  id: string;\n  role: Role;\n  content: string;\n  timestamp: string;\n}\n\nconst MESSAGES: Message[] = [\n  {\n    id: '1',\n    role: 'user',\n    content: 'Hey! Can you explain how compound components work in React?',\n    timestamp: '10:41 AM',\n  },\n  {\n    id: '2',\n    role: 'assistant',\n    content:\n      'Sure! Compound components is a pattern where a parent component shares implicit state with its children via React Context. You export multiple sub-components that only make sense together — the parent owns the state, and children consume it without requiring you to thread props manually.',\n    timestamp: '10:41 AM',\n  },\n  {\n    id: '3',\n    role: 'user',\n    content: \"That's clean. What's the main benefit over prop drilling?\",\n    timestamp: '10:42 AM',\n  },\n  {\n    id: '4',\n    role: 'assistant',\n    content:\n      \"The API stays flexible without exploding the parent's prop surface. Consumers can reorder, omit, or swap sub-components freely. shadcn/ui is built almost entirely on this pattern.\",\n    timestamp: '10:42 AM',\n  },\n  {\n    id: '5',\n    role: 'user',\n    content: 'This has been super helpful. Any recommended reading?',\n    timestamp: '10:43 AM',\n  },\n  {\n    id: '6',\n    role: 'assistant',\n    content:\n      'Kent C. Dodds wrote the canonical article on his blog. The Radix UI source is also excellent reading — every primitive is a compound component with a clean context boundary.',\n    timestamp: '10:43 AM',\n  },\n];\n\nexport const MessageBubbleDemo = () => {\n  return (\n    <ChatContainer className=\"h-[500px] w-full max-w-2xl\">\n      <ChatContainerContent>\n        <ChatContainerEmptyState title=\"Ask me anything\" />\n        <ChatContainerDivider label=\"Today\" />\n        {MESSAGES.map((message) => (\n          <ChatContainerMessage key={message.id}>\n            <MessageBubble role={message.role}>\n              <MessageBubbleAvatar\n                src={\n                  message.role === 'user'\n                    ? 'https://github.com/shadcn.png'\n                    : undefined\n                }\n              />\n              <MessageBubbleContent>\n                {message.content}\n                <MessageBubbleTimestamp>\n                  {message.timestamp}\n                </MessageBubbleTimestamp>\n              </MessageBubbleContent>\n            </MessageBubble>\n          </ChatContainerMessage>\n        ))}\n      </ChatContainerContent>\n    </ChatContainer>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ai/message-bubble/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ai-message-bubble';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-ai-message-bubble',
   },
   'demo-components-ai-model-selector': {
     name: 'demo-components-ai-model-selector',

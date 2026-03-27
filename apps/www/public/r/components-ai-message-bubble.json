@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-message-bubble",
+  "title": "Message Bubble",
+  "description": "A composable chat message bubble with avatar, content, and timestamp sub-components. Role-aware layout for user and assistant messages.",
+  "dependencies": [
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
+  ],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/components/ai/message-bubble/index.tsx",
+      "content": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { HugeiconsIcon } from '@hugeicons/react';\nimport { BotIcon, UserIcon } from '@hugeicons/core-free-icons';\nimport { createContext, useContext } from 'react';\n\ntype Role = 'user' | 'assistant';\n\ntype MessageBubbleContextValue = { isUser: boolean };\n\nconst MessageBubbleContext = createContext<MessageBubbleContextValue | null>(\n  null,\n);\n\nfunction useMessageBubble() {\n  const ctx = useContext(MessageBubbleContext);\n  if (!ctx)\n    throw new Error('useMessageBubble must be used inside <MessageBubble />');\n  return ctx;\n}\n\nexport type MessageBubbleProps = React.ComponentProps<'div'> & { role: Role };\n\nexport function MessageBubble({\n  role,\n  children,\n  className,\n  ...props\n}: MessageBubbleProps) {\n  const isUser = role === 'user';\n  return (\n    <MessageBubbleContext.Provider value={{ isUser }}>\n      <div\n        className={cn(\n          'flex w-full items-end gap-2',\n          isUser ? 'flex-row-reverse' : 'flex-row',\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </div>\n    </MessageBubbleContext.Provider>\n  );\n}\n\nexport type MessageBubbleAvatarProps = {\n  src?: string;\n  fallback?: string;\n  className?: string;\n};\n\nexport function MessageBubbleAvatar({\n  src,\n  fallback,\n  className,\n}: MessageBubbleAvatarProps) {\n  const { isUser } = useMessageBubble();\n  return (\n    <Avatar className={cn('size-7 shrink-0', className)}>\n      {isUser ? (\n        <>\n          {src && <AvatarImage src={src} />}\n          <AvatarFallback className=\"bg-primary/10 text-primary\">\n            {fallback ?? (\n              <HugeiconsIcon\n                icon={UserIcon}\n                className=\"size-4\"\n                strokeWidth={2}\n              />\n            )}\n          </AvatarFallback>\n        </>\n      ) : (\n        <>\n          {src && <AvatarImage src={src} />}\n          <AvatarFallback className=\"bg-primary/10 text-primary\">\n            {fallback ?? (\n              <HugeiconsIcon\n                icon={BotIcon}\n                className=\"size-4\"\n                strokeWidth={2}\n              />\n            )}\n          </AvatarFallback>\n        </>\n      )}\n    </Avatar>\n  );\n}\n\nexport type MessageBubbleContentProps = React.ComponentProps<'div'>;\n\nexport function MessageBubbleContent({\n  children,\n  className,\n  ...props\n}: MessageBubbleContentProps) {\n  const { isUser } = useMessageBubble();\n  return (\n    <div\n      className={cn(\n        'max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed',\n        isUser\n          ? 'bg-primary text-primary-foreground rounded-br-sm'\n          : 'bg-muted text-foreground rounded-bl-sm',\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </div>\n  );\n}\n\nexport type MessageBubbleTimestampProps = React.ComponentProps<'p'>;\n\nexport function MessageBubbleTimestamp({\n  children,\n  className,\n  ...props\n}: MessageBubbleTimestampProps) {\n  const { isUser } = useMessageBubble();\n  return (\n    <p\n      className={cn(\n        'mt-1 text-right text-[10px]',\n        isUser ? 'text-primary-foreground/60' : 'text-muted-foreground',\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </p>\n  );\n}\n\nexport { useMessageBubble };\n",
+      "type": "registry:ui",
+      "target": "components/odysseyui/message-bubble.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

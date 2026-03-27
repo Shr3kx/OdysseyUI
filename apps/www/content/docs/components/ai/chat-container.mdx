@@ -1,0 +1,137 @@
+---
+title: Chat Container
+description: A composable chat container with auto-scroll, animated messages, empty state, scroll-to-bottom button, and divider support.
+---
+
+<ComponentPreview name="demo-components-ai-chat-container" />
+
+<Callout>
+  **Note:** For rendering individual messages with avatars, bubble styling, and
+  timestamps, check out the [Message Bubble](/docs/components/ai/message-bubble)
+  component — it's designed to work seamlessly inside `ChatContainerMessage`.
+</Callout>
+
+## Installation
+
+<ComponentInstallation name="components-ai-chat-container" />
+
+## Usage
+
+```tsx
+import {
+  ChatContainer,
+  ChatContainerContent,
+  ChatContainerMessage,
+  ChatContainerEmptyState,
+  ChatContainerDivider,
+} from '@/components/odysseyui/chat-container';
+
+export default function Page() {
+  return (
+    <ChatContainer className="h-[500px] w-full max-w-3xl">
+      <ChatContainerContent>
+        <ChatContainerEmptyState title="Ask me anything" />
+        <ChatContainerDivider label="Today" />
+        <ChatContainerMessage>
+          <div className="flex justify-end">
+            <div className="bg-primary text-primary-foreground rounded-2xl px-4 py-2 text-sm max-w-xs">
+              Hello!
+            </div>
+          </div>
+        </ChatContainerMessage>
+      </ChatContainerContent>
+    </ChatContainer>
+  );
+}
+```
+
+## How It Works
+
+- `ChatContainer` wraps everything in a **double-ring card shell** with a `ScrollArea` viewport internally tracked via `viewportRef`.
+- **Auto-scroll**: when `autoScroll` is `true` (default), the viewport scrolls to the bottom whenever a new message is registered — but only if the user was already at the bottom.
+- `ChatContainerMessage` calls `registerMessage()` on mount and unregisters on unmount, keeping an internal `messageCount` that powers empty-state detection and auto-scroll triggers.
+- `ChatContainerEmptyState` renders only when `messageCount === 0`, animating in/out with a fade+slide.
+- `ChatContainerScrollButton` floats above the scroll area and appears with an `AnimatePresence` transition whenever the user scrolls up past the `bottomThreshold`.
+- `ChatContainerDivider` renders a full-width horizontal rule with an optional centred label (e.g. "Today").
+
+---
+
+## API Reference
+
+### ChatContainer
+
+<TypeTable
+  type={{
+    bottomThreshold: {
+      description:
+        'Distance from the bottom (px) within which the container is considered "at bottom".',
+      type: 'number',
+      required: false,
+      default: '64',
+    },
+    autoScroll: {
+      description:
+        'Automatically scroll to the bottom when a new message is added and the user is already at the bottom.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+    children: {
+      description: 'Typically a ChatContainerContent element.',
+      type: 'React.ReactNode',
+      required: true,
+    },
+  }}
+/>
+
+### ChatContainerContent
+
+Centres and pads its children. Pass `className` to override `max-w-3xl` or spacing.
+
+### ChatContainerEmptyState
+
+<TypeTable
+  type={{
+    title: {
+      description: 'Primary heading shown in the empty state.',
+      type: 'string',
+      required: false,
+      default: '"No messages yet"',
+    },
+    description: {
+      description: 'Supporting text beneath the title.',
+      type: 'string',
+      required: false,
+      default: '"Start a conversation to see messages here."',
+    },
+    icon: {
+      description: 'Custom icon node. Defaults to a BubbleChat icon.',
+      type: 'React.ReactNode',
+      required: false,
+    },
+  }}
+/>
+
+### ChatContainerMessage
+
+Wraps each individual message. Animates in with a fade + upward slide and registers itself with the container context so auto-scroll and empty-state detection work correctly.
+
+### ChatContainerScrollButton
+
+Floats over the bottom of the scroll area, visible only when the user has scrolled away from the bottom. Clicking it smooth-scrolls to the latest message. Accepts all `Button` props plus an optional `icon` override.
+
+### ChatContainerDivider
+
+<TypeTable
+  type={{
+    label: {
+      description: 'Text label rendered between the two rule lines.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+### useChatContainer
+
+Hook that exposes the container context: `scrollToBottom`, `isAtBottom`, `isEmpty`, `messageCount`, `registerMessage`. Must be called inside a `<ChatContainer />`.

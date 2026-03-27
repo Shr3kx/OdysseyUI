@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-message-bubble",
+  "type": "registry:ui",
+  "title": "Message Bubble Demo",
+  "description": "Demo of the Message Bubble component inside a Chat Container.",
+  "registryDependencies": [
+    "odyssey/components-ai-message-bubble",
+    "odyssey/components-ai-chat-container"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/message-bubble/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/message-bubble.tsx"
+    }
+  ]
+}

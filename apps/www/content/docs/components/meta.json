@@ -13,6 +13,8 @@
 
     "---AI Elements---",
     "ai/prompt-input",
+    "ai/chat-container",
+    "ai/message-bubble",
     "ai/thought-chain",
     "ai/steps",
     "ai/model-selector",

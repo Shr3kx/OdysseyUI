@@ -18,6 +18,48 @@
       "files": []
     },
     {
+      "name": "components-ai-chat-container",
+      "type": "registry:ui",
+      "title": "Chat Container",
+      "description": "A composable chat container with auto-scroll, empty state, animated messages, scroll-to-bottom button, and divider support.",
+      "dependencies": [
+        "motion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "scroll-area",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ai/chat-container/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/chat-container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-ai-message-bubble",
+      "type": "registry:ui",
+      "title": "Message Bubble",
+      "description": "A composable chat message bubble with avatar, content, and timestamp sub-components. Role-aware layout for user and assistant messages.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ai/message-bubble/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/message-bubble.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-ai-model-selector",
       "type": "registry:ui",
       "title": "Model Selector",
@@ -812,6 +854,39 @@
           "path": "registry/components/ui/badge/index.tsx",
           "type": "registry:ui",
           "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ai-chat-container",
+      "type": "registry:ui",
+      "title": "Chat Container Demo",
+      "description": "Demo of the Chat Container component.",
+      "registryDependencies": [
+        "odyssey/components-ai-chat-container"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ai/chat-container/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ai/chat-container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-ai-message-bubble",
+      "type": "registry:ui",
+      "title": "Message Bubble Demo",
+      "description": "Demo of the Message Bubble component inside a Chat Container.",
+      "registryDependencies": [
+        "odyssey/components-ai-message-bubble",
+        "odyssey/components-ai-chat-container"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ai/message-bubble/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ai/message-bubble.tsx"
         }
       ]
     },

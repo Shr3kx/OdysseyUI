@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-message-bubble",
+  "type": "registry:ui",
+  "title": "Message Bubble",
+  "description": "A composable chat message bubble with avatar, content, and timestamp sub-components. Role-aware layout for user and assistant messages.",
+  "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+  "registryDependencies": ["avatar", "@odysseyui/components-ai-chat-container"],
+  "files": [
+    {
+      "path": "registry/components/ai/message-bubble/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/message-bubble.tsx"
+    }
+  ]
+}

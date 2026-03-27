@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ai-chat-container",
+  "title": "Chat Container Demo",
+  "description": "Demo of the Chat Container component.",
+  "registryDependencies": [
+    "odyssey/components-ai-chat-container"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ai/chat-container/index.tsx",
+      "content": "'use client';\n\nimport { useState } from 'react';\nimport {\n  ChatContainer,\n  ChatContainerContent,\n  ChatContainerMessage,\n  ChatContainerEmptyState,\n  ChatContainerDivider,\n} from '@/components/odyssey/components/ai/chat-container';\nimport { Button } from '@/components/ui/button';\nimport PromptInput from '@/components/odyssey/components/ai/prompt-input';\n\ntype Message = {\n  id: number;\n  text: string;\n  role: 'user' | 'ai';\n};\n\nconst SAMPLE_MESSAGES: Omit<Message, 'id'>[] = [\n  { role: 'user', text: 'Can you help me refactor this component?' },\n  {\n    role: 'ai',\n    text: \"Of course! Please share the component and I'll suggest improvements.\",\n  },\n  { role: 'user', text: 'Here it is — it feels too verbose.' },\n  {\n    role: 'ai',\n    text: 'I see a few places we can simplify. Let me walk you through them.',\n  },\n];\n\nexport const ChatContainerDemo = () => {\n  const [messages, setMessages] = useState<Message[]>([]);\n  const [index, setIndex] = useState(0);\n\n  const addMessage = () => {\n    if (index >= SAMPLE_MESSAGES.length) return;\n    setMessages((prev) => [\n      ...prev,\n      { id: Date.now(), ...SAMPLE_MESSAGES[index] },\n    ]);\n    setIndex((i) => i + 1);\n  };\n\n  const reset = () => {\n    setMessages([]);\n    setIndex(0);\n  };\n\n  return (\n    <div className=\"flex w-full flex-col items-center gap-4\">\n      <ChatContainer className=\"h-96 w-full max-w-2xl\">\n        <ChatContainerContent>\n          <ChatContainerEmptyState\n            title=\"Ask me anything\"\n            description=\"Click the button below to simulate a conversation.\"\n          />\n          {messages.length > 0 && <ChatContainerDivider label=\"Today\" />}\n          {messages.map((msg) => (\n            <ChatContainerMessage key={msg.id}>\n              <div\n                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}\n              >\n                <div\n                  className={`max-w-xs rounded-2xl px-4 py-2 text-sm ${\n                    msg.role === 'user'\n                      ? 'bg-primary text-primary-foreground'\n                      : 'bg-muted text-foreground'\n                  }`}\n                >\n                  {msg.text}\n                </div>\n              </div>\n            </ChatContainerMessage>\n          ))}\n        </ChatContainerContent>\n      </ChatContainer>\n\n      <div className=\"flex gap-2\">\n        <Button\n          onClick={addMessage}\n          disabled={index >= SAMPLE_MESSAGES.length}\n          size=\"sm\"\n        >\n          Add Message\n        </Button>\n        <Button onClick={reset} variant=\"outline\" size=\"sm\">\n          Reset\n        </Button>\n      </div>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ai/chat-container.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
