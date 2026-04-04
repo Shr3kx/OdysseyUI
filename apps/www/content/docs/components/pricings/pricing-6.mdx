@@ -1,0 +1,188 @@
+---
+title: Pricing 6
+description: Tabbed individuals/teams pricing grid with coloured card backdrops, Avatar orbs, grain texture overlays, and feature checklists.
+---
+
+<ComponentPreview name="demo-components-pricings-pricing-6" />
+
+## Installation
+
+<ComponentInstallation name="components-pricings-pricing-6" />
+
+<Callout type="note">
+  Pricing 6 uses the [Avatar](/docs/components/primitives/avatar) component for
+  the orb icons on each card. It will be installed automatically as a registry
+  dependency.
+</Callout>
+
+## Usage
+
+```tsx
+import Pricing6 from '@/components/odysseyui/pricing-6';
+
+export default function Page() {
+  return <Pricing6 />;
+}
+```
+
+## Customisation
+
+Supply your own plan arrays via `individualPlans` and `teamsPlans`:
+
+```tsx
+import Pricing6, { type Plan6 } from '@/components/odysseyui/pricing-6';
+
+const myPlans: Plan6[] = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    description: 'Everything you need to get started.',
+    palette: 'blue',
+    originalPrice: '$199',
+    price: '$99',
+    priceNote: 'One-time payment',
+    ctaLabel: 'Buy now',
+    ctaHref: '/checkout/starter',
+    features: ['5 projects', 'Email support', 'Access to all components'],
+  },
+];
+
+export default function Page() {
+  return <Pricing6 individualPlans={myPlans} teamsPlans={myPlans} />;
+}
+```
+
+## How It Works
+
+- A pill-shaped tab switcher toggles between the `individuals` and `teams` plan arrays.
+- Each `PlanCard` renders a coloured header panel (`base` class) with two blurred blob `div`s and an inline SVG grain filter for depth.
+- An [`Avatar`](/docs/components/primitives/avatar) orb (squircle, sm) uses the palette's `avatarColor` to match the card colour scheme.
+- `featuredLabel`, when provided, renders as a frosted-glass pill badge beside the avatar.
+- `ctaDark` swaps the CTA button from a frosted-white style to `bg-foreground` (true dark), useful for a hero/featured plan.
+- Feature items are rendered with `Tick02Icon` from Hugeicons at reduced opacity.
+- Optional `footerNote` / `footerDesc` appear below a divider line at the card bottom.
+
+---
+
+## API Reference
+
+### Pricing6
+
+<TypeTable
+  type={{
+    individualPlans: {
+      description: 'Plans shown in the Individuals tab.',
+      type: 'Plan6[]',
+      required: false,
+    },
+    teamsPlans: {
+      description: 'Plans shown in the Teams tab.',
+      type: 'Plan6[]',
+      required: false,
+    },
+    individualsLabel: {
+      description: 'Label for the individuals tab button.',
+      type: 'string',
+      required: false,
+      default: '"Individuals"',
+    },
+    teamsLabel: {
+      description: 'Label for the teams tab button.',
+      type: 'string',
+      required: false,
+      default: '"Teams & Enterprise"',
+    },
+    defaultTab: {
+      description: 'Which tab is active on first render.',
+      type: '"individuals" | "teams"',
+      required: false,
+      default: '"individuals"',
+    },
+    title: {
+      description: 'Section heading.',
+      type: 'string',
+      required: false,
+      default: '"Simple, transparent pricing"',
+    },
+    subtitle: {
+      description: 'Section subheading.',
+      type: 'string',
+      required: false,
+      default: '"No hidden fees. Choose the plan that works for you."',
+    },
+  }}
+/>
+
+### Plan6
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier (React key + SVG filter id).',
+      type: 'string',
+      required: true,
+    },
+    name: { description: 'Plan display name.', type: 'string', required: true },
+    description: {
+      description: 'Short plan description shown below the name.',
+      type: 'string',
+      required: true,
+    },
+    palette: {
+      description: 'Card colour palette.',
+      type: '"blue" | "purple" | "amber" | "teal" | "rose" | "slate"',
+      required: true,
+    },
+    price: {
+      description: 'Current price string.',
+      type: 'string',
+      required: true,
+    },
+    originalPrice: {
+      description: 'Crossed-out price shown beside the current price.',
+      type: 'string',
+      required: true,
+    },
+    ctaLabel: {
+      description: 'CTA button label.',
+      type: 'string',
+      required: true,
+    },
+    ctaHref: {
+      description: 'CTA button link destination.',
+      type: 'string',
+      required: true,
+    },
+    features: {
+      description: 'Feature list items rendered with a tick icon.',
+      type: 'string[]',
+      required: true,
+    },
+    priceNote: {
+      description: 'Small note below the price (e.g. "One-time payment").',
+      type: 'string',
+      required: false,
+    },
+    featuredLabel: {
+      description: 'Pill badge shown beside the Avatar orb when set.',
+      type: 'string',
+      required: false,
+    },
+    footerNote: {
+      description: 'Bold note at the card footer.',
+      type: 'string',
+      required: false,
+    },
+    footerDesc: {
+      description: 'Muted description at the card footer.',
+      type: 'string',
+      required: false,
+    },
+    ctaDark: {
+      description: 'Use a dark (foreground-coloured) CTA button.',
+      type: 'boolean',
+      required: false,
+      default: 'false',
+    },
+  }}
+/>

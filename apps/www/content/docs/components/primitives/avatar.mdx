@@ -1,0 +1,69 @@
+---
+title: Avatar
+description: An animated AI orb avatar with blinking eyes, 12 color presets, 3 sizes, and 3 shapes.
+---
+
+<ComponentPreview name="demo-components-primitives-avatar" />
+
+## Installation
+
+<ComponentInstallation name="components-primitives-avatar" />
+
+## Usage
+
+```tsx
+import Avatar from '@/components/odysseyui/avatar';
+
+export default function Page() {
+  return <Avatar color="blue" size="md" shape="circle" />;
+}
+```
+
+## How It Works
+
+- Uses `motion/react` for a squash-and-stretch `whileTap` spring animation.
+- Two `Eye` sub-components render with a CSS `@keyframes av-blink` animation that fires every 3.6 s, with a 60 ms delay on the right eye for a natural look.
+- Noise and grain textures are rendered as inline SVG `<feTurbulence>` filters layered with `mix-blend-overlay` for depth.
+- A radial shine overlay and a blurred shadow `div` create the 3-D orb illusion entirely with CSS — no images.
+- Each `color` maps to a unique gradient, box-shadow glow, iris gradient, and shine stop via the `PRESETS` record.
+- `useId()` ensures every instance gets a unique SVG filter `id`, preventing cross-instance bleed.
+
+---
+
+## API Reference
+
+### Avatar
+
+<TypeTable
+  type={{
+    color: {
+      description: 'Colour theme of the orb.',
+      type: '"blue" | "orange" | "red" | "green" | "purple" | "yellow" | "cyan" | "pink" | "indigo" | "lime" | "turquoise" | "violet"',
+      required: false,
+      default: '"blue"',
+    },
+    size: {
+      description: 'Size of the orb.',
+      type: '"sm" | "md" | "lg"',
+      required: false,
+      default: '"md"',
+    },
+    shape: {
+      description: 'Border-radius shape of the orb.',
+      type: '"circle" | "square" | "squircle"',
+      required: false,
+      default: '"circle"',
+    },
+    blinking: {
+      description: 'Whether the eyes animate with a blinking loop.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+    className: {
+      description: 'Additional class names applied to the outer motion div.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>

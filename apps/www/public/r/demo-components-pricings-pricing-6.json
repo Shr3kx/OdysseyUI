@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-6",
+  "title": "Pricing 6 Demo",
+  "description": "Demo of the tabbed individuals/teams pricing grid.",
+  "registryDependencies": [
+    "odyssey/components-pricings-pricing-6"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-6/index.tsx",
+      "content": "import Pricing6 from '@/components/odyssey/components/pricings/pricing-6';\n\nexport const Pricing6Demo = () => {\n  return <Pricing6 />;\n};\n\nexport default Pricing6Demo;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-6.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

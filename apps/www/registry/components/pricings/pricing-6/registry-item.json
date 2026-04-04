@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-pricings-pricing-6",
+  "type": "registry:ui",
+  "title": "Pricing 6",
+  "description": "Tabbed individuals/teams pricing grid with coloured card backdrops, Avatar orbs, grain texture overlays, and feature checklists.",
+  "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+  "registryDependencies": ["button", "@odysseyui/components-primitives-avatar"],
+  "files": [
+    {
+      "path": "registry/components/pricings/pricing-6/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/pricing-6.tsx"
+    }
+  ]
+}

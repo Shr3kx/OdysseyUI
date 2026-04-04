@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-pricings-pricing-5",
+  "type": "registry:ui",
+  "title": "Pricing 5",
+  "description": "Horizontal list-style pricing layout with accent icon blobs, strikethrough original prices, and optional recommended badge.",
+  "registryDependencies": ["button", "badge"],
+  "files": [
+    {
+      "path": "registry/components/pricings/pricing-5/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/pricing-5.tsx"
+    }
+  ]
+}

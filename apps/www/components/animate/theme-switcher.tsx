@@ -19,6 +19,18 @@ export const ThemeSwitcher = ({ className }: { className?: string }) => {
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'd' || e.key === 'D') {
+        const isDark = document.documentElement.classList.contains('dark');
+        isDark ? playOn() : playOff();
+        setTheme(isDark ? 'light' : 'dark');
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [playOn, playOff, setTheme]);
+
   return (
     isClient && (
       <Switch

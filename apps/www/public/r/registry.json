@@ -49,7 +49,8 @@
         "@hugeicons/core-free-icons"
       ],
       "registryDependencies": [
-        "avatar"
+        "avatar",
+        "@odysseyui/components-ai-chat-container"
       ],
       "files": [
         {
@@ -681,6 +682,60 @@
           "path": "registry/components/pricings/pricing-4/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/pricing-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-pricings-pricing-5",
+      "type": "registry:ui",
+      "title": "Pricing 5",
+      "description": "Horizontal list-style pricing layout with accent icon blobs, strikethrough original prices, and optional recommended badge.",
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pricings/pricing-5/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/pricing-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-pricings-pricing-6",
+      "type": "registry:ui",
+      "title": "Pricing 6",
+      "description": "Tabbed individuals/teams pricing grid with coloured card backdrops, Avatar orbs, grain texture overlays, and feature checklists.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "button",
+        "@odysseyui/components-primitives-avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pricings/pricing-6/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/pricing-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-primitives-avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An animated AI orb avatar with blinking eyes, 12 color presets, 3 sizes, and 3 shapes (circle, square, squircle).",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/primitives/avatar/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/avatar.tsx"
         }
       ]
     },
@@ -1692,6 +1747,54 @@
           "path": "registry/demo/components/pricings/pricing-4/index.tsx",
           "type": "registry:ui",
           "target": "components/odyssey/demo/pricings/pricing-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-pricings-pricing-5",
+      "type": "registry:ui",
+      "title": "Pricing 5 Demo",
+      "description": "Demo of the horizontal list-style pricing layout.",
+      "registryDependencies": [
+        "odyssey/components-pricings-pricing-5"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/pricings/pricing-5/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/pricings/pricing-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-pricings-pricing-6",
+      "type": "registry:ui",
+      "title": "Pricing 6 Demo",
+      "description": "Demo of the tabbed individuals/teams pricing grid.",
+      "registryDependencies": [
+        "odyssey/components-pricings-pricing-6"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/pricings/pricing-6/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/pricings/pricing-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-primitives-avatar",
+      "type": "registry:ui",
+      "title": "Avatar Demo",
+      "description": "Demo showcasing all colors, sizes, and shapes of the Avatar component.",
+      "registryDependencies": [
+        "odyssey/components-primitives-avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/primitives/avatar/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/primitives/avatar.tsx"
         }
       ]
     },

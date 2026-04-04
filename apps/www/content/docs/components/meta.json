@@ -32,8 +32,11 @@
     "pricings/pricing-2",
     "pricings/pricing-3",
     "pricings/pricing-4",
+    "pricings/pricing-5",
+    "pricings/pricing-6",
 
     "---Primitives---",
+    "primitives/avatar",
     "primitives/badge",
     "primitives/tree-filter",
 

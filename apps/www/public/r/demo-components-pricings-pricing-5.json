@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-5",
+  "title": "Pricing 5 Demo",
+  "description": "Demo of the horizontal list-style pricing layout.",
+  "registryDependencies": [
+    "odyssey/components-pricings-pricing-5"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-5/index.tsx",
+      "content": "import Pricing5 from '@/components/odyssey/components/pricings/pricing-5';\n\nexport const Pricing5Demo = () => {\n  return <Pricing5 />;\n};\n\nexport default Pricing5Demo;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-5.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

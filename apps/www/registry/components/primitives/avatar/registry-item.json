@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-primitives-avatar",
+  "type": "registry:ui",
+  "title": "Avatar",
+  "description": "An animated AI orb avatar with blinking eyes, 12 color presets, 3 sizes, and 3 shapes (circle, square, squircle).",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/components/primitives/avatar/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/avatar.tsx"
+    }
+  ]
+}

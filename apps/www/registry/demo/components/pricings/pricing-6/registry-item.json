@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-pricings-pricing-6",
+  "type": "registry:ui",
+  "title": "Pricing 6 Demo",
+  "description": "Demo of the tabbed individuals/teams pricing grid.",
+  "registryDependencies": ["odyssey/components-pricings-pricing-6"],
+  "files": [
+    {
+      "path": "registry/demo/components/pricings/pricing-6/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/pricings/pricing-6.tsx"
+    }
+  ]
+}

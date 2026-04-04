@@ -1,0 +1,153 @@
+---
+title: Pricing 5
+description: Horizontal list-style pricing layout with accent icon blobs, strikethrough original prices, and optional recommended badge.
+---
+
+<ComponentPreview name="demo-components-pricings-pricing-5" />
+
+## Installation
+
+<ComponentInstallation name="components-pricings-pricing-5" />
+
+## Usage
+
+```tsx
+import Pricing5 from '@/components/odysseyui/pricing-5';
+
+export default function Page() {
+  return <Pricing5 />;
+}
+```
+
+## Customisation
+
+Pass a `plans` array to override the default plans:
+
+```tsx
+import Pricing5, { type Plan5 } from '@/components/odysseyui/pricing-5';
+
+const plans: Plan5[] = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    features: ['5 projects', '10 GB storage', 'Email support'],
+    price: '$9/month',
+    ctaLabel: 'Get started',
+    ctaHref: '/checkout/starter',
+    accent: 'blue',
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    features: ['Unlimited projects', '100 GB storage', 'Priority support'],
+    originalPrice: '$29',
+    price: '$19/month',
+    ctaLabel: 'Start free trial',
+    ctaHref: '/checkout/pro',
+    recommended: true,
+    accent: 'violet',
+  },
+];
+
+export default function Page() {
+  return (
+    <Pricing5
+      plans={plans}
+      title="Choose your plan"
+      subtitle="Cancel any time."
+    />
+  );
+}
+```
+
+## How It Works
+
+- Each plan renders as a horizontal card (`flex-row` on `sm+`) with a gradient accent blob on the left and pricing + CTA on the right.
+- The accent blob is a simple `div` styled with a `bg-linear-to-b` gradient matching the plan's `accent` colour.
+- `originalPrice`, when provided, renders with a `line-through` decoration next to the current price.
+- The `recommended` flag adds a `Badge` next to the plan name.
+
+---
+
+## API Reference
+
+### Pricing5
+
+<TypeTable
+  type={{
+    plans: {
+      description: 'Array of plan objects to render.',
+      type: 'Plan5[]',
+      required: false,
+      default: 'default two-plan array',
+    },
+    title: {
+      description: 'Header title above the plan list.',
+      type: 'string',
+      required: false,
+      default: '"Organize without limits"',
+    },
+    subtitle: {
+      description: 'Subtitle below the header.',
+      type: 'string',
+      required: false,
+      default: '"Local or cloud — your choice"',
+    },
+  }}
+/>
+
+### Plan5
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique plan identifier (used as React key).',
+      type: 'string',
+      required: true,
+    },
+    name: { description: 'Plan display name.', type: 'string', required: true },
+    features: {
+      description: 'List of feature strings rendered as bullet items.',
+      type: 'string[]',
+      required: true,
+    },
+    price: {
+      description: 'Current price string (e.g. "$6/month").',
+      type: 'string',
+      required: true,
+    },
+    ctaLabel: { description: 'Button label.', type: 'string', required: true },
+    ctaHref: {
+      description: 'Button link destination.',
+      type: 'string',
+      required: true,
+    },
+    originalPrice: {
+      description: 'Crossed-out original price string.',
+      type: 'string',
+      required: false,
+    },
+    recommended: {
+      description: 'Shows a "Recommended" badge next to the plan name.',
+      type: 'boolean',
+      required: false,
+    },
+    recommendedLabel: {
+      description: 'Custom badge text when recommended is true.',
+      type: 'string',
+      required: false,
+      default: '"Recommended"',
+    },
+    billingNote: {
+      description: 'Small note rendered below the CTA button.',
+      type: 'string',
+      required: false,
+    },
+    accent: {
+      description: 'Colour of the accent icon blob.',
+      type: '"neutral" | "orange" | "blue" | "violet" | "emerald" | "rose" | "yellow"',
+      required: false,
+      default: '"neutral"',
+    },
+  }}
+/>

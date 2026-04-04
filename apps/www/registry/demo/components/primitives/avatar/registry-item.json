@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-primitives-avatar",
+  "type": "registry:ui",
+  "title": "Avatar Demo",
+  "description": "Demo showcasing all colors, sizes, and shapes of the Avatar component.",
+  "registryDependencies": ["odyssey/components-primitives-avatar"],
+  "files": [
+    {
+      "path": "registry/demo/components/primitives/avatar/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/primitives/avatar.tsx"
+    }
+  ]
+}
