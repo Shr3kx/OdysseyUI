@@ -6,23 +6,6 @@ const VARIANTS = [
   'destructive',
   'outline',
   'ghost',
-  'red',
-  'blue',
-  'green',
-  'yellow',
-  'purple',
-  'pink',
-  'orange',
-  'cyan',
-  'indigo',
-  'violet',
-  'rose',
-  'amber',
-  'lime',
-  'emerald',
-  'sky',
-  'slate',
-  'fuchsia',
 ] as const;
 
 export const BadgeDemo = () => {

@@ -2220,6 +2220,22 @@
       ]
     },
     {
+      "name": "demo-components-ui-badge-colors",
+      "type": "registry:ui",
+      "title": "Badge Colors Demo",
+      "description": "Demo showcasing all badge color variants.",
+      "registryDependencies": [
+        "odyssey/components-ui-badge"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/ui/badge-colors/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/ui/badge-colors.tsx"
+        }
+      ]
+    },
+    {
       "name": "demo-components-ui-button",
       "type": "registry:ui",
       "title": "Button Demo",

@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/demo/components/ui/badge/index.tsx",
-      "content": "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst VARIANTS = [\n  'default',\n  'secondary',\n  'destructive',\n  'outline',\n  'ghost',\n  'red',\n  'blue',\n  'green',\n  'yellow',\n  'purple',\n  'pink',\n  'orange',\n  'cyan',\n  'indigo',\n  'violet',\n  'rose',\n  'amber',\n  'lime',\n  'emerald',\n  'sky',\n  'slate',\n  'fuchsia',\n] as const;\n\nexport const BadgeDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};\n",
+      "content": "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst VARIANTS = [\n  'default',\n  'secondary',\n  'destructive',\n  'outline',\n  'ghost',\n] as const;\n\nexport const BadgeDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};\n",
       "type": "registry:ui",
       "target": "components/odyssey/demo/ui/badge.tsx"
     }

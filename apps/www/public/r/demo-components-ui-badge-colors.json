@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ui-badge-colors",
+  "title": "Badge Colors Demo",
+  "description": "Demo showcasing all badge color variants.",
+  "registryDependencies": [
+    "odyssey/components-ui-badge"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/ui/badge-colors/index.tsx",
+      "content": "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst COLOR_VARIANTS = [\n  'red',\n  'blue',\n  'green',\n  'yellow',\n  'purple',\n  'pink',\n  'orange',\n  'cyan',\n  'indigo',\n  'violet',\n  'rose',\n  'amber',\n  'lime',\n  'emerald',\n  'sky',\n  'slate',\n  'fuchsia',\n] as const;\n\nexport const BadgeColorsDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {COLOR_VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/ui/badge-colors.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -3598,7 +3598,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odyssey/demo/primitives/avatar.tsx',
         content:
-          'import Avatar from \'@/components/odyssey/components/primitives/avatar\';\n\nexport const AvatarDemo = () => {\n  return (\n    <div className="flex flex-col items-center gap-8">\n      <div className="flex items-center gap-4">\n        <Avatar color="blue" size="sm" />\n        <Avatar color="blue" size="md" />\n        <Avatar color="blue" size="lg" />\n      </div>\n      <div className="flex flex-wrap justify-center gap-3">\n        {(\n          [\n            \'blue\',\n            \'orange\',\n            \'red\',\n            \'green\',\n            \'purple\',\n            \'yellow\',\n            \'cyan\',\n            \'pink\',\n            \'indigo\',\n            \'lime\',\n            \'turquoise\',\n            \'violet\',\n          ] as const\n        ).map((color) => (\n          <Avatar key={color} color={color} size="md" />\n        ))}\n      </div>\n      <div className="flex items-center gap-4">\n        <Avatar color="purple" size="md" shape="circle" />\n        <Avatar color="purple" size="md" shape="squircle" />\n        <Avatar color="purple" size="md" shape="square" />\n      </div>\n    </div>\n  );\n};\n\nexport default AvatarDemo;',
+          'import Avatar from \'@/components/odyssey/components/primitives/avatar\';\n\nexport const AvatarDemo = () => {\n  return (\n    <div className="flex flex-col items-center gap-8">\n      <div className="flex items-center gap-4">\n        <Avatar color="pink" size="md" shape="square" />\n        <Avatar color="blue" size="md" shape="circle" />\n        <Avatar color="green" size="md" shape="squircle" />\n      </div>\n    </div>\n  );\n};\n\nexport default AvatarDemo;',
       },
     ],
     keywords: [],
@@ -4064,7 +4064,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/odyssey/demo/ui/badge.tsx',
         content:
-          "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst VARIANTS = [\n  'default',\n  'secondary',\n  'destructive',\n  'outline',\n  'ghost',\n  'red',\n  'blue',\n  'green',\n  'yellow',\n  'purple',\n  'pink',\n  'orange',\n  'cyan',\n  'indigo',\n  'violet',\n  'rose',\n  'amber',\n  'lime',\n  'emerald',\n  'sky',\n  'slate',\n  'fuchsia',\n] as const;\n\nexport const BadgeDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};",
+          "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst VARIANTS = [\n  'default',\n  'secondary',\n  'destructive',\n  'outline',\n  'ghost',\n] as const;\n\nexport const BadgeDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};",
       },
     ],
     keywords: [],
@@ -4087,6 +4087,45 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@odysseyui/demo-components-ui-badge',
+  },
+  'demo-components-ui-badge-colors': {
+    name: 'demo-components-ui-badge-colors',
+    description: 'Demo showcasing all badge color variants.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['odyssey/components-ui-badge'],
+    cssVars: undefined,
+    css: undefined,
+    files: [
+      {
+        path: 'registry/demo/components/ui/badge-colors/index.tsx',
+        type: 'registry:ui',
+        target: 'components/odyssey/demo/ui/badge-colors.tsx',
+        content:
+          "import { Badge } from '@/components/odyssey/components/ui/badge';\n\nconst COLOR_VARIANTS = [\n  'red',\n  'blue',\n  'green',\n  'yellow',\n  'purple',\n  'pink',\n  'orange',\n  'cyan',\n  'indigo',\n  'violet',\n  'rose',\n  'amber',\n  'lime',\n  'emerald',\n  'sky',\n  'slate',\n  'fuchsia',\n] as const;\n\nexport const BadgeColorsDemo = () => {\n  return (\n    <div className=\"flex flex-wrap gap-2 p-4 justify-center\">\n      {COLOR_VARIANTS.map((variant) => (\n        <Badge key={variant} variant={variant}>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Badge>\n      ))}\n    </div>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod =
+          await import('@/registry/demo/components/ui/badge-colors/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'demo-components-ui-badge-colors';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@odysseyui/demo-components-ui-badge-colors',
   },
   'demo-components-ui-button': {
     name: 'demo-components-ui-button',
