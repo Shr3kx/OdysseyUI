@@ -1,0 +1,75 @@
+---
+title: Search Modal
+description: A full-featured chat search modal with conversation preview, inline rename/delete, keyboard navigation, and time-grouped results.
+---
+
+<ComponentPreview name="demo-components-ai-search-modal" />
+
+## Installation
+
+<ComponentInstallation name="components-ai-search-modal" />
+
+<Callout type="note">
+  This component ships with a `MarkdownRenderer` helper (installed alongside it)
+  that renders assistant messages with syntax-highlighted code blocks. It
+  requires `react-markdown`, `remark-gfm`, and `rehype-highlight` — all included
+  as dependencies. For code block syntax highlighting styles, add a
+  `highlight.js` theme CSS to your project (e.g.
+  `highlight.js/styles/github-dark.css`).
+</Callout>
+
+## Usage
+
+```tsx
+import { useState } from 'react';
+import SearchModal from '@/components/odysseyui/search-modal';
+
+export default function Page() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Search</button>
+      <SearchModal
+        open={open}
+        onClose={() => setOpen(false)}
+        onNewChat={() => {
+          /* start a new chat */
+        }}
+      />
+    </>
+  );
+}
+```
+
+## Keyboard Shortcuts
+
+| Key            | Action                         |
+| -------------- | ------------------------------ |
+| `↑` / `↓`      | Navigate between conversations |
+| `Enter`        | Go to selected conversation    |
+| `Escape`       | Close the modal                |
+| `Ctrl+Shift+P` | Toggle preview panel           |
+| `Ctrl+Shift+E` | Rename selected conversation   |
+| `Ctrl+Shift+D` | Delete selected conversation   |
+
+## How It Works
+
+- **Search**: Filters conversations by title and message content as you type.
+- **Time groups**: Conversations are automatically bucketed into _Today_, _Yesterday_, _Last 7 Days_, and _Earlier_.
+- **Preview panel**: Selecting a conversation shows its full message thread on the right, with `MarkdownRenderer` rendering assistant messages.
+- **Inline rename**: Click the pencil icon (or `Ctrl+Shift+E`) to rename a chat in-place; confirm with `Enter` or `Escape` to cancel.
+- **Delete**: Click the trash icon (or `Ctrl+Shift+D`) to remove a conversation without confirmation.
+- **Auto-select**: The first result is always pre-selected when the query changes.
+
+---
+
+## API Reference
+
+### `SearchModal`
+
+| Prop        | Type         | Default     | Description                             |
+| ----------- | ------------ | ----------- | --------------------------------------- |
+| `open`      | `boolean`    | —           | Controls modal visibility               |
+| `onClose`   | `() => void` | —           | Called when the modal requests to close |
+| `onNewChat` | `() => void` | `undefined` | Called when the user clicks "New Chat"  |

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-ai-search-modal",
+  "type": "registry:ui",
+  "title": "Search Modal",
+  "description": "A full-featured chat search modal with conversation preview, inline rename, delete, keyboard navigation, and time-grouped results.",
+  "dependencies": [
+    "motion",
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons",
+    "react-markdown",
+    "remark-gfm",
+    "rehype-highlight"
+  ],
+  "registryDependencies": ["button", "@odysseyui/components-primitives-avatar"],
+  "files": [
+    {
+      "path": "registry/components/ai/search-modal/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/search-modal.tsx"
+    },
+    {
+      "path": "registry/components/ai/search-modal/markdown-renderer.tsx",
+      "type": "registry:ui",
+      "target": "components/odysseyui/markdown-renderer.tsx"
+    }
+  ]
+}

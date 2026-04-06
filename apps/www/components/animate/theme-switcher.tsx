@@ -21,7 +21,13 @@ export const ThemeSwitcher = ({ className }: { className?: string }) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'd' || e.key === 'D') {
+      const tag = (e.target as HTMLElement).tagName;
+      const isEditable =
+        tag === 'INPUT' ||
+        tag === 'TEXTAREA' ||
+        tag === 'SELECT' ||
+        (e.target as HTMLElement).isContentEditable;
+      if ((e.key === 'd' || e.key === 'D') && !isEditable) {
         const isDark = document.documentElement.classList.contains('dark');
         isDark ? playOn() : playOff();
         setTheme(isDark ? 'light' : 'dark');
