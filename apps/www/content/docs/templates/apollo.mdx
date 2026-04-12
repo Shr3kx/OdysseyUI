@@ -1,0 +1,202 @@
+---
+title: Apollo AI Chat Template
+description: A production-ready AI chat template built with OdysseyUI. Add your API key to the .env file and start chatting instantly.
+---
+
+import { TemplateHeader } from '@/components/docs/template-header';
+
+<TemplateHeader
+  title="Apollo AI Chat Template"
+  description="A production-ready AI chat template powered by Google Gemini — multi-agent support, persistent history, 14 themes, and a rich settings panel. Add your API key and start chatting."
+  image="/templateImages/apollo.png"
+  githubLink="https://github.com/odysseyui-templates/apollo"
+  previewLink="https://odysseyui-apollo.vercel.app/"
+/>
+
+## What is this?
+
+Apollo is a fully-featured, themeable AI chat application template built with **Next.js 16**, **React 19**, **Tailwind CSS v4**, and the **Vercel AI SDK v6**. It ships with a polished UI, multi-agent support, persistent chat history, a rich settings panel, and a suite of original OdysseyUI components — ready to clone and extend.
+
+## Who is this for?
+
+You are a developer or team who wants a solid, beautiful foundation for an AI chat product without starting from scratch. Every detail — from animated message entries to a themeable sidebar — has been built with production quality in mind.
+
+## Installation
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm (`npm install -g pnpm`)
+- A Google Gemini API key — [get one at Google AI Studio](https://aistudio.google.com/app/apikey)
+
+### Clone Repository
+
+```bash
+git clone https://github.com/odysseyui-templates/apollo
+cd apollo
+```
+
+### Install Dependencies
+
+```bash
+pnpm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```bash
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key_here
+```
+
+### Run Dev Server
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Other Commands
+
+```bash
+pnpm build       # Production build
+pnpm start       # Start production server
+pnpm typecheck   # TypeScript type check (no emit)
+pnpm lint        # ESLint
+pnpm format      # Prettier — formats all .ts/.tsx files
+```
+
+## Features
+
+- **Multi-Agent System** — Five hand-crafted agents (Apollo, Muse, Cipher, Sage, Scholar), each with a unique personality, system prompt, and avatar color. Fully customizable via the Settings panel, persisted to `localStorage`
+- **Real-Time Streaming** — Token-by-token streaming via Vercel AI SDK, with a shimmer "Thinking…" indicator, a stop button to interrupt generation, and a regenerate action
+- **Persistent Chat History** — All chats stored in `localStorage` with auto-title, auto-save, and sidebar sections grouped by Today / Yesterday / Older
+- **Private / Ephemeral Mode** — Toggle private mode to run a session that is never written to storage; visual indicator in the header
+- **Chat Organization** — Pin, rename, delete, export, and group chats into named folders; animated sidebar transitions
+- **Full-Text Search** — `Ctrl+K` / `⌘K` opens a search modal with real-time results across all chat titles and message content, time-grouped and keyboard-navigable
+- **Markdown & Syntax Highlighting** — GitHub Flavored Markdown via `remark-gfm` with `rehype-highlight` covering 190+ languages, a copy button on every code block, and a language label
+- **14 Color Themes** — Light, Dark, Catppuccin, Nord, Ayu Dark, Tokyo Night, Dracula, Gruvbox Dark Soft, Gruvbox Dark Hard, Horizon, Synthwave '84, Rosé Pine, Kanagawa, Panda — each a complete set of CSS custom properties applied via `next-themes`
+- **Settings Panel** — Model selector, agent editor, theme picker, and a one-click "Clear all chats" action
+- **Context Menu** — Right-click anywhere for New Chat, New Temporary Chat, and Settings
+- **Prompt Input** — Auto-growing textarea with voice input (Web Speech API), stop button during streaming, and extensible attachment / web-search affordances
+- **Empty State** — Category tabs (Create, Explore, Code, Learn) with randomized prompt suggestions; clicking a card populates the input field
+
+## Tech Stack
+
+| Layer           | Technology                                                        |
+| --------------- | ----------------------------------------------------------------- |
+| Framework       | [Next.js 16](https://nextjs.org) (App Router, Turbopack)          |
+| UI Library      | [React 19](https://react.dev)                                     |
+| Language        | TypeScript 5.9                                                    |
+| Styling         | [Tailwind CSS v4](https://tailwindcss.com) + `tw-animate-css`     |
+| AI Provider     | Google Gemini via `@ai-sdk/google`                                |
+| AI Streaming    | [Vercel AI SDK v6](https://sdk.vercel.ai) (`ai`, `@ai-sdk/react`) |
+| Animations      | Motion (Framer Motion v12)                                        |
+| Icons           | HugeIcons (`@hugeicons/react`)                                    |
+| Component Base  | shadcn/ui + Base UI                                               |
+| Markdown        | `react-markdown` + `remark-gfm` + `rehype-highlight`              |
+| ID Generation   | `uuid`                                                            |
+| Package Manager | pnpm                                                              |
+
+## OdysseyUI Components
+
+Apollo is built on a set of original OdysseyUI primitives that you can drop into your own projects.
+
+### `AgentAvatar`
+
+A richly-crafted SVG orb avatar with 12 preset color palettes (each with a multi-stop radial gradient, gloss shine, colored iris reflections, and a layered box-shadow glow), three sizes (`sm`, `md`, `lg`), three shapes (`circle`, `squircle`, `square`), and an optional CSS blink animation.
+
+### `ShimmerText`
+
+A viewport-aware animated shimmer effect for text. Used as the "Thinking…" loading indicator during streaming. Supports `startOnView`, configurable `spread`, custom `color` and `shimmerColor`, and a `once` mode.
+
+### `ThoughtChain`
+
+A step-progress component for visualizing multi-step AI reasoning chains. Each step has a `status` of `done`, `active`, or `pending` — rendered as a checkmark, spinning loader, or muted circle respectively. Steps are connected by a vertical status line and are individually collapsible.
+
+### `PromptInput`
+
+An auto-growing textarea with submit-on-Enter, a stop button during streaming, voice input via the Web Speech API, and extensible attachment / web-search affordance buttons.
+
+## Project Structure
+
+```
+apollo/
+├── app/
+│   ├── globals.css              # Tailwind base + 14 theme definitions
+│   ├── layout.tsx               # Root layout with ChatStoreProvider & ThemeProvider
+│   ├── page.tsx                 # Main application shell
+│   └── api/
+│       └── chat/
+│           └── route.ts         # Streaming AI endpoint (Vercel AI SDK + Gemini)
+├── components/
+│   ├── chat/                    # Application-level chat UI
+│   │   ├── chat-area.tsx
+│   │   ├── empty-state.tsx
+│   │   ├── global-context-menu.tsx
+│   │   ├── header.tsx
+│   │   ├── markdown-renderer.tsx
+│   │   ├── message.tsx
+│   │   ├── search-modal.tsx
+│   │   └── sidebar.tsx
+│   ├── custom/
+│   │   ├── avatar.tsx           # Animated glossy orb avatar
+│   │   ├── settings-dialog.tsx  # Multi-section settings panel
+│   │   └── theme-provider.tsx   # next-themes wrapper
+│   ├── odysseyui/               # Reusable OdysseyUI primitives
+│   │   ├── prompt-input.tsx
+│   │   ├── text-shimmer.tsx
+│   │   └── thought-chain.tsx
+│   └── ui/                      # shadcn/ui base components
+├── hooks/
+│   └── use-mobile.ts
+├── lib/
+│   ├── agents.ts                # Default agent definitions
+│   ├── chat-store.tsx           # Global state: chats, agents, folders, model
+│   ├── config.ts                # Models, app name, temperature defaults
+│   ├── types.ts                 # TypeScript interfaces
+│   └── utils.ts
+└── public/
+```
+
+## Configuration
+
+### Adding a New Model
+
+Open `lib/config.ts` and append an entry to the `MODELS` array:
+
+```ts
+{
+  id: "gemini-2.0-flash",
+  name: "Gemini 2.0 Flash",
+  provider: "google",
+  description: "Latest flash model from Google",
+  maxTokens: 8192,
+}
+```
+
+The new model will appear automatically in **Settings → Preferences**.
+
+### Adding a New Agent
+
+**At runtime** — open the Settings panel, navigate to Preferences, and use the inline agent editor.
+
+**At build time** — add an entry to `DEFAULT_AGENTS` in `lib/agents.ts`:
+
+```ts
+{
+  id: "aria",
+  name: "Aria",
+  description: "A concise executive assistant.",
+  systemPrompt: "You are Aria, a concise, professional executive assistant...",
+  avatarColor: "pink",
+}
+```
+
+### Adding a New Theme
+
+1. Add a CSS class block in `app/globals.css` following the existing pattern, defining all `--variable` design tokens
+2. If it is a dark-background theme, add the class name to the `@custom-variant dark` selector at the top of the file
+3. Register the theme in the theme picker inside `components/custom/settings-dialog.tsx`

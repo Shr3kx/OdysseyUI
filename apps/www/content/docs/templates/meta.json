@@ -3,5 +3,5 @@
   "description": "Animated Components",
   "icon": "Cuboid",
   "root": true,
-  "pages": ["---Odyssey Templates---", "os-portfolio"]
+  "pages": ["---Odyssey Templates---", "os-portfolio", "apollo"]
 }
