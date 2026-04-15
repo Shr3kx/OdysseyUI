@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-music-vertical-spotify-card-1",
+  "title": "Vertical Spotify Card 1 Demo",
+  "description": "Demo for Vertical Spotify Card 1",
+  "registryDependencies": [
+    "odyssey/components-music-vertical-spotify-card-1"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/music/vertical-spotify-card-1/index.tsx",
+      "content": "'use client';\n\nimport { useState } from 'react';\nimport { VerticalSpotifyCard1 } from '@/components/odyssey/components/music/vertical-spotify-card-1';\n\nconst TRACKS = [\n  'https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ',\n  'https://open.spotify.com/track/4iZ4pt7kvcaH6Yo8UoZ4s2',\n  'https://open.spotify.com/track/2374M0fQpWi3dLnB54qaLX',\n];\n\nexport default function VerticalSpotifyCard1Demo() {\n  const [index, setIndex] = useState(0);\n\n  return (\n    <div className=\"flex items-center justify-center p-8\">\n      <VerticalSpotifyCard1\n        url={TRACKS[index]}\n        onPrev={index > 0 ? () => setIndex((i) => i - 1) : undefined}\n        onNext={\n          index < TRACKS.length - 1 ? () => setIndex((i) => i + 1) : undefined\n        }\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/odysseyui/demo/vertical-spotify-card-1-demo.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

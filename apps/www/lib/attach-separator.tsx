@@ -17,6 +17,7 @@ import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
   Code,
   Cuboid,
+  Music2,
   RectangleHorizontalIcon,
   SparklesIcon,
   SquareMenu,
@@ -103,6 +104,11 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
           icon={<HugeiconsIcon icon={DashboardSquare01Icon} />}
           name="App Shells"
         />
+      );
+      break;
+    case 'Music':
+      node.name = (
+        <Separator icon={<Music2 strokeWidth={2.5} />} name="Music" />
       );
       break;
     case 'Text Effects':

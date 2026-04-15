@@ -356,3 +356,55 @@
 @utility bg-green-metallic {
   background: var(--green-metallic);
 }
+
+
+/* -- Spotify card seek slider ----------------------------------- */
+.spotify-seek {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.spotify-seek:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+.spotify-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.55);
+  margin-top: -4px;
+  transition: transform 0.15s;
+}
+.spotify-seek:not(:disabled):hover::-webkit-slider-thumb {
+  transform: scale(1.25);
+}
+.spotify-seek::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.55);
+}
+.spotify-seek::-moz-range-track {
+  height: 2px;
+  border-radius: 1px;
+}
+
+/* -- Album vinyl spin animation --------------------------------- */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

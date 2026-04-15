@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-music-spotify-card",
+  "type": "registry:component",
+  "title": "Spotify Card",
+  "description": "A horizontal Spotify music card with blurred album art background, vinyl record animation, seek bar, and playback controls. Requires a /api/spotify route.",
+  "dependencies": ["spotify-url-info"],
+  "files": [
+    {
+      "path": "registry/components/music/spotify-card/index.tsx",
+      "target": "components/odysseyui/spotify-card.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

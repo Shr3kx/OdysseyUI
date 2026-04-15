@@ -1,0 +1,79 @@
+---
+title: Album Cards
+description: A stacked row of Spotify album covers that pop a spinning vinyl disc when clicked, with hover lift, neighbor dimming, and album art reflections.
+---
+
+<ComponentPreview name="demo-components-music-album-cards" />
+
+## Installation
+
+<Callout type="warn">
+  Requires a `/api/spotify` route. See the [Spotify
+  Card](/docs/components/music/spotify-card) docs for setup instructions.
+</Callout>
+
+<ComponentInstallation name="components-music-album-cards" />
+
+## Usage
+
+```tsx
+import { AlbumCards } from '@/components/odysseyui/album-cards';
+
+const albums = [
+  { id: '1', url: 'https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ' },
+  { id: '2', url: 'https://open.spotify.com/track/4iZ4pt7kvcaH6Yo8UoZ4s2' },
+  { id: '3', url: 'https://open.spotify.com/track/2374M0fQpWi3dLnB54qaLX' },
+];
+
+export default function Page() {
+  return <AlbumCards albums={albums} />;
+}
+```
+
+## How It Works
+
+- Each card fetches its own track metadata via `GET /api/spotify?url=...` independently, so the stack renders progressively.
+- Cards stack with a `z-index` determined by their position (leftmost on top). Clicking ejects an SVG vinyl disc upward with a spring animation, and the clicked card rises to `z-200` to sit above siblings.
+- Only one vinyl can be open at a time — activating a new card retracts the previous one.
+- The vinyl SVG uses unique `useId`-scoped filter IDs to avoid SVG mask conflicts when multiple cards render simultaneously.
+- A flipped, masked copy of the album art beneath each card creates a CSS-only reflection effect.
+- The `@keyframes spin` animation must be present in your `globals.css` for the disc to rotate.
+
+## API Reference
+
+### `AlbumCards`
+
+<TypeTable
+  type={{
+    albums: {
+      description:
+        'Array of album objects, each with a unique id and a Spotify track URL.',
+      type: 'AlbumCardData[]',
+    },
+    title: {
+      description:
+        'Optional heading label (unused in the default layout but available for customization).',
+      type: 'string',
+      default: '"Music I\'m Vibin\' to"',
+    },
+    className: {
+      description: 'Additional class names for the outer wrapper.',
+      type: 'string',
+    },
+  }}
+/>
+
+### `AlbumCardData`
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier for the album card.',
+      type: 'string',
+    },
+    url: {
+      description: 'Full Spotify track URL.',
+      type: 'string',
+    },
+  }}
+/>

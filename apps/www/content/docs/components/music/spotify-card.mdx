@@ -1,0 +1,95 @@
+---
+title: Spotify Card
+description: A horizontal Spotify music card with blurred album art background, an animated vinyl record that peeks out on play, seek bar, and playback controls.
+---
+
+<ComponentPreview name="demo-components-music-spotify-card" />
+
+## Installation
+
+<Callout type="warn">
+  This component requires a `/api/spotify` route in your Next.js app. Add `spotify-url-info` to your project and create the route:
+
+```bash
+npm install spotify-url-info
+```
+
+```ts
+// app/api/spotify/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import spotifyUrlInfo from 'spotify-url-info';
+
+// @ts-expect-error no types available
+const { getPreview } = spotifyUrlInfo(fetch);
+
+export async function GET(request: NextRequest) {
+  const url = request.nextUrl.searchParams.get('url');
+  if (!url)
+    return NextResponse.json({ error: 'URL is required' }, { status: 400 });
+  try {
+    const data = await getPreview(url.replace(/\/intl-[a-z]{2}\//, '/'));
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json({ error: 'Failed to fetch' }, { status: 500 });
+  }
+}
+```
+
+</Callout>
+
+<ComponentInstallation name="components-music-spotify-card" />
+
+## Usage
+
+```tsx
+import { SpotifyCard } from '@/components/odysseyui/spotify-card';
+
+export default function Page() {
+  return (
+    <SpotifyCard
+      url="https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ"
+      size="lg"
+    />
+  );
+}
+```
+
+## How It Works
+
+- Fetches track metadata (title, artist, artwork, preview audio) via `GET /api/spotify?url=...`.
+- The album artwork is rendered as a heavily blurred full-bleed background layer with a dark gradient overlay for text legibility.
+- Clicking the album art starts the 30-second preview; a vinyl record SVG slides out from behind the cover and spins while audio plays.
+- The seek bar uses a custom `.spotify-seek` CSS class (add it to your `globals.css`).
+- Size variants (`md`, `lg`, `xl`) scale padding, artwork size, and typography together.
+
+## API Reference
+
+### `SpotifyCard`
+
+<TypeTable
+  type={{
+    url: {
+      description: 'Full Spotify track URL.',
+      type: 'string',
+    },
+    size: {
+      description: 'Card size variant.',
+      type: '"md" | "lg" | "xl"',
+      default: '"md"',
+    },
+    className: {
+      description: 'Additional class names for the card wrapper.',
+      type: 'string',
+    },
+    onPrev: {
+      description:
+        'Callback for the previous track button. Button is hidden when undefined.',
+      type: '() => void',
+    },
+    onNext: {
+      description:
+        'Callback for the next track button. Button is hidden when undefined.',
+      type: '() => void',
+    },
+  }}
+/>

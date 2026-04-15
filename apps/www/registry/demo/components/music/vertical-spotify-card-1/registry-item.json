@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-music-vertical-spotify-card-1",
+  "type": "registry:component",
+  "title": "Vertical Spotify Card 1 Demo",
+  "description": "Demo for Vertical Spotify Card 1",
+  "registryDependencies": ["odyssey/components-music-vertical-spotify-card-1"],
+  "files": [
+    {
+      "path": "registry/demo/components/music/vertical-spotify-card-1/index.tsx",
+      "target": "components/odysseyui/demo/vertical-spotify-card-1-demo.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

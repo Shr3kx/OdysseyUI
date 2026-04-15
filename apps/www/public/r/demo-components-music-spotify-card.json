@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-music-spotify-card",
+  "title": "Spotify Card Demo",
+  "description": "Demo for Spotify Card",
+  "registryDependencies": [
+    "odyssey/components-music-spotify-card"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/music/spotify-card/index.tsx",
+      "content": "'use client';\n\nimport { useState } from 'react';\nimport { SpotifyCard } from '@/components/odyssey/components/music/spotify-card';\n\nconst TRACKS = [\n  'https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ',\n  'https://open.spotify.com/track/4iZ4pt7kvcaH6Yo8UoZ4s2',\n  'https://open.spotify.com/track/2374M0fQpWi3dLnB54qaLX',\n];\n\nexport default function SpotifyCardDemo() {\n  const [index, setIndex] = useState(0);\n\n  return (\n    <div className=\"flex items-center justify-center p-8\">\n      <SpotifyCard\n        url={TRACKS[index]}\n        size=\"lg\"\n        className=\"w-80\"\n        onPrev={index > 0 ? () => setIndex((i) => i - 1) : undefined}\n        onNext={\n          index < TRACKS.length - 1 ? () => setIndex((i) => i + 1) : undefined\n        }\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/odysseyui/demo/spotify-card-demo.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

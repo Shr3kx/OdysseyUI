@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-music-album-cards",
+  "type": "registry:component",
+  "title": "Album Cards Demo",
+  "description": "Demo for Album Cards",
+  "registryDependencies": ["odyssey/components-music-album-cards"],
+  "files": [
+    {
+      "path": "registry/demo/components/music/album-cards/index.tsx",
+      "target": "components/odysseyui/demo/album-cards-demo.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

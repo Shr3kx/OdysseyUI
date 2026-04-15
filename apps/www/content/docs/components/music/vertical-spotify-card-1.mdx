@@ -1,0 +1,59 @@
+---
+title: Vertical Spotify Card 1
+description: A tall vertical Spotify card where the album art fills the top half with a progressive blur fade, leaving room for song info and transport controls.
+---
+
+<ComponentPreview name="demo-components-music-vertical-spotify-card-1" />
+
+## Installation
+
+<Callout type="warn">
+  Requires a `/api/spotify` route. See the [Spotify
+  Card](/docs/components/music/spotify-card) docs for setup instructions.
+</Callout>
+
+<ComponentInstallation name="components-music-vertical-spotify-card-1" />
+
+## Usage
+
+```tsx
+import { VerticalSpotifyCard1 } from '@/components/odysseyui/vertical-spotify-card-1';
+
+export default function Page() {
+  return (
+    <VerticalSpotifyCard1 url="https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ" />
+  );
+}
+```
+
+## How It Works
+
+- Fetches track metadata via `GET /api/spotify?url=...`.
+- Two image layers create the progressive blur effect: a heavily blurred base and a sharp layer that fades out downward via a CSS mask, blending naturally into the dark controls area.
+- A dark gradient at the bottom ensures text and controls remain legible against any album palette.
+- The seek bar uses a custom `.spotify-seek` CSS class (add it to your `globals.css`).
+
+## API Reference
+
+### `VerticalSpotifyCard1`
+
+<TypeTable
+  type={{
+    url: {
+      description: 'Full Spotify track URL.',
+      type: 'string',
+    },
+    className: {
+      description: 'Additional class names for the card wrapper.',
+      type: 'string',
+    },
+    onPrev: {
+      description: 'Callback for the previous track button.',
+      type: '() => void',
+    },
+    onNext: {
+      description: 'Callback for the next track button.',
+      type: '() => void',
+    },
+  }}
+/>

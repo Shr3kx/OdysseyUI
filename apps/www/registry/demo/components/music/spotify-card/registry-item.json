@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-music-spotify-card",
+  "type": "registry:component",
+  "title": "Spotify Card Demo",
+  "description": "Demo for Spotify Card",
+  "registryDependencies": ["odyssey/components-music-spotify-card"],
+  "files": [
+    {
+      "path": "registry/demo/components/music/spotify-card/index.tsx",
+      "target": "components/odysseyui/demo/spotify-card-demo.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-music-vertical-spotify-card-1",
+  "type": "registry:component",
+  "title": "Vertical Spotify Card 1",
+  "description": "A vertical Spotify music card with a progressive blur album art background, seek bar, and transport controls. Requires a /api/spotify route.",
+  "dependencies": ["spotify-url-info"],
+  "files": [
+    {
+      "path": "registry/components/music/vertical-spotify-card-1/index.tsx",
+      "target": "components/odysseyui/vertical-spotify-card-1.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

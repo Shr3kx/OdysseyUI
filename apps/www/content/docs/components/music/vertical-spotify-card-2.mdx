@@ -1,0 +1,60 @@
+---
+title: Vertical Spotify Card 2
+description: A tall vertical Spotify card with a full album art display and a color-extracted blurred gradient background that adapts to each track's palette.
+---
+
+<ComponentPreview name="demo-components-music-vertical-spotify-card-2" />
+
+## Installation
+
+<Callout type="warn">
+  Requires a `/api/spotify` route. See the [Spotify
+  Card](/docs/components/music/spotify-card) docs for setup instructions.
+</Callout>
+
+<ComponentInstallation name="components-music-vertical-spotify-card-2" />
+
+## Usage
+
+```tsx
+import { VerticalSpotifyCard2 } from '@/components/odysseyui/vertical-spotify-card-2';
+
+export default function Page() {
+  return (
+    <VerticalSpotifyCard2 url="https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ" />
+  );
+}
+```
+
+## How It Works
+
+- Fetches track metadata via `GET /api/spotify?url=...`.
+- The background is the album art rendered at `blur(50px) scale(1.15)` with a dark overlay — this extracts the dominant colors without a separate color extraction library.
+- The album artwork is displayed full-width in a rounded card at the top, with a subtle scale animation when audio is playing.
+- A bottom-to-top gradient overlay ensures controls remain readable against any album palette.
+- The seek bar uses a custom `.spotify-seek` CSS class (add it to your `globals.css`).
+
+## API Reference
+
+### `VerticalSpotifyCard2`
+
+<TypeTable
+  type={{
+    url: {
+      description: 'Full Spotify track URL.',
+      type: 'string',
+    },
+    className: {
+      description: 'Additional class names for the card wrapper.',
+      type: 'string',
+    },
+    onPrev: {
+      description: 'Callback for the previous track button.',
+      type: '() => void',
+    },
+    onNext: {
+      description: 'Callback for the next track button.',
+      type: '() => void',
+    },
+  }}
+/>

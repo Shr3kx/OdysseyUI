@@ -32,6 +32,12 @@
     "app-shells/app-shell-1",
     "app-shells/app-shell-2",
 
+    "---Music---",
+    "music/spotify-card",
+    "music/vertical-spotify-card-1",
+    "music/vertical-spotify-card-2",
+    "music/album-cards",
+
     "---Pricing---",
     "pricings/pricing-1",
     "pricings/pricing-2",

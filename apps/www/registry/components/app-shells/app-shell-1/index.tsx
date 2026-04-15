@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -68,13 +67,11 @@ import OdysseyAvatar, {
   type AvatarColor,
 } from '@/registry/components/primitives/avatar';
 import { cn } from '@/lib/utils';
-
 import Image from 'next/image';
 import type { AppShell1Config, SidebarSection } from './app-shell-1.config';
 import { appShell1Config as defaultConfig } from './app-shell-1.config';
 
 // ─── Kbd ──────────────────────────────────────────────────────────────────────
-
 function Kbd({
   children,
   className,
@@ -95,7 +92,6 @@ function Kbd({
 }
 
 // ─── Icon map ─────────────────────────────────────────────────────────────────
-
 const iconMap: Record<string, any> = {
   SquareTerminal: CommandLineIcon,
   Bot: RobotIcon,
@@ -107,7 +103,6 @@ const iconMap: Record<string, any> = {
 };
 
 // ─── Avatar color helper ──────────────────────────────────────────────────────
-
 const AVATAR_COLORS: AvatarColor[] = [
   'blue',
   'orange',
@@ -129,7 +124,6 @@ function getAvatarColor(seed: string): AvatarColor {
 }
 
 // ─── Shortcuts Modal ──────────────────────────────────────────────────────────
-
 const SHORTCUTS = [
   { label: 'Open search', keys: ['⌘', 'K'] },
   { label: 'Toggle sidebar', keys: ['⌘', 'B'] },
@@ -173,7 +167,6 @@ function ShortcutsModal({
 }
 
 // ─── Shared user avatar + menu ────────────────────────────────────────────────
-
 function UserAvatar({
   src,
   name,
@@ -227,9 +220,11 @@ function UserMenuContent({
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem render={<Link href={profileHref} />}>
-          <HugeiconsIcon icon={User02Icon} strokeWidth={2} />
-          Profile
+        <DropdownMenuItem asChild>
+          <Link href={profileHref}>
+            <HugeiconsIcon icon={User02Icon} strokeWidth={2} />
+            Profile
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={onShortcuts}>
           <HugeiconsIcon icon={KeyboardIcon} strokeWidth={2} />
@@ -246,7 +241,6 @@ function UserMenuContent({
 }
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-
 export interface SidebarUserInfo {
   name?: string;
   email?: string;
@@ -277,7 +271,6 @@ export interface AppShell1Props {
 }
 
 // ─── Search Modal ─────────────────────────────────────────────────────────────
-
 export function AppShell1Search({
   config,
   open,
@@ -285,7 +278,6 @@ export function AppShell1Search({
 }: AppShell1SearchProps) {
   const router = useRouter();
   const [query, setQuery] = useState('');
-
   const filtered = useMemo(() => {
     if (!query.trim()) return config.sections;
     const q = query.toLowerCase();
@@ -407,7 +399,6 @@ export function AppShell1Search({
 }
 
 // ─── Page Header ──────────────────────────────────────────────────────────────
-
 export function AppShell1PageHeader({
   pageName,
   breadcrumbs,
@@ -459,7 +450,6 @@ export function AppShell1PageHeader({
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-
         <div className="flex items-center gap-2">
           {actions}
           <DropdownMenu>
@@ -486,7 +476,6 @@ export function AppShell1PageHeader({
 }
 
 // ─── Nav User (sidebar footer) ────────────────────────────────────────────────
-
 function SidebarNavUser({
   user,
   profileHref = '/profile',
@@ -508,28 +497,29 @@ function SidebarNavUser({
       <SidebarMenu>
         <SidebarMenuItem>
           <DropdownMenu>
-            <DropdownMenuTrigger
-              render={
-                <SidebarMenuButton
-                  size="lg"
-                  className="aria-expanded:bg-sidebar-accent"
+            <DropdownMenuTrigger asChild>
+              <SidebarMenuButton
+                size="lg"
+                className="aria-expanded:bg-sidebar-accent"
+              >
+                <UserAvatar
+                  src={avatarSrc}
+                  name={userName}
+                  color={avatarColor}
                 />
-              }
-            >
-              <UserAvatar src={avatarSrc} name={userName} color={avatarColor} />
-              <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
-                <span className="truncate font-medium">{userName}</span>
-                <span className="truncate text-xs text-muted-foreground">
-                  {userEmail}
-                </span>
-              </div>
-              <HugeiconsIcon
-                icon={UnfoldMoreIcon}
-                strokeWidth={2}
-                className="ml-auto size-4 group-data-[collapsible=icon]:hidden"
-              />
+                <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                  <span className="truncate font-medium">{userName}</span>
+                  <span className="truncate text-xs text-muted-foreground">
+                    {userEmail}
+                  </span>
+                </div>
+                <HugeiconsIcon
+                  icon={UnfoldMoreIcon}
+                  strokeWidth={2}
+                  className="ml-auto size-4 group-data-[collapsible=icon]:hidden"
+                />
+              </SidebarMenuButton>
             </DropdownMenuTrigger>
-
             <DropdownMenuContent
               side={isMobile ? 'bottom' : 'right'}
               align="end"
@@ -554,7 +544,6 @@ function SidebarNavUser({
 }
 
 // ─── Section Group ────────────────────────────────────────────────────────────
-
 function SidebarSectionGroup({
   section,
   pathname,
@@ -585,7 +574,6 @@ function SidebarSectionGroup({
         )}
       </SidebarGroupLabel>
 
-      {/* Smooth height animation via CSS grid-rows trick */}
       <div
         className={cn(
           'grid transition-[grid-template-rows] duration-200 ease-in-out',
@@ -598,21 +586,24 @@ function SidebarSectionGroup({
               {section.items.map((item) => {
                 const isActive = pathname === item.href;
                 const Icon = iconMap[item.icon];
+
                 return (
                   <SidebarMenuItem key={item.href}>
                     <SidebarMenuButton
-                      render={<Link href={item.href} />}
+                      asChild
                       isActive={isActive}
                       tooltip={item.title}
                     >
-                      {Icon && (
-                        <HugeiconsIcon
-                          icon={Icon}
-                          strokeWidth={2}
-                          className="size-4 shrink-0"
-                        />
-                      )}
-                      <span>{item.title}</span>
+                      <Link href={item.href}>
+                        {Icon && (
+                          <HugeiconsIcon
+                            icon={Icon}
+                            strokeWidth={2}
+                            className="size-4 shrink-0"
+                          />
+                        )}
+                        <span>{item.title}</span>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );
@@ -626,7 +617,6 @@ function SidebarSectionGroup({
 }
 
 // ─── Main Sidebar ─────────────────────────────────────────────────────────────
-
 export function AppShell1({
   config = defaultConfig,
   collapsibleSubsections = false,
@@ -642,7 +632,7 @@ export function AppShell1({
   return (
     <>
       <Sidebar collapsible="icon" variant="inset">
-        {/* ── Company header + Search (always visible, never scrolls) ── */}
+        {/* Company header + Search */}
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -666,7 +656,6 @@ export function AppShell1({
             </SidebarMenuItem>
           </SidebarMenu>
 
-          {/* Search – lives in header so it stays fixed above the scroll area */}
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton
@@ -694,14 +683,13 @@ export function AppShell1({
           </SidebarMenu>
         </SidebarHeader>
 
-        {/* ── Scrollable sections wrapped with top/bottom mask fades ── */}
+        {/* Scrollable sections */}
         <div className="relative flex min-h-0 flex-1 overflow-hidden pt-1">
-          {/* Top fade */}
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-4 bg-linear-to-b from-sidebar to-transparent" />
-          {/* Bottom fade */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-linear-to-t from-sidebar to-transparent" />
+
           <SidebarContent>
-            {/* Render standalone items */}
+            {/* Standalone items */}
             {config.items && config.items.length > 0 && (
               <SidebarGroup>
                 <SidebarGroupContent>
@@ -709,21 +697,24 @@ export function AppShell1({
                     {config.items.map((item) => {
                       const isActive = pathname === item.href;
                       const Icon = iconMap[item.icon];
+
                       return (
                         <SidebarMenuItem key={item.href}>
                           <SidebarMenuButton
-                            render={<Link href={item.href} />}
+                            asChild
                             isActive={isActive}
                             tooltip={item.title}
                           >
-                            {Icon && (
-                              <HugeiconsIcon
-                                icon={Icon}
-                                strokeWidth={2}
-                                className="size-4 shrink-0"
-                              />
-                            )}
-                            <span>{item.title}</span>
+                            <Link href={item.href}>
+                              {Icon && (
+                                <HugeiconsIcon
+                                  icon={Icon}
+                                  strokeWidth={2}
+                                  className="size-4 shrink-0"
+                                />
+                              )}
+                              <span>{item.title}</span>
+                            </Link>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
                       );
@@ -732,7 +723,8 @@ export function AppShell1({
                 </SidebarGroupContent>
               </SidebarGroup>
             )}
-            {/* Render sectioned items */}
+
+            {/* Sectioned items */}
             {config.sections.map((section) => (
               <SidebarSectionGroup
                 key={section.label}
@@ -744,7 +736,6 @@ export function AppShell1({
           </SidebarContent>
         </div>
 
-        {/* ── Nav User footer ── */}
         <SidebarFooter>
           <SidebarNavUser
             user={user}
@@ -752,11 +743,9 @@ export function AppShell1({
             onLogout={onLogout}
           />
         </SidebarFooter>
-
         <SidebarRail />
       </Sidebar>
 
-      {/* ── Search modal ── */}
       <AppShell1Search
         config={config}
         open={searchOpen}

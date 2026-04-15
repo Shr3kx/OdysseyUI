@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-music-album-cards",
+  "type": "registry:component",
+  "title": "Album Cards",
+  "description": "A stacked album card row where clicking a card ejects a spinning vinyl disc, with hover lift and neighbor dimming effects. Requires a /api/spotify route.",
+  "dependencies": ["spotify-url-info"],
+  "files": [
+    {
+      "path": "registry/components/music/album-cards/index.tsx",
+      "target": "components/odysseyui/album-cards.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

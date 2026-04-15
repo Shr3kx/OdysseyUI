@@ -687,6 +687,70 @@
       ]
     },
     {
+      "name": "components-music-album-cards",
+      "type": "registry:component",
+      "title": "Album Cards",
+      "description": "A stacked album card row where clicking a card ejects a spinning vinyl disc, with hover lift and neighbor dimming effects. Requires a /api/spotify route.",
+      "dependencies": [
+        "spotify-url-info"
+      ],
+      "files": [
+        {
+          "path": "registry/components/music/album-cards/index.tsx",
+          "target": "components/odysseyui/album-cards.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "components-music-spotify-card",
+      "type": "registry:component",
+      "title": "Spotify Card",
+      "description": "A horizontal Spotify music card with blurred album art background, vinyl record animation, seek bar, and playback controls. Requires a /api/spotify route.",
+      "dependencies": [
+        "spotify-url-info"
+      ],
+      "files": [
+        {
+          "path": "registry/components/music/spotify-card/index.tsx",
+          "target": "components/odysseyui/spotify-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "components-music-vertical-spotify-card-1",
+      "type": "registry:component",
+      "title": "Vertical Spotify Card 1",
+      "description": "A vertical Spotify music card with a progressive blur album art background, seek bar, and transport controls. Requires a /api/spotify route.",
+      "dependencies": [
+        "spotify-url-info"
+      ],
+      "files": [
+        {
+          "path": "registry/components/music/vertical-spotify-card-1/index.tsx",
+          "target": "components/odysseyui/vertical-spotify-card-1.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "components-music-vertical-spotify-card-2",
+      "type": "registry:component",
+      "title": "Vertical Spotify Card 2",
+      "description": "A vertical Spotify music card with a color-extracted blurred gradient background, album art, seek bar, and transport controls. Requires a /api/spotify route.",
+      "dependencies": [
+        "spotify-url-info"
+      ],
+      "files": [
+        {
+          "path": "registry/components/music/vertical-spotify-card-2/index.tsx",
+          "target": "components/odysseyui/vertical-spotify-card-2.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "components-preloaders-greetings",
       "type": "registry:ui",
       "title": "Greeting Preloader",
@@ -1806,6 +1870,70 @@
           "path": "registry/demo/components/logoclouds/logocloud-5/index.tsx",
           "type": "registry:ui",
           "target": "components/odyssey/demo/logoclouds/logocloud-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-music-album-cards",
+      "type": "registry:component",
+      "title": "Album Cards Demo",
+      "description": "Demo for Album Cards",
+      "registryDependencies": [
+        "odyssey/components-music-album-cards"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/music/album-cards/index.tsx",
+          "target": "components/odysseyui/demo/album-cards-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-music-spotify-card",
+      "type": "registry:component",
+      "title": "Spotify Card Demo",
+      "description": "Demo for Spotify Card",
+      "registryDependencies": [
+        "odyssey/components-music-spotify-card"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/music/spotify-card/index.tsx",
+          "target": "components/odysseyui/demo/spotify-card-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-music-vertical-spotify-card-1",
+      "type": "registry:component",
+      "title": "Vertical Spotify Card 1 Demo",
+      "description": "Demo for Vertical Spotify Card 1",
+      "registryDependencies": [
+        "odyssey/components-music-vertical-spotify-card-1"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/music/vertical-spotify-card-1/index.tsx",
+          "target": "components/odysseyui/demo/vertical-spotify-card-1-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-music-vertical-spotify-card-2",
+      "type": "registry:component",
+      "title": "Vertical Spotify Card 2 Demo",
+      "description": "Demo for Vertical Spotify Card 2",
+      "registryDependencies": [
+        "odyssey/components-music-vertical-spotify-card-2"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/music/vertical-spotify-card-2/index.tsx",
+          "target": "components/odysseyui/demo/vertical-spotify-card-2-demo.tsx",
+          "type": "registry:component"
         }
       ]
     },

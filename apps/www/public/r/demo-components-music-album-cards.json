@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-music-album-cards",
+  "title": "Album Cards Demo",
+  "description": "Demo for Album Cards",
+  "registryDependencies": [
+    "odyssey/components-music-album-cards"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/music/album-cards/index.tsx",
+      "content": "'use client';\n\nimport { AlbumCards } from '@/components/odyssey/components/music/album-cards';\n\nconst ALBUMS = [\n  { id: '1', url: 'https://open.spotify.com/track/0DTSnA1bcVI5niJzoyBPyZ' },\n  { id: '2', url: 'https://open.spotify.com/track/4iZ4pt7kvcaH6Yo8UoZ4s2' },\n  { id: '3', url: 'https://open.spotify.com/track/2374M0fQpWi3dLnB54qaLX' },\n];\n\nexport default function AlbumCardsDemo() {\n  return (\n    <div className=\"flex items-center justify-center p-8\">\n      <AlbumCards albums={ALBUMS} />\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/odysseyui/demo/album-cards-demo.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
