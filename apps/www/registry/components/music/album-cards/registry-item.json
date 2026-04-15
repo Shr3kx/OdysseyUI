@@ -5,6 +5,12 @@
   "title": "Album Cards",
   "description": "A stacked album card row where clicking a card ejects a spinning vinyl disc, with hover lift and neighbor dimming effects. Requires a /api/spotify route.",
   "dependencies": ["spotify-url-info"],
+  "css": {
+    "@keyframes spin": {
+      "from": { "transform": "rotate(0deg)" },
+      "to": { "transform": "rotate(360deg)" }
+    }
+  },
   "files": [
     {
       "path": "registry/components/music/album-cards/index.tsx",

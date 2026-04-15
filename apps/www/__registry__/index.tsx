@@ -1446,7 +1446,12 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: undefined,
     cssVars: undefined,
-    css: undefined,
+    css: {
+      '@keyframes spin': {
+        from: { transform: 'rotate(0deg)' },
+        to: { transform: 'rotate(360deg)' },
+      },
+    },
     files: [
       {
         path: 'registry/components/music/album-cards/index.tsx',
@@ -1486,7 +1491,45 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: undefined,
     cssVars: undefined,
-    css: undefined,
+    css: {
+      '.spotify-seek': {
+        '-webkit-appearance': 'none',
+        appearance: 'none',
+        height: '4px',
+        'border-radius': '4px',
+        outline: 'none',
+        cursor: 'pointer',
+        transition: 'opacity 0.15s',
+        '&:disabled': { cursor: 'default', opacity: '0.4' },
+        '&::-webkit-slider-thumb': {
+          '-webkit-appearance': 'none',
+          appearance: 'none',
+          width: '10px',
+          height: '10px',
+          'border-radius': '50%',
+          background: 'rgba(255, 255, 255, 0.9)',
+          'box-shadow': '0 0 6px rgba(255, 255, 255, 0.55)',
+          'margin-top': '-4px',
+          transition: 'transform 0.15s',
+        },
+        '&:not(:disabled):hover::-webkit-slider-thumb': {
+          transform: 'scale(1.25)',
+        },
+        '&::-moz-range-thumb': {
+          width: '10px',
+          height: '10px',
+          'border-radius': '50%',
+          background: 'rgba(255, 255, 255, 0.9)',
+          border: 'none',
+          'box-shadow': '0 0 6px rgba(255, 255, 255, 0.55)',
+        },
+        '&::-moz-range-track': { height: '2px', 'border-radius': '1px' },
+      },
+      '@keyframes spin': {
+        from: { transform: 'rotate(0deg)' },
+        to: { transform: 'rotate(360deg)' },
+      },
+    },
     files: [
       {
         path: 'registry/components/music/spotify-card/index.tsx',
@@ -1526,7 +1569,45 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: undefined,
     cssVars: undefined,
-    css: undefined,
+    css: {
+      '.spotify-seek': {
+        '-webkit-appearance': 'none',
+        appearance: 'none',
+        height: '4px',
+        'border-radius': '4px',
+        outline: 'none',
+        cursor: 'pointer',
+        transition: 'opacity 0.15s',
+        '&:disabled': { cursor: 'default', opacity: '0.4' },
+        '&::-webkit-slider-thumb': {
+          '-webkit-appearance': 'none',
+          appearance: 'none',
+          width: '10px',
+          height: '10px',
+          'border-radius': '50%',
+          background: 'rgba(255, 255, 255, 0.9)',
+          'box-shadow': '0 0 6px rgba(255, 255, 255, 0.55)',
+          'margin-top': '-4px',
+          transition: 'transform 0.15s',
+        },
+        '&:not(:disabled):hover::-webkit-slider-thumb': {
+          transform: 'scale(1.25)',
+        },
+        '&::-moz-range-thumb': {
+          width: '10px',
+          height: '10px',
+          'border-radius': '50%',
+          background: 'rgba(255, 255, 255, 0.9)',
+          border: 'none',
+          'box-shadow': '0 0 6px rgba(255, 255, 255, 0.55)',
+        },
+        '&::-moz-range-track': { height: '2px', 'border-radius': '1px' },
+      },
+      '@keyframes spin': {
+        from: { transform: 'rotate(0deg)' },
+        to: { transform: 'rotate(360deg)' },
+      },
+    },
     files: [
       {
         path: 'registry/components/music/vertical-spotify-card-1/index.tsx',
@@ -1566,7 +1647,45 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: undefined,
     cssVars: undefined,
-    css: undefined,
+    css: {
+      '.spotify-seek': {
+        '-webkit-appearance': 'none',
+        appearance: 'none',
+        height: '4px',
+        'border-radius': '4px',
+        outline: 'none',
+        cursor: 'pointer',
+        transition: 'opacity 0.15s',
+        '&:disabled': { cursor: 'default', opacity: '0.4' },
+        '&::-webkit-slider-thumb': {
+          '-webkit-appearance': 'none',
+          appearance: 'none',
+          width: '10px',
+          height: '10px',
+          'border-radius': '50%',
+          background: 'rgba(255, 255, 255, 0.9)',
+          'box-shadow': '0 0 6px rgba(255, 255, 255, 0.55)',
+          'margin-top': '-4px',
+          transition: 'transform 0.15s',
+        },
+        '&:not(:disabled):hover::-webkit-slider-thumb': {
+          transform: 'scale(1.25)',
+        },
+        '&::-moz-range-thumb': {
+          width: '10px',
+          height: '10px',
+          'border-radius': '50%',
+          background: 'rgba(255, 255, 255, 0.9)',
+          border: 'none',
+          'box-shadow': '0 0 6px rgba(255, 255, 255, 0.55)',
+        },
+        '&::-moz-range-track': { height: '2px', 'border-radius': '1px' },
+      },
+      '@keyframes spin': {
+        from: { transform: 'rotate(0deg)' },
+        to: { transform: 'rotate(360deg)' },
+      },
+    },
     files: [
       {
         path: 'registry/components/music/vertical-spotify-card-2/index.tsx',
