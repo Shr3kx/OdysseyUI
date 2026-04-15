@@ -367,6 +367,68 @@
       ]
     },
     {
+      "name": "components-app-shells-app-shell-1",
+      "type": "registry:ui",
+      "title": "App Shell 1",
+      "description": "Collapsible sidebar app shell with search command palette, breadcrumb page header, scrollable nav sections, and avatar-based user dropdown.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "dropdown-menu",
+        "separator",
+        "dialog",
+        "avatar",
+        "@odysseyui/components-primitives-avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/components/app-shells/app-shell-1/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odysseyui/app-shell-1.tsx"
+        },
+        {
+          "path": "registry/components/app-shells/app-shell-1/app-shell-1.config.ts",
+          "type": "registry:ui",
+          "target": "components/odysseyui/app-shell-1.config.ts"
+        }
+      ]
+    },
+    {
+      "name": "components-app-shells-app-shell-2",
+      "type": "registry:component",
+      "title": "App Shell 2",
+      "description": "A floating sidebar app shell with collapsible icon mode, searchable navigation, keyboard shortcuts modal, and user menu.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "dropdown-menu",
+        "separator",
+        "dialog",
+        "avatar",
+        "@odysseyui/components-primitives-avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/components/app-shells/app-shell-2/index.tsx",
+          "target": "components/odysseyui/app-shell-2/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/components/app-shells/app-shell-2/app-shell-2.config.ts",
+          "target": "components/odysseyui/app-shell-2/app-shell-2.config.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "components-buttons-button",
       "type": "registry:ui",
       "title": "Button",
@@ -1384,6 +1446,38 @@
           "path": "registry/demo/components/animate/tabs/index.tsx",
           "type": "registry:ui",
           "target": "components/odysseyui/demo/components/animate/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-app-shells-app-shell-1",
+      "type": "registry:ui",
+      "title": "App Shell 1 Demo",
+      "description": "Demo of the collapsible sidebar app shell with breadcrumb header and dashboard placeholder.",
+      "registryDependencies": [
+        "odyssey/components-app-shells-app-shell-1"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/app-shells/app-shell-1/index.tsx",
+          "type": "registry:ui",
+          "target": "components/odyssey/demo/app-shells/app-shell-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-app-shells-app-shell-2",
+      "type": "registry:component",
+      "title": "App Shell 2 Demo",
+      "description": "Demo for App Shell 2",
+      "registryDependencies": [
+        "odyssey/components-app-shells-app-shell-2"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/app-shells/app-shell-2/index.tsx",
+          "target": "components/odysseyui/demo/app-shell-2-demo.tsx",
+          "type": "registry:component"
         }
       ]
     },

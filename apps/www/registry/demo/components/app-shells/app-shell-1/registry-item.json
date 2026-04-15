@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-app-shells-app-shell-1",
+  "type": "registry:ui",
+  "title": "App Shell 1 Demo",
+  "description": "Demo of the collapsible sidebar app shell with breadcrumb header and dashboard placeholder.",
+  "registryDependencies": ["odyssey/components-app-shells-app-shell-1"],
+  "files": [
+    {
+      "path": "registry/demo/components/app-shells/app-shell-1/index.tsx",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/app-shells/app-shell-1.tsx"
+    }
+  ]
+}

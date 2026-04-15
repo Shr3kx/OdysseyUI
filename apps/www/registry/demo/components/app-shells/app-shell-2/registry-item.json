@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-app-shells-app-shell-2",
+  "type": "registry:component",
+  "title": "App Shell 2 Demo",
+  "description": "Demo for App Shell 2",
+  "registryDependencies": ["odyssey/components-app-shells-app-shell-2"],
+  "files": [
+    {
+      "path": "registry/demo/components/app-shells/app-shell-2/index.tsx",
+      "target": "components/odysseyui/demo/app-shell-2-demo.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

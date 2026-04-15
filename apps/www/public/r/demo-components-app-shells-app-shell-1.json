@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-app-shells-app-shell-1",
+  "title": "App Shell 1 Demo",
+  "description": "Demo of the collapsible sidebar app shell with breadcrumb header and dashboard placeholder.",
+  "registryDependencies": [
+    "odyssey/components-app-shells-app-shell-1"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/app-shells/app-shell-1/index.tsx",
+      "content": "'use client';\n\nimport {\n  SidebarProvider,\n  SidebarInset,\n} from '@/components/ui/sidebar';\nimport { TooltipProvider } from '@/components/ui/tooltip';\nimport {\n  AppShell1,\n  AppShell1PageHeader,\n} from '@/components/odyssey/components/app-shells/app-shell-1';\n\nconst demoUser = {\n  name: 'John Doe',\n  email: 'john@acme.com',\n  avatar: '',\n};\n\nexport function AppShell1Demo() {\n  return (\n    <div\n      className=\"h-170 w-full overflow-hidden rounded-xl border\"\n      style={{ transform: 'translate(0)' }}\n    >\n      <TooltipProvider>\n        <SidebarProvider>\n          <AppShell1 user={demoUser} collapsibleSubsections />\n          <SidebarInset>\n            <AppShell1PageHeader\n              pageName=\"Data Fetching\"\n              breadcrumbs={[\n                { label: 'Build Your Application', href: '#' },\n                { label: 'Data Fetching' },\n              ]}\n              user={demoUser}\n            />\n            <div className=\"flex flex-1 flex-col gap-4 p-4\">\n              <div className=\"grid auto-rows-min gap-4 md:grid-cols-3\">\n                <div className=\"aspect-video rounded-xl bg-muted/70\" />\n                <div className=\"aspect-video rounded-xl bg-muted/70\" />\n                <div className=\"aspect-video rounded-xl bg-muted/70\" />\n              </div>\n              <div className=\"min-h-75 flex-1 rounded-xl bg-muted/70\" />\n              <div className=\"grid auto-rows-min gap-4 md:grid-cols-3\">\n                <div className=\"aspect-video rounded-xl bg-muted/70\" />\n                <div className=\"aspect-video rounded-xl bg-muted/70\" />\n                <div className=\"aspect-video rounded-xl bg-muted/70\" />\n              </div>\n            </div>\n          </SidebarInset>\n        </SidebarProvider>\n      </TooltipProvider>\n    </div>\n  );\n}\n\nexport default AppShell1Demo;\n",
+      "type": "registry:ui",
+      "target": "components/odyssey/demo/app-shells/app-shell-1.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

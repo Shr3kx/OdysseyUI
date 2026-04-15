@@ -11,6 +11,7 @@ import {
   Cloud,
   Comment01Icon,
   Money04Icon,
+  DashboardSquare01Icon,
 } from '@hugeicons/core-free-icons';
 import type { BuildPageTreeOptions } from 'fumadocs-core/source';
 import {
@@ -94,6 +95,14 @@ export const attachSeparator: BuildPageTreeOptions['attachSeparator'] = (
     case 'Pricing':
       node.name = (
         <Separator icon={<HugeiconsIcon icon={Money04Icon} />} name="Pricing" />
+      );
+      break;
+    case 'App Shells':
+      node.name = (
+        <Separator
+          icon={<HugeiconsIcon icon={DashboardSquare01Icon} />}
+          name="App Shells"
+        />
       );
       break;
     case 'Text Effects':

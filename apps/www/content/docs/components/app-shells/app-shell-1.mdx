@@ -1,0 +1,127 @@
+---
+title: App Shell 1
+description: Collapsible sidebar app shell with search command palette, breadcrumb page header, scrollable nav sections, and avatar-based user dropdown.
+---
+
+<ComponentPreview name="demo-components-app-shells-app-shell-1" />
+
+## Installation
+
+<ComponentInstallation name="components-app-shells-app-shell-1" />
+
+## Usage
+
+```tsx
+import {
+  AppShell1,
+  AppShell1PageHeader,
+  AppShell1Search,
+} from '@/components/odysseyui/app-shell-1';
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <AppShell1 user={{ name: 'John Doe', email: 'john@acme.com' }} />
+      <SidebarInset>
+        <AppShell1PageHeader
+          pageName="Dashboard"
+          breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Dashboard' }]}
+          user={{ name: 'John Doe', email: 'john@acme.com' }}
+        />
+        {children}
+      </SidebarInset>
+    </SidebarProvider>
+  );
+}
+```
+
+## How It Works
+
+- Uses shadcn `Sidebar` with `collapsible="icon"` and `variant="inset"` for a polished inset layout that collapses to icon-only on toggle.
+- A custom search command palette opens via `⌘ K` (or click), filtering sidebar nav items with keyboard-friendly list navigation inside a `Dialog`.
+- `AppShell1PageHeader` renders a breadcrumb trail with a `SidebarTrigger`, vertical separator, and an avatar dropdown menu for profile actions.
+- Sidebar sections support optional collapsing via the `collapsibleSubsections` prop, animated with a CSS `grid-template-rows` trick for smooth height transitions.
+- Scroll fading masks (`bg-linear-to-b` / `bg-linear-to-t`) are layered above and below the nav content to hint at overflowable content.
+- The user footer uses `OdysseyAvatar` as a fallback when no avatar image is available, deterministically picking a color from the user's name.
+
+## API Reference
+
+### `AppShell1`
+
+<TypeTable
+  type={{
+    config: {
+      description:
+        'Sidebar configuration including company info and navigation sections.',
+      type: 'AppShell1Config',
+      default: 'appShell1Config',
+    },
+    collapsibleSubsections: {
+      description: 'When true, section group labels become clickable toggles.',
+      type: 'boolean',
+      default: 'false',
+    },
+    user: {
+      description: 'Current user info for the avatar and dropdown.',
+      type: 'SidebarUserInfo',
+    },
+    profileHref: {
+      description: 'URL for the profile link in the user dropdown.',
+      type: 'string',
+      default: '"/profile"',
+    },
+    onLogout: {
+      description: 'Callback fired when "Log out" is clicked.',
+      type: '() => void',
+    },
+  }}
+/>
+
+### `AppShell1PageHeader`
+
+<TypeTable
+  type={{
+    pageName: {
+      description: 'Current page name shown in the breadcrumb.',
+      type: 'string',
+    },
+    breadcrumbs: {
+      description: 'Array of breadcrumb items with label and optional href.',
+      type: 'Array<{ label: string; href?: string }>',
+    },
+    actions: {
+      description: 'Extra React nodes rendered to the right of the breadcrumb.',
+      type: 'React.ReactNode',
+    },
+    user: {
+      description: 'Current user info for the header avatar dropdown.',
+      type: 'SidebarUserInfo',
+    },
+    profileHref: {
+      description: 'URL for the profile link.',
+      type: 'string',
+      default: '"/profile"',
+    },
+    onLogout: {
+      description: 'Callback fired when "Log out" is clicked.',
+      type: '() => void',
+    },
+  }}
+/>
+
+### `AppShell1Config`
+
+<TypeTable
+  type={{
+    company: {
+      description: 'Company info displayed at the top of the sidebar.',
+      type: 'SidebarCompany',
+    },
+    sections: {
+      description:
+        'Array of navigation sections, each with a label and menu items.',
+      type: 'SidebarSection[]',
+    },
+  }}
+/>

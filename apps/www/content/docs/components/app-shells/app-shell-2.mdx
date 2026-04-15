@@ -1,0 +1,131 @@
+---
+title: App Shell 2
+description: Floating sidebar app shell with collapsible icon mode, custom search palette, keyboard shortcuts modal, collapsible nav sections, and avatar-based user dropdown.
+---
+
+<ComponentPreview name="demo-components-app-shells-app-shell-2" />
+
+## Installation
+
+<ComponentInstallation name="components-app-shells-app-shell-2" />
+
+## Usage
+
+```tsx
+import {
+  AppShell2,
+  AppShell2PageHeader,
+  AppShell2Search,
+} from '@/components/odysseyui/app-shell-2';
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <AppShell2 user={{ name: 'Jane Smith', email: 'jane@acme.com' }} />
+      <SidebarInset>
+        <AppShell2PageHeader
+          pageName="Dashboard"
+          breadcrumbs={[
+            { label: 'Platform', href: '/playground' },
+            { label: 'Dashboard' },
+          ]}
+          user={{ name: 'Jane Smith', email: 'jane@acme.com' }}
+        />
+        {children}
+      </SidebarInset>
+    </SidebarProvider>
+  );
+}
+```
+
+## How It Works
+
+- Uses shadcn `Sidebar` with `collapsible="icon"` and `variant="floating"` so the panel floats above the page content rather than pushing it.
+- A lightweight custom search palette (no external cmdk dependency) opens via `⌘ K` (or click), filtering sidebar nav items in real time with fuzzy keyword matching inside a `Dialog`.
+- `AppShell2PageHeader` renders a breadcrumb trail with a `SidebarTrigger`, vertical separator, and an avatar dropdown menu for profile actions.
+- A keyboard shortcuts modal is accessible from the user dropdown, listing all available shortcuts with styled `Kbd` badges.
+- Sidebar sections support optional collapsing via the `collapsibleSubsections` prop, animated with a CSS `grid-template-rows` trick for smooth height transitions.
+- Scroll fading masks (`bg-linear-to-b` / `bg-linear-to-t`) are layered above and below the nav content to hint at overflowable content.
+- The user footer uses `OdysseyAvatar` as a fallback when no avatar image is available, deterministically picking a color from the user's name.
+
+## API Reference
+
+### `AppShell2`
+
+<TypeTable
+  type={{
+    config: {
+      description:
+        'Sidebar configuration including company info and navigation sections.',
+      type: 'AppShell2Config',
+      default: 'appShell2Config',
+    },
+    collapsibleSubsections: {
+      description: 'When true, section group labels become clickable toggles.',
+      type: 'boolean',
+      default: 'false',
+    },
+    user: {
+      description: 'Current user info for the avatar and dropdown.',
+      type: 'SidebarUserInfo',
+    },
+    profileHref: {
+      description: 'URL for the profile link in the user dropdown.',
+      type: 'string',
+      default: '"/profile"',
+    },
+    onLogout: {
+      description: 'Callback fired when "Log out" is clicked.',
+      type: '() => void',
+    },
+  }}
+/>
+
+### `AppShell2PageHeader`
+
+<TypeTable
+  type={{
+    pageName: {
+      description: 'Current page name shown in the breadcrumb.',
+      type: 'string',
+    },
+    breadcrumbs: {
+      description: 'Array of breadcrumb items with label and optional href.',
+      type: 'Array<{ label: string; href?: string }>',
+    },
+    actions: {
+      description: 'Extra React nodes rendered to the right of the breadcrumb.',
+      type: 'React.ReactNode',
+    },
+    user: {
+      description: 'Current user info for the header avatar dropdown.',
+      type: 'SidebarUserInfo',
+    },
+    profileHref: {
+      description: 'URL for the profile link.',
+      type: 'string',
+      default: '"/profile"',
+    },
+    onLogout: {
+      description: 'Callback fired when "Log out" is clicked.',
+      type: '() => void',
+    },
+  }}
+/>
+
+### `AppShell2Config`
+
+<TypeTable
+  type={{
+    company: {
+      description: 'Company info displayed at the top of the sidebar.',
+      type: 'SidebarCompany',
+    },
+    sections: {
+      description:
+        'Array of navigation sections, each with a label and menu items.',
+      type: 'SidebarSection[]',
+    },
+  }}
+/>
